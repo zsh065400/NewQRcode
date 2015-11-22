@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/rootView"
+	style="@style/general_base_rl_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:materialdesign="http://schemas.android.com/apk/res-auto">
+
+
+	<RelativeLayout
+		android:id="@+id/rlHeadView"
+		style="@style/general_head_rl_style">
+
+		<RelativeLayout style="@style/general_title_rl_style">
+
+			<TextView
+				style="@style/general_title_tv_style"
+				android:text="@string/app_name"/>
+		</RelativeLayout>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/main_aty_line_height"
+			android:layout_marginTop="@dimen/main_aty_view_margin_top"
+			android:background="@color/line"/>
+
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/rlMiddleView"
+		android:layout_width="fill_parent"
+		android:layout_height="@dimen/main_aty_hint_height"
+		android:layout_below="@id/rlHeadView"
+		android:layout_marginLeft="@dimen/main_aty_hint_margin_left">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:text="@string/main_aty_hint"
+			android:textColor="@color/deep_blue"/>
+
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="@dimen/main_aty_hint_view_height"
+			android:layout_alignParentBottom="true"
+			android:background="@color/material"/>
+	</RelativeLayout>
+
+	<com.gc.materialdesign.views.ScrollView
+		style="@style/general_scorll_view_style"
+		android:layout_below="@id/rlMiddleView">
+
+		<LinearLayout style="@style/general_base_vertical_ll_style">
+
+			<org.laosao.two.view.RippleView
+				android:id="@+id/btn"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true"
+				android:text="click"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:background="#ffffff"
+				android:gravity="center"
+				android:padding="35dp"
+				materialdesign:alphaFactor="1"
+				materialdesign:rippleColor="#ff0000"
+				materialdesign:hover="true"
+				/>
+
+
+			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpPic"
+				style="@style/main_aty_ripple_view_style">
+
+	 			<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_pic"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_pic"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpCustomContent"
+				style="@style/main_aty_ripple_view_style">
+
+				<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_custom_content"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_custom_content"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+
+			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpNetCard"
+				style="@style/main_aty_ripple_view_style">
+
+				<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_net_card"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_net_card"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpCard"
+				style="@style/main_aty_ripple_view_style">
+
+				<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_card"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_card"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+
+			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpTxt"
+				style="@style/main_aty_ripple_view_style">
+
+				<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_txt"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_txt"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpWifi"
+				style="@style/main_aty_ripple_view_style">
+
+				<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_wifi"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_wifi"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpUrl"
+				style="@style/main_aty_ripple_view_style">
+
+				<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_url"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_url"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+
+			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpSms"
+				style="@style/main_aty_ripple_view_style">
+
+				<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_sms"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_sms"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+
+			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpEmail"
+				style="@style/main_aty_ripple_view_style">
+
+				<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_email"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_email"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+
+		</LinearLayout>
+	</com.gc.materialdesign.views.ScrollView>
+
+	<com.gc.materialdesign.views.ButtonFloat
+		android:id="@+id/btnFeekback"
+		style="@style/float_button_style"
+		android:layout_marginTop="@dimen/btn_margin"
+		materialdesign:animate="true"
+		materialdesign:iconDrawable="@mipmap/ic_send"/>
+
+	<com.gc.materialdesign.views.ButtonFloat
+		android:id="@+id/btnScan"
+		style="@style/float_button_style"
+		android:layout_above="@id/btnFeekback"
+		android:layout_alignParentBottom="false"
+		materialdesign:animate="true"
+		materialdesign:iconDrawable="@mipmap/ic_scan"/>
+
+</RelativeLayout>

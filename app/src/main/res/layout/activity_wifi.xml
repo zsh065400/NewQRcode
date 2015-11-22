@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootView"
+    style="@style/general_base_rl_style"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:id="@+id/rlHeadView"
+        style="@style/general_title_rl_style">
+
+        <TextView
+            style="@style/general_title_tv_style"
+            android:text="@string/main_aty_wifi"/>
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        style="@style/general_scorll_view_style"
+        android:layout_below="@id/rlHeadView">
+
+        <LinearLayout style="@style/general_base_vertical_ll_style">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etWifiName"
+                style="@style/def_edit_style"
+                android:hint="@string/wifi_name_hint"
+                android:inputType="textLongMessage"
+                android:maxLength="20"
+                app:met_baseColor="@color/black"
+                app:met_clearButton="true"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="20"
+                app:met_primaryColor="@color/material"
+                app:met_singleLineEllipsis="true"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etWifiPw"
+                style="@style/def_edit_style"
+                android:hint="@string/wifi_pw_hint"
+                android:inputType="textMultiLine"
+                android:maxLength="30"
+                app:met_baseColor="@color/black"
+                app:met_clearButton="true"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="30"
+                app:met_primaryColor="@color/material"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="42dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="加密方式:"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"/>
+
+
+                <Spinner
+                    android:id="@+id/snWifiSecurity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="3"
+                    android:entries="@array/wifiSecurity"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <com.gc.materialdesign.views.ButtonFloat
+        android:id="@+id/btnCreate"
+        style="@style/float_button_style"
+        app:animate="true"
+        app:iconDrawable="@mipmap/ic_create"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<resources>
+    <!-- 重构部分-->
+    <!-- 标题相对布局属性-->
+    <dimen name="general_head_rl_height">148dp</dimen>
+    <dimen name="general_title_rl_height">128dp</dimen>
+    <dimen name="general_title_padd_bottom">20dp</dimen>
+    <dimen name="general_title_padd_left">104dp</dimen>
+    <dimen name="general_title_text_size">30dp</dimen>
+    <dimen name="main_aty_view_margin_top">128dp</dimen>
+    <dimen name="main_aty_ripple_height">64dp</dimen>
+    <dimen name="main_aty_ripple_text_size">15dp</dimen>
+    <dimen name="btn_margin">18dp</dimen>
+    <dimen name="tv_margin">25dp</dimen>
+    <dimen name="guide_aty_tv_text_size">17sp</dimen>
+    <dimen name="general_margin">25dp</dimen>
+    <dimen name="default_line_height">1dp</dimen>
+    <dimen name="all_edit_text_size">16dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+
+    <dimen name="cus_aty_tv_size">25dp</dimen>
+    <dimen name="fk_aty_margin">25dp</dimen>
+    <dimen name="net_card_aty_ll_height">210dp</dimen>
+    <dimen name="net_card_aty_tv_margin_left">5dp</dimen>
+    <dimen name="net_card_aty_img_padd">5dp</dimen>
+    <dimen name="pb_color">32dp</dimen>
+    <dimen name="pb_height">32dp</dimen>
+    <dimen name="pb_margin_right">13dp</dimen>
+    <dimen name="dialog_tv_margin_right">55dp</dimen>
+    <dimen name="dialog_tv_text_size">17sp</dimen>
+    <dimen name="net_card_img_margin_left">15dp</dimen>
+    <dimen name="net_card_margin_top">10dp</dimen>
+    <dimen name="net_card_fist_et_margin_top">4dp</dimen>
+    <dimen name="scan_aty_flat_btn_margin">5dp</dimen>
+    <dimen name="scan_aty_flat_btn_text_size">20sp</dimen>
+    <dimen name="scan_aty_ll_margin">60dp</dimen>
+    <dimen name="scan_aty_tv_hint_sp">18sp</dimen>
+    <dimen name="frame_tv_width">300dp</dimen>
+    <dimen name="frame_tv_height">100dp</dimen>
+    <dimen name="frame_tv_size">20sp</dimen>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="main_aty_line_height">2dp</dimen>
+    <dimen name="main_aty_hint_height">48dp</dimen>
+    <dimen name="main_aty_hint_margin_left">104dp</dimen>
+    <dimen name="main_aty_hint_view_height">1dp</dimen>
+    <dimen name="pic_aty_img_size">325dp</dimen>
+    <dimen name="edit_margin_else">20dp</dimen>
+    <dimen name="button_height">45dp</dimen>
+    <dimen name="button_width">110dp</dimen>
+    <dimen name="image_view_margin_left">32dp</dimen>
+    <dimen name="result_text_margin">25dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="dp_twenty_five">25dp</dimen>
+
+
+</resources>

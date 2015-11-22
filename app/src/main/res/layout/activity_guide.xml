@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootView"
+    style="@style/general_base_rl_style"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:id="@+id/rlHeadView"
+        style="@style/general_title_rl_style">
+
+        <TextView
+            style="@style/general_title_tv_style"
+            android:text="@string/warm_prompt"/>
+    </RelativeLayout>
+
+
+    <ScrollView
+        style="@style/general_scorll_view_style"
+        android:layout_below="@id/rlHeadView"
+        android:layout_weight="1">
+
+
+        <TextView
+            style="@style/guide_hint_textview_style"
+            android:text="@string/guide_aty_text"/>
+
+    </ScrollView>
+
+
+    <com.gc.materialdesign.views.ButtonFloat
+        android:id="@+id/btnGo"
+        style="@style/float_button_style"
+        app:animate="true"
+        app:iconDrawable="@mipmap/ic_done"/>
+</RelativeLayout>
+

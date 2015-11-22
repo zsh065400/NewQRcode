@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootView"
+    style="@style/general_base_rl_style"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:id="@+id/rlHeadView"
+        style="@style/general_title_rl_style">
+
+        <TextView
+            style="@style/general_title_tv_style"
+            android:text="@string/main_aty_custom_content"/>
+    </RelativeLayout>
+
+    <ScrollView
+        style="@style/general_scorll_view_style"
+        android:layout_below="@id/rlHeadView">
+
+        <LinearLayout style="@style/general_base_vertical_ll_style">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etConent"
+                style="@style/def_edit_style"
+                android:layout_marginLeft="@dimen/general_margin"
+                android:layout_marginRight="@dimen/general_margin"
+                android:hint="@string/cus_aty_et_hint"
+                android:maxLength="200"
+                app:met_baseColor="@color/black"
+                app:met_clearButton="true"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="200"
+                app:met_primaryColor="@color/material"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/cus_aty_tv_size"
+                android:text="@string/cus_aty_tv_content"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.gc.materialdesign.views.ButtonFloat
+        android:id="@+id/btnCreate"
+        style="@style/float_button_style"
+        app:animate="true"
+        app:iconDrawable="@mipmap/ic_create"/>
+
+</RelativeLayout>

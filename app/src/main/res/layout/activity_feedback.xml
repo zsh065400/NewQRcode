@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootView"
+    style="@style/general_base_rl_style"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:id="@+id/rlHeadView"
+        style="@style/general_title_rl_style">
+
+        <TextView
+            style="@style/general_title_tv_style"
+            android:text="@string/qrcode_feedback"/>
+    </RelativeLayout>
+
+
+    <ScrollView
+        style="@style/general_scorll_view_style"
+        android:layout_below="@id/rlHeadView">
+
+
+        <LinearLayout style="@style/general_base_vertical_ll_style">
+
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etTheme"
+                style="@style/def_edit_style"
+                android:hint="@string/fk_project"
+                android:inputType="textMultiLine"
+                android:maxLength="50"
+                app:met_baseColor="@color/black"
+                app:met_clearButton="true"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="50"
+                app:met_primaryColor="@color/material"/>
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etContent"
+                style="@style/def_edit_style"
+                android:hint="@string/fk_content"
+                android:inputType="textMultiLine"
+                android:maxLength="300"
+                app:met_baseColor="@color/black"
+                app:met_clearButton="true"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="300"
+                app:met_primaryColor="@color/material"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etContact"
+                style="@style/def_edit_style"
+                android:hint="@string/fk_call"
+                android:inputType="textMultiLine"
+                android:maxLength="20"
+                app:met_baseColor="@color/black"
+                app:met_clearButton="true"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="20"
+                app:met_primaryColor="@color/material"/>
+
+
+            <TextView
+                android:id="@+id/tvShow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fk_aty_margin"
+                android:text="@string/fb_aty_tv_text"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.gc.materialdesign.views.ButtonFloat
+        android:id="@+id/btnSendFb"
+        style="@style/float_button_style"
+        app:animate="true"
+        app:iconDrawable="@mipmap/ic_send"/>
+
+    <TextView
+        android:id="@+id/tvUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:text="当前版本："
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        />
+</RelativeLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">新二维码生成器</string>
+    <string name="guide_aty_text">欢迎您使用新二维码生成器!\n\n\t\t在使用之前希望您仔细阅读以下内容,耽误您宝贵的时间我们深表歉意\n\n
+        \t\t1.软件涉及图片二维码内容，画质为原画，大小不能超过10M，请您一定要在wifi下使用，出现移动流量使用过高问题，与开发者无任何关系\n\n
+        \t\t2.全新架构，全新界面，全新体验。新版不免会有很多问题,请您发现后及时反馈给我们,万分感谢\n\n
+        \t\t3.未详尽事宜以官方发布的信息为准\n\n
+        \t\t应用官网:http://qrcode2014.bmob.cn\n
+        \t\t新浪微博@新二维码生成器\n
+        \t\t邮箱:3104517435@qq.com\n</string>
+
+    <string name="main_aty_custom_content">自定义内容</string>
+    <string name="main_aty_net_card">网络名片码</string>
+    <string name="main_aty_card">通用名片码</string>
+    <string name="main_aty_sms">短信二维码</string>
+    <string name="main_aty_email">邮件二维码</string>
+    <string name="main_aty_txt">文本二维码</string>
+    <string name="main_aty_url">网址二维码</string>
+    <string name="main_aty_pic">图片二维码</string>
+    <string name="main_aty_hint">选择下面一项开始生成吧！</string>
+    <string name="warm_prompt">温馨提示</string>
+    <string name="btn_disagree">不接受,泪奔</string>
+    <string name="btn_agree">知道了,使用</string>
+    <string name="pic_aty_et_hint">图片附语</string>
+    <string name="cus_aty_et_hint">请输入生成的内容</string>
+    <string name="cus_aty_tv_content">您可以在这里输入微博链接/名称，淘宝店铺链接/名称，微信账号，软件下载地址等，扫描后就可以直接查看/下载。更多玩法还需要您自己发现哦！</string>
+    <string name="qrcode_feekback">欢迎反馈</string>
+    <!-- 名片二维码-->
+    <string name="say_hint">请输入个人简介</string>
+    <string name="name_hint">请输入姓名</string>
+    <string name="company_hint">请输入公司名称</string>
+    <string name="job_hint">请输入职业/职位</string>
+    <string name="qq_hint">请输入QQ/微信</string>
+    <string name="e_mail_hint">请输入邮箱</string>
+    <string name="phone_hint">请输入联系电话</string>
+    <!-- 文本二维码-->
+    <string name="text_hint">请输入文本标题</string>
+    <string name="text_content_hint">请输入文本内容</string>
+    <!--网址二维码-->
+    <string name="url_hint">请输入网址标题</string>
+    <string name="url_text_hint">请输入网址链接</string>
+
+    <string name="hint">请输入生成的内容</string>
+    <string name="qrcode_result">网络名片信息</string>
+
+
+    <string name="fb_aty_tv_text">开发者：香河豪门工作室\n官方微博账号：@新二维码生成器\n官方微信：香河豪门工作室\n您可以直接发送微博私信或微信消息给我们提供意见或建议，也可以反馈您遇到的问题\n现推出定制二维码服务，可以根据您现实项目的需求进行定制，详细信息请通过官方渠道联系我们</string>
+    <string name="btn_open_img">图片</string>
+    <string name="btn_open_light">开灯</string>
+    <string name="tv_scan_hint">请将二维码放置在扫描框内</string>
+    <string name="net_card_title">名片信息</string>
+    <string name="exit_log">再按一下退出二维码生成器</string>
+    <!--原始-->
+
+
+    <string name="save_hint">自定义名称最长20字符</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="share">请选择分享位置</string>
+    <string name="chooser">请选择应用</string>
+
+
+    <string name="email_hint">请输入收件人邮箱</string>
+    <string name="email_subject_hint">请输入邮件主题</string>
+    <string name="email_content_hint">请输入邮件内容</string>
+
+    <string name="sms_hint">请输入手机号码</string>
+    <string name="sms_content_hint">请输入短信内容</string>
+
+
+    <string name="create_title">看看你的杰作</string>
+
+    <string name="test">选择下面的一项开始生成吧!</string>
+    <string name="scan_tips">开灯</string>
+    <string name="result_caption">二维码的秘密</string>
+
+
+    <string name="fk_project">反馈主题</string>
+    <string name="fk_content">反馈内容</string>
+    <string name="fk_call">联系方式(推荐邮箱,手机不予回复)</string>
+    <string name="fk_return">返回</string>
+    <string name="fk_send">发送</string>
+
+
+    <string name="et_result_pic">主人寄语</string>
+
+    <string name="qq_h">请输入QQ号</string>
+    <string name="wechat">请输入微信号</string>
+    <string name="address">请输入联系地址</string>
+    <string name="company_h">请输入工作单位</string>
+    <string name="job_h">请输入职务</string>
+    <string name="e_mail_h">请输入邮箱</string>
+    <string name="phone">请输入联系电话</string>
+    <string name="weibo">请输入微博名称/网址</string>
+    <string name="chuanzhen">请输入传真</string>
+    <string name="person">请输入个人说明</string>
+
+
+    <string name="name_hint_result">姓名</string>
+    <string name="qq_result">QQ号</string>
+    <string name="wechat_result">微信号</string>
+    <string name="address_result">联系地址</string>
+    <string name="company_result">工作单位</string>
+    <string name="job_result">职务</string>
+    <string name="e_mail_result">邮箱</string>
+    <string name="phone_result">联系电话</string>
+    <string name="weibo_result">微博名称/网址</string>
+    <string name="chuanzhen_result">传真</string>
+    <string name="person_result">个人说明</string>
+
+
+    <string name="btn_save">保存</string>
+    <string name="btn_return">返回继续扫描</string>
+    <string name="scan_btn_close_light">关灯</string>
+    <string name="fail_to_scan">图片扫描失败</string>
+    <string name="name_not_empty">姓名不能为空</string>
+    <string name="content_not_empty">内容不能为空</string>
+    <string name="url_not_empty">链接不能为空</string>
+    <string name="fail_to_mounted_sdcard">未检测到SD卡</string>
+    <string name="title_please_choose">请选择</string>
+    <string name="please_choose_pic">请选择要生成的图片</string>
+    <string name="head_name_not_empty">头像姓名不能为空</string>
+    <string name="too_long">您输入的内容超过200字符限制</string>
+    <string name="fail_to_create">生成出错，请重试</string>
+    <string name="please_write_done">请您填写完整信息</string>
+    <string name="please_wait">请稍等......</string>
+    <string name="upload">正在上传</string>
+    <string name="do_send">正在发送</string>
+    <string name="fb_success">反馈成功</string>
+    <string name="fb_msg">我们已经收到您的反馈，请留意您留下的联系方式，我们会在5个工作日内进行回复，感谢您的反馈！</string>
+    <string name="sina_url"><![CDATA[http://weibo.com/p/1006063174917162/home?from=page_100606&mod=TAB#place]]></string>
+    <string name="do_load">正在加载</string>
+    <string name="query_empty">未查询到内容，请重新扫描</string>
+    <string name="pic_load_fail">图片加载失败，请重试</string>
+    <string name="do_create">正在生成</string>
+    <string name="refresh_path">刷新路径：</string>
+    <string name="refresh_uri">刷新Uri：</string>
+    <string name="copy_to">内容已复制到剪贴板</string>
+    <string name="do_process">正在处理</string>
+    <string name="save">收藏到本地</string>
+    <string name="title">提示</string>
+    <string name="name_too_long">名称过长</string>
+    <string name="look">查看</string>
+    <string name="do_save">正在保存</string>
+    <string name="save_path">保存路径:</string>
+    <string name="fail_to_save">保存失败，请重试</string>
+    <string name="set_img">请选择图片</string>
+    <string name="qrcode_feedback">欢迎反馈</string>
+    <string name="main_aty_wifi" translatable="false">无线二维码</string>
+    <string name="main_aty_phone" translatable="false">电话二维码</string>
+    <string name="wifi_name_hint" translatable="false">请输入wifi名称</string>
+    <string name="wifi_pw_hint" translatable="false">请输入wifi密码</string>
+    <string name="new_version_code" translatable="false">最新版本号：</string>
+    <string name="update_content" translatable="false">更新日志：\n</string>
+    <string name="find_new_version" translatable="false">发现新版本</string>
+    <string name="update" translatable="false">更新</string>
+    <string name="toast_new_version" translatable="false">当前为最新版本：</string>
+    <string name="have_not_net" translatable="false">未检测到网络</string>
+    <string name="current_version" translatable="false">当前版本：</string>
+    <string name="click_check_update" translatable="false">\n点击检查更新</string>
+    <string name="see">看看</string>
+    <string name="click_hint" translatable="false">您即将访问我们的官方微博主页，是否继续？</string>
+</resources>
