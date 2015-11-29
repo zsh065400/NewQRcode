@@ -3,7 +3,6 @@ package org.laosao.two.activitys.result;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.laosao.two.Config;
@@ -14,6 +13,7 @@ import org.laosao.two.biz.BmobControl;
 import org.laosao.two.utils.T;
 
 import cn.bmob.v3.BmobObject;
+import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * Created by Scout.Z on 2015/8/16.
@@ -42,11 +42,12 @@ public class NetCardResultActivity extends BaseActivity {
 		Config.setLayoutTransparentStatus(this, R.color.material);
 		initView();
 		url = getIntent().getStringExtra(Config.KEY_RESULT);
-		dialog = new MaterialDialog.Builder(this)
-				.title(R.string.do_load)
-				.content(R.string.please_wait)
-				.progress(true, 0).show();
-		dialog.setCanceledOnTouchOutside(false);
+		// TODO: 2015/11/29
+//		dialog = new MaterialDialog.Builder(this)
+//				.title(R.string.do_load)
+//				.content(R.string.please_wait)
+//				.progress(true, 0).show();
+//		dialog.setCanceledOnTouchOutside(false);
 		BmobControl.queryNetCard(this, url, new BmobControl.BmobQueryCallback() {
 			@Override
 			public void queryZero() {

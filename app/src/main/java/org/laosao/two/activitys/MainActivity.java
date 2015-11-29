@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.gc.materialdesign.views.ButtonFloat;
 import com.gc.materialdesign.views.LayoutRipple;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.nineoldandroids.view.ViewHelper;
 import com.zbar.lib.CaptureActivity;
 
@@ -26,11 +27,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	public static final int REQ_SPLASH = 10001;
 
 	private LayoutRipple rpPic, rpCustomContent,
-	rpNetCard, rpCard,
-	rpTxt, rpUrl,
-	rpSms, rpEmail,
-	rpWifi;
+			rpNetCard, rpCard,
+			rpTxt, rpUrl,
+			rpSms, rpEmail,
+			rpWifi;
 	private ButtonFloat btnFeekback, btnScan;
+	private FloatingActionsMenu fam;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,16 +65,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		rpWifi = (LayoutRipple) findViewById(R.id.rpWifi);
 		btnFeekback = (ButtonFloat) findViewById(R.id.btnFeekback);
 		btnScan = (ButtonFloat) findViewById(R.id.btnScan);
-
-		setOriginRiple(rpPic);
-		setOriginRiple(rpCustomContent);
-		setOriginRiple(rpNetCard);
-		setOriginRiple(rpCard);
-		setOriginRiple(rpTxt);
-		setOriginRiple(rpUrl);
-		setOriginRiple(rpSms);
-		setOriginRiple(rpEmail);
-		setOriginRiple(rpWifi);
+		fam = (FloatingActionsMenu) findViewById(R.id.fam_main);
 
 		rpPic.setOnClickListener(this);
 		rpCustomContent.setOnClickListener(this);
@@ -160,6 +153,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		}
 	}
 
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		fam.collapse();
+	}
+
 	private static final int RIPPLE_SPEED = 78;
 
 	/**
@@ -175,9 +175,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			public void run() {
 				View v = layoutRipple.getChildAt(0);
 				layoutRipple.setxRippleOrigin(ViewHelper.getX(v)
-											  + v.getWidth() / 2);
+						+ v.getWidth() / 2);
 				layoutRipple.setyRippleOrigin(ViewHelper.getY(v)
-											  + v.getHeight() / 2);
+						+ v.getHeight() / 2);
 				layoutRipple.setRippleColor(Color.parseColor("#1E88E5"));
 				layoutRipple.setRippleSpeed(RIPPLE_SPEED);
 			}

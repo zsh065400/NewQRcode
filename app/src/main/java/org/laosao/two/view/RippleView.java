@@ -45,8 +45,9 @@ public class RippleView extends Button {
 	private float mDownY;
 	private float mAlphaFactor;
 	private float mDensity;
-	private float mRadius;
 	private float mMaxRadius;
+	private int mDuration;
+	private int mRadius = 15;
 
 	private int mRippleColor;
 	private boolean mIsAnimating = false;
@@ -73,10 +74,11 @@ public class RippleView extends Button {
 		TypedArray a = context.obtainStyledAttributes(attrs,
 				R.styleable.RippleView);
 		mRippleColor = a.getColor(R.styleable.RippleView_rippleViewColor,
-				mRippleColor);
+				Color.BLUE);
 		mAlphaFactor = a.getFloat(R.styleable.RippleView_alphaFactor,
-				mAlphaFactor);
-		mHover = a.getBoolean(R.styleable.RippleView_hover, mHover);
+				1);
+		mHover = a.getBoolean(R.styleable.RippleView_hover, false);
+		mDuration = a.getInt(R.styleable.RippleView_duration, 400);
 		init();
 		a.recycle();
 	}
@@ -86,17 +88,30 @@ public class RippleView extends Button {
 
 		mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		mPaint.setAlpha(100);
-		setRippleColor(R.color.black, 0.2f);
-
+//		setRippleColor(mRippleColor);
+//		setAlphaFactor(mAlphaFactor);
+//		setHover(mHover);
+//		setDuration(mDuration);
+		Log.d("the color is  -------->", mRippleColor + "");
+		Log.d("the alpha is  -------->", mAlphaFactor + "");
+		Log.d("the hover is  -------->", mHover + "");
+		Log.d("the duation is-------->", mDuration + "");
 	}
 
-	public void setRippleColor(int rippleColor, float alphaFactor) {
+	public void setRippleColor(int rippleColor) {
 		mRippleColor = rippleColor;
+	}
+
+	public void setAlphaFactor(float alphaFactor) {
 		mAlphaFactor = alphaFactor;
 	}
 
 	public void setHover(boolean enabled) {
 		mHover = enabled;
+	}
+
+	public void setDuration(int duration) {
+		mDuration = duration;
 	}
 
 	@Override
@@ -107,6 +122,7 @@ public class RippleView extends Button {
 
 	private boolean mAnimationIsCancel;
 	private Rect mRect;
+
 
 	@Override
 	public boolean onTouchEvent(final MotionEvent event) {
@@ -121,8 +137,8 @@ public class RippleView extends Button {
 			mDownX = event.getX();
 			mDownY = event.getY();
 
-			mRadiusAnimator = ObjectAnimator.ofFloat(this, "radius", 0, dp(50))
-					.setDuration(400);
+			mRadiusAnimator = ObjectAnimator.ofFloat(this, "radius", 0, dp(mRadius))
+					.setDuration(mDuration);
 			mRadiusAnimator
 					.setInterpolator(new AccelerateDecelerateInterpolator());
 			mRadiusAnimator.addListener(new Animator.AnimatorListener() {
@@ -163,7 +179,7 @@ public class RippleView extends Button {
 					getTop() + (int) event.getY())) {
 				setRadius(0);
 			} else {
-				setRadius(dp(50));
+				setRadius(dp(mRadius));
 			}
 			if (!superResult) {
 				return true;
@@ -180,9 +196,9 @@ public class RippleView extends Button {
 			if (mIsAnimating) {
 				mRadiusAnimator.cancel();
 			}
-			mRadiusAnimator = ObjectAnimator.ofFloat(this, "radius", dp(50),
+			mRadiusAnimator = ObjectAnimator.ofFloat(this, "radius", dp(mRadius),
 					targetRadius);
-			mRadiusAnimator.setDuration(500);
+			mRadiusAnimator.setDuration(mDuration);
 			mRadiusAnimator
 					.setInterpolator(new AccelerateDecelerateInterpolator());
 			mRadiusAnimator.addListener(new Animator.AnimatorListener() {
@@ -224,7 +240,7 @@ public class RippleView extends Button {
 		return Color.argb(alpha, red, green, blue);
 	}
 
-	public void setRadius(final float radius) {
+	public void setRadius(final int radius) {
 		mRadius = radius;
 		if (mRadius > 0) {
 			mRadialGradient = new RadialGradient(mDownX, mDownY, mRadius,

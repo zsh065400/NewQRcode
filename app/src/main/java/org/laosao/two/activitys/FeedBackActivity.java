@@ -1,6 +1,5 @@
 package org.laosao.two.activitys;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -8,10 +7,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.AlertDialogWrapper;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
@@ -23,6 +21,8 @@ import org.laosao.two.biz.BmobControl;
 import org.laosao.two.utils.GeneralUtil;
 import org.laosao.two.utils.L;
 import org.laosao.two.utils.T;
+
+import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * Created by Scout.Z on 2015/8/15.
@@ -42,7 +42,7 @@ public class FeedBackActivity extends BaseActivity {
 		Config.setLayoutTransparentStatus(this, R.color.material);
 		initView();
 	}
-	
+
 	private void initView() {
 		etTheme = (MaterialEditText) findViewById(R.id.etTheme);
 		etContent = (MaterialEditText) findViewById(R.id.etContent);
@@ -68,10 +68,10 @@ public class FeedBackActivity extends BaseActivity {
 			return;
 		}
 		tvUpdate.setText(getString(R.string.current_version) +
-						 version +
-						 getString(R.string.click_check_update));
+				version +
+				getString(R.string.click_check_update));
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -83,25 +83,34 @@ public class FeedBackActivity extends BaseActivity {
 					T.showLongToast(this, getString(R.string.please_write_done));
 					return;
 				}
-				final MaterialDialog dialog = new MaterialDialog.Builder(this)
-											  .title(getString(R.string.do_send))
-											  .content(getString(R.string.please_wait))
-											  .progress(true, 0)
-											  .show();
+				final MaterialDialog dialog = new MaterialDialog(this)
+						.setTitle(getString(R.string.do_send))
+						.setMessage(getString(R.string.please_wait)).
+								setView(new ProgressBar(this));
+
 				dialog.setCanceledOnTouchOutside(false);
+				dialog.show();
 
 				FeedBackBmob feedBackBmob = new FeedBackBmob(etTheme.getText().toString(),
-															etContent.getText().toString(),
-															etContact.getText().toString());
+						etContent.getText().toString(),
+						etContact.getText().toString());
 				BmobControl.insertObject(this, new BmobControl.BmobSaveCallback() {
 					@Override
 					public void onSuccess() {
 						dialog.dismiss();
-						AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(FeedBackActivity.this);
-						builder.setTitle(R.string.fb_success);
-						builder.setMessage(R.string.fb_msg);
-						builder.setNegativeButton(getString(R.string.ok), null);
-						builder.create().show();
+//						AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(FeedBackActivity.this);
+//						builder.setTitle(R.string.fb_success);
+//						builder.setMessage(R.string.fb_msg);
+//						builder.setNegativeButton(getString(R.string.ok), null);
+//						builder.create().show();
+						final MaterialDialog dialog = new MaterialDialog(FeedBackActivity.this)
+								.setTitle(getString(R.string.fb_success))
+								.setMessage(getString(R.string.fb_msg))
+								.setNegativeButton(getString(R.string.ok), null);
+						dialog.show();
+
+						dialog.setCanceledOnTouchOutside(false);
+						dialog.show();
 					}
 
 					@Override
@@ -112,20 +121,20 @@ public class FeedBackActivity extends BaseActivity {
 				}, feedBackBmob);
 				break;
 			case R.id.tvShow:
-				AlertDialogWrapper.Builder build = new AlertDialogWrapper.Builder(this);
+				MaterialDialog build = new MaterialDialog(this);
 				build.setTitle(getString(R.string.title));
 				build.setMessage(getString(R.string.click_hint));
-				build.setPositiveButton(getString(R.string.see),
-									   new DialogInterface.OnClickListener() {
-										   @Override
-										   public void onClick(DialogInterface dialog, int which) {
-											   Intent intent = new Intent();
-											   intent.setAction(Intent.ACTION_VIEW);
-											   intent.addCategory(Intent.CATEGORY_DEFAULT);
-											   intent.setData(Uri.parse(getString(R.string.sina_url)));
-											   startActivity(intent);
-										   }
-									   });
+				build.setPositiveButton(getString(R.string.see), new View.OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								Intent intent = new Intent();
+								intent.setAction(Intent.ACTION_VIEW);
+								intent.addCategory(Intent.CATEGORY_DEFAULT);
+								intent.setData(Uri.parse(getString(R.string.sina_url)));
+								startActivity(intent);
+							}
+						}
+				);
 				build.setNegativeButton(getString(R.string.cancel), null);
 				build.show();
 				break;

@@ -1,204 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/rootView"
-    style="@style/general_base_rl_style"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+	android:id="@+id/rootView"
+	style="@style/general_base_rl_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
-        android:id="@+id/rlHeadView"
-        style="@style/general_title_rl_style">
+	<RelativeLayout
+		android:id="@+id/rlHeadView"
+		style="@style/general_title_rl_style">
 
-        <TextView
-            style="@style/general_title_tv_style"
-            android:text="@string/net_card_title"/>
-    </RelativeLayout>
+		<TextView
+			style="@style/general_title_tv_style"
+			android:text="@string/net_card_title"/>
+	</RelativeLayout>
 
-    <com.gc.materialdesign.views.ScrollView
-        style="@style/general_scorll_view_style"
-        android:layout_below="@id/rlHeadView">
+	<com.gc.materialdesign.views.ScrollView
+		style="@style/general_scorll_view_style"
+		android:layout_below="@id/rlHeadView">
 
-        <LinearLayout style="@style/general_base_vertical_ll_style">
+		<LinearLayout style="@style/general_base_vertical_ll_style">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/net_card_aty_ll_height"
-                android:orientation="horizontal">
-
-
-                <ImageView
-                    android:id="@+id/imgPreview"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/net_card_img_margin_left"
-                    android:layout_marginTop="@dimen/net_card_margin_top"
-                    android:layout_weight="3"
-                    android:padding="@dimen/net_card_aty_img_padd"
-                    android:scaleType="fitCenter"/>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/net_card_aty_ll_height"
+				android:orientation="horizontal">
 
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"
-                    android:orientation="vertical">
-
-                    <com.rengwuxian.materialedittext.MaterialEditText
-                        android:id="@+id/etName"
-                        style="@style/result_aty_img_edit_style"
-                        android:layout_marginTop="@dimen/net_card_fist_et_margin_top"
-                        android:hint="@string/name_hint_result"
-                        android:inputType="textPersonName"
-                        android:maxLength="20"
-                        app:met_baseColor="@color/black"
-                        app:met_clearButton="true"
-                        app:met_floatingLabel="highlight"
-                        app:met_maxCharacters="10"
-                        app:met_primaryColor="@color/material"
-                        app:met_singleLineEllipsis="true"/>
-
-                    <com.rengwuxian.materialedittext.MaterialEditText
-                        android:id="@+id/etQq"
-                        style="@style/result_aty_img_edit_style"
-                        android:autoLink="all"
-                        android:hint="@string/qq_result"
-                        android:inputType="number"
-                        android:maxLength="20"
-                        app:met_baseColor="@color/black"
-                        app:met_clearButton="true"
-                        app:met_floatingLabel="highlight"
-                        app:met_maxCharacters="20"
-                        app:met_primaryColor="@color/material"
-                        app:met_singleLineEllipsis="true"/>
+				<ImageView
+					android:id="@+id/imgPreview"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_marginLeft="@dimen/net_card_img_margin_left"
+					android:layout_marginTop="@dimen/net_card_margin_top"
+					android:layout_weight="3"
+					android:padding="@dimen/net_card_aty_img_padd"
+					android:scaleType="fitCenter"/>
 
 
-                    <com.rengwuxian.materialedittext.MaterialEditText
-                        android:id="@+id/etWechat"
-                        style="@style/result_aty_img_edit_style"
-                        android:hint="@string/wechat_result"
-                        android:inputType="textShortMessage"
-                        android:maxLength="50"
-                        app:met_baseColor="@color/black"
-                        app:met_clearButton="true"
-                        app:met_floatingLabel="highlight"
-                        app:met_maxCharacters="50"
-                        app:met_primaryColor="@color/material"
-                        app:met_singleLineEllipsis="true"/>
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="4"
+					android:orientation="vertical">
 
-                </LinearLayout>
+					<com.rengwuxian.materialedittext.MaterialEditText
+						android:id="@+id/etName"
+						style="@style/result_aty_img_edit_style"
+						android:layout_marginTop="@dimen/net_card_fist_et_margin_top"
+						android:hint="@string/name_hint_result"
+						android:inputType="textPersonName"
+						android:maxLength="20"
+						app:met_baseColor="@color/black"
+						app:met_clearButton="true"
+						app:met_floatingLabel="highlight"
+						app:met_maxCharacters="10"
+						app:met_primaryColor="@color/material"
+						app:met_singleLineEllipsis="true"/>
 
-            </LinearLayout>
-
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/etAddress"
-                style="@style/result_edit_style"
-                android:hint="@string/address_result"
-                android:inputType="textLongMessage"
-                android:maxLength="50"
-                app:met_baseColor="@color/black"
-                app:met_clearButton="true"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="50"
-                app:met_primaryColor="@color/material"
-                app:met_singleLineEllipsis="true"/>
-
-
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/etCompany"
-                style="@style/result_edit_style"
-                android:hint="@string/company_result"
-                android:inputType="textLongMessage"
-                android:maxLength="50"
-                app:met_baseColor="@color/black"
-                app:met_clearButton="true"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="50"
-                app:met_primaryColor="@color/material"
-                app:met_singleLineEllipsis="true"/>
+					<com.rengwuxian.materialedittext.MaterialEditText
+						android:id="@+id/etQq"
+						style="@style/result_aty_img_edit_style"
+						android:autoLink="all"
+						android:hint="@string/qq_result"
+						android:inputType="number"
+						android:maxLength="20"
+						app:met_baseColor="@color/black"
+						app:met_clearButton="true"
+						app:met_floatingLabel="highlight"
+						app:met_maxCharacters="20"
+						app:met_primaryColor="@color/material"
+						app:met_singleLineEllipsis="true"/>
 
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/etJob"
-                style="@style/result_edit_style"
-                android:hint="@string/job_result"
-                android:inputType="textShortMessage"
-                android:maxLength="20"
-                app:met_baseColor="@color/black"
-                app:met_clearButton="true"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="20"
-                app:met_primaryColor="@color/material"
-                app:met_singleLineEllipsis="true"/>
+					<com.rengwuxian.materialedittext.MaterialEditText
+						android:id="@+id/etWechat"
+						style="@style/result_aty_img_edit_style"
+						android:hint="@string/wechat_result"
+						android:inputType="textShortMessage"
+						android:maxLength="50"
+						app:met_baseColor="@color/black"
+						app:met_clearButton="true"
+						app:met_floatingLabel="highlight"
+						app:met_maxCharacters="50"
+						app:met_primaryColor="@color/material"
+						app:met_singleLineEllipsis="true"/>
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/etEmail"
-                style="@style/result_edit_style"
-                android:autoLink="all"
-                android:hint="@string/e_mail_result"
-                android:inputType="textEmailAddress"
-                android:maxLength="20"
-                app:met_baseColor="@color/black"
-                app:met_clearButton="true"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="20"
-                app:met_primaryColor="@color/material"
-                app:met_singleLineEllipsis="true"/>
+				</LinearLayout>
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/etPhone"
-                style="@style/result_edit_style"
-                android:autoLink="all"
-                android:hint="@string/phone_result"
-                android:inputType="phone"
-                android:maxLength="20"
-                app:met_baseColor="@color/black"
-                app:met_clearButton="true"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="20"
-                app:met_primaryColor="@color/material"
-                app:met_singleLineEllipsis="true"/>
+			</LinearLayout>
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/etWeibo"
-                style="@style/result_edit_style"
-                android:autoLink="all"
-                android:hint="@string/weibo_result"
-                android:inputType="textLongMessage"
-                android:maxLength="50"
-                app:met_baseColor="@color/black"
-                app:met_clearButton="true"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="50"
-                app:met_primaryColor="@color/material"
-                app:met_singleLineEllipsis="true"/>
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etAddress"
+				style="@style/result_edit_style"
+				android:hint="@string/address_result"
+				android:inputType="textLongMessage"
+				android:maxLength="50"
+				app:met_baseColor="@color/black"
+				app:met_clearButton="true"
+				app:met_floatingLabel="highlight"
+				app:met_maxCharacters="50"
+				app:met_primaryColor="@color/material"
+				app:met_singleLineEllipsis="true"/>
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/etFax"
-                style="@style/result_edit_style"
-                android:autoLink="all"
-                android:hint="@string/chuanzhen_result"
-                android:inputType="textShortMessage"
-                android:maxLength="20"
-                app:met_baseColor="@color/black"
-                app:met_clearButton="true"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="20"
-                app:met_primaryColor="@color/material"
-                app:met_singleLineEllipsis="true"/>
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/etProFile"
-                style="@style/result_edit_style"
-                android:hint="@string/person_result"
-                android:inputType="textMultiLine"
-                android:maxLength="200"
-                app:met_baseColor="@color/black"
-                app:met_clearButton="true"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="200"
-                app:met_primaryColor="@color/material"/>
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etCompany"
+				style="@style/result_edit_style"
+				android:hint="@string/company_result"
+				android:inputType="textLongMessage"
+				android:maxLength="50"
+				app:met_baseColor="@color/black"
+				app:met_clearButton="true"
+				app:met_floatingLabel="highlight"
+				app:met_maxCharacters="50"
+				app:met_primaryColor="@color/material"
+				app:met_singleLineEllipsis="true"/>
 
-        </LinearLayout>
-    </com.gc.materialdesign.views.ScrollView>
 
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etJob"
+				style="@style/result_edit_style"
+				android:hint="@string/job_result"
+				android:inputType="textShortMessage"
+				android:maxLength="20"
+				app:met_baseColor="@color/black"
+				app:met_clearButton="true"
+				app:met_floatingLabel="highlight"
+				app:met_maxCharacters="20"
+				app:met_primaryColor="@color/material"
+				app:met_singleLineEllipsis="true"/>
+
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etEmail"
+				style="@style/result_edit_style"
+				android:autoLink="all"
+				android:hint="@string/e_mail_result"
+				android:inputType="textEmailAddress"
+				android:maxLength="20"
+				app:met_baseColor="@color/black"
+				app:met_clearButton="true"
+				app:met_floatingLabel="highlight"
+				app:met_maxCharacters="20"
+				app:met_primaryColor="@color/material"
+				app:met_singleLineEllipsis="true"/>
+
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etPhone"
+				style="@style/result_edit_style"
+				android:autoLink="all"
+				android:hint="@string/phone_result"
+				android:inputType="phone"
+				android:maxLength="20"
+				app:met_baseColor="@color/black"
+				app:met_clearButton="true"
+				app:met_floatingLabel="highlight"
+				app:met_maxCharacters="20"
+				app:met_primaryColor="@color/material"
+				app:met_singleLineEllipsis="true"/>
+
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etWeibo"
+				style="@style/result_edit_style"
+				android:autoLink="all"
+				android:hint="@string/weibo_result"
+				android:inputType="textLongMessage"
+				android:maxLength="50"
+				app:met_baseColor="@color/black"
+				app:met_clearButton="true"
+				app:met_floatingLabel="highlight"
+				app:met_maxCharacters="50"
+				app:met_primaryColor="@color/material"
+				app:met_singleLineEllipsis="true"/>
+
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etFax"
+				style="@style/result_edit_style"
+				android:autoLink="all"
+				android:hint="@string/chuanzhen_result"
+				android:inputType="textShortMessage"
+				android:maxLength="20"
+				app:met_baseColor="@color/black"
+				app:met_clearButton="true"
+				app:met_floatingLabel="highlight"
+				app:met_maxCharacters="20"
+				app:met_primaryColor="@color/material"
+				app:met_singleLineEllipsis="true"/>
+
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etProFile"
+				style="@style/result_edit_style"
+				android:hint="@string/person_result"
+				android:inputType="textMultiLine"
+				android:maxLength="200"
+				app:met_baseColor="@color/black"
+				app:met_clearButton="true"
+				app:met_floatingLabel="highlight"
+				app:met_maxCharacters="200"
+				app:met_primaryColor="@color/material"/>
+
+		</LinearLayout>
+	</com.gc.materialdesign.views.ScrollView>
+
+
+	<com.gc.materialdesign.views.ButtonFloat
+		android:id="@+id/btnReturn"
+		style="@style/float_button_style"
+		app:animate="true"
+		app:iconDrawable="@mipmap/ic_return"/>
 </RelativeLayout>

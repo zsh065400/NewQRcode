@@ -12,7 +12,6 @@ import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
@@ -27,6 +26,7 @@ import org.laosao.two.utils.T;
 import java.io.File;
 
 import cn.bmob.v3.BmobObject;
+import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * Created by Scout.Z on 2015/8/15.
@@ -115,11 +115,12 @@ public class PicResultActivity extends Activity implements MediaScannerConnectio
 		initView();
 		result = getIntent().getStringExtra(Config.KEY_RESULT);
 		url = result.replace(Config.KEY_SCAN_PICTURE, Config.EMPTY_STR);
-		dialog = new MaterialDialog.Builder(this)
-				         .title(R.string.do_load)
-				         .content(R.string.please_wait)
-				         .progress(true, 0).show();
-		dialog.setCanceledOnTouchOutside(false);
+		// TODO: 2015/11/29
+//		dialog = new MaterialDialog.Builder(this)
+//				         .title(R.string.do_load)
+//				         .content(R.string.please_wait)
+//				         .progress(true, 0).show();
+//		dialog.setCanceledOnTouchOutside(false);
 		BmobControl.queryPic(this, url, new BmobControl.BmobQueryCallback() {
 			@Override
 			public void queryZero() {

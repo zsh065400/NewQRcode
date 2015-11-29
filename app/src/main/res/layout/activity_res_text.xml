@@ -36,6 +36,6 @@
         android:id="@+id/btnCopy"
         style="@style/float_button_style"
         app:animate="true"
-        app:iconDrawable="@mipmap/ic_add"/>
+        app:iconDrawable="@mipmap/ic_copy"/>
 
 </RelativeLayout>

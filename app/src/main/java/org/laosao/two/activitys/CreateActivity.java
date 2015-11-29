@@ -8,19 +8,21 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 
 import org.laosao.two.Config;
 import org.laosao.two.R;
 import org.laosao.two.activitys.base.BaseActivity;
-import org.laosao.two.utils.L;
 import org.laosao.two.utils.CreatQrcodeUtil;
 import org.laosao.two.utils.GeneralUtil;
+import org.laosao.two.utils.L;
 import org.laosao.two.utils.T;
 
 import java.io.File;
+
+import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * Created by Scout.Z on 2015/8/16.
@@ -77,11 +79,13 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 		L.outputInfo(content);
 		L.outputInfo(lenght + "");
 		initView();
-		pd = new MaterialDialog.Builder(this)
-				     .title(R.string.do_create)
-				     .content(R.string.please_wait)
-				     .progress(true, 0).show();
+		pd = new MaterialDialog(this)
+				     .setTitle(R.string.do_create)
+				     .setMessage(R.string.please_wait)
+				     .setView(new ProgressBar(CreateActivity.this));
+
 		pd.setCanceledOnTouchOutside(false);
+		pd.show();
 		doCreate(lenght);
 	}
 	

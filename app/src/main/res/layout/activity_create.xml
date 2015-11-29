@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/rootView"
-    style="@style/general_base_rl_style"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:materialdesign="http://schemas.android.com/apk/res-auto">
+	android:id="@+id/rootView"
+	style="@style/general_base_rl_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:materialdesign="http://schemas.android.com/apk/res-auto">
 
 
-    <RelativeLayout
-        android:id="@+id/rlTitle"
-        style="@style/general_title_rl_style">
+	<RelativeLayout
+		android:id="@+id/rlTitle"
+		style="@style/general_title_rl_style">
 
-        <TextView
-            style="@style/general_title_tv_style"
-            android:text="@string/create_title"/>
-    </RelativeLayout>
-
-
-    <View
-        android:id="@+id/middleView"
-        style="@style/def_line_style"
-        android:layout_below="@id/rlTitle"
-        android:layout_centerHorizontal="true"/>
-
-    <ImageView
-        android:id="@+id/create_show"
-        style="@style/def_imgview_style"
-        android:layout_width="@dimen/pic_aty_img_size"
-        android:layout_height="@dimen/pic_aty_img_size"
-        android:layout_below="@id/middleView"
-        android:layout_centerHorizontal="true"/>
-
-    <com.gc.materialdesign.views.ButtonFloat
-        android:id="@+id/btnShare"
-        style="@style/float_button_style"
-        materialdesign:animate="true"
-        materialdesign:iconDrawable="@mipmap/ic_share"/>
-
-    <com.gc.materialdesign.views.ButtonFloat
-        android:id="@+id/btnSave"
-        style="@style/create_aty_float_btn_style"
-        android:layout_toLeftOf="@id/btnShare"
-        materialdesign:animate="true"
-        materialdesign:iconDrawable="@mipmap/ic_grade"/>
+		<TextView
+			style="@style/general_title_tv_style"
+			android:text="@string/create_title"/>
+	</RelativeLayout>
 
 
+	<View
+		android:id="@+id/middleView"
+		style="@style/def_line_style"
+		android:layout_below="@id/rlTitle"
+		android:layout_centerHorizontal="true"/>
 
+	<ImageView
+		android:id="@+id/create_show"
+		style="@style/def_imgview_style"
+		android:layout_width="@dimen/pic_aty_img_size"
+		android:layout_height="@dimen/pic_aty_img_size"
+		android:layout_below="@id/middleView"
+		android:layout_centerHorizontal="true"/>
+
+	<com.getbase.floatingactionbutton.FloatingActionsMenu
+		android:id="@+id/fam_create"
+		style="@style/fam"
+		materialdesign:fab_addButtonColorNormal="@color/material"
+		materialdesign:fab_addButtonColorPressed="@color/material"
+		materialdesign:fab_addButtonPlusIconColor="@color/white"
+		materialdesign:fab_addButtonSize="normal"
+		materialdesign:fab_labelsPosition="right">
+
+		<com.gc.materialdesign.views.ButtonFloat
+			android:id="@+id/btnShare"
+			style="@style/main_fab"
+			materialdesign:animate="true"
+			materialdesign:iconDrawable="@mipmap/ic_share"/>
+
+		<com.gc.materialdesign.views.ButtonFloat
+			android:id="@+id/btnSave"
+			style="@style/main_fab"
+			android:layout_toLeftOf="@id/btnShare"
+			materialdesign:animate="true"
+			materialdesign:iconDrawable="@mipmap/ic_grade"/>
+
+
+	</com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </RelativeLayout>

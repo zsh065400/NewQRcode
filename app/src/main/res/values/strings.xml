@@ -1,7 +1,7 @@
 ﻿<resources>
 
-    <string name="app_name">The new two-dimensional code generator</string>
-        
+	<string name="app_name">The new two-dimensional code generator</string>
+	    
     <string name="guide_aty_text">welcome to use the new two-dimensional code generator!\n\n\t\t before use hope you read the following, and waste your valuable time and we apologize\n\n
                 \t\t1. Software involves two-dimensional code image content, the quality of the original painting, the size can not exceed 10M, you must use the wifi, the emergence of mobile traffic to use excessively high, and the developer has no relationship\n\n
                 \t\t2. The new architecture, a new interface, new experience. The new version can not help but have a lot of problems, after you find, please timely feedback to us, very grateful\n\n
@@ -10,217 +10,218 @@
                 \t\t Sina microblogging @新二维码生成器\n
                 \t\t mailbox: 3104517435@qq.com \ n
     </string>
-    <string name="main_aty_custom_content">Custom Content</string>
-    <string name="main_aty_net_card">network card code</string>
-    <string name="main_aty_card">Generic business card code</string>
-    <string name="main_aty_sms">SMS-dimensional code</string>
-    <string name="main_aty_email">Mail dimensional code</string>
-    <string name="main_aty_txt">Text dimensional code</string>
-    <string name="main_aty_url">URL dimensional code</string>
-    <string name="main_aty_pic">Photos two-dimensional code</string>
-    <string name="main_aty_hint">select the following one to start generating it!</string>
-    <string name="warm_prompt">Tips</string>
-    <string name="btn_disagree">does not accept, tears ran</string>
-    <string name="btn_agree">know, use</string>
-    <string name="pic_aty_et_hint">Photos attached language</string>
-    <string name="cus_aty_et_hint">Enter-generated content.</string>
-    <string name="cus_aty_tv_content">Here you can enter the microblogging links/name, taobao shop link/name, WeChat account, software download address, etc., after scanning can directly view/download/call.More play also need you to find!</string>
-    <string name="qrcode_feedback">welcome feedback</string>
-    <string name="say_hint">Please enter the Profile</string>
-    <string name="name_hint">Please enter your name</string>
-    <string name="company_hint">Please enter the company name</string>
-    <string name="job_hint">Please enter the profession / job</string>
-    <string name="qq_hint">Please enter the QQ / micro-channel</string>
-    <string name="e_mail_hint">Please enter the email</string>
-    <string name="phone_hint">Please enter the contact telephone</string>
-    <string name="text_hint">Please enter the text title</string>
-    <string name="text_content_hint">Please enter the text</string>
-    <string name="url_hint">Enter a URL title</string>
-    <string name="url_text_hint">Enter a URL link</string>
-    <string name="hint">Enter-generated content.</string>
-    <string name="qrcode_result">network card information</string>
-    <string name="fb_aty_tv_text">Official twitter account: @ new qr code generator.\ n can direct messages directly our feedback!\ n now launch a service custom qr code, can be customized according to your real project requirement, specific content please weibo direct messages to us</string>
-    <string name="btn_open_img">Photos</string>
-    <string name="btn_open_light">Lights</string>
-    <string name="tv_scan_hint">set the two-dimensional code is placed in the scan box</string>
-    <string name="net_card_title">contact information</string>
-    <string name="exit_log">Press again to exit the two-dimensional code generator</string>
-    <string name="save_hint">Custom Name Up to 20 characters</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
-    <string name="share">Please Select Share location</string>
-    <string name="chooser">Select application</string>
-    <string name="email_hint">Please enter the recipient mailbox</string>
-    <string name="email_subject_hint">Please enter the email subject</string>
-        
-    <string name="email_content_hint">Please enter the e-mail content</string>
+	<string name="main_aty_audio">Audio dimensional code</string>
+	<string name="main_aty_custom_content">Custom Content</string>
+	<string name="main_aty_net_card">network card code</string>
+	<string name="main_aty_card">Generic business card code</string>
+	<string name="main_aty_sms">SMS-dimensional code</string>
+	<string name="main_aty_email">Mail dimensional code</string>
+	<string name="main_aty_txt">Text dimensional code</string>
+	<string name="main_aty_url">URL dimensional code</string>
+	<string name="main_aty_pic">Photos two-dimensional code</string>
+	<string name="main_aty_hint">select the following one to start generating it!</string>
+	<string name="warm_prompt">Tips</string>
+	<string name="btn_disagree">does not accept, tears ran</string>
+	<string name="btn_agree">know, use</string>
+	<string name="pic_aty_et_hint">Photos attached language</string>
+	<string name="cus_aty_et_hint">Enter-generated content.</string>
+	<string name="cus_aty_tv_content">Here you can enter the microblogging links/name, taobao shop link/name, WeChat account, software download address, etc., after scanning can directly view/download/call.More play also need you to find!</string>
+	<string name="qrcode_feedback">welcome feedback</string>
+	<string name="say_hint">Please enter the Profile</string>
+	<string name="name_hint">Please enter your name</string>
+	<string name="company_hint">Please enter the company name</string>
+	<string name="job_hint">Please enter the profession / job</string>
+	<string name="qq_hint">Please enter the QQ / micro-channel</string>
+	<string name="e_mail_hint">Please enter the email</string>
+	<string name="phone_hint">Please enter the contact telephone</string>
+	<string name="text_hint">Please enter the text title</string>
+	<string name="text_content_hint">Please enter the text</string>
+	<string name="url_hint">Enter a URL title</string>
+	<string name="url_text_hint">Enter a URL link</string>
+	<string name="hint">Enter-generated content.</string>
+	<string name="qrcode_result">network card information</string>
+	<string name="fb_aty_tv_text">Official twitter account: @ new qr code generator.\ n can direct messages directly our feedback!\ n now launch a service custom qr code, can be customized according to your real project requirement, specific content please weibo direct messages to us</string>
+	<string name="btn_open_img">Photos</string>
+	<string name="btn_open_light">Lights</string>
+	<string name="tv_scan_hint">set the two-dimensional code is placed in the scan box</string>
+	<string name="net_card_title">contact information</string>
+	<string name="exit_log">Press again to exit the two-dimensional code generator</string>
+	<string name="save_hint">Custom Name Up to 20 characters</string>
+	<string name="ok">OK</string>
+	<string name="cancel">Cancel</string>
+	<string name="share">Please Select Share location</string>
+	<string name="chooser">Select application</string>
+	<string name="email_hint">Please enter the recipient mailbox</string>
+	<string name="email_subject_hint">Please enter the email subject</string>
+	    
+	<string name="email_content_hint">Please enter the e-mail content</string>
 
-        
-    <string name="sms_hint">Please enter the phone number</string>
-        
-    <string name="sms_content_hint">Please enter the message content</string>
-
-
-        
-    <string name="create_title">Look at your masterpiece</string>
-
-        
-    <string name="test">Choose one below to start generating it!</string>
-        
-    <string name="scan_tips">Lights</string>
-        
-    <string name="result_caption">secret two-dimensional code</string>
+	    
+	<string name="sms_hint">Please enter the phone number</string>
+	    
+	<string name="sms_content_hint">Please enter the message content</string>
 
 
-        
-    <string name="fk_project">feedback theme</string>
-        
-    <string name="fk_content">feedback content</string>
-        
-    <string name="fk_call">Contact (recommended mail, phone not respond)</string>
-        
-    <string name="fk_return">return</string>
-        
-    <string name="fk_send">Send</string>
+	    
+	<string name="create_title">Look at your masterpiece</string>
+
+	    
+	<string name="test">Choose one below to start generating it!</string>
+	    
+	<string name="scan_tips">Lights</string>
+	    
+	<string name="result_caption">secret two-dimensional code</string>
 
 
-        
-    <string name="et_result_pic">master Message</string>
-
-        
-    <string name="qq_h">Please enter the QQ number</string>
-        
-    <string name="wechat">Please enter the Micro Signal</string>
-        
-    <string name="address">Please enter the contact address</string>
-        
-    <string name="company_h">Please enter the workplace</string>
-        
-    <string name="job_h">Please enter post</string>
-        
-    <string name="e_mail_h">Please enter the email</string>
-        
-    <string name="phone">Please enter the contact telephone</string>
-        
-    <string name="weibo">Please enter the microblogging name / URL</string>
-        
-    <string name="chuanzhen">Please enter the fax</string>
-        
-    <string name="person">Please enter a personal note</string>
+	    
+	<string name="fk_project">feedback theme</string>
+	    
+	<string name="fk_content">feedback content</string>
+	    
+	<string name="fk_call">Contact (recommended mail, phone not respond)</string>
+	    
+	<string name="fk_return">return</string>
+	    
+	<string name="fk_send">Send</string>
 
 
-        
-    <string name="name_hint_result">Name</string>
-        
-    <string name="qq_result">No. QQ</string>
-        
-    <string name="wechat_result">Micro Signal</string>
-        
-    <string name="address_result">Address</string>
-        
-    <string name="company_result">workplace</string>
-        
-    <string name="job_result">post</string>
-        
-    <string name="e_mail_result">mailbox</string>
-        
-    <string name="phone_result">Phone</string>
-        
-    <string name="weibo_result">Weibo Name / URL</string>
-        
-    <string name="chuanzhen_result">Fax</string>
-        
-    <string name="person_result">personal note</string>
+	    
+	<string name="et_result_pic">master Message</string>
+
+	    
+	<string name="qq_h">Please enter the QQ number</string>
+	    
+	<string name="wechat">Please enter the Micro Signal</string>
+	    
+	<string name="address">Please enter the contact address</string>
+	    
+	<string name="company_h">Please enter the workplace</string>
+	    
+	<string name="job_h">Please enter post</string>
+	    
+	<string name="e_mail_h">Please enter the email</string>
+	    
+	<string name="phone">Please enter the contact telephone</string>
+	    
+	<string name="weibo">Please enter the microblogging name / URL</string>
+	    
+	<string name="chuanzhen">Please enter the fax</string>
+	    
+	<string name="person">Please enter a personal note</string>
 
 
-        
-    <string name="btn_save">Save</string>
-        
-    <string name="btn_return">to return to continue scanning</string>
-        
-    <string name="scan_btn_close_light">lights</string>
-        
-    <string name="fail_to_scan">Image scan failed</string>
-        
-    <string name="name_not_empty">name can not be empty</string>
-        
-    <string name="content_not_empty">can not be empty</string>
-        
-    <string name="url_not_empty">link can not be empty</string>
-        
-        
-    <string name="fail_to_mounted_sdcard">not detected SD card</string>
-        
-    <string name="title_please_choose">Select</string>
-        
-    <string name="please_choose_pic">Select to generate a picture</string>
-        
-    <string name="head_name_not_empty">Avatar Name can not be empty</string>
-        
-    <string name="too_long">Your input more than 200 character limit</string>
-        
-    <string name="fail_to_create">generates an error, please try again</string>
-        
-    <string name="please_write_done">Please fill in the complete information</string>
-        
-    <string name="please_wait">Please wait ......</string>
-        
-    <string name="upload">Loading</string>
-        
-    <string name="do_send">Sending</string>
-        
-    <string name="fb_success">feedback Success</string>
-        
-    <string name="fb_msg">We have received your feedback, please pay attention to leave your contact information, we will reply within five working days, thank you for your feedback!</string>
-        
-    <string name="sina_url"><![CDATA[http://weibo.com/p/1006063174917162/home?from=page_100606&mod=TAB#place]]></string>
-        
-    <string name="do_load">Loading</string>
-        
-    <string name="query_empty">not inquire into the content, rescan</string>
-        
-    <string name="pic_load_fail">Image loading failed, please try again</string>
-        
-    <string name="do_create">being generated</string>
-        
-    <string name="refresh_path">Refresh path:</string>
-        
-    <string name="refresh_uri">Refresh Uri:</string>
-        
-    <string name="copy_to">contents have been copied to the clipboard.</string>
-        
-    <string name="do_process">Processing</string>
-        
-    <string name="save">Add to local</string>
-        
-    <string name="title">Tip</string>
-        
-    <string name="name_too_long">name is too long</string>
-        
-    <string name="look">View</string>
-        
-    <string name="do_save">Saving</string>
-        
-    <string name="save_path">Save Path:</string>
-        
-    <string name="fail_to_save">Save failed, please try again</string>
-    <string name="set_img">please choose picture</string>
-    <string name="qrcode_feekback"></string>
-    <string name="main_aty_wifi">Wireless qr code</string>
-    <string name="main_aty_phone">phone qr code</string>
-    <string name="wifi_name_hint">Please enter the name of the wifi</string>
-    <string name="wifi_pw_hint">Please enter the wifi password</string>
-    <string name="new_version_code">The latest version:</string>
-    <string name="update_content">Update log: \n</string>
-    <string name="find_new_version">Found the new version</string>
-    <string name="update">Update</string>
-    <string name="toast_new_version">Current for the latest version:</string>
-    <string name="have_not_net">Network not detected</string>
-    <string name="current_version">Current Version</string>
-    <string name="click_check_update">\nClick check update</string>
-    <string name="see">look</string>
-    <string name="click_hint" translatable="false">You are about to visit our official weibo, whether to continue?</string>
+	    
+	<string name="name_hint_result">Name</string>
+	    
+	<string name="qq_result">No. QQ</string>
+	    
+	<string name="wechat_result">Micro Signal</string>
+	    
+	<string name="address_result">Address</string>
+	    
+	<string name="company_result">workplace</string>
+	    
+	<string name="job_result">post</string>
+	    
+	<string name="e_mail_result">mailbox</string>
+	    
+	<string name="phone_result">Phone</string>
+	    
+	<string name="weibo_result">Weibo Name / URL</string>
+	    
+	<string name="chuanzhen_result">Fax</string>
+	    
+	<string name="person_result">personal note</string>
 
-    <!--最新-->
+
+	    
+	<string name="btn_save">Save</string>
+	    
+	<string name="btn_return">to return to continue scanning</string>
+	    
+	<string name="scan_btn_close_light">lights</string>
+	    
+	<string name="fail_to_scan">Image scan failed</string>
+	    
+	<string name="name_not_empty">name can not be empty</string>
+	    
+	<string name="content_not_empty">can not be empty</string>
+	    
+	<string name="url_not_empty">link can not be empty</string>
+	    
+	    
+	<string name="fail_to_mounted_sdcard">not detected SD card</string>
+	    
+	<string name="title_please_choose">Select</string>
+	    
+	<string name="please_choose_pic">Select to generate a picture</string>
+	    
+	<string name="head_name_not_empty">Avatar Name can not be empty</string>
+	    
+	<string name="too_long">Your input more than 200 character limit</string>
+	    
+	<string name="fail_to_create">generates an error, please try again</string>
+	    
+	<string name="please_write_done">Please fill in the complete information</string>
+	    
+	<string name="please_wait">Please wait ......</string>
+	    
+	<string name="upload">Loading</string>
+	    
+	<string name="do_send">Sending</string>
+	    
+	<string name="fb_success">feedback Success</string>
+	    
+	<string name="fb_msg">We have received your feedback, please pay attention to leave your contact information, we will reply within five working days, thank you for your feedback!</string>
+	    
+	<string name="sina_url"><![CDATA[http://weibo.com/p/1006063174917162/home?from=page_100606&mod=TAB#place]]></string>
+	    
+	<string name="do_load">Loading</string>
+	    
+	<string name="query_empty">not inquire into the content, rescan</string>
+	    
+	<string name="pic_load_fail">Image loading failed, please try again</string>
+	    
+	<string name="do_create">being generated</string>
+	    
+	<string name="refresh_path">Refresh path:</string>
+	    
+	<string name="refresh_uri">Refresh Uri:</string>
+	    
+	<string name="copy_to">contents have been copied to the clipboard.</string>
+	    
+	<string name="do_process">Processing</string>
+	    
+	<string name="save">Add to local</string>
+	    
+	<string name="title">Tip</string>
+	    
+	<string name="name_too_long">name is too long</string>
+	    
+	<string name="look">View</string>
+	    
+	<string name="do_save">Saving</string>
+	    
+	<string name="save_path">Save Path:</string>
+	    
+	<string name="fail_to_save">Save failed, please try again</string>
+	<string name="set_img">please choose picture</string>
+	<string name="qrcode_feekback"></string>
+	<string name="main_aty_wifi">Wireless qr code</string>
+	<string name="main_aty_phone">phone qr code</string>
+	<string name="wifi_name_hint">Please enter the name of the wifi</string>
+	<string name="wifi_pw_hint">Please enter the wifi password</string>
+	<string name="new_version_code">The latest version:</string>
+	<string name="update_content">Update log: \n</string>
+	<string name="find_new_version">Found the new version</string>
+	<string name="update">Update</string>
+	<string name="toast_new_version">Current for the latest version:</string>
+	<string name="have_not_net">Network not detected</string>
+	<string name="current_version">Current Version</string>
+	<string name="click_check_update">\nClick check update</string>
+	<string name="see">look</string>
+	<string name="click_hint" translatable="false">You are about to visit our official weibo, whether to continue?</string>
+
+	<!--最新-->
 
 </resources>

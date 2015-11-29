@@ -53,29 +53,16 @@
 
 		<LinearLayout style="@style/general_base_vertical_ll_style">
 
-			<org.laosao.two.view.RippleView
-				android:id="@+id/btn"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_centerInParent="true"
-				android:text="click"
-				android:textAppearance="?android:attr/textAppearanceMedium"
-				android:background="#ffffff"
-				android:gravity="center"
-				android:padding="35dp"
-				materialdesign:alphaFactor="1"
-				materialdesign:rippleColor="#ff0000"
-				materialdesign:hover="true"
-				/>
-
-
 			<com.gc.materialdesign.views.LayoutRipple
 				android:id="@+id/rpPic"
-				style="@style/main_aty_ripple_view_style">
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
 
-	 			<ImageView
+				<ImageView
 					style="@style/main_aty_ripple_img_style"
 					android:src="@mipmap/ic_ripp_pic"/>
+
 
 				<TextView
 					style="@style/main_aty_ripple_text_tv_style"
@@ -83,8 +70,25 @@
 			</com.gc.materialdesign.views.LayoutRipple>
 
 			<com.gc.materialdesign.views.LayoutRipple
+				android:id="@+id/rpAudio"
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
+
+				<ImageView
+					style="@style/main_aty_ripple_img_style"
+					android:src="@mipmap/ic_ripp_audio"/>
+
+				<TextView
+					style="@style/main_aty_ripple_text_tv_style"
+					android:text="@string/main_aty_audio"/>
+			</com.gc.materialdesign.views.LayoutRipple>
+
+			<com.gc.materialdesign.views.LayoutRipple
 				android:id="@+id/rpCustomContent"
-				style="@style/main_aty_ripple_view_style">
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
 
 				<ImageView
 					style="@style/main_aty_ripple_img_style"
@@ -98,7 +102,9 @@
 
 			<com.gc.materialdesign.views.LayoutRipple
 				android:id="@+id/rpNetCard"
-				style="@style/main_aty_ripple_view_style">
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
 
 				<ImageView
 					style="@style/main_aty_ripple_img_style"
@@ -111,7 +117,9 @@
 
 			<com.gc.materialdesign.views.LayoutRipple
 				android:id="@+id/rpCard"
-				style="@style/main_aty_ripple_view_style">
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
 
 				<ImageView
 					style="@style/main_aty_ripple_img_style"
@@ -125,7 +133,9 @@
 
 			<com.gc.materialdesign.views.LayoutRipple
 				android:id="@+id/rpTxt"
-				style="@style/main_aty_ripple_view_style">
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
 
 				<ImageView
 					style="@style/main_aty_ripple_img_style"
@@ -138,7 +148,9 @@
 
 			<com.gc.materialdesign.views.LayoutRipple
 				android:id="@+id/rpWifi"
-				style="@style/main_aty_ripple_view_style">
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
 
 				<ImageView
 					style="@style/main_aty_ripple_img_style"
@@ -151,7 +163,9 @@
 
 			<com.gc.materialdesign.views.LayoutRipple
 				android:id="@+id/rpUrl"
-				style="@style/main_aty_ripple_view_style">
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
 
 				<ImageView
 					style="@style/main_aty_ripple_img_style"
@@ -165,7 +179,9 @@
 
 			<com.gc.materialdesign.views.LayoutRipple
 				android:id="@+id/rpSms"
-				style="@style/main_aty_ripple_view_style">
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
 
 				<ImageView
 					style="@style/main_aty_ripple_img_style"
@@ -179,7 +195,9 @@
 
 			<com.gc.materialdesign.views.LayoutRipple
 				android:id="@+id/rpEmail"
-				style="@style/main_aty_ripple_view_style">
+				style="@style/main_aty_ripple_view_style"
+				materialdesign:rippleColor="@color/material"
+				materialdesign:rippleSpeed="75">
 
 				<ImageView
 					style="@style/main_aty_ripple_img_style"
@@ -194,19 +212,30 @@
 		</LinearLayout>
 	</com.gc.materialdesign.views.ScrollView>
 
-	<com.gc.materialdesign.views.ButtonFloat
-		android:id="@+id/btnFeekback"
-		style="@style/float_button_style"
-		android:layout_marginTop="@dimen/btn_margin"
-		materialdesign:animate="true"
-		materialdesign:iconDrawable="@mipmap/ic_send"/>
+	<com.getbase.floatingactionbutton.FloatingActionsMenu
+		android:id="@+id/fam_main"
+		style="@style/fam"
+		materialdesign:fab_addButtonColorNormal="@color/material"
+		materialdesign:fab_addButtonColorPressed="@color/material"
+		materialdesign:fab_addButtonPlusIconColor="@color/white"
+		materialdesign:fab_addButtonSize="normal"
+		materialdesign:fab_labelsPosition="right">
 
-	<com.gc.materialdesign.views.ButtonFloat
-		android:id="@+id/btnScan"
-		style="@style/float_button_style"
-		android:layout_above="@id/btnFeekback"
-		android:layout_alignParentBottom="false"
-		materialdesign:animate="true"
-		materialdesign:iconDrawable="@mipmap/ic_scan"/>
+		<com.gc.materialdesign.views.ButtonFloat
+			android:id="@+id/btnFeekback"
+			style="@style/main_fab"
+			android:layout_marginTop="@dimen/btn_margin"
+			materialdesign:animate="true"
+			materialdesign:iconDrawable="@mipmap/ic_send"/>
+
+		<com.gc.materialdesign.views.ButtonFloat
+			android:id="@+id/btnScan"
+			style="@style/main_fab"
+			android:layout_above="@id/btnFeekback"
+			android:layout_alignParentBottom="false"
+			materialdesign:animate="true"
+			materialdesign:iconDrawable="@mipmap/ic_scan"/>
+	</com.getbase.floatingactionbutton.FloatingActionsMenu>
+
 
 </RelativeLayout>
