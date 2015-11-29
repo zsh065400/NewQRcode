@@ -1,5 +1,6 @@
 package org.laosao.two.activitys;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -7,6 +8,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.afollestad.materialdialogs.AlertDialogWrapper;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
@@ -23,7 +26,6 @@ import org.laosao.two.utils.T;
 import java.io.File;
 
 import cn.bmob.v3.datatype.BmobFile;
-import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * Created by Scout.Z on 2015/8/12.
@@ -87,12 +89,11 @@ public class PictureActivity extends BaseActivity implements BmobControl.BmobUpl
 					T.showLongToast(PictureActivity.this, getString(R.string.set_img));
 					return;
 				}
-				// TODO: 2015/11/29
-//				pd = new MaterialDialog.Builder(this)
-//						.title(R.string.upload)
-//						.content(R.string.please_wait)
-//						.progress(true, 0).show();
-//				pd.setCanceledOnTouchOutside(false);
+				pd = new MaterialDialog.Builder(this)
+						.title(R.string.upload)
+						.content(R.string.please_wait)
+						.progress(true, 0).show();
+				pd.setCanceledOnTouchOutside(false);
 
 				//				File img = new File(photoPath);
 				//				BmobControl.uploadImage(this, this, img);
@@ -101,28 +102,27 @@ public class PictureActivity extends BaseActivity implements BmobControl.BmobUpl
 				break;
 
 			case R.id.imgPreview:
-				// TODO: 2015/11/29
-//				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
-//				builder.setTitle(R.string.title_please_choose);
-//				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
-//					@Override
-//					public void onClick(DialogInterface dialog, int which) {
-//						switch (which) {
-//							case 0:
-//								if (Config.sdCardInstall) {
-//									openAndSet();
-//								} else {
-//									T.showLongToast(PictureActivity.this, getString(R.string.fail_to_mounted_sdcard));
-//									return;
-//								}
-//								break;
-//							case 1:
-//								ImageUtil.openImg(PictureActivity.this);
-//								break;
-//						}
-//					}
-//				});
-//				builder.create().show();
+				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
+				builder.setTitle(R.string.title_please_choose);
+				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						switch (which) {
+							case 0:
+								if (Config.sdCardInstall) {
+									openAndSet();
+								} else {
+									T.showLongToast(PictureActivity.this, getString(R.string.fail_to_mounted_sdcard));
+									return;
+								}
+								break;
+							case 1:
+								ImageUtil.openImg(PictureActivity.this);
+								break;
+						}
+					}
+				});
+				builder.create().show();
 				break;
 
 		}

@@ -8,21 +8,19 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 
 import org.laosao.two.Config;
 import org.laosao.two.R;
 import org.laosao.two.activitys.base.BaseActivity;
+import org.laosao.two.utils.L;
 import org.laosao.two.utils.CreatQrcodeUtil;
 import org.laosao.two.utils.GeneralUtil;
-import org.laosao.two.utils.L;
 import org.laosao.two.utils.T;
 
 import java.io.File;
-
-import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * Created by Scout.Z on 2015/8/16.
@@ -31,7 +29,7 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 
 	private static Bitmap bitmap;
 	private static MaterialDialog pd = null;
-	
+
 	private static ImageView createshow;
 	private ButtonFloat btnShare;
 	private ButtonFloat btnSave;
@@ -39,7 +37,7 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 	private int color;
 	private File temp;
 	private File save;
-	
+
 	public Handler handler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
@@ -63,10 +61,10 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 			} catch (Throwable throwable) {
 				throwable.printStackTrace();
 			}
-			
+
 		}
 	};
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,16 +77,14 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 		L.outputInfo(content);
 		L.outputInfo(lenght + "");
 		initView();
-		pd = new MaterialDialog(this)
-				     .setTitle(R.string.do_create)
-				     .setMessage(R.string.please_wait)
-				     .setView(new ProgressBar(CreateActivity.this));
-
+		pd = new MaterialDialog.Builder(this)
+				.title(R.string.do_create)
+				.content(R.string.please_wait)
+				.progress(true, 0).show();
 		pd.setCanceledOnTouchOutside(false);
-		pd.show();
 		doCreate(lenght);
 	}
-	
+
 	private void doCreate(int lenght) {
 
 		int level = CreatQrcodeUtil.LENGTH_LV0;
@@ -110,9 +106,9 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 		}
 
 		CreatQrcodeUtil.createQRcode(color, content, level, handler);
-		
+
 	}
-	
+
 	private void initView() {
 		createshow = (ImageView) findViewById(R.id.create_show);
 		btnShare = (ButtonFloat) findViewById(R.id.btnShare);
@@ -120,7 +116,7 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 		btnShare.setOnClickListener(this);
 		btnSave.setOnClickListener(this);
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -133,7 +129,7 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 				break;
 		}
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		if (temp != null && temp.exists()) {

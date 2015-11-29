@@ -1,5 +1,6 @@
 package org.laosao.two.activitys;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,8 +9,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 
+import com.afollestad.materialdialogs.AlertDialogWrapper;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
@@ -28,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.datatype.BmobFile;
-import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * Created by Scout.Z on 2015/8/12.
@@ -96,19 +97,11 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 					T.showLongToast(this, getString(R.string.head_name_not_empty));
 					return;
 				}
-//				pd = new MaterialDialog.Builder(this)
-//						     .title(R.string.upload)
-//						     .content(R.string.please_wait)
-//						     .progress(true, 0).show();
-//				pd.setCanceledOnTouchOutside(false);
-
-				pd = new MaterialDialog(this)
-						.setTitle(R.string.upload)
-						.setMessage(R.string.please_wait)
-						.setView(new ProgressBar(this));
-
+				pd = new MaterialDialog.Builder(this)
+						     .title(R.string.upload)
+						     .content(R.string.please_wait)
+						     .progress(true, 0).show();
 				pd.setCanceledOnTouchOutside(false);
-				pd.show();
 
 //				File file = new File(tempPath);
 //				BmobControl.uploadImage(this, this, file);
@@ -116,28 +109,27 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 				BmobControl.newUploadImage(this, tempPath, this);
 				break;
 			case R.id.imgPreview:
-				MaterialDialog builder = new MaterialDialog(this);
+				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
 				builder.setTitle(R.string.title_please_choose);
-				// TODO: 2015/11/29
-//				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
-//					@Override
-//					public void onClick(DialogInterface dialog, int which) {
-//						switch (which) {
-//							case 0:
-//								if (Config.sdCardInstall) {
-//									openAndSet();
-//								} else {
-//									T.showLongToast(NetCardActivity.this, getString(R.string.fail_to_mounted_sdcard));
-//									return;
-//								}
-//								break;
-//							case 1:
-//								ImageUtil.openImg(NetCardActivity.this);
-//								break;
-//						}
-//					}
-//				});
-//				builder.create().show();
+				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						switch (which) {
+							case 0:
+								if (Config.sdCardInstall) {
+									openAndSet();
+								} else {
+									T.showLongToast(NetCardActivity.this, getString(R.string.fail_to_mounted_sdcard));
+									return;
+								}
+								break;
+							case 1:
+								ImageUtil.openImg(NetCardActivity.this);
+								break;
+						}
+					}
+				});
+				builder.create().show();
 				break;
 		}
 	}

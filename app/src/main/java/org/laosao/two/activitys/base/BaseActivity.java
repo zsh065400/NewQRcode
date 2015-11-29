@@ -15,7 +15,7 @@ import org.laosao.two.Config;
  * Created by Scout.Z on 2015/8/12.
  */
 public class BaseActivity extends Activity implements GestureDetector.
-		                                                      OnGestureListener, View.OnClickListener {
+		OnGestureListener, View.OnClickListener {
 
 	private GestureDetector detector;
 
@@ -25,7 +25,7 @@ public class BaseActivity extends Activity implements GestureDetector.
 		detector = new GestureDetector(this, this);
 //		沉浸式状态栏下软键盘调试
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN |
-				                             WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 	}
 
 
@@ -85,7 +85,7 @@ public class BaseActivity extends Activity implements GestureDetector.
 
 	}
 
-	protected void startCreateActivity(String content){
+	protected void startCreateActivity(String content) {
 		Intent i = new Intent(this, CreateActivity.class);
 		i.putExtra(Config.KEY_CONTENT, content);
 		startActivity(i);

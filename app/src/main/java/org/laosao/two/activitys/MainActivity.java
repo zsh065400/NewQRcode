@@ -30,7 +30,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			rpNetCard, rpCard,
 			rpTxt, rpUrl,
 			rpSms, rpEmail,
-			rpWifi;
+			rpWifi, rpAudio;
 	private ButtonFloat btnFeekback, btnScan;
 	private FloatingActionsMenu fam;
 
@@ -63,6 +63,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		rpSms = (LayoutRipple) findViewById(R.id.rpSms);
 		rpEmail = (LayoutRipple) findViewById(R.id.rpEmail);
 		rpWifi = (LayoutRipple) findViewById(R.id.rpWifi);
+		rpAudio = (LayoutRipple) findViewById(R.id.rpAudio);
 		btnFeekback = (ButtonFloat) findViewById(R.id.btnFeekback);
 		btnScan = (ButtonFloat) findViewById(R.id.btnScan);
 		fam = (FloatingActionsMenu) findViewById(R.id.fam_main);
@@ -76,6 +77,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		rpSms.setOnClickListener(this);
 		rpEmail.setOnClickListener(this);
 		rpWifi.setOnClickListener(this);
+		rpAudio.setOnClickListener(this);
 		btnFeekback.setOnClickListener(this);
 		btnScan.setOnClickListener(this);
 	}
@@ -126,6 +128,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				break;
 			case R.id.rpWifi:
 				c = WifiActivity.class;
+				break;
+			case R.id.rpAudio:
+				c = AudioActivity.class;
 				break;
 		}
 		i = new Intent(this, c);
