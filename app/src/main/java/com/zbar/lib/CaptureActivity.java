@@ -43,6 +43,7 @@ import com.zbar.lib.decode.InactivityTimer;
 import com.zbar.lib.decode.RGBLuminanceSource;
 
 import org.laosao.two.activitys.base.BaseActivity;
+import org.laosao.two.activitys.result.AudioResActivity;
 import org.laosao.two.activitys.result.NetCardResultActivity;
 import org.laosao.two.activitys.result.PicResultActivity;
 import org.laosao.two.activitys.result.TextResultActivity;
@@ -88,6 +89,10 @@ public class CaptureActivity extends BaseActivity implements Callback {
 	private boolean isOpenLight = false;
 
 	private static final int REQ_CODE = 10002;
+
+	private static boolean isPic;
+	private static boolean isAudio;
+
 
 	public boolean isNeedCapture() {
 		return isNeedCapture;
@@ -150,7 +155,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 
 		ImageView mQrLineView = (ImageView) findViewById(R.id.capture_scan_line);
 		TranslateAnimation mAnimation = new TranslateAnimation(TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f,
-				                                                      TranslateAnimation.RELATIVE_TO_PARENT, 0f, TranslateAnimation.RELATIVE_TO_PARENT, 0.9f);
+				TranslateAnimation.RELATIVE_TO_PARENT, 0f, TranslateAnimation.RELATIVE_TO_PARENT, 0.9f);
 		mAnimation.setDuration(1500);
 		mAnimation.setRepeatCount(-1);
 		mAnimation.setRepeatMode(Animation.REVERSE);
@@ -161,6 +166,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 		btnOpenLight.setOnClickListener(this);
 		btnChooseImg = (ButtonFlat) findViewById(R.id.btnChooseImg);
 		btnChooseImg.setOnClickListener(this);
+
 	}
 
 	@Override
@@ -237,13 +243,27 @@ public class CaptureActivity extends BaseActivity implements Callback {
 	public void handleDecode(String result) {
 		inactivityTimer.onActivity();
 		playBeepSoundAndVibrate();
+		isPic = result.startsWith(Config.KEY_SCAN_PICTURE) &&
+				result.endsWith("jpg") ||
+				result.endsWith("bmp") ||
+				result.endsWith("png") ||
+				result.endsWith("gif") ||
+				result.endsWith("jpeg");
+		isAudio = result.startsWith(Config.KEY_SCAN_PICTURE) &&
+				result.endsWith("mp3") ||
+				result.endsWith("wav") ||
+				result.endsWith("wma") ||
+				result.endsWith("ogg") ||
+				result.endsWith("acc");
 		Intent intent = null;
 		Class c = null;
 		if (result.startsWith(Config.KEY_SCAN_NET_CARD)) {
 			result = result.substring(9, result.length());
 			c = NetCardResultActivity.class;
-		} else if (result.startsWith(Config.KEY_SCAN_PICTURE)) {
+		} else if (isPic) {
 			c = PicResultActivity.class;
+		} else if (isAudio) {
+			c = AudioResActivity.class;
 		} else {
 			c = TextResultActivity.class;
 		}
@@ -253,11 +273,6 @@ public class CaptureActivity extends BaseActivity implements Callback {
 		if (isOpenLight) {
 			isOpenLight = false;
 			btnOpenLight.setText(getString(R.string.scan_tips));
-		}
-		try {
-			finalize();
-		} catch (Throwable throwable) {
-			throwable.printStackTrace();
 		}
 		// 连续扫描，不发送此消息扫描一次结束后就不能再次扫描
 		//handler.sendEmptyMessage(R.id.restart_preview);
@@ -412,11 +427,11 @@ public class CaptureActivity extends BaseActivity implements Callback {
 		// --------------测试的解析方法---PlanarYUVLuminanceSource-这几行代码对project没作功----------
 
 		LuminanceSource source1 = new PlanarYUVLuminanceSource(
-				                                                      rgb2YUV(scanBitmap), scanBitmap.getWidth(),
-				                                                      scanBitmap.getHeight(), 0, 0, scanBitmap.getWidth(),
-				                                                      scanBitmap.getHeight(), false);
+				rgb2YUV(scanBitmap), scanBitmap.getWidth(),
+				scanBitmap.getHeight(), 0, 0, scanBitmap.getWidth(),
+				scanBitmap.getHeight(), false);
 		BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(
-				                                                                source1));
+				source1));
 		MultiFormatReader reader1 = new MultiFormatReader();
 		Result result1;
 		try {
@@ -487,7 +502,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 
 		try {
 			boolean ISO = Charset.forName(ENCODE).newEncoder()
-					              .canEncode(str);
+					.canEncode(str);
 			if (ISO) {
 				formart = new String(str.getBytes(ENCODE), CODE);
 			} else {

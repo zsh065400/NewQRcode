@@ -53,6 +53,8 @@ public class Config extends org.laosao.two.utils.T {
 	public static final String SUFFIX_PNG = ".png";
 	public static final String IMME_IMAGE_TYPE = "image/*";
 	public static final String IMME_PNG = "image/png";
+	public static final String IMME_AUDIO = "audio/*";
+	public static final String IMME_RECORDER = "audio/amr";
 
 	public static final int CODE_ERROR = -1;
 	public static final int CODE_YES = 1;

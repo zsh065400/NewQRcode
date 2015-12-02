@@ -32,7 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			rpSms, rpEmail,
 			rpWifi, rpAudio;
 	private ButtonFloat btnFeekback, btnScan;
-	private FloatingActionsMenu fam;
+	private FloatingActionsMenu btnMore;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		rpAudio = (LayoutRipple) findViewById(R.id.rpAudio);
 		btnFeekback = (ButtonFloat) findViewById(R.id.btnFeekback);
 		btnScan = (ButtonFloat) findViewById(R.id.btnScan);
-		fam = (FloatingActionsMenu) findViewById(R.id.fam_main);
+		btnMore = (FloatingActionsMenu) findViewById(R.id.fam_main);
 
 		rpPic.setOnClickListener(this);
 		rpCustomContent.setOnClickListener(this);
@@ -143,12 +143,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	private long currentTime = 0;
 
 	@Override
-	protected void onRestart() {
-		super.onRestart();
-		System.gc();
-	}
-
-	@Override
 	public void onBackPressed() {
 		if ((System.currentTimeMillis() - currentTime) > 2000) {
 			currentTime = System.currentTimeMillis();
@@ -162,7 +156,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	@Override
 	protected void onStop() {
 		super.onStop();
-		fam.collapse();
+		if (btnMore.isExpanded()) {
+			btnMore.collapse();
+		}
 	}
 
 	private static final int RIPPLE_SPEED = 78;

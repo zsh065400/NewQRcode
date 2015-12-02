@@ -1,6 +1,7 @@
 package org.laosao.two.utils;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -10,12 +11,15 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.AlertDialogWrapper;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.xiaomi.market.sdk.UpdateResponse;
 import com.xiaomi.market.sdk.UpdateStatus;
@@ -147,88 +151,87 @@ public class GeneralUtil {
 	public static void save(final Activity activity, final Bitmap bitmap, final Handler handler) {
 		View view = LayoutInflater.from(activity).inflate(R.layout.dialog_save, null);
 		final MaterialEditText etName = (MaterialEditText) view.findViewById(R.id.etDialogSave);
-		// TODO: 2015/11/29  
-//		AlertDialogWrapper.Builder build = new AlertDialogWrapper.Builder(activity);
-//		build.setTitle(activity.getString(R.string.save));
-//		build.setView(view);
-//		build.setPositiveButton(activity.getString(R.string.ok), new DialogInterface.OnClickListener() {
-//			@Override
-//			public void onClick(DialogInterface dialog, int which) {
-//				final File save;
-//				if (TextUtils.isEmpty(etName.getText().toString())) {
-//					save = new File(Config.rootDir + File.separator +
-//									GeneralUtil.getTime() +
-//									Config.SUFFIX_PNG);
-//				} else {
-//					if (etName.getText().toString().length() > 20) {
-//						T.showShortToast(activity, activity.getString(R.string.name_too_long));
-//						return;
-//					} else {
-//						save = new File(Config.rootDir + File.separator +
-//										etName.getText().toString() +
-//										Config.SUFFIX_PNG);
-//					}
-//				}
-//				Message msg = Message.obtain();
-//				msg.what = Config.CODE_PATH;
-//				msg.obj = save;
-//				handler.sendMessage(msg);
-//
-//				final AlertDialogWrapper.Builder prompt = new AlertDialogWrapper.Builder(activity);
-//				prompt.setTitle(activity.getString(R.string.title));
-//				prompt.setPositiveButton(activity.getString(R.string.ok), null);
-//				prompt.setNegativeButton(activity.getString(R.string.look), new DialogInterface.OnClickListener() {
-//					@Override
-//					public void onClick(DialogInterface dialog, int which) {
-//						Intent intent = new Intent(Intent.ACTION_VIEW);
-//						intent.addCategory(Intent.CATEGORY_DEFAULT);
-//						intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//						intent.setDataAndType(Uri.fromFile(save),
-//											 Config.IMME_IMAGE_TYPE);
-//						activity.startActivity(intent);
-//					}
-//				});
-//
-//				final MaterialDialog pd = new MaterialDialog.Builder(activity)
-//										  .title(R.string.do_save)
-//										  .content(R.string.please_wait)
-//										  .progress(true, 0).show();
-//				pd.setCanceledOnTouchOutside(false);
-//
-//				new AsyncTask<Void, Void, Boolean>() {
-//					@Override
-//					protected Boolean doInBackground(Void... params) {
-//						FileOutputStream fos = null;
-//						try {
-//							fos = new FileOutputStream(save);
-//							bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-//							fos.flush();
-//							fos.close();
-//							return true;
-//						} catch (FileNotFoundException e) {
-//							e.printStackTrace();
-//							return false;
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//							return false;
-//						}
-//					}
-//
-//					@Override
-//					protected void onPostExecute(Boolean aBoolean) {
-//						super.onPostExecute(aBoolean);
-//						pd.dismiss();
-//						if (aBoolean) {
-//							prompt.setMessage(activity.getString(R.string.save_path) + save.getAbsolutePath());
-//						} else {
-//							prompt.setMessage(activity.getString(R.string.fail_to_save));
-//						}
-//						prompt.create().show();
-//					}
-//				}.execute(null, null);
-//			}
-//		}).setNegativeButton(activity.getString(R.string.cancel), null);
-//		build.create().show();
+		AlertDialogWrapper.Builder build = new AlertDialogWrapper.Builder(activity);
+		build.setTitle(activity.getString(R.string.save));
+		build.setView(view);
+		build.setPositiveButton(activity.getString(R.string.ok), new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				final File save;
+				if (TextUtils.isEmpty(etName.getText().toString())) {
+					save = new File(Config.rootDir + File.separator +
+							GeneralUtil.getTime() +
+							Config.SUFFIX_PNG);
+				} else {
+					if (etName.getText().toString().length() > 20) {
+						T.showShortToast(activity, activity.getString(R.string.name_too_long));
+						return;
+					} else {
+						save = new File(Config.rootDir + File.separator +
+								etName.getText().toString() +
+								Config.SUFFIX_PNG);
+					}
+				}
+				Message msg = Message.obtain();
+				msg.what = Config.CODE_PATH;
+				msg.obj = save;
+				handler.sendMessage(msg);
+
+				final AlertDialogWrapper.Builder prompt = new AlertDialogWrapper.Builder(activity);
+				prompt.setTitle(activity.getString(R.string.title));
+				prompt.setPositiveButton(activity.getString(R.string.ok), null);
+				prompt.setNegativeButton(activity.getString(R.string.look), new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Intent intent = new Intent(Intent.ACTION_VIEW);
+						intent.addCategory(Intent.CATEGORY_DEFAULT);
+						intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						intent.setDataAndType(Uri.fromFile(save),
+								Config.IMME_IMAGE_TYPE);
+						activity.startActivity(intent);
+					}
+				});
+
+				final MaterialDialog pd = new MaterialDialog.Builder(activity)
+						.title(R.string.do_save)
+						.content(R.string.please_wait)
+						.progress(true, 0).show();
+				pd.setCanceledOnTouchOutside(false);
+
+				new AsyncTask<Void, Void, Boolean>() {
+					@Override
+					protected Boolean doInBackground(Void... params) {
+						FileOutputStream fos = null;
+						try {
+							fos = new FileOutputStream(save);
+							bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+							fos.flush();
+							fos.close();
+							return true;
+						} catch (FileNotFoundException e) {
+							e.printStackTrace();
+							return false;
+						} catch (IOException e) {
+							e.printStackTrace();
+							return false;
+						}
+					}
+
+					@Override
+					protected void onPostExecute(Boolean aBoolean) {
+						super.onPostExecute(aBoolean);
+						pd.dismiss();
+						if (aBoolean) {
+							prompt.setMessage(activity.getString(R.string.save_path) + save.getAbsolutePath());
+						} else {
+							prompt.setMessage(activity.getString(R.string.fail_to_save));
+						}
+						prompt.create().show();
+					}
+				}.execute(null, null);
+			}
+		}).setNegativeButton(activity.getString(R.string.cancel), null);
+		build.create().show();
 	}
 
 	/**
@@ -254,18 +257,17 @@ public class GeneralUtil {
 						//设置更新信息
 						tvVersionCode.setText(tvVersionCode.getText().toString() + updateInfo.versionCode);
 						tvUpdateContent.setText(tvUpdateContent.getText().toString() + updateInfo.updateLog);
-						// TODO: 2015/11/29
-//						AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(activity);
-//						builder.setTitle(activity.getString(R.string.find_new_version));
-//						builder.setView(view);
-//						builder.setPositiveButton(activity.getString(R.string.update), new DialogInterface.OnClickListener() {
-//							@Override
-//							public void onClick(DialogInterface dialog, int which) {
-//								XiaomiUpdateAgent.arrange();
-//							}
-//						});
-//						builder.setNegativeButton(activity.getString(R.string.cancel), null);
-//						builder.show();
+						AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(activity);
+						builder.setTitle(activity.getString(R.string.find_new_version));
+						builder.setView(view);
+						builder.setPositiveButton(activity.getString(R.string.update), new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								XiaomiUpdateAgent.arrange();
+							}
+						});
+						builder.setNegativeButton(activity.getString(R.string.cancel), null);
+						builder.show();
 						break;
 					case UpdateStatus.STATUS_NO_UPDATE:
 						L.outputDebug("无更新");

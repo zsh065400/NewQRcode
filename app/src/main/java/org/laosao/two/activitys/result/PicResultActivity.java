@@ -1,6 +1,5 @@
 package org.laosao.two.activitys.result;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.media.MediaScannerConnection;
@@ -14,10 +13,12 @@ import android.widget.ImageView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.laosao.two.Config;
 import org.laosao.two.R;
+import org.laosao.two.activitys.base.BaseActivity;
 import org.laosao.two.bean.BitmapBmob;
 import org.laosao.two.biz.BmobControl;
 import org.laosao.two.utils.GeneralUtil;
@@ -31,17 +32,19 @@ import cn.bmob.v3.BmobObject;
 /**
  * Created by Scout.Z on 2015/8/15.
  */
-public class PicResultActivity extends Activity implements MediaScannerConnection.MediaScannerConnectionClient,
-		                                                           View.OnClickListener {
+public class PicResultActivity extends BaseActivity implements MediaScannerConnection.MediaScannerConnectionClient,
+		View.OnClickListener {
 	private ImageView imgResult;
 	private MaterialEditText etConent;
 	private ButtonFloat btnSave;
 	private ButtonFloat btnShare;
+	private FloatingActionsMenu btnMore;
 	private BitmapBmob obj;
 	private File temp;
 	private File save;
 	private String url;
 	private String result;
+	private String mTalk;
 	private MaterialDialog dialog;
 	private Bitmap bmpResult;
 
@@ -70,7 +73,7 @@ public class PicResultActivity extends Activity implements MediaScannerConnectio
 								// 缩放图片动作
 								matrix.postScale(scaleWidth, scaleHeight);
 								Bitmap bmpTemp = Bitmap.createBitmap(bmpResult, 0, 0, (int) width,
-										                                    (int) height, matrix, true);
+										(int) height, matrix, true);
 								return bmpTemp;
 							} catch (Exception e) {
 								e.printStackTrace();
@@ -84,7 +87,8 @@ public class PicResultActivity extends Activity implements MediaScannerConnectio
 							if (bitmap != null) {
 								L.outputDebug("bitmap create success");
 								imgResult.setImageBitmap(bitmap);
-								etConent.setText(obj.getName());
+								mTalk = obj.getName();
+								etConent.setText(mTalk);
 							} else {
 								L.outputDebug("bitmap create fail");
 								finish();
@@ -116,9 +120,9 @@ public class PicResultActivity extends Activity implements MediaScannerConnectio
 		result = getIntent().getStringExtra(Config.KEY_RESULT);
 		url = result.replace(Config.KEY_SCAN_PICTURE, Config.EMPTY_STR);
 		dialog = new MaterialDialog.Builder(this)
-				         .title(R.string.do_load)
-				         .content(R.string.please_wait)
-				         .progress(true, 0).show();
+				.title(R.string.do_load)
+				.content(R.string.please_wait)
+				.progress(true, 0).show();
 		dialog.setCanceledOnTouchOutside(false);
 		BmobControl.queryPic(this, url, new BmobControl.BmobQueryCallback() {
 			@Override
@@ -148,8 +152,10 @@ public class PicResultActivity extends Activity implements MediaScannerConnectio
 		etConent = (MaterialEditText) findViewById(R.id.etConent);
 		btnSave = (ButtonFloat) findViewById(R.id.btnSave);
 		btnShare = (ButtonFloat) findViewById(R.id.btnShare);
+		btnMore = (FloatingActionsMenu) findViewById(R.id.fam_res_img);
 		btnSave.setOnClickListener(this);
 		btnShare.setOnClickListener(this);
+		etConent.setOnClickListener(this);
 	}
 
 	@Override
@@ -163,6 +169,20 @@ public class PicResultActivity extends Activity implements MediaScannerConnectio
 				temp = new File(Config.rootDir + File.separator + "temp" + Config.SUFFIX_PNG);
 				GeneralUtil.share(this, temp, bmpResult);
 				break;
+
+			case R.id.etConent:
+				MaterialDialog.Builder builder = new MaterialDialog.Builder(PicResultActivity.this);
+				builder.content(mTalk);
+				builder.build().show();
+				break;
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		if (btnMore.isExpanded()) {
+			btnMore.collapse();
 		}
 	}
 
@@ -177,7 +197,6 @@ public class PicResultActivity extends Activity implements MediaScannerConnectio
 			bmpResult.recycle();
 			bmpResult = null;
 		}
-		System.gc();
 		temp = null;
 		save = null;
 		url = null;
@@ -185,6 +204,7 @@ public class PicResultActivity extends Activity implements MediaScannerConnectio
 		dialog = null;
 		super.onDestroy();
 	}
+
 
 	private MediaScannerConnection msc;
 

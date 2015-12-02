@@ -178,7 +178,6 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 			bitmap.recycle();
 			bitmap = null;
 		}
-		System.gc();
 		super.onDestroy();
 	}
 

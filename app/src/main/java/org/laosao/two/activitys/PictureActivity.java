@@ -181,7 +181,6 @@ public class PictureActivity extends BaseActivity implements BmobControl.BmobUpl
 			bitmap.recycle();
 			bitmap = null;
 		}
-		System.gc();
 		super.onDestroy();
 	}
 

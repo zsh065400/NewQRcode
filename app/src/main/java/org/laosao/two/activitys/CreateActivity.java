@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import org.laosao.two.Config;
 import org.laosao.two.R;
@@ -33,6 +34,7 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 	private static ImageView createshow;
 	private ButtonFloat btnShare;
 	private ButtonFloat btnSave;
+	private FloatingActionsMenu btnMore;
 	private String content;
 	private int color;
 	private File temp;
@@ -113,6 +115,7 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 		createshow = (ImageView) findViewById(R.id.create_show);
 		btnShare = (ButtonFloat) findViewById(R.id.btnShare);
 		btnSave = (ButtonFloat) findViewById(R.id.btnSave);
+		btnMore = (FloatingActionsMenu) findViewById(R.id.fam_create);
 		btnShare.setOnClickListener(this);
 		btnSave.setOnClickListener(this);
 	}
@@ -140,6 +143,14 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 		save = null;
 		pd = null;
 		super.onDestroy();
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		if (btnMore.isExpanded()) {
+			btnMore.collapse();
+		}
 	}
 
 	private MediaScannerConnection msc;

@@ -8,8 +8,11 @@
                 \t\t3. No matter the official publication of detailed information supersedes\n\n
                 \t\t use the official website: http: //qrcode2014.bmob.cn \n
                 \t\t Sina microblogging @新二维码生成器\n
-                \t\t mailbox: 3104517435@qq.com \ n
+                \t\t mailbox: 3104517435@qq.com \n
     </string>
+	<string name="choose_file">Currently selected file：\n\n    </string>
+	<string name="title_file_name">wrote to say</string>
+	<string name="current_file">current player: </string>
 	<string name="main_aty_audio">Audio dimensional code</string>
 	<string name="main_aty_custom_content">Custom Content</string>
 	<string name="main_aty_net_card">network card code</string>
