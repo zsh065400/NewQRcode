@@ -46,9 +46,8 @@ dependencies {
     compile('com.github.afollestad.material-dialogs:core:0.8.5.1@aar') {
         transitive = true
     }
-//    compile 'me.zhanghai.android.materialprogressbar:library:1.1.4'
-//    compile 'me.drakeet.materialdialog:library:1.2.8'
-    compile 'com.android.support:recyclerview-v7:23.0.1'
+    //    compile 'me.zhanghai.android.materialprogressbar:library:1.1.4'
+    //    compile 'me.drakeet.materialdialog:library:1.2.8'
 }
 
 def getDate() {

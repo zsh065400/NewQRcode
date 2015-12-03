@@ -222,6 +222,13 @@
 		materialdesign:fab_labelsPosition="right">
 
 		<com.gc.materialdesign.views.ButtonFloat
+			android:id="@+id/btnAboutInfo"
+			style="@style/main_fab"
+			android:layout_marginTop="@dimen/btn_margin"
+			materialdesign:animate="true"
+			materialdesign:iconDrawable="@mipmap/ic_info"/>
+
+		<com.gc.materialdesign.views.ButtonFloat
 			android:id="@+id/btnFeekback"
 			style="@style/main_fab"
 			android:layout_marginTop="@dimen/btn_margin"

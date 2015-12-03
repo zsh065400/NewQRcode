@@ -52,6 +52,13 @@
 			materialdesign:animate="true"
 			materialdesign:iconDrawable="@mipmap/ic_grade"/>
 
+		<com.gc.materialdesign.views.ButtonFloat
+			android:id="@+id/btnAddLogo"
+			style="@style/main_fab"
+			android:layout_toLeftOf="@id/btnShare"
+			materialdesign:animate="true"
+			materialdesign:iconDrawable="@mipmap/ic_add"/>
+
 
 	</com.getbase.floatingactionbutton.FloatingActionsMenu>
 

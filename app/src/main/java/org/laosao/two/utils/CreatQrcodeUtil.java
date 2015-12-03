@@ -30,7 +30,7 @@ public class CreatQrcodeUtil {
 
 	//279  4 25字以内   335 7 55字及以内      455 10 90字以内    559 14 140字以内
 	//二维码大小和版本
-	private static int imgSize = 355;
+	public static int imgSize = 355;
 	private static int qrVersion = 7;
 
 	public static final int LENGTH_LV0 = 0;

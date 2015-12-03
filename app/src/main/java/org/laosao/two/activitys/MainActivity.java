@@ -31,7 +31,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			rpTxt, rpUrl,
 			rpSms, rpEmail,
 			rpWifi, rpAudio;
-	private ButtonFloat btnFeekback, btnScan;
+	private ButtonFloat btnFeekback, btnScan, btnAboutInfo;
 	private FloatingActionsMenu btnMore;
 
 	@Override
@@ -67,6 +67,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		btnFeekback = (ButtonFloat) findViewById(R.id.btnFeekback);
 		btnScan = (ButtonFloat) findViewById(R.id.btnScan);
 		btnMore = (FloatingActionsMenu) findViewById(R.id.fam_main);
+		btnAboutInfo = (ButtonFloat) findViewById(R.id.btnAboutInfo);
 
 		rpPic.setOnClickListener(this);
 		rpCustomContent.setOnClickListener(this);
@@ -80,6 +81,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		rpAudio.setOnClickListener(this);
 		btnFeekback.setOnClickListener(this);
 		btnScan.setOnClickListener(this);
+		btnAboutInfo.setOnClickListener(this);
 	}
 
 	@Override
@@ -131,6 +133,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				break;
 			case R.id.rpAudio:
 				c = AudioActivity.class;
+				break;
+			case R.id.btnAboutInfo:
+				c = AboutInfoActivity.class;
 				break;
 		}
 		i = new Intent(this, c);

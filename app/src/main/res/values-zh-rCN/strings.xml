@@ -21,6 +21,7 @@
 	<string name="main_aty_txt">文本二维码</string>
 	<string name="main_aty_url">网址二维码</string>
 	<string name="main_aty_pic">图片二维码</string>
+	<string name="about_app">关于软件</string>
 	<string name="main_aty_hint">选择下面一项开始生成吧！</string>
 	<string name="warm_prompt">温馨提示</string>
 	<string name="btn_disagree">不接受,泪奔</string>
@@ -48,7 +49,7 @@
 	<string name="qrcode_result">网络名片信息</string>
 
 
-	<string name="fb_aty_tv_text">开发者：香河豪门工作室\n官方微博账号：@新二维码生成器\n官方微信：香河豪门工作室\n您可以直接发送微博私信或微信消息给我们提供意见或建议，也可以反馈您遇到的问题\n现推出定制二维码服务，可以根据您现实项目的需求进行定制，详细信息请通过官方渠道联系我们</string>
+	<string name="fb_aty_tv_text">开发者：香河豪门工作室\n官方微博账号：@新二维码生成器\n官方微信：香河豪门工作室\n您可以直接发送微博私信或微信消息给我们提供意见或建议，也可以反馈您遇到的问题</string>
 	<string name="btn_open_img">图片</string>
 	<string name="btn_open_light">开灯</string>
 	<string name="tv_scan_hint">请将二维码放置在扫描框内</string>

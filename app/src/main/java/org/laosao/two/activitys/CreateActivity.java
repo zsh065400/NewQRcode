@@ -1,6 +1,10 @@
 package org.laosao.two.activitys;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +13,7 @@ import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
@@ -16,6 +21,7 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import org.laosao.two.Config;
 import org.laosao.two.R;
 import org.laosao.two.activitys.base.BaseActivity;
+import org.laosao.two.utils.ImageUtil;
 import org.laosao.two.utils.L;
 import org.laosao.two.utils.CreatQrcodeUtil;
 import org.laosao.two.utils.GeneralUtil;
@@ -34,6 +40,7 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 	private static ImageView createshow;
 	private ButtonFloat btnShare;
 	private ButtonFloat btnSave;
+	private ButtonFloat btnAddLogo;
 	private FloatingActionsMenu btnMore;
 	private String content;
 	private int color;
@@ -56,6 +63,9 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 				case Config.CODE_PATH:
 					save = (File) msg.obj;
 					refreshSDcard();
+					break;
+				case Config.CODE_ADD_LOGO:
+					createshow.setImageBitmap(bitmap);
 					break;
 			}
 			try {
@@ -116,9 +126,16 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 		btnShare = (ButtonFloat) findViewById(R.id.btnShare);
 		btnSave = (ButtonFloat) findViewById(R.id.btnSave);
 		btnMore = (FloatingActionsMenu) findViewById(R.id.fam_create);
+		btnAddLogo = (ButtonFloat) findViewById(R.id.btnAddLogo);
 		btnShare.setOnClickListener(this);
 		btnSave.setOnClickListener(this);
+		btnAddLogo.setOnClickListener(this);
 	}
+
+	private String photoPath = null;
+	private String tempPath = null;
+	private String[] menuItem = {"相机", "图库"};
+	private Bitmap bmpLogo = null;
 
 	@Override
 	public void onClick(View v) {
@@ -130,7 +147,73 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 				temp = new File(Config.rootDir + File.separator + "temp" + Config.SUFFIX_PNG);
 				GeneralUtil.share(CreateActivity.this, temp, bitmap);
 				break;
+
+			case R.id.btnAddLogo:
+				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
+				builder.setTitle(R.string.title_please_choose);
+				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						switch (which) {
+							case 0:
+								if (Config.sdCardInstall) {
+									openAndSet();
+								} else {
+									T.showLongToast(CreateActivity.this, getString(R.string.fail_to_mounted_sdcard));
+									return;
+								}
+								break;
+							case 1:
+								ImageUtil.openImg(CreateActivity.this);
+								break;
+						}
+					}
+				});
+				builder.create().show();
+				break;
 		}
+	}
+
+	private void openAndSet() {
+		photoPath = Config.osCamera +
+				File.separator +
+				GeneralUtil.getTime() +
+				Config.SUFFIX_PNG;
+		ImageUtil.openCamera(this, photoPath);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode == RESULT_OK) {
+			switch (requestCode) {
+				case Config.REQ_OPEN_IMG:
+					photoPath = ImageUtil.getPath(this, data.getData());
+					doCrop();
+					break;
+				case Config.REQ_OPEN_CAMERA:
+					doCrop();
+					break;
+				case Config.REQ_CROP_IMG:
+					bmpLogo = BitmapFactory.decodeFile(tempPath);
+					Canvas canvas = new Canvas();
+					canvas.setBitmap(bitmap);
+					//向中间插入内容
+					canvas.drawBitmap(bmpLogo, bitmap.getWidth() / 2
+							- bmpLogo.getWidth() / 2, bitmap.getHeight()
+							/ 2 - bmpLogo.getHeight() / 2, null);
+					handler.sendEmptyMessage(Config.CODE_ADD_LOGO);
+					break;
+			}
+
+		}
+	}
+
+
+	private void doCrop() {
+		tempPath = Config.cameraDir + File.separator + "剪裁" + GeneralUtil.getTime() + Config.SUFFIX_PNG;
+		int size = (int) (CreatQrcodeUtil.imgSize * 0.18);
+		ImageUtil.cropImage(Uri.fromFile(new File(photoPath)), this, tempPath, size, size);
 	}
 
 	@Override
@@ -142,6 +225,9 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 		temp = null;
 		save = null;
 		pd = null;
+		bmpLogo = null;
+		tempPath = null;
+		photoPath = null;
 		super.onDestroy();
 	}
 

@@ -94,6 +94,8 @@
 		</activity>
 		<activity android:name=".activitys.result.AudioResActivity">
 		</activity>
+		<activity android:name=".activitys.AboutInfoActivity">
+		</activity>
 	</application>
 
 </manifest>

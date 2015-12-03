@@ -1,6 +1,7 @@
 package org.laosao.two.utils;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -104,12 +105,11 @@ public class GeneralUtil {
 	}
 
 	public static void share(final Activity activity, final File temp, final Bitmap bitmap) {
-		// TODO: 2015/11/29  
-//		final MaterialDialog pd = new MaterialDialog.Builder(activity)
-//								  .title(R.string.do_process)
-//								  .content(R.string.please_wait)
-//								  .progress(true, 0).show();
-//		pd.setCanceledOnTouchOutside(false);
+		final MaterialDialog pd = new MaterialDialog.Builder(activity)
+				.title(R.string.do_process)
+				.content(R.string.please_wait)
+				.progress(true, 0).show();
+		pd.setCanceledOnTouchOutside(false);
 
 		new AsyncTask<Void, Void, Boolean>() {
 			@Override
@@ -133,8 +133,7 @@ public class GeneralUtil {
 			@Override
 			protected void onPostExecute(Boolean aBoolean) {
 				super.onPostExecute(aBoolean);
-				// TODO: 2015/11/29  
-//				pd.dismiss();
+				pd.dismiss();
 				if (aBoolean) {
 					Intent intent = new Intent(Intent.ACTION_SEND);
 					intent.setType(Config.IMME_PNG);
@@ -314,5 +313,37 @@ public class GeneralUtil {
 			}
 		});
 		XiaomiUpdateAgent.update(activity);
+	}
+
+
+	/**
+	 * 分享功能
+	 *
+	 * @param context       上下文
+	 * @param activityTitle Activity的名字
+	 * @param msgTitle      消息标题
+	 * @param msgText       消息内容
+	 * @param imgPath       图片路径，不分享图片则传null
+	 */
+	public static void shareMsg(Context context,
+	                            String activityTitle,
+	                            String msgTitle,
+	                            String msgText,
+	                            String imgPath) {
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		if (imgPath == null || imgPath.equals("")) {
+			intent.setType("text/plain"); // 纯文本
+		} else {
+			File f = new File(imgPath);
+			if (f != null && f.exists() && f.isFile()) {
+				intent.setType("image/jpg");
+				Uri u = Uri.fromFile(f);
+				intent.putExtra(Intent.EXTRA_STREAM, u);
+			}
+		}
+		intent.putExtra(Intent.EXTRA_SUBJECT, msgTitle);
+		intent.putExtra(Intent.EXTRA_TEXT, msgText);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		context.startActivity(Intent.createChooser(intent, activityTitle));
 	}
 }

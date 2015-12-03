@@ -46,14 +46,15 @@ public class ImageUtil {
 	 *
 	 * @param uri
 	 */
-	public static void cropImage(Uri uri, Activity activity, String path) {
+	public static void cropImage(Uri uri, Activity activity, String path,
+	                             int width, int height) {
 		Intent intent = new Intent("com.android.camera.action.CROP");
 		intent.setDataAndType(uri, Config.IMME_IMAGE_TYPE);
 		intent.putExtra("crop", "true");// crop=true 有这句才能出来最后的裁剪页面.
 		intent.putExtra("aspectX", 1);// 这两项为裁剪框的比例.
 		intent.putExtra("aspectY", 1);// x:y=1:2
-		intent.putExtra("outputX", 200);//图片输出大小
-		intent.putExtra("outputY", 210);
+		intent.putExtra("outputX", width);//图片输出大小
+		intent.putExtra("outputY", height);
 		intent.putExtra("outputFormat", "PNG");// 返回格式
 		Uri fileUri = Uri.fromFile(new File(path));
 		intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
@@ -89,7 +90,7 @@ public class ImageUtil {
 		options.inSampleSize = be;
 		bitmap = BitmapFactory.decodeFile(path, options);
 		bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
-				                                        ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+				ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
 		return bitmap;
 	}
 
@@ -122,7 +123,7 @@ public class ImageUtil {
 			else if (isDownloadsDocument(uri)) {
 
 				final String id = DocumentsContract.getDocumentId(uri);
-				final Uri contentUri = ContentUris.withAppendedId( Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+				final Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
 
 				return getDataColumn(context, contentUri, null, null);
 			}
@@ -143,7 +144,7 @@ public class ImageUtil {
 
 				final String selection = "_id=?";
 				final String[] selectionArgs = new String[]{
-						                                           split[1]
+						split[1]
 				};
 
 				return getDataColumn(context, contentUri, selection, selectionArgs);
@@ -182,12 +183,12 @@ public class ImageUtil {
 		Cursor cursor = null;
 		final String column = "_data";
 		final String[] projection = {
-				                            column
+				column
 		};
 
 		try {
 			cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs,
-					                                           null);
+					null);
 			if (cursor != null && cursor.moveToFirst()) {
 				final int index = cursor.getColumnIndexOrThrow(column);
 				return cursor.getString(index);

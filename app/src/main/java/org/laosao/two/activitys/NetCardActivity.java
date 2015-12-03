@@ -35,7 +35,7 @@ import cn.bmob.v3.datatype.BmobFile;
  * Created by Scout.Z on 2015/8/12.
  */
 public class NetCardActivity extends BaseActivity implements BmobControl.BmobSaveCallback,
-		                                                             BmobControl.BmobUploadCallback {
+		BmobControl.BmobUploadCallback {
 	private ImageView imgPreview;
 	private MaterialEditText etName, etQq, etWechat, etAddress, etCompany, etJob, etEmail, etPhone, etWeibo, etFax, etProFile;
 	private ButtonFloat btnCreate;
@@ -98,9 +98,9 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 					return;
 				}
 				pd = new MaterialDialog.Builder(this)
-						     .title(R.string.upload)
-						     .content(R.string.please_wait)
-						     .progress(true, 0).show();
+						.title(R.string.upload)
+						.content(R.string.please_wait)
+						.progress(true, 0).show();
 				pd.setCanceledOnTouchOutside(false);
 
 //				File file = new File(tempPath);
@@ -136,9 +136,9 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 
 	private void openAndSet() {
 		photoPath = Config.osCamera +
-				            File.separator +
-				            GeneralUtil.getTime() +
-				            Config.SUFFIX_PNG;
+				File.separator +
+				GeneralUtil.getTime() +
+				Config.SUFFIX_PNG;
 		ImageUtil.openCamera(this, photoPath);
 	}
 
@@ -167,7 +167,7 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 
 	private void doCrop() {
 		tempPath = Config.cameraDir + File.separator + "剪裁" + GeneralUtil.getTime() + Config.SUFFIX_PNG;
-		ImageUtil.cropImage(Uri.fromFile(new File(photoPath)), this, tempPath);
+		ImageUtil.cropImage(Uri.fromFile(new File(photoPath)), this, tempPath, 200, 210);
 	}
 
 	@Override
@@ -206,18 +206,18 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 	public void onSuccess(String url, BmobFile img) {
 		this.url = Config.KEY_SCAN_NET_CARD + url;
 		PersonIdCard card = new PersonIdCard(etName.getText().toString(),
-				                                    img,
-				                                    etQq.getText().toString(),
-				                                    etWechat.getText().toString(),
-				                                    etAddress.getText().toString(),
-				                                    etCompany.getText().toString(),
-				                                    etJob.getText().toString(),
-				                                    etEmail.getText().toString(),
-				                                    etPhone.getText().toString(),
-				                                    etWeibo.getText().toString(),
-				                                    etFax.getText().toString(),
-				                                    etProFile.getText().toString(),
-				                                    url);
+				img,
+				etQq.getText().toString(),
+				etWechat.getText().toString(),
+				etAddress.getText().toString(),
+				etCompany.getText().toString(),
+				etJob.getText().toString(),
+				etEmail.getText().toString(),
+				etPhone.getText().toString(),
+				etWeibo.getText().toString(),
+				etFax.getText().toString(),
+				etProFile.getText().toString(),
+				url);
 		BmobControl.insertObject(this, this, card);
 	}
 

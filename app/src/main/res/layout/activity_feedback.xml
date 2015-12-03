@@ -61,14 +61,6 @@
 				app:met_maxCharacters="20"
 				app:met_primaryColor="@color/material"/>
 
-
-			<TextView
-				android:id="@+id/tvShow"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/fk_aty_margin"
-				android:text="@string/fb_aty_tv_text"
-				android:textColor="@color/black"/>
 		</LinearLayout>
 	</ScrollView>
 
@@ -78,17 +70,4 @@
 		app:animate="true"
 		app:iconDrawable="@mipmap/ic_send"/>
 
-	<TextView
-		android:id="@+id/tvUpdate"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-		android:layout_marginBottom="5dp"
-		android:layout_marginLeft="50dp"
-		android:layout_marginRight="50dp"
-		android:gravity="center"
-		android:text="当前版本："
-		android:textColor="@color/black"
-		android:textSize="15dp"
-		/>
 </RelativeLayout>

@@ -74,7 +74,7 @@
 
 
 	    
-	<string name="fb_aty_tv_text">開發者：香河豪門工作室\n官方微博賬號：@新二維碼生成器\n官方微信：香河豪門工作室\n您可以直接發送微博私信或微信消息給我們提供意見或建議，也可以反饋您遇到的問題\n現推出定制二維碼服務，可以根據您現實項目的需求進行定制，詳細信息請通過官方渠道聯系我們</string>
+	<string name="fb_aty_tv_text">開發者：香河豪門工作室\n官方微博賬號：@新二維碼生成器\n官方微信：香河豪門工作室\n您可以直接發送微博私信或微信消息給我們提供意見或建議，也可以反饋您遇到的問題</string>
 	    
 	<string name="btn_open_img">圖片</string>
 	    
@@ -258,6 +258,7 @@
 	<string name="fail_to_save">保存失敗，請重試</string>
 	<string name="set_img">請選擇圖片</string>
 	<string name="qrcode_feedback">歡迎反饋</string>
+	<string name="about_app">關於軟件</string>
 	<string name="main_aty_wifi" translatable="false">無線二維碼</string>
 	<string name="main_aty_phone" translatable="false">電話二維碼</string>
 	<string name="wifi_name_hint" translatable="false">請輸入wifi名稱</string>

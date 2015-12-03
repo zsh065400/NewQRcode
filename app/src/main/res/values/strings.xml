@@ -28,6 +28,7 @@
 	<string name="btn_agree">know, use</string>
 	<string name="pic_aty_et_hint">Photos attached language</string>
 	<string name="cus_aty_et_hint">Enter-generated content.</string>
+	<string name="about_app">about app</string>
 	<string name="cus_aty_tv_content">Here you can enter the microblogging links/name, taobao shop link/name, WeChat account, software download address, etc., after scanning can directly view/download/call.More play also need you to find!</string>
 	<string name="qrcode_feedback">welcome feedback</string>
 	<string name="say_hint">Please enter the Profile</string>
@@ -43,7 +44,7 @@
 	<string name="url_text_hint">Enter a URL link</string>
 	<string name="hint">Enter-generated content.</string>
 	<string name="qrcode_result">network card information</string>
-	<string name="fb_aty_tv_text">Official twitter account: @ new qr code generator.\ n can direct messages directly our feedback!\ n now launch a service custom qr code, can be customized according to your real project requirement, specific content please weibo direct messages to us</string>
+	<string name="fb_aty_tv_text">Official twitter account: @ new qr code generator.\n can direct messages directly our feedback!\n</string>
 	<string name="btn_open_img">Photos</string>
 	<string name="btn_open_light">Lights</string>
 	<string name="tv_scan_hint">set the two-dimensional code is placed in the scan box</string>
