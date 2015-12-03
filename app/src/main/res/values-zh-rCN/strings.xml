@@ -78,6 +78,7 @@
 	<string name="test">选择下面的一项开始生成吧!</string>
 	<string name="scan_tips">开灯</string>
 	<string name="result_caption">二维码的秘密</string>
+	<string name="file">文件</string>
 
 
 	<string name="fk_project">反馈主题</string>
@@ -165,4 +166,5 @@
 	<string name="click_check_update" translatable="false">\n点击检查更新</string>
 	<string name="see">看看</string>
 	<string name="click_hint" translatable="false">您即将访问我们的官方微博主页，是否继续？</string>
+	<string name="record">录音</string>
 </resources>

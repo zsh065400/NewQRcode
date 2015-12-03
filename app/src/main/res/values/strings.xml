@@ -207,6 +207,7 @@
 	<string name="do_save">Saving</string>
 	    
 	<string name="save_path">Save Path:</string>
+	<string name="file">file</string>
 	    
 	<string name="fail_to_save">Save failed, please try again</string>
 	<string name="set_img">please choose picture</string>
@@ -225,6 +226,7 @@
 	<string name="click_check_update">\nClick check update</string>
 	<string name="see">look</string>
 	<string name="click_hint" translatable="false">You are about to visit our official weibo, whether to continue?</string>
+	<string name="record">record</string>
 
 	<!--最新-->
 

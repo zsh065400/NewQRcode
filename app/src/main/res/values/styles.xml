@@ -1,11 +1,20 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
            xmlns:materialdesign="http://schemas.android.com/apk/res-auto">
 
+	<!-- animation 样式 -->
+	<style name="activityAnimation" parent="@android:style/Animation">
+		<item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+		<item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+		<item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+		<item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+	</style>
+
 	<!--系统主题-->
 	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 		<item name="android:windowNoTitle">true</item>
 		<item name="android:windowActionBar">@null</item>
 		<item name="android:screenOrientation">portrait</item>
+		<item name="android:windowAnimationStyle">@style/activityAnimation</item>
 	</style>
 	<!-- 通用标题头-->
 	<style name="general_head_rl_style">

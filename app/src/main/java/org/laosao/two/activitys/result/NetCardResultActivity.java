@@ -1,6 +1,7 @@
 package org.laosao.two.activitys.result;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -85,7 +86,11 @@ public class NetCardResultActivity extends BaseActivity {
 		etWeibo = (MaterialEditText) findViewById(R.id.etWeibo);
 		etFax = (MaterialEditText) findViewById(R.id.etFax);
 		etProFile = (MaterialEditText) findViewById(R.id.etProFile);
+
+		etProFile.setOnClickListener(this);
 	}
+
+	private String mStrPerson;
 
 	private void setUIContent() {
 		obj.getHead().loadImage(this, imgPreview);
@@ -99,7 +104,8 @@ public class NetCardResultActivity extends BaseActivity {
 		etPhone.setText(obj.getPhone());
 		etWeibo.setText(obj.getWeibo());
 		etFax.setText(obj.getChuanzhen());
-		etProFile.setText(obj.getPerson());
+		mStrPerson = obj.getPerson();
+		etProFile.setText(mStrPerson);
 		try {
 			finalize();
 		} catch (Throwable throwable) {
@@ -107,4 +113,10 @@ public class NetCardResultActivity extends BaseActivity {
 		}
 	}
 
+	@Override
+	public void onClick(View v) {
+		MaterialDialog.Builder builder = new MaterialDialog.Builder(this);
+		builder.content(mStrPerson);
+		builder.build().show();
+	}
 }

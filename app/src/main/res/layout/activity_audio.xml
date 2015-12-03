@@ -52,7 +52,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginRight="15dp"
 				android:background="@color/material"
-				android:text="文件"/>
+				android:text="@string/file"/>
 
 			<com.gc.materialdesign.views.ButtonRectangle
 				android:id="@+id/btnSpeak"
@@ -60,7 +60,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="15dp"
 				android:background="@color/material"
-				android:text="录音"/>
+				android:text="@string/record"/>
 		</LinearLayout>
 	</LinearLayout>
 

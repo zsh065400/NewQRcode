@@ -27,7 +27,7 @@ public class AboutInfoActivity extends BaseActivity {
 
 	private final String mMsgTitle = "我发现了一个好玩又实用的应用：";
 	private final String mMsgContent = "新二维码生成器，可以生成多种与众不同的二维码，等你下载来玩哦！" +
-			"传送门：http://app.mi.com/detail/64291?ref=search";
+			"应用商店：http://app.mi.com/detail/64291?ref=search 官网：http://qrcode2014.bmob.cn";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

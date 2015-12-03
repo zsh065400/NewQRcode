@@ -66,6 +66,7 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 					break;
 				case Config.CODE_ADD_LOGO:
 					createshow.setImageBitmap(bitmap);
+					dialog.dismiss();
 					break;
 			}
 			try {
@@ -182,6 +183,8 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 		ImageUtil.openCamera(this, photoPath);
 	}
 
+	MaterialDialog dialog = null;
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -196,6 +199,13 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 					break;
 				case Config.REQ_CROP_IMG:
 					bmpLogo = BitmapFactory.decodeFile(tempPath);
+					if (dialog == null) {
+						dialog = new MaterialDialog.Builder(CreateActivity.this).
+								progress(true, 0)
+								.content(R.string.please_wait).
+										build();
+					}
+					dialog.show();
 					Canvas canvas = new Canvas();
 					canvas.setBitmap(bitmap);
 					//向中间插入内容

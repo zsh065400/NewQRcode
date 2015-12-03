@@ -1,5 +1,6 @@
 package org.laosao.two.activitys;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.AlertDialogWrapper;
@@ -147,7 +149,7 @@ public class AudioActivity extends BaseActivity {
 
 			path = ImageUtil.getPath(AudioActivity.this, uri);
 			mAudioFile = new File(path);
-
+			final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			View view = LayoutInflater.from(this).
 					inflate(R.layout.dialog_save, null);
 			final MaterialEditText etName = (MaterialEditText) view.findViewById(R.id.etDialogSave);
@@ -161,6 +163,7 @@ public class AudioActivity extends BaseActivity {
 					if (TextUtils.isEmpty(fileName)) {
 						fileName = mAudioFile.getName();
 					}
+					imm.hideSoftInputFromWindow(etName.getWindowToken(), 0);
 					mTvFileName.setText(getString(R.string.current_file) + fileName);
 				}
 			});
@@ -168,11 +171,11 @@ public class AudioActivity extends BaseActivity {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					fileName = mAudioFile.getName();
+					imm.hideSoftInputFromWindow(etName.getWindowToken(), 0);
 					mTvFileName.setText(getString(R.string.current_file) + fileName);
 				}
 			});
 			build.show();
-
 		}
 	}
 }

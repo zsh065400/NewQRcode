@@ -50,11 +50,11 @@ public class Config extends org.laosao.two.utils.T {
 	//special
 	public static final String EMPTY_STR = "";
 	public static final String NEW_LINE = "\n";
-	public static final String COMMA = "，";
 	public static final String SUFFIX_PNG = ".png";
 	public static final String IMME_IMAGE_TYPE = "image/*";
 	public static final String IMME_PNG = "image/png";
 	public static final String IMME_AUDIO = "audio/*";
+	public static final String IMME_TEXT = "text/plain";
 	public static final String IMME_RECORDER = "audio/amr";
 
 	public static final int CODE_ERROR = -1;

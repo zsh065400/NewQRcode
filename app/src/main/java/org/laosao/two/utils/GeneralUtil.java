@@ -329,6 +329,7 @@ public class GeneralUtil {
 	                            String msgTitle,
 	                            String msgText) {
 		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType(Config.IMME_TEXT);
 		intent.putExtra(Intent.EXTRA_SUBJECT, msgTitle);
 		intent.putExtra(Intent.EXTRA_TEXT, msgText);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
