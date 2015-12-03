@@ -263,8 +263,8 @@
 	<string name="main_aty_phone" translatable="false">電話二維碼</string>
 	<string name="wifi_name_hint" translatable="false">請輸入wifi名稱</string>
 	<string name="wifi_pw_hint" translatable="false">請輸入wifi蜜獁</string>
-	<string name="new_version_code" translatable="false">最新版本號：</string>
-	<string name="update_content" translatable="false">更新日誌：\n</string>
+	<string name="new_version_code" translatable="false">1.最新版本號：</string>
+	<string name="update_content" translatable="false">2.更新日誌：\n</string>
 	<string name="find_new_version" translatable="false">發現新版本</string>
 	<string name="update" translatable="false">更新</string>
 	<string name="toast_new_version" translatable="false">當前為最新版本：</string>

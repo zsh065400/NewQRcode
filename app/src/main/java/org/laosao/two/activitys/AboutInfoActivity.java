@@ -77,8 +77,7 @@ public class AboutInfoActivity extends BaseActivity {
 			case R.id.btnShareApp:
 				GeneralUtil.shareMsg(this, "分享：" + getString(R.string.app_name),
 						mMsgTitle,
-						mMsgTitle + mMsgContent,
-						null);
+						mMsgTitle + mMsgContent);
 				break;
 		}
 	}

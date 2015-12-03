@@ -155,8 +155,8 @@
 	<string name="main_aty_phone" translatable="false">电话二维码</string>
 	<string name="wifi_name_hint" translatable="false">请输入wifi名称</string>
 	<string name="wifi_pw_hint" translatable="false">请输入wifi密码</string>
-	<string name="new_version_code" translatable="false">最新版本号：</string>
-	<string name="update_content" translatable="false">更新日志：\n</string>
+	<string name="new_version_code" translatable="false">1.最新版本号：</string>
+	<string name="update_content" translatable="false">2.更新日志：\n</string>
 	<string name="find_new_version" translatable="false">发现新版本</string>
 	<string name="update" translatable="false">更新</string>
 	<string name="toast_new_version" translatable="false">当前为最新版本：</string>

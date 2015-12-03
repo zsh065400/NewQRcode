@@ -215,8 +215,8 @@
 	<string name="main_aty_phone">phone qr code</string>
 	<string name="wifi_name_hint">Please enter the name of the wifi</string>
 	<string name="wifi_pw_hint">Please enter the wifi password</string>
-	<string name="new_version_code">The latest version:</string>
-	<string name="update_content">Update log: \n</string>
+	<string name="new_version_code">1.The latest version:</string>
+	<string name="update_content">2.Update log: \n</string>
 	<string name="find_new_version">Found the new version</string>
 	<string name="update">Update</string>
 	<string name="toast_new_version">Current for the latest version:</string>
