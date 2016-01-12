@@ -224,6 +224,7 @@ public class GeneralUtil {
 							prompt.setMessage(activity.getString(R.string.save_path) + save.getAbsolutePath());
 						} else {
 							prompt.setMessage(activity.getString(R.string.fail_to_save));
+							prompt.setNegativeButton(null,null);
 						}
 						prompt.create().show();
 					}

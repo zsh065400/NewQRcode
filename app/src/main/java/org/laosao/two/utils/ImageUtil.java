@@ -36,8 +36,14 @@ public class ImageUtil {
 	 * @param activity
 	 */
 	public static void openImg(Activity activity) {
-		Intent image = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+		// TODO: 2015/12/17 用户反馈有无法打开现象 
+		Intent image = new Intent();
+		image.setAction(Intent.ACTION_GET_CONTENT);
 		image.setType(Config.IMME_IMAGE_TYPE);
+		if (image.resolveActivity(activity.getPackageManager()) == null) {
+			image.setAction(Intent.ACTION_OPEN_DOCUMENT);
+			L.outputError("open default aty error");
+		}
 		activity.startActivityForResult(image, Config.REQ_OPEN_IMG);
 	}
 
@@ -52,7 +58,7 @@ public class ImageUtil {
 		intent.setDataAndType(uri, Config.IMME_IMAGE_TYPE);
 		intent.putExtra("crop", "true");// crop=true 有这句才能出来最后的裁剪页面.
 		intent.putExtra("aspectX", 1);// 这两项为裁剪框的比例.
-		intent.putExtra("aspectY", 1);// x:y=1:2
+		intent.putExtra("aspectY", 1);// x:y=1:1
 		intent.putExtra("outputX", width);//图片输出大小
 		intent.putExtra("outputY", height);
 		intent.putExtra("outputFormat", "PNG");// 返回格式

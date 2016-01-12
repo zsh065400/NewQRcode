@@ -21,10 +21,10 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import org.laosao.two.Config;
 import org.laosao.two.R;
 import org.laosao.two.activitys.base.BaseActivity;
-import org.laosao.two.utils.ImageUtil;
-import org.laosao.two.utils.L;
 import org.laosao.two.utils.CreatQrcodeUtil;
 import org.laosao.two.utils.GeneralUtil;
+import org.laosao.two.utils.ImageUtil;
+import org.laosao.two.utils.L;
 import org.laosao.two.utils.T;
 
 import java.io.File;
