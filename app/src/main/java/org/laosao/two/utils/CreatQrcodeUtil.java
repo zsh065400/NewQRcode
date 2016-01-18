@@ -84,34 +84,41 @@ public class CreatQrcodeUtil {
 				mBitmap = Bitmap.createBitmap(imgSize, imgSize, Bitmap.Config.ARGB_8888);
 				Canvas canvas = new Canvas(mBitmap);
 
+//				try {
+				Qrcode qrcode = new Qrcode();
+				qrcode.setQrcodeErrorCorrect(Config.QRCODE_ERROR_CORRECT);
+				qrcode.setQrcodeEncodeMode(Config.QRCODE_ENCODING_MODE);
+				qrcode.setQrcodeVersion(qrVersion);
+				byte[] bytesEncoding;
+				boolean[][] bEncoding;
 				try {
-					Qrcode qrcode = new Qrcode();
-					qrcode.setQrcodeErrorCorrect(Config.QRCODE_ERROR_CORRECT);
-					qrcode.setQrcodeEncodeMode(Config.QRCODE_ENCODING_MODE);
-					qrcode.setQrcodeVersion(qrVersion);
-					byte[] bytesEncoding = mContent.getBytes(Config.ENCDOING);
-					boolean[][] bEncoding = qrcode.calQrcode(bytesEncoding);
-
-					canvas.drawColor(Color.WHITE);
-					Paint paint = new Paint();
-					paint.setStyle(Paint.Style.FILL);
-					paint.setColor(mColor);
-					paint.setStrokeWidth(strokeWidth);
-					for (int i = 0; i < bEncoding.length; i++) {
-						for (int j = 0; j < bEncoding.length; j++) {
-							if (bEncoding[j][i]) {
-								canvas.drawRect(new Rect(iPadding + j * 7 + 6,
-										                        iPadding + i * 7 + 6, iPadding + j * 7
-												                                              + 6 + 7, iPadding + i * 7 + 6
-														                                                       + 7), paint);
-							}
-						}
-					}
-
+					bytesEncoding = mContent.getBytes(Config.ENCODING_UTF_8);
+					bEncoding = qrcode.calQrcode(bytesEncoding);
 				} catch (Exception e) {
 					e.printStackTrace();
 					return null;
 				}
+
+				canvas.drawColor(Color.WHITE);
+				Paint paint = new Paint();
+				paint.setStyle(Paint.Style.FILL);
+				paint.setColor(mColor);
+				paint.setStrokeWidth(strokeWidth);
+				for (int i = 0; i < bEncoding.length; i++) {
+					for (int j = 0; j < bEncoding.length; j++) {
+						if (bEncoding[j][i]) {
+							canvas.drawRect(new Rect(iPadding + j * 7 + 6,
+									iPadding + i * 7 + 6, iPadding + j * 7
+									+ 6 + 7, iPadding + i * 7 + 6
+									+ 7), paint);
+						}
+					}
+				}
+
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//					return null;
+//				}
 				return mBitmap;
 			}
 

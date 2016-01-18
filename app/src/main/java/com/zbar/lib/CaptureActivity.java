@@ -411,7 +411,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 		}
 		// DecodeHintType 和EncodeHintType
 		Hashtable<DecodeHintType, String> hints = new Hashtable<DecodeHintType, String>();
-		hints.put(DecodeHintType.CHARACTER_SET, Config.ENCDOING); // 设置二维码内容的编码
+		hints.put(DecodeHintType.CHARACTER_SET, Config.ENCODING_UTF_8); // 设置二维码内容的编码
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true; // 先获取原大小
 		scanBitmap = BitmapFactory.decodeFile(path, options);

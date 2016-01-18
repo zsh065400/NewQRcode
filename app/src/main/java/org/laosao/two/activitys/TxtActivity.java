@@ -41,14 +41,14 @@ public class TxtActivity extends BaseActivity {
 		String content = null;
 		String textTitle = etTextTitle.getText().toString();
 		String textContent = etTextContent.getText().toString();
-		if (TextUtils.isEmpty(textTitle) && TextUtils.isEmpty(textContent)) {
+		if (TextUtils.isEmpty(textTitle) || TextUtils.isEmpty(textContent)) {
 			T.showShortToast(this, getString(R.string.content_not_empty));
 			return;
 		}
 		content = textTitle + Config.NEW_LINE + textContent;
-		if (content.startsWith(Config.NEW_LINE) || content.endsWith(Config.NEW_LINE)) {
-			content = content.replace(Config.NEW_LINE, Config.EMPTY_STR);
-		}
+//		if (content.startsWith(Config.NEW_LINE) || content.endsWith(Config.NEW_LINE)) {
+//			content = content.replace(Config.NEW_LINE, Config.EMPTY_STR);
+//		}
 
 		etTextTitle.setText(Config.EMPTY_STR);
 		etTextContent.setText(Config.EMPTY_STR);

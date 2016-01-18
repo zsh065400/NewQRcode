@@ -36,7 +36,6 @@ public class ImageUtil {
 	 * @param activity
 	 */
 	public static void openImg(Activity activity) {
-		// TODO: 2015/12/17 用户反馈有无法打开现象 
 		Intent image = new Intent();
 		image.setAction(Intent.ACTION_GET_CONTENT);
 		image.setType(Config.IMME_IMAGE_TYPE);

@@ -24,9 +24,10 @@ public class Config extends org.laosao.two.utils.T {
 	//编码模式
 	public static final char QRCODE_ENCODING_MODE = 'B';
 	//容错等级
-	public static final char QRCODE_ERROR_CORRECT = 'M';
+	public static final char QRCODE_ERROR_CORRECT = 'L';
 	//编码方式
-	public static final String ENCDOING = "utf-8";
+	public static final String ENCODING_UTF_8 = "utf-8";
+//	public static final String ENCODING_GB = "gb2312";
 	//Bmob通信ID
 	public static final String BMOB_SERVER_APP_ID = "a87bed9b1b14a484df1041ae578cb6b2";
 
