@@ -182,9 +182,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 				}
 				break;
 			case R.id.btnChooseImg:
-				Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-				intent.setType(Config.IMME_IMAGE_TYPE);
-				startActivityForResult(intent, REQ_CODE);
+				ImageUtil.openImg(this);
 				break;
 		}
 	}
@@ -379,7 +377,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
-				case REQ_CODE:
+				case Config.REQ_OPEN_IMG:
 					photo_path = ImageUtil.getPath(this, data.getData());
 					new Thread(new Runnable() {
 
