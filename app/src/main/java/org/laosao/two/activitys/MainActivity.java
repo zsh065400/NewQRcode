@@ -1,10 +1,7 @@
 package org.laosao.two.activitys;
 
-import android.Manifest;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +10,6 @@ import com.gc.materialdesign.views.ButtonFloat;
 import com.gc.materialdesign.views.LayoutRipple;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.nineoldandroids.view.ViewHelper;
-import com.zbar.lib.CaptureActivity;
 
 import org.laosao.two.Config;
 import org.laosao.two.GuideActivity;
@@ -39,7 +35,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-//		checkStartPermissions();
 		super.onCreate(savedInstanceState);
 
 		if (Config.getReference(this, Config.KEY_SPLASH) == Config.CODE_ERROR) {
@@ -55,24 +50,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 		GeneralUtil.autoUpdate(Config.UPDATE_AUTO, this);
 	}
-
-	@TargetApi(23)
-	private void checkStartPermissions() {
-		checkPermissions(Manifest.permission.READ_PHONE_STATE);
-	}
-
-	@TargetApi(23)
-	private void checkCameraPermissions() {
-		checkPermissions(Manifest.permission.CAMERA);
-	}
-
-	@TargetApi(23)
-	private void checkPermissions(String permissions) {
-		if (checkSelfPermission(permissions) == PackageManager.PERMISSION_DENIED) {
-			requestPermissions(new String[]{permissions}, 1);
-		}
-	}
-
 
 	private void initView() {
 		rpPic = (LayoutRipple) findViewById(R.id.rpPic);
@@ -123,8 +100,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				c = FeedBackActivity.class;
 				break;
 			case R.id.btnScan:
-//				checkCameraPermissions();
-				c = CaptureActivity.class;
+				c = ScanActivity.class;
 				break;
 			case R.id.rpPic:
 				c = PictureActivity.class;
@@ -212,6 +188,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		});
 
 	}
-
 
 }

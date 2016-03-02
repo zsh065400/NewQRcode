@@ -183,7 +183,8 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 
 	@Override
 	public void onSuccess() {
-		imgPreview.setImageResource(R.drawable.bac);
+		// TODO: 2016/3/2 解决图片
+//		imgPreview.setImageResource(R.drawable.bac);
 		tempPath = null;
 		for (int i = 0; i < lists.size(); i++) {
 			lists.get(i).setText(Config.EMPTY_STR);

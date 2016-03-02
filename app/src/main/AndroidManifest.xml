@@ -2,15 +2,6 @@
 <manifest package="org.laosao.two"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<!-- 摄像头控制 -->
-	<uses-permission android:name="android.permission.CAMERA"/>
-	<!-- <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/> -->
-	<!-- <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/> -->
-	<uses-permission android:name="android.permission.FLASHLIGHT"/>
-	<uses-permission android:name="android.permission.VIBRATE"/>
-
-	<uses-feature android:name="android.hardware.camera"/>
-	<uses-feature android:name="android.hardware.camera.autofocus"/>
 	<!-- Bmob权限 -->
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -79,10 +70,10 @@
 		<activity
 			android:name=".activitys.result.NetCardResultActivity"
 			android:screenOrientation="portrait"/>
+
 		<activity
-			android:name="com.zbar.lib.CaptureActivity"
-			android:screenOrientation="portrait"/>
-		<activity android:name=".activitys.WifiActivity">
+			android:name=".activitys.WifiActivity"
+			android:screenOrientation="portrait">
 		</activity>
 		<!-- 小米接收更新的receiver -->
 		<receiver android:name="com.xiaomi.market.sdk.DownloadCompleteReceiver">
@@ -91,12 +82,22 @@
 			</intent-filter>
 		</receiver>
 
-		<activity android:name=".activitys.AudioActivity">
+		<activity
+			android:name=".activitys.AudioActivity"
+			android:screenOrientation="portrait">
 		</activity>
-		<activity android:name=".activitys.result.AudioResActivity">
+		<activity
+			android:name=".activitys.result.AudioResActivity"
+			android:screenOrientation="portrait">
 		</activity>
-		<activity android:name=".activitys.AboutInfoActivity">
+		<activity
+			android:name=".activitys.AboutInfoActivity"
+			android:screenOrientation="portrait">
 		</activity>
+		<activity
+			android:name=".activitys.ScanActivity"
+			android:screenOrientation="portrait"/>
+
 	</application>
 
 </manifest>

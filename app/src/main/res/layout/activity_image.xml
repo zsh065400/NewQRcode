@@ -31,8 +31,7 @@
                 android:id="@+id/imgPreview"
                 style="@style/def_imgview_style"
                 android:layout_width="@dimen/pic_aty_img_size"
-                android:layout_height="@dimen/pic_aty_img_size"
-                android:src="@drawable/bac"/>
+                android:layout_height="@dimen/pic_aty_img_size"/>
 
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/etConent"
