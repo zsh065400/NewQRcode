@@ -158,7 +158,7 @@ public class PictureActivity extends BaseActivity implements BmobControl.BmobUpl
 	@Override
 	public void onSuccess() {
 		pd.dismiss();
-		// TODO: 2016/3/2  
+		// TODO: 2016/3/2
 //		imgPreview.setImageResource(R.drawable.bac);
 		etConent.setText(Config.EMPTY_STR);
 		startCreateActivity(url);

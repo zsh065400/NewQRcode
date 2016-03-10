@@ -1,10 +1,13 @@
-package org.laosao.two;
+package org.laosao.two.activitys;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.gc.materialdesign.views.ButtonFloat;
+
+import org.laosao.two.Config;
+import org.laosao.two.R;
 
 /**
  * Created by Scout.Z on 2015/8/12.

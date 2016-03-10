@@ -148,34 +148,34 @@ public class PicResultActivity extends BaseActivity implements MediaScannerConne
 	}
 
 	private void initView() {
-		imgResult = (ImageView) findViewById(R.id.imgResult);
-		etConent = (MaterialEditText) findViewById(R.id.etConent);
-		btnSave = (ButtonFloat) findViewById(R.id.btnSave);
-		btnShare = (ButtonFloat) findViewById(R.id.btnShare);
-		btnMore = (FloatingActionsMenu) findViewById(R.id.fam_res_img);
-		btnSave.setOnClickListener(this);
-		btnShare.setOnClickListener(this);
-		etConent.setOnClickListener(this);
+//		imgResult = (ImageView) findViewById(R.id.imgResult);
+//		etConent = (MaterialEditText) findViewById(R.id.etConent);
+//		btnSave = (ButtonFloat) findViewById(R.id.btnSave);
+//		btnShare = (ButtonFloat) findViewById(R.id.btnShare);
+//		btnMore = (FloatingActionsMenu) findViewById(R.id.fam_res_img);
+//		btnSave.setOnClickListener(this);
+//		btnShare.setOnClickListener(this);
+//		etConent.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-			case R.id.btnSave:
-				GeneralUtil.save(this, bmpResult, handler);
-				break;
-
-			case R.id.btnShare:
-				temp = new File(Config.rootDir + File.separator + "temp" + Config.SUFFIX_PNG);
-				GeneralUtil.share(this, temp, bmpResult);
-				break;
-
-			case R.id.etConent:
-				MaterialDialog.Builder builder = new MaterialDialog.Builder(PicResultActivity.this);
-				builder.content(mTalk);
-				builder.build().show();
-				break;
-		}
+//		switch (v.getId()) {
+//			case R.id.btnSave:
+//				GeneralUtil.save(this, bmpResult, handler);
+//				break;
+//
+//			case R.id.btnShare:
+//				temp = new File(Config.rootDir + File.separator + "temp" + Config.SUFFIX_PNG);
+//				GeneralUtil.share(this, temp, bmpResult);
+//				break;
+//
+//			case R.id.etConent:
+//				MaterialDialog.Builder builder = new MaterialDialog.Builder(PicResultActivity.this);
+//				builder.content(mTalk);
+//				builder.build().show();
+//				break;
+//		}
 	}
 
 	@Override

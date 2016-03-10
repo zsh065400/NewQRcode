@@ -8,10 +8,10 @@
 
 	<RelativeLayout
 		android:id="@+id/rlHeadView"
-		style="@style/general_title_rl_style">
+		style="@style/title_style">
 
 		<TextView
-			style="@style/general_title_tv_style"
+			style="@style/title_text_style"
 			android:text="@string/result_caption"/>
 	</RelativeLayout>
 
@@ -52,25 +52,25 @@
 		</LinearLayout>
 	</com.gc.materialdesign.views.ScrollView>
 
-	<com.getbase.floatingactionbutton.FloatingActionsMenu
-		android:id="@+id/fam_res_img"
-		style="@style/fam"
-		app:fab_addButtonColorNormal="@color/material"
-		app:fab_addButtonColorPressed="@color/material"
-		app:fab_addButtonPlusIconColor="@color/white"
-		app:fab_addButtonSize="normal"
-		app:fab_labelsPosition="right">
+	<!--<com.getbase.floatingactionbutton.FloatingActionsMenu-->
+		<!--android:id="@+id/fam_res_img"-->
+		<!--style="@style/fam"-->
+		<!--app:fab_addButtonColorNormal="@color/material"-->
+		<!--app:fab_addButtonColorPressed="@color/material"-->
+		<!--app:fab_addButtonPlusIconColor="@color/white"-->
+		<!--app:fab_addButtonSize="normal"-->
+		<!--app:fab_labelsPosition="right">-->
 
-		<com.gc.materialdesign.views.ButtonFloat
-			android:id="@+id/btnSave"
-			style="@style/main_fab"
-			app:animate="true"
-			app:iconDrawable="@mipmap/ic_grade"/>
+		<!--<com.gc.materialdesign.views.ButtonFloat-->
+			<!--android:id="@+id/btnSave"-->
+			<!--style="@style/main_fab"-->
+			<!--app:animate="true"-->
+			<!--app:iconDrawable="@mipmap/ic_grade"/>-->
 
-		<com.gc.materialdesign.views.ButtonFloat
-			android:id="@+id/btnShare"
-			style="@style/main_fab"
-			app:animate="true"
-			app:iconDrawable="@mipmap/ic_share"/>
-	</com.getbase.floatingactionbutton.FloatingActionsMenu>
+		<!--<com.gc.materialdesign.views.ButtonFloat-->
+			<!--android:id="@+id/btnShare"-->
+			<!--style="@style/main_fab"-->
+			<!--app:animate="true"-->
+			<!--app:iconDrawable="@mipmap/ic_share"/>-->
+	<!--</com.getbase.floatingactionbutton.FloatingActionsMenu>-->
 </RelativeLayout>

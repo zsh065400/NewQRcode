@@ -1,6 +1,5 @@
 package org.laosao.two.activitys;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,7 +12,6 @@ import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
@@ -123,14 +121,14 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 	}
 
 	private void initView() {
-		createshow = (ImageView) findViewById(R.id.create_show);
-		btnShare = (ButtonFloat) findViewById(R.id.btnShare);
-		btnSave = (ButtonFloat) findViewById(R.id.btnSave);
-		btnMore = (FloatingActionsMenu) findViewById(R.id.fam_create);
-		btnAddLogo = (ButtonFloat) findViewById(R.id.btnAddLogo);
-		btnShare.setOnClickListener(this);
-		btnSave.setOnClickListener(this);
-		btnAddLogo.setOnClickListener(this);
+//		createshow = (ImageView) findViewById(R.id.create_show);
+//		btnShare = (ButtonFloat) findViewById(R.id.btnShare);
+//		btnSave = (ButtonFloat) findViewById(R.id.btnSave);
+//		btnMore = (FloatingActionsMenu) findViewById(R.id.fam_create);
+//		btnAddLogo = (ButtonFloat) findViewById(R.id.btnAddLogo);
+//		btnShare.setOnClickListener(this);
+//		btnSave.setOnClickListener(this);
+//		btnAddLogo.setOnClickListener(this);
 	}
 
 	private String photoPath = null;
@@ -140,39 +138,39 @@ public class CreateActivity extends BaseActivity implements MediaScannerConnecti
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-			case R.id.btnSave:
-				GeneralUtil.save(this, bitmap, handler);
-				break;
-			case R.id.btnShare:
-				temp = new File(Config.rootDir + File.separator + "temp" + Config.SUFFIX_PNG);
-				GeneralUtil.share(CreateActivity.this, temp, bitmap);
-				break;
-
-			case R.id.btnAddLogo:
-				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
-				builder.setTitle(R.string.title_please_choose);
-				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						switch (which) {
-							case 0:
-								if (Config.sdCardInstall) {
-									openAndSet();
-								} else {
-									T.showLongToast(CreateActivity.this, getString(R.string.fail_to_mounted_sdcard));
-									return;
-								}
-								break;
-							case 1:
-								ImageUtil.openImg(CreateActivity.this);
-								break;
-						}
-					}
-				});
-				builder.create().show();
-				break;
-		}
+//		switch (v.getId()) {
+//			case R.id.btnSave:
+//				GeneralUtil.save(this, bitmap, handler);
+//				break;
+//			case R.id.btnShare:
+//				temp = new File(Config.rootDir + File.separator + "temp" + Config.SUFFIX_PNG);
+//				GeneralUtil.share(CreateActivity.this, temp, bitmap);
+//				break;
+//
+//			case R.id.btnAddLogo:
+//				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
+//				builder.setTitle(R.string.title_please_choose);
+//				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						switch (which) {
+//							case 0:
+//								if (Config.sdCardInstall) {
+//									openAndSet();
+//								} else {
+//									T.showLongToast(CreateActivity.this, getString(R.string.fail_to_mounted_sdcard));
+//									return;
+//								}
+//								break;
+//							case 1:
+//								ImageUtil.openImg(CreateActivity.this);
+//								break;
+//						}
+//					}
+//				});
+//				builder.create().show();
+//				break;
+//		}
 	}
 
 	private void openAndSet() {

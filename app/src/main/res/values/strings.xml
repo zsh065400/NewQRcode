@@ -166,4 +166,20 @@
 	<string name="see">看看</string>
 	<string name="click_hint" translatable="false">您即将访问我们的官方微博主页，是否继续？</string>
 	<string name="record">录音</string>
+
+
+	<!--重构部分-->
+	<string name="ripp_pic"><![CDATA[        图片二维码]]></string>
+	<string name="ripp_audio"><![CDATA[        音频二维码]]></string>
+	<string name="ripp_custom"><![CDATA[        自定义内容]]></string>
+	<string name="ripp_net_card"><![CDATA[        网络名片码]]></string>
+	<string name="ripp_card"><![CDATA[        通用名片码]]></string>
+	<string name="ripp_text"><![CDATA[        文本二维码]]></string>
+	<string name="ripp_wifi"><![CDATA[        无线二维码]]></string>
+	<string name="ripp_url"><![CDATA[        网址二维码]]></string>
+	<string name="ripp_sms"><![CDATA[        短信二维码]]></string>
+	<string name="ripp_email"><![CDATA[        邮件二维码]]></string>
+	<string name="label_scan">开始扫描</string>
+	<string name="label_feedback">意见反馈</string>
+	<string name="label_about">关于软件</string>
 </resources>

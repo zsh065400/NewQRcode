@@ -8,10 +8,10 @@
 
 	<RelativeLayout
 		android:id="@+id/rlTitle"
-		style="@style/general_title_rl_style">
+		style="@style/title_style">
 
 		<TextView
-			style="@style/general_title_tv_style"
+			style="@style/title_text_style"
 			android:text="@string/create_title"/>
 	</RelativeLayout>
 
@@ -30,36 +30,36 @@
 		android:layout_below="@id/middleView"
 		android:layout_centerHorizontal="true"/>
 
-	<com.getbase.floatingactionbutton.FloatingActionsMenu
-		android:id="@+id/fam_create"
-		style="@style/fam"
-		materialdesign:fab_addButtonColorNormal="@color/material"
-		materialdesign:fab_addButtonColorPressed="@color/material"
-		materialdesign:fab_addButtonPlusIconColor="@color/white"
-		materialdesign:fab_addButtonSize="normal"
-		materialdesign:fab_labelsPosition="right">
+	<!--<com.getbase.floatingactionbutton.FloatingActionsMenu-->
+		<!--android:id="@+id/fam_create"-->
+		<!--style="@style/fam"-->
+		<!--materialdesign:fab_addButtonColorNormal="@color/material"-->
+		<!--materialdesign:fab_addButtonColorPressed="@color/material"-->
+		<!--materialdesign:fab_addButtonPlusIconColor="@color/white"-->
+		<!--materialdesign:fab_addButtonSize="normal"-->
+		<!--materialdesign:fab_labelsPosition="right">-->
 
-		<com.gc.materialdesign.views.ButtonFloat
-			android:id="@+id/btnShare"
-			style="@style/main_fab"
-			materialdesign:animate="true"
-			materialdesign:iconDrawable="@mipmap/ic_share"/>
+		<!--<com.gc.materialdesign.views.ButtonFloat-->
+			<!--android:id="@+id/btnShare"-->
+			<!--style="@style/main_fab"-->
+			<!--materialdesign:animate="true"-->
+			<!--materialdesign:iconDrawable="@mipmap/ic_share"/>-->
 
-		<com.gc.materialdesign.views.ButtonFloat
-			android:id="@+id/btnSave"
-			style="@style/main_fab"
-			android:layout_toLeftOf="@id/btnShare"
-			materialdesign:animate="true"
-			materialdesign:iconDrawable="@mipmap/ic_grade"/>
+		<!--<com.gc.materialdesign.views.ButtonFloat-->
+			<!--android:id="@+id/btnSave"-->
+			<!--style="@style/main_fab"-->
+			<!--android:layout_toLeftOf="@id/btnShare"-->
+			<!--materialdesign:animate="true"-->
+			<!--materialdesign:iconDrawable="@mipmap/ic_grade"/>-->
 
-		<com.gc.materialdesign.views.ButtonFloat
-			android:id="@+id/btnAddLogo"
-			style="@style/main_fab"
-			android:layout_toLeftOf="@id/btnShare"
-			materialdesign:animate="true"
-			materialdesign:iconDrawable="@mipmap/ic_add"/>
+		<!--<com.gc.materialdesign.views.ButtonFloat-->
+			<!--android:id="@+id/btnAddLogo"-->
+			<!--style="@style/main_fab"-->
+			<!--android:layout_toLeftOf="@id/btnShare"-->
+			<!--materialdesign:animate="true"-->
+			<!--materialdesign:iconDrawable="@mipmap/ic_add"/>-->
 
 
-	</com.getbase.floatingactionbutton.FloatingActionsMenu>
+	<!--</com.getbase.floatingactionbutton.FloatingActionsMenu>-->
 
 </RelativeLayout>

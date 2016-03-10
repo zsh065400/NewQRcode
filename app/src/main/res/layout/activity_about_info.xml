@@ -8,10 +8,10 @@
 
 	<RelativeLayout
 		android:id="@+id/rlHeadView"
-		style="@style/general_title_rl_style">
+		style="@style/title_style">
 
 		<TextView
-			style="@style/general_title_tv_style"
+			style="@style/title_text_style"
 			android:text="@string/about_app"/>
 	</RelativeLayout>
 
