@@ -55,7 +55,7 @@ public class TextResultActivity extends BaseActivity {
 
 	private void initView() {
 		tvResultContent = (TextView) findViewById(R.id.tvResultContent);
-		btnCopy = (ButtonFloat) findViewById(R.id.btnCopy);
+//		btnCopy = (ButtonFloat) findViewById(R.id.btnCopy);
 		btnCopy.setOnClickListener(this);
 	}
 

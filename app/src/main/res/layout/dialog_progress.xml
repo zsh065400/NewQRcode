@@ -8,9 +8,8 @@
 	android:orientation="vertical">
 
 	<com.gc.materialdesign.views.ProgressBarCircularIndeterminate
-
-		android:layout_width="32dp"
-		android:layout_height="32dp"
+		android:layout_width="@dimen/dp_32"
+		android:layout_height="@dimen/dp_32"
 		android:background="@color/material"/>
 </LinearLayout>
 

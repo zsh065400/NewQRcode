@@ -39,7 +39,7 @@ public class NetCardResultActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_res_net_card);
+//		setContentView(R.layout.activity_res_net_card);
 		Config.setLayoutTransparentStatus(this, R.color.material);
 		initView();
 		url = getIntent().getStringExtra(Config.KEY_RESULT);
@@ -84,7 +84,7 @@ public class NetCardResultActivity extends BaseActivity {
 		etEmail = (MaterialEditText) findViewById(R.id.etEmail);
 		etPhone = (MaterialEditText) findViewById(R.id.etPhone);
 		etWeibo = (MaterialEditText) findViewById(R.id.etWeibo);
-		etFax = (MaterialEditText) findViewById(R.id.etFax);
+//		etFax = (MaterialEditText) findViewById(R.id.etFax);
 		etProFile = (MaterialEditText) findViewById(R.id.etProFile);
 
 		etProFile.setOnClickListener(this);

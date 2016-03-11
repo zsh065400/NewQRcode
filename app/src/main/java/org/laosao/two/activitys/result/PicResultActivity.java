@@ -114,7 +114,7 @@ public class PicResultActivity extends BaseActivity implements MediaScannerConne
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_res_image);
+//		setContentView(R.layout.activity_res_image);
 		Config.setLayoutTransparentStatus(this, R.color.material);
 		initView();
 		result = getIntent().getStringExtra(Config.KEY_RESULT);

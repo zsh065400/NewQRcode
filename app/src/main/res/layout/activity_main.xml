@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
 	android:id="@+id/rootView"
-	style="@style/general_base_rl_style"
+	style="@style/relative_style"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:fab="http://schemas.android.com/apk/res-auto">
 
@@ -18,10 +18,10 @@
 
 
 	<com.gc.materialdesign.views.ScrollView
-		style="@style/general_scorll_view_style"
+		style="@style/scroll_style"
 		android:layout_below="@id/rlHeadView">
 
-		<LinearLayout style="@style/general_base_vertical_ll_style">
+		<LinearLayout style="@style/pt_linear_style">
 
 			<material.view.RippleView
 				android:id="@+id/rpPic"

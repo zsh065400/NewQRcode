@@ -32,7 +32,7 @@ public class WifiActivity extends BaseActivity {
 		etWifiName = (MaterialEditText) findViewById(R.id.etWifiName);
 		etWifiPw = (MaterialEditText) findViewById(R.id.etWifiPw);
 		snWifiSecurity = (Spinner) findViewById(R.id.snWifiSecurity);
-		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
 
 		btnCreate.setOnClickListener(this);
 	}

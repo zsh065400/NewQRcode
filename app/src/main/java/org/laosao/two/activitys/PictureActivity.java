@@ -1,6 +1,5 @@
 package org.laosao.two.activitys;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -54,11 +52,11 @@ public class PictureActivity extends BaseActivity implements BmobControl.BmobUpl
 
 
 	private void init() {
-		imgPreview = (ImageView) findViewById(R.id.imgPreview);
-		etConent = (MaterialEditText) findViewById(R.id.etConent);
-		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
-		btnCreate.setOnClickListener(this);
-		imgPreview.setOnClickListener(this);
+//		imgPreview = (ImageView) findViewById(R.id.imgPreview);
+//		etConent = (MaterialEditText) findViewById(R.id.etConent);
+//		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		btnCreate.setOnClickListener(this);
+//		imgPreview.setOnClickListener(this);
 
 //        rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
 //
@@ -83,49 +81,49 @@ public class PictureActivity extends BaseActivity implements BmobControl.BmobUpl
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-			case R.id.btnCreate:
-				if (photoPath == null) {
-					T.showLongToast(PictureActivity.this, getString(R.string.set_img));
-					return;
-				}
-				pd = new MaterialDialog.Builder(this)
-						.title(R.string.upload)
-						.content(R.string.please_wait)
-						.progress(true, 0).show();
-				pd.setCanceledOnTouchOutside(false);
-
-				//				File img = new File(photoPath);
-				//				BmobControl.uploadImage(this, this, img);
-				// TODO: 2015/8/30 新版上传
-				BmobControl.newUploadImage(this, photoPath, this);
-				break;
-
-			case R.id.imgPreview:
-				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
-				builder.setTitle(R.string.title_please_choose);
-				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						switch (which) {
-							case 0:
-								if (Config.sdCardInstall) {
-									openAndSet();
-								} else {
-									T.showLongToast(PictureActivity.this, getString(R.string.fail_to_mounted_sdcard));
-									return;
-								}
-								break;
-							case 1:
-								ImageUtil.openImg(PictureActivity.this);
-								break;
-						}
-					}
-				});
-				builder.create().show();
-				break;
-
-		}
+//		switch (v.getId()) {
+//			case R.id.btnCreate:
+//				if (photoPath == null) {
+//					T.showLongToast(PictureActivity.this, getString(R.string.set_img));
+//					return;
+//				}
+//				pd = new MaterialDialog.Builder(this)
+//						.title(R.string.upload)
+//						.content(R.string.please_wait)
+//						.progress(true, 0).show();
+//				pd.setCanceledOnTouchOutside(false);
+//
+//				//				File img = new File(photoPath);
+//				//				BmobControl.uploadImage(this, this, img);
+//				// TODO: 2015/8/30 新版上传
+//				BmobControl.newUploadImage(this, photoPath, this);
+//				break;
+//
+//			case R.id.imgPreview:
+//				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
+//				builder.setTitle(R.string.title_please_choose);
+//				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						switch (which) {
+//							case 0:
+//								if (Config.sdCardInstall) {
+//									openAndSet();
+//								} else {
+//									T.showLongToast(PictureActivity.this, getString(R.string.fail_to_mounted_sdcard));
+//									return;
+//								}
+//								break;
+//							case 1:
+//								ImageUtil.openImg(PictureActivity.this);
+//								break;
+//						}
+//					}
+//				});
+//				builder.create().show();
+//				break;
+//
+//		}
 	}
 
 	private void openAndSet() {

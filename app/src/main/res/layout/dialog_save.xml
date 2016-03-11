@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    style="@style/general_scorll_view_style"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/transparent">
+	style="@style/scroll_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@android:color/transparent">
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/etDialogSave"
-        style="@style/def_edit_style"
-        android:layout_margin="@dimen/dp_twenty_five"
-        android:hint="@string/save_hint"
-        android:inputType="textShortMessage"
-        android:maxLength="20"
-        app:met_baseColor="@color/black"
-        app:met_clearButton="true"
-        app:met_floatingLabel="highlight"
-        app:met_maxCharacters="20"
-        app:met_primaryColor="@color/material"
-        app:met_singleLineEllipsis="true"/>
+	<com.rengwuxian.materialedittext.MaterialEditText
+		android:id="@+id/etSave"
+		style="@style/def_edit_style"
+		android:layout_margin="@dimen/dp_25"
+		android:hint="@string/save_hint"
+		android:inputType="textShortMessage"
+		android:maxLength="20"
+		app:met_baseColor="@color/black"
+		app:met_clearButton="true"
+		app:met_floatingLabel="highlight"
+		app:met_maxCharacters="20"
+		app:met_primaryColor="@color/material"
+		app:met_singleLineEllipsis="true"/>
 
 </LinearLayout>

@@ -12,7 +12,7 @@
 
 		<TextView
 			style="@style/title_text_style"
-			android:text="@string/email"/>
+			android:text="@string/text"/>
 
 	</RelativeLayout>
 
@@ -23,11 +23,10 @@
 		<LinearLayout style="@style/pt_linear_style">
 
 			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etEmail"
+				android:id="@+id/etTextTitle"
 				style="@style/def_edit_style"
-				android:autoLink="email"
-				android:hint="@string/email_hint"
-				android:inputType="textEmailAddress"
+				android:hint="@string/text_hint"
+				android:inputType="textLongMessage"
 				android:maxLength="50"
 				app:met_baseColor="@color/black"
 				app:met_clearButton="true"
@@ -37,34 +36,19 @@
 				app:met_singleLineEllipsis="true"/>
 
 			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etEmailTheme"
+				android:id="@+id/etTextContent"
 				style="@style/def_edit_style"
-				android:hint="@string/email_subject_hint"
-				android:inputType="textEmailSubject"
-				android:maxLength="40"
-				app:met_baseColor="@color/black"
-				app:met_clearButton="true"
-				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="40"
-				app:met_primaryColor="@color/material"
-				app:met_singleLineEllipsis="true"/>
-
-			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etEmailContent"
-				style="@style/def_edit_style"
-				android:hint="@string/email_content_hint"
+				android:hint="@string/text_content_hint"
 				android:inputType="textMultiLine"
-				android:maxLength="140"
+				android:maxLength="150"
 				app:met_baseColor="@color/black"
 				app:met_clearButton="true"
 				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="140"
+				app:met_maxCharacters="150"
 				app:met_primaryColor="@color/material"/>
-
 
 		</LinearLayout>
 	</com.gc.materialdesign.views.ScrollView>
-
 
 	<include layout="@layout/create_fab"/>
 </RelativeLayout>

@@ -12,7 +12,6 @@ import org.laosao.two.R;
 import org.laosao.two.activitys.base.BaseActivity;
 import org.laosao.two.utils.T;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,23 +38,23 @@ public class GeneralCardActivity extends BaseActivity {
 
 
 	private void init() {
-		etName = (MaterialEditText) findViewById(R.id.etName);
-		etCompany = (MaterialEditText) findViewById(R.id.etCompany);
-		etJob = (MaterialEditText) findViewById(R.id.etJob);
-		etPhone = (MaterialEditText) findViewById(R.id.etPhone);
-		etQq = (MaterialEditText) findViewById(R.id.etQq);
-		etEmail = (MaterialEditText) findViewById(R.id.etEmail);
-		etPerson = (MaterialEditText) findViewById(R.id.etPerson);
-		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
-		btnCreate.setOnClickListener(this);
-		value = new ArrayList<>();
-
-		value.add(etCompany);
-		value.add(etJob);
-		value.add(etPhone);
-		value.add(etQq);
-		value.add(etEmail);
-		value.add(etPerson);
+//		etName = (MaterialEditText) findViewById(R.id.etName);
+//		etCompany = (MaterialEditText) findViewById(R.id.etCompany);
+//		etJob = (MaterialEditText) findViewById(R.id.etJob);
+//		etPhone = (MaterialEditText) findViewById(R.id.etPhone);
+//		etQq = (MaterialEditText) findViewById(R.id.etQq);
+//		etEmail = (MaterialEditText) findViewById(R.id.etEmail);
+//		etPerson = (MaterialEditText) findViewById(R.id.etPerson);
+//		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		btnCreate.setOnClickListener(this);
+//		value = new ArrayList<>();
+//
+//		value.add(etCompany);
+//		value.add(etJob);
+//		value.add(etPhone);
+//		value.add(etQq);
+//		value.add(etEmail);
+//		value.add(etPerson);
 
 	}
 

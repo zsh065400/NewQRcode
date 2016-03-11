@@ -31,11 +31,11 @@ public class EmailActivity extends BaseActivity {
 	private ButtonFloat btnCreate;
 
 	private void init() {
-		etEmail = (MaterialEditText) findViewById(R.id.etEmail);
-		etEmailTheme = (MaterialEditText) findViewById(R.id.etEmailTheme);
-		etEmailContent = (MaterialEditText) findViewById(R.id.etEmailContent);
-		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
-		btnCreate.setOnClickListener(this);
+//		etEmail = (MaterialEditText) findViewById(R.id.etEmail);
+//		etEmailTheme = (MaterialEditText) findViewById(R.id.etEmailTheme);
+//		etEmailContent = (MaterialEditText) findViewById(R.id.etEmailContent);
+//		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		btnCreate.setOnClickListener(this);
 	}
 
 	@Override

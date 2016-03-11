@@ -5,9 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -22,14 +20,9 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import org.laosao.two.Config;
 import org.laosao.two.R;
 import org.laosao.two.activitys.base.BaseActivity;
-import org.laosao.two.bean.Audio;
-import org.laosao.two.biz.BmobControl;
 import org.laosao.two.utils.ImageUtil;
-import org.laosao.two.utils.T;
 
 import java.io.File;
-
-import cn.bmob.v3.datatype.BmobFile;
 
 public class AudioActivity extends BaseActivity {
 
@@ -54,14 +47,14 @@ public class AudioActivity extends BaseActivity {
 
 	private void initViews() {
 
-		mBtnChooseAudio = (ButtonRectangle) findViewById(R.id.btnChooseAudio);
-		mTvFileName = (TextView) findViewById(R.id.tvFileName);
-		mBtnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
-		mBtnSpeak = (ButtonRectangle) findViewById(R.id.btnSpeak);
-
-		mBtnChooseAudio.setOnClickListener(this);
-		mBtnCreate.setOnClickListener(this);
-		mBtnSpeak.setOnClickListener(this);
+//		mBtnChooseAudio = (ButtonRectangle) findViewById(R.id.btnChooseAudio);
+//		mTvFileName = (TextView) findViewById(R.id.tvFileName);
+//		mBtnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		mBtnSpeak = (ButtonRectangle) findViewById(R.id.btnSpeak);
+//
+//		mBtnChooseAudio.setOnClickListener(this);
+//		mBtnCreate.setOnClickListener(this);
+//		mBtnSpeak.setOnClickListener(this);
 
 	}
 
@@ -69,67 +62,67 @@ public class AudioActivity extends BaseActivity {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-			case R.id.btnChooseAudio:
-				Intent audio = new Intent(Intent.ACTION_PICK);
-				audio.setType(Config.IMME_AUDIO);
-				startActivityForResult(audio, REQUEST_FILE_CODE);
-				break;
-
-			case R.id.btnSpeak:
-//				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-				Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-//				intent.setType(Config.IMME_RECORDER);
-				intent.putExtra(MediaStore.EXTRA_OUTPUT, Config.rootDir + File.separator +
-						"record.mp3");
-				startActivityForResult(intent, REQUEST_RECORDER_CODE);
-				break;
-
-			case R.id.btnCreate:
-				if (mAudioFile != null && mAudioFile.exists()) {
-					pd = new MaterialDialog.Builder(this)
-							.title(R.string.upload)
-							.content(R.string.please_wait)
-							.progress(true, 0).show();
-					pd.setCanceledOnTouchOutside(false);
-
-					BmobControl.uploadImage(AudioActivity.this, new BmobControl.BmobUploadCallback() {
-						@Override
-						public void onSuccess(final String url, BmobFile audio) {
-							Audio b = new Audio(fileName, audio, url);
-							BmobControl.insertObject(AudioActivity.this, new BmobControl.BmobSaveCallback() {
-								@Override
-								public void onSuccess() {
-									startCreateActivity(Config.KEY_SCAN_PICTURE + url);
-
-									mAudioFile = null;
-									mTvFileName.setText(getString(R.string.choose_file));
-
-									pd.dismiss();
-								}
-
-								@Override
-								public void onFail(String error) {
-									Log.e("存入数据表失败", error);
-									pd.dismiss();
-								}
-							}, b);
-						}
-
-						@Override
-						public void onFail(String error) {
-							T.showShortToast(AudioActivity.this, error);
-							Log.e("数据上传失败", error);
-							pd.dismiss();
-						}
-					}, mAudioFile);
-
-				} else {
-					T.showShortToast(AudioActivity.this, "您还没有选择文件");
-				}
-				break;
-
-		}
+//		switch (v.getId()) {
+//			case R.id.btnChooseAudio:
+//				Intent audio = new Intent(Intent.ACTION_PICK);
+//				audio.setType(Config.IMME_AUDIO);
+//				startActivityForResult(audio, REQUEST_FILE_CODE);
+//				break;
+//
+//			case R.id.btnSpeak:
+////				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//				Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+////				intent.setType(Config.IMME_RECORDER);
+//				intent.putExtra(MediaStore.EXTRA_OUTPUT, Config.rootDir + File.separator +
+//						"record.mp3");
+//				startActivityForResult(intent, REQUEST_RECORDER_CODE);
+//				break;
+//
+//			case R.id.btnCreate:
+//				if (mAudioFile != null && mAudioFile.exists()) {
+//					pd = new MaterialDialog.Builder(this)
+//							.title(R.string.upload)
+//							.content(R.string.please_wait)
+//							.progress(true, 0).show();
+//					pd.setCanceledOnTouchOutside(false);
+//
+//					BmobControl.uploadImage(AudioActivity.this, new BmobControl.BmobUploadCallback() {
+//						@Override
+//						public void onSuccess(final String url, BmobFile audio) {
+//							Audio b = new Audio(fileName, audio, url);
+//							BmobControl.insertObject(AudioActivity.this, new BmobControl.BmobSaveCallback() {
+//								@Override
+//								public void onSuccess() {
+//									startCreateActivity(Config.KEY_SCAN_PICTURE + url);
+//
+//									mAudioFile = null;
+//									mTvFileName.setText(getString(R.string.choose_file));
+//
+//									pd.dismiss();
+//								}
+//
+//								@Override
+//								public void onFail(String error) {
+//									Log.e("存入数据表失败", error);
+//									pd.dismiss();
+//								}
+//							}, b);
+//						}
+//
+//						@Override
+//						public void onFail(String error) {
+//							T.showShortToast(AudioActivity.this, error);
+//							Log.e("数据上传失败", error);
+//							pd.dismiss();
+//						}
+//					}, mAudioFile);
+//
+//				} else {
+//					T.showShortToast(AudioActivity.this, "您还没有选择文件");
+//				}
+//				break;
+//
+//		}
 	}
 
 	@Override
@@ -152,9 +145,9 @@ public class AudioActivity extends BaseActivity {
 			final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			View view = LayoutInflater.from(this).
 					inflate(R.layout.dialog_save, null);
-			final MaterialEditText etName = (MaterialEditText) view.findViewById(R.id.etDialogSave);
+			final MaterialEditText etName = (MaterialEditText) view.findViewById(R.id.etSave);
 			AlertDialogWrapper.Builder build = new AlertDialogWrapper.Builder(this);
-			build.setTitle(getString(R.string.title_file_name));
+//			build.setTitle(getString(R.string.title_file_name));
 			build.setView(view);
 			build.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
 				@Override

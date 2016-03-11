@@ -21,23 +21,23 @@ public class GuideActivity extends Activity implements View.OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_guide);
+//		setContentView(R.layout.activity_guide);
 		Config.setLayoutTransparentStatus(this, R.color.material);
 		init();
 	}
 
 	private void init() {
-		btnGO = (ButtonFloat) findViewById(R.id.btnGo);
+//		btnGO = (ButtonFloat) findViewById(R.id.btnGo);
 		btnGO.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-			case R.id.btnGo:
-				Config.addReference(this, Config.KEY_SPLASH, Config.CODE_YES);
-				finish();
-				break;
+//			case R.id.btnGo:
+//				Config.addReference(this, Config.KEY_SPLASH, Config.CODE_YES);
+//				finish();
+//				break;
 
 		}
 	}

@@ -29,9 +29,9 @@ public class CustomContentActivity extends BaseActivity {
 	}
 
 	private void init() {
-		etContent = (MaterialEditText) findViewById(R.id.etConent);
-		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
-		btnCreate.setOnClickListener(this);
+//		etContent = (MaterialEditText) findViewById(R.id.etConent);
+//		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		btnCreate.setOnClickListener(this);
 
 	}
 

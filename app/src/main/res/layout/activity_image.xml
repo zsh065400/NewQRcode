@@ -1,61 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/rootView"
-    style="@style/general_base_rl_style"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+	android:id="@+id/rootView"
+	style="@style/relative_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 
+	<RelativeLayout
+		android:id="@+id/rlHeadView"
+		style="@style/title_style">
 
-    <RelativeLayout
-        android:id="@+id/rlHeadView"
-        style="@style/title_style">
+		<TextView
+			style="@style/title_text_style"
+			android:text="@string/picture"/>
 
-        <TextView
-            style="@style/title_text_style"
-            android:text="@string/main_aty_pic"/>
+	</RelativeLayout>
 
-    </RelativeLayout>
+	<com.gc.materialdesign.views.ScrollView
+		style="@style/scroll_style"
+		android:layout_below="@id/rlHeadView">
 
-    <View
-        android:id="@+id/middleView"
-        style="@style/def_line_style"
-        android:layout_below="@id/rlHeadView"/>
+		<LinearLayout style="@style/pt_linear_style">
 
-    <ScrollView
-        style="@style/general_scorll_view_style"
-        android:layout_below="@id/middleView">
+			<ImageView
+				android:id="@+id/imgPreview"
+				style="@style/def_imgview_style"/>
 
-        <LinearLayout style="@style/general_base_vertical_ll_style">
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etConent"
+				style="@style/def_edit_style"
+				android:layout_marginLeft="@dimen/dp_25"
+				android:layout_marginRight="@dimen/dp_25"
+				android:hint="@string/image_text"
+				android:maxLength="99"
+				app:met_baseColor="@color/black"
+				app:met_clearButton="true"
+				app:met_floatingLabel="highlight"
+				app:met_maxCharacters="99"
+				app:met_primaryColor="@color/material"/>
 
-            <ImageView
-                android:id="@+id/imgPreview"
-                style="@style/def_imgview_style"
-                android:layout_width="@dimen/pic_aty_img_size"
-                android:layout_height="@dimen/pic_aty_img_size"/>
+		</LinearLayout>
+	</com.gc.materialdesign.views.ScrollView>
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/etConent"
-                style="@style/def_edit_style"
-                android:layout_marginLeft="@dimen/general_margin"
-                android:layout_marginRight="@dimen/general_margin"
-                android:hint="@string/pic_aty_et_hint"
-                android:maxLength="70"
-                app:met_baseColor="@color/black"
-                app:met_clearButton="true"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="70"
-                app:met_primaryColor="@color/material"/>
-
-        </LinearLayout>
-    </ScrollView>
-
-    <com.gc.materialdesign.views.ButtonFloat
-        android:id="@+id/btnCreate"
-        style="@style/create_aty_float_btn_style"
-        android:layout_alignParentRight="true"
-        app:animate="true"
-        app:iconDrawable="@mipmap/ic_create"/>
-
+	<include layout="@layout/create_fab"/>
 
 </RelativeLayout>
 

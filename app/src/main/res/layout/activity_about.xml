@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/rootView"
+	style="@style/relative_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fab="http://schemas.android.com/tools">
+
+
+	<RelativeLayout
+		android:id="@+id/rlHeadView"
+		style="@style/title_style">
+
+		<TextView
+			style="@style/title_text_style"
+			android:text="@string/label_about"/>
+
+	</RelativeLayout>
+
+
+	<ScrollView
+		style="@style/scroll_style"
+		android:layout_below="@id/rlHeadView">
+
+
+		<LinearLayout style="@style/pt_linear_style">
+
+			<ImageView
+				android:layout_width="@dimen/dp_128"
+				android:layout_height="@dimen/dp_128"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="@dimen/dp_10"
+				android:scaleType="fitCenter"
+				android:src="@mipmap/ic_launcher"/>
+
+
+			<TextView
+				android:id="@+id/tvInfo"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="@dimen/dp_25"
+				android:text="@string/developer_info"
+				android:textColor="@color/black"
+				android:textSize="18dp"/>
+		</LinearLayout>
+	</ScrollView>
+
+	<material.view.fab.FloatingActionsMenu
+		style="@style/fam_style"
+		fab:fab_addButtonColorNormal="@color/material"
+		fab:fab_addButtonColorPressed="@color/material_pressed"
+		fab:fab_addButtonPlusIconColor="@color/white"
+		fab:fab_addButtonSize="normal"
+		fab:fab_addButtonStrokeVisible="true"
+		fab:fab_expandDirection="up"
+		fab:fab_labelStyle="@style/fab_lable_style"
+		fab:fab_labelsPosition="left">
+
+		<material.view.fab.FloatingActionButton
+			android:id="@+id/fabUpdate"
+			style="@style/wrap_content"
+			fab:fab_colorNormal="@color/material"
+			fab:fab_colorPressed="@color/material_pressed"
+			fab:fab_icon="@mipmap/ic_done"
+			fab:fab_size="mini"
+			fab:fab_title="@string/update_app"/>
+
+		<material.view.fab.FloatingActionButton
+			android:id="@+id/fabShare"
+			style="@style/wrap_content"
+			fab:fab_colorNormal="@color/material"
+			fab:fab_colorPressed="@color/material_pressed"
+			fab:fab_icon="@mipmap/ic_share"
+			fab:fab_size="mini"
+			fab:fab_title="@string/share_app"/>
+
+	</material.view.fab.FloatingActionsMenu>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_marginBottom="@dimen/dp_5"
+		android:layout_marginLeft="@dimen/dp_50"
+		android:layout_marginRight="@dimen/dp_50"
+		android:gravity="center"
+		android:text="@string/current_version"
+		android:textColor="@color/black"
+		android:textSize="15dp"
+		/>
+</RelativeLayout>

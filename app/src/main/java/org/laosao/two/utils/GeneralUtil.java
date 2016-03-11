@@ -138,7 +138,7 @@ public class GeneralUtil {
 					Intent intent = new Intent(Intent.ACTION_SEND);
 					intent.setType(Config.IMME_PNG);
 					intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(temp));
-					activity.startActivity(Intent.createChooser(intent, activity.getString(R.string.share)));
+					activity.startActivity(Intent.createChooser(intent, activity.getString(R.string.share_locate)));
 				} else {
 
 				}
@@ -149,7 +149,7 @@ public class GeneralUtil {
 
 	public static void save(final Activity activity, final Bitmap bitmap, final Handler handler) {
 		View view = LayoutInflater.from(activity).inflate(R.layout.dialog_save, null);
-		final MaterialEditText etName = (MaterialEditText) view.findViewById(R.id.etDialogSave);
+		final MaterialEditText etName = (MaterialEditText) view.findViewById(R.id.etSave);
 		AlertDialogWrapper.Builder build = new AlertDialogWrapper.Builder(activity);
 		build.setTitle(activity.getString(R.string.save));
 		build.setView(view);
@@ -251,8 +251,8 @@ public class GeneralUtil {
 						// 如果希望 SDK继续接管下载安装事宜，可调用
 						//  XiaomiUpdateAgent.arrange()
 						final View view = LayoutInflater.from(activity).inflate(R.layout.update_popup, null);
-						final TextView tvVersionCode = (TextView) view.findViewById(R.id.tvVersionCode);
-						final TextView tvUpdateContent = (TextView) view.findViewById(R.id.tvUpdateContent);
+						final TextView tvVersionCode = (TextView) view.findViewById(R.id.tvNewVersion);
+						final TextView tvUpdateContent = (TextView) view.findViewById(R.id.tvDescrption);
 
 						//设置更新信息
 						tvVersionCode.setText(tvVersionCode.getText().toString() + updateInfo.versionCode);
@@ -260,12 +260,12 @@ public class GeneralUtil {
 						AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(activity);
 						builder.setTitle(activity.getString(R.string.find_new_version));
 						builder.setView(view);
-						builder.setPositiveButton(activity.getString(R.string.update), new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								XiaomiUpdateAgent.arrange();
-							}
-						});
+//						builder.setPositiveButton(activity.getString(R.string.update), new DialogInterface.OnClickListener() {
+//							@Override
+//							public void onClick(DialogInterface dialog, int which) {
+//								XiaomiUpdateAgent.arrange();
+//							}
+//						});
 						builder.setNegativeButton(activity.getString(R.string.cancel), null);
 						builder.show();
 						break;

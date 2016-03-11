@@ -1,5 +1,4 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-           xmlns:fab="http://schemas.android.com/apk/res-auto">
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<!-- animation 样式 -->
 	<style name="activityAnimation"
@@ -12,202 +11,18 @@
 
 	<!--系统主题-->
 	<style name="AppTheme"
-	       parent="Theme.AppCompat.Light.DarkActionBar">
+	       parent="BaseTheme">
+	</style>
+
+	<style name="BaseTheme"
+	       parent="Theme.AppCompat.Light.NoActionBar">
 		<item name="android:windowNoTitle">true</item>
-		<item name="android:windowActionBar">@null</item>
 		<item name="android:screenOrientation">portrait</item>
 		<item name="android:windowAnimationStyle">@style/activityAnimation</item>
 	</style>
-	<!-- 通用标题头-->
-	<style name="general_head_rl_style">
-		<item name="android:layout_height">@dimen/head_130_dp</item>
-		<item name="android:layout_width">match_parent</item>
-	</style>
-
-	<!--通用滚动条风格-->
-	<style name="general_scorll_view_style">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:layout_weight">1</item>
-	</style>
-	<!--通用垂直线性布局-->
-	<style name="general_base_vertical_ll_style">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">match_parent</item>
-		<item name="android:orientation">vertical</item>
-	</style>
-	<!-- 主界面rippleView风格-->
-	<style name="main_aty_ripple_view_style">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">@dimen/main_aty_ripple_height</item>
-		<item name="android:background">@color/special_white</item>
-		<item name="android:clickable">true</item>
-	</style>
-	<!-- 主界面ImageView风格-->
-	<style name="main_aty_ripple_img_style">
-		<item name="android:layout_width">wrap_content</item>
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:gravity">center</item>
-		<item name="android:layout_centerVertical">true</item>
-		<item name="android:layout_marginLeft">@dimen/image_view_margin_left</item>
-	</style>
-	<!--主界面ripple后的文本框-->
-	<style name="main_aty_ripple_text_tv_style">
-		<item name="android:layout_width">wrap_content</item>
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:layout_centerVertical">true</item>
-		<item name="android:layout_marginLeft">@dimen/dp_104</item>
-		<item name="android:textSize">@dimen/main_aty_ripple_text_size</item>
-		<item name="android:textColor">@color/black</item>
-	</style>
-	<!-- FloatButton-->
-	<style name="float_button_style">
-		<item name="android:layout_width">wrap_content</item>
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:layout_marginRight">@dimen/btn_margin</item>
-		<item name="android:background">@color/material</item>
-		<item name="android:layout_alignParentRight">true</item>
-		<item name="android:layout_alignParentBottom">true</item>
-	</style>
-
-	<style name="main_fab"
-	       parent="float_button_style">
-		<item name="android:layout_width">52dp</item>
-		<item name="android:layout_height">52dp</item>
-	</style>
-
-	<style name="create_aty_float_btn_style"
-	       parent="float_button_style">
-		<item name="android:layout_alignParentRight">false</item>
-	</style>
-	<!-- 包含在相对布局中的线性布局-->
-	<style name="contain_rl_linear">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">match_parent</item>
-		<item name="android:orientation">vertical</item>
-	</style>
-
-	<!-- 基础布局-->
-	<style name="base_style">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">match_parent</item>
-		<item name="android:background">@color/special_white</item>
-		<item name="android:focusable">true</item>
-		<item name="android:focusableInTouchMode">true</item>
-	</style>
-	<!--通用线性布局-->
-	<style name="general_base_ll_style"
-	       parent="base_style">
-		<item name="android:orientation">vertical</item>
-	</style>
-	<!-- 通用相对布局-->
-	<style name="general_base_rl_style"
-	       parent="base_style">
-
-	</style>
-	<!--Guide的文本框-->
-	<style name="guide_hint_textview_style">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:textSize">@dimen/guide_aty_tv_text_size</item>
-		<item name="android:layout_gravity">center</item>
-		<item name="android:layout_margin">@dimen/tv_margin</item>
-		<item name="android:textColor">@color/black</item>
-	</style>
-	<!--FlatButtonStyle-->
-	<style name="def_flat_btn_style"
-	       parent="def_line_style">
-		<item name="android:layout_width">@dimen/button_width</item>
-		<item name="android:layout_height">@dimen/button_height</item>
-		<item name="android:layout_centerInParent">true</item>
-		<item name="android:layout_marginBottom">@dimen/btn_margin</item>
-		<item name="android:layout_marginRight">@dimen/general_margin</item>
-		<item name="android:layout_marginLeft">@dimen/general_margin</item>
-	</style>
-	<!--默认按钮的父控件-->
-	<style name="def_flat_btn_parent_style">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:orientation">horizontal</item>
-		<item name="android:gravity">center</item>
-		<item name="android:layout_gravity">bottom</item>
-	</style>
-	<!-- 默认的蓝色横线-->
-	<style name="def_line_style">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">@dimen/default_line_height</item>
-		<item name="android:background">@color/material</item>
-		<item name="android:layout_marginTop">@dimen/btn_margin</item>
-		<item name="android:layout_marginRight">@dimen/general_margin</item>
-		<item name="android:layout_marginLeft">@dimen/general_margin</item>
-	</style>
-	<!--默认imageView-->
-	<style name="def_imgview_style">
-		<item name="android:layout_width">0dp</item>
-		<item name="android:layout_height">0dp</item>
-		<item name="android:gravity">center</item>
-		<item name="android:layout_gravity">center_horizontal</item>
-		<item name="android:layout_marginTop">7dp</item>
-		<item name="android:scaleType">fitCenter</item>
-		<item name="android:layout_marginLeft">2dp</item>
-	</style>
-	<!--输入框的style-->
-	<style name="def_edit_style">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:layout_marginTop">@dimen/btn_margin</item>
-		<item name="android:layout_marginLeft">@dimen/edit_margin_else</item>
-		<item name="android:layout_marginRight">@dimen/edit_margin_else</item>
-		<item name="android:textSize">@dimen/all_edit_text_size</item>
-		<item name="android:textCursorDrawable">@null</item>
-	</style>
-
-	<style name="result_edit_style"
-	       parent="def_edit_style">
-		<item name="android:editable">false</item>
-		<item name="android:focusableInTouchMode">false</item>
-		<item name="android:focusable">false</item>
-	</style>
-	<!--头像边editText的style-->
-	<style name="net_card_aty_img_edit_style">
-		<item name="android:layout_width">match_parent</item>
-		<item name="android:layout_height">@dimen/zero_dp</item>
-		<item name="android:layout_weight">1</item>
-		<item name="android:layout_marginLeft">@dimen/edit_margin_else</item>
-		<item name="android:layout_marginRight">@dimen/edit_margin_else</item>
-		<item name="android:textSize">@dimen/all_edit_text_size</item>
-		<item name="android:textCursorDrawable">@null</item>
-	</style>
-
-	<style name="result_aty_img_edit_style"
-	       parent="net_card_aty_img_edit_style">
-		<item name="android:editable">false</item>
-		<item name="android:focusableInTouchMode">false</item>
-		<item name="android:focusable">false</item>
-	</style>
-
-	<!-- 扫描框btn-->
-	<style name="scan_aty_flat_btn_style">
-		<item name="android:layout_width">@dimen/zero_dp</item>
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:layout_margin">@dimen/scan_aty_flat_btn_margin</item>
-		<item name="android:layout_weight">1</item>
-		<item name="android:textColor">@color/material</item>
-		<item name="android:textSize">@dimen/scan_aty_flat_btn_text_size</item>
-	</style>
 
 
-	<style name="frame_textview">
-		<item name="android:layout_width">@dimen/frame_tv_width</item>
-		<item name="android:layout_height">@dimen/frame_tv_height</item>
-		<item name="android:layout_gravity">center</item>
-		<item name="android:gravity">center</item>
-		<item name="android:textSize">@dimen/frame_tv_size</item>
-		<item name="android:textColor">@color/material</item>
-		<item name="android:layout_marginTop">@dimen/btn_margin</item>
-	</style>
-
-
+	<!---->
 	<!--重构部分-->
 	<style name="my_ripple_view">
 		<item name="android:layout_width">match_parent</item>
@@ -230,16 +45,17 @@
 		<item name="android:layout_height">@dimen/dp_128</item>
 		<item name="android:background">@color/material</item>
 		<item name="android:paddingBottom">@dimen/dp_20</item>
-		<item name="android:paddingLeft">@dimen/dp_104</item>
 	</style>
 
 	<!--通用标题文本框-->
 	<style name="title_text_style">
+		<item name="android:gravity">center</item>
+		<item name="android:layout_centerHorizontal">true</item>
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
 		<item name="android:layout_alignParentBottom">true</item>
 		<item name="android:textColor">@color/white</item>
-		<item name="android:textSize">@dimen/general_title_text_size</item>
+		<item name="android:textSize">@dimen/dp_30</item>
 	</style>
 	<!--FloatActionButton的标签样式-->
 	<style name="fab_lable_style">
@@ -256,6 +72,98 @@
 		<item name="android:layout_marginBottom">@dimen/dp_20</item>
 		<item name="android:layout_marginRight">@dimen/dp_20</item>
 		<item name="android:layout_marginEnd">@dimen/dp_20</item>
+	</style>
+
+	<!-- FloatButton-->
+	<style name="fab_style"
+	       parent="fam_style">
+	</style>
+
+	<!--通用滚动条风格-->
+	<style name="scroll_style">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_weight">1</item>
+	</style>
+
+	<!--通用垂直线性布局-->
+	<style name="pt_linear_style">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:orientation">vertical</item>
+	</style>
+
+	<!--图片二维码imageView-->
+	<style name="def_imgview_style">
+		<item name="android:layout_width">@dimen/dp_220</item>
+		<item name="android:layout_height">@dimen/dp_220</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_gravity">center_horizontal</item>
+		<item name="android:layout_marginTop">7dp</item>
+		<item name="android:scaleType">fitCenter</item>
+		<item name="android:layout_marginLeft">2dp</item>
+	</style>
+
+	<!--输入框的style-->
+	<style name="def_edit_style">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginTop">@dimen/dp_10</item>
+		<item name="android:layout_marginLeft">@dimen/dp_20</item>
+		<item name="android:layout_marginRight">@dimen/dp_20</item>
+		<item name="android:textSize">@dimen/dp_16</item>
+		<item name="android:textCursorDrawable">@null</item>
+	</style>
+
+	<!-- 基础布局-->
+	<style name="base_style">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:background">@color/special_white</item>
+		<item name="android:focusable">true</item>
+		<item name="android:focusableInTouchMode">true</item>
+	</style>
+	<!--通用线性布局-->
+	<style name="linear_style"
+	       parent="base_style">
+		<item name="android:orientation">vertical</item>
+	</style>
+	<!-- 通用相对布局-->
+	<style name="relative_style"
+	       parent="base_style">
+
+	</style>
+
+	<style name="btn_rectangle_style"
+	       parent="wrap_content">
+		<item name="android:background">@color/material</item>
+	</style>
+
+	<style name="linear_center">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">center</item>
+	</style>
+
+	<!--头像边editText的style-->
+	<style name="small_et_style">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">@dimen/dp_0</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:layout_marginLeft">@dimen/dp_15</item>
+		<item name="android:layout_marginRight">@dimen/dp_15</item>
+		<item name="android:textSize">@dimen/dp_15</item>
+		<item name="android:textCursorDrawable">@null</item>
+	</style>
+
+	<!--结果页面文本框-->
+	<style name="result_text_style">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textSize">@dimen/dp_17</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_margin">@dimen/dp_25</item>
+		<item name="android:textColor">@color/black</item>
 	</style>
 
 </resources>

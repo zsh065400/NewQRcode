@@ -49,7 +49,7 @@ public class AudioResActivity extends BaseActivity {
 	}
 
 	private void init() {
-		btnPlayOrPause = (ButtonFloat) findViewById(R.id.btnPlayOrPause);
+//		btnPlayOrPause = (ButtonFloat) findViewById(R.id.btnPlayOrPause);
 		btnPlayOrPause.setDrawableIcon(getResources().getDrawable(R.mipmap.ic_play));
 		tvFileName = (TextView) findViewById(R.id.tvFileName);
 		mMediaPlayer = new MediaPlayer();

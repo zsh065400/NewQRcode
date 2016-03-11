@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<material.view.fab.FloatingActionButton
+	android:id="@+id/fabCreate"
+	style="@style/fab_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fab="http://schemas.android.com/apk/res-auto"
+	fab:fab_colorNormal="@color/material"
+	fab:fab_colorPressed="@color/material_pressed"
+	fab:fab_icon="@mipmap/ic_create"
+	fab:fab_size="normal"/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
 	android:id="@+id/rootView"
-	style="@style/general_base_rl_style"
+	style="@style/relative_style"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+	xmlns:fab="http://schemas.android.com/apk/res-auto">
 
 
 	<RelativeLayout
@@ -12,62 +12,63 @@
 
 		<TextView
 			style="@style/title_text_style"
-			android:text="@string/qrcode_feedback"/>
+			android:text="@string/label_feedback"/>
+
 	</RelativeLayout>
 
 
-	<ScrollView
-		style="@style/general_scorll_view_style"
+	<com.gc.materialdesign.views.ScrollView
+		style="@style/scroll_style"
 		android:layout_below="@id/rlHeadView">
 
-
-		<LinearLayout style="@style/general_base_vertical_ll_style">
-
+		<LinearLayout style="@style/pt_linear_style">
 
 			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etTheme"
+				android:id="@+id/etProject"
 				style="@style/def_edit_style"
-				android:hint="@string/fk_project"
-				android:inputType="textMultiLine"
-				android:maxLength="50"
-				app:met_baseColor="@color/black"
-				app:met_clearButton="true"
-				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="50"
-				app:met_primaryColor="@color/material"/>
+				android:hint="@string/project"
+				android:inputType="textShortMessage"
+				android:maxLength="20"
+				fab:met_baseColor="@color/black"
+				fab:met_clearButton="true"
+				fab:met_floatingLabel="highlight"
+				fab:met_maxCharacters="20"
+				fab:met_primaryColor="@color/material"/>
 
 
 			<com.rengwuxian.materialedittext.MaterialEditText
 				android:id="@+id/etContent"
 				style="@style/def_edit_style"
-				android:hint="@string/fk_content"
+				android:hint="@string/content"
 				android:inputType="textMultiLine"
 				android:maxLength="300"
-				app:met_baseColor="@color/black"
-				app:met_clearButton="true"
-				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="300"
-				app:met_primaryColor="@color/material"/>
+				fab:met_baseColor="@color/black"
+				fab:met_clearButton="true"
+				fab:met_floatingLabel="highlight"
+				fab:met_maxCharacters="300"
+				fab:met_primaryColor="@color/material"/>
 
 			<com.rengwuxian.materialedittext.MaterialEditText
 				android:id="@+id/etContact"
 				style="@style/def_edit_style"
-				android:hint="@string/fk_call"
+				android:hint="@string/email_address"
 				android:inputType="textMultiLine"
 				android:maxLength="20"
-				app:met_baseColor="@color/black"
-				app:met_clearButton="true"
-				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="20"
-				app:met_primaryColor="@color/material"/>
+				fab:met_baseColor="@color/black"
+				fab:met_clearButton="true"
+				fab:met_floatingLabel="highlight"
+				fab:met_maxCharacters="20"
+				fab:met_primaryColor="@color/material"/>
 
 		</LinearLayout>
-	</ScrollView>
+	</com.gc.materialdesign.views.ScrollView>
 
-	<com.gc.materialdesign.views.ButtonFloat
-		android:id="@+id/btnSendFb"
-		style="@style/float_button_style"
-		app:animate="true"
-		app:iconDrawable="@mipmap/ic_send"/>
+	<material.view.fab.FloatingActionButton
+		android:id="@+id/fabSend"
+		style="@style/fab_style"
+		fab:fab_colorNormal="@color/material"
+		fab:fab_colorPressed="@color/material_pressed"
+		fab:fab_icon="@mipmap/ic_send"
+		fab:fab_size="normal"/>
 
 </RelativeLayout>

@@ -32,7 +32,7 @@ public class UrlActivity extends BaseActivity {
 	private void init() {
 		etWebTitle = (MaterialEditText) findViewById(R.id.etWebTitle);
 		etWebUrl = (MaterialEditText) findViewById(R.id.etWebUrl);
-		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
 		btnCreate.setOnClickListener(this);
 	}
 

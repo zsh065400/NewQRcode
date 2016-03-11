@@ -1,41 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/rootView"
-    style="@style/general_base_rl_style"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+	android:id="@+id/rootView"
+	style="@style/relative_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fab="http://schemas.android.com/apk/res-auto">
 
 
-    <RelativeLayout
-        android:id="@+id/rlHeadView"
-        style="@style/title_style">
+	<RelativeLayout
+		android:id="@+id/rlHeadView"
+		style="@style/title_style">
 
-        <TextView
-            style="@style/title_text_style"
-            android:text="@string/result_caption"/>
+		<TextView
+			style="@style/title_text_style"
+			android:text="@string/result"/>
 
-    </RelativeLayout>
-
-    <View
-        android:id="@+id/middleView"
-        style="@style/def_line_style"
-        android:layout_below="@id/rlHeadView"/>
-
-    <ScrollView
-        style="@style/general_scorll_view_style"
-        android:layout_below="@id/middleView">
-
-        <TextView
-            android:id="@+id/tvResultContent"
-            style="@style/guide_hint_textview_style"
-            android:autoLink="all"/>
-    </ScrollView>
+	</RelativeLayout>
 
 
-    <com.gc.materialdesign.views.ButtonFloat
-        android:id="@+id/btnCopy"
-        style="@style/float_button_style"
-        app:animate="true"
-        app:iconDrawable="@mipmap/ic_copy"/>
+	<ScrollView
+		style="@style/scroll_style"
+		android:layout_below="@id/rlHeadView">
+
+		<TextView
+			android:id="@+id/tvResultContent"
+			style="@style/result_text_style"
+			android:autoLink="all"/>
+	</ScrollView>
+
+	<material.view.fab.FloatingActionButton
+		android:id="@+id/fabCopy"
+		style="@style/fab_style"
+		fab:fab_colorNormal="@color/material"
+		fab:fab_colorPressed="@color/material_pressed"
+		fab:fab_icon="@mipmap/ic_copy"
+		fab:fab_size="normal"/>
 
 </RelativeLayout>

@@ -1,21 +1,16 @@
 package org.laosao.two.activitys;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.gc.materialdesign.views.ButtonFloat;
 
 import org.laosao.two.Config;
 import org.laosao.two.R;
 import org.laosao.two.activitys.base.BaseActivity;
-import org.laosao.two.utils.GeneralUtil;
 import org.laosao.two.utils.L;
 
 public class AboutInfoActivity extends BaseActivity {
@@ -32,54 +27,54 @@ public class AboutInfoActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_about_info);
+		setContentView(R.layout.activity_about);
 		Config.setLayoutTransparentStatus(this, R.color.material);
 		initViews();
 	}
 
 	private void initViews() {
-		mTvShow = (TextView) findViewById(R.id.tvShow);
-		mBtnShareApp = (ButtonFloat) findViewById(R.id.btnShareApp);
-		mTvUpdate = (TextView) findViewById(R.id.tvUpdate);
-
-		mTvShow.setOnClickListener(this);
-		mBtnShareApp.setOnClickListener(this);
-		mTvUpdate.setOnClickListener(this);
-
-		initViewData();
+//		mTvShow = (TextView) findViewById(R.id.tvInfo);
+//		mBtnShareApp = (ButtonFloat) findViewById(R.id.btnShareApp);
+//		mTvUpdate = (TextView) findViewById(R.id.tvUpdate);
+//
+//		mTvShow.setOnClickListener(this);
+//		mBtnShareApp.setOnClickListener(this);
+//		mTvUpdate.setOnClickListener(this);
+//
+//		initViewData();
 	}
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-			case R.id.tvShow:
-				AlertDialogWrapper.Builder build = new AlertDialogWrapper.Builder(this);
-				build.setTitle(getString(R.string.title));
-				build.setMessage(getString(R.string.click_hint));
-				build.setPositiveButton(getString(R.string.see),
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								Intent intent = new Intent();
-								intent.setAction(Intent.ACTION_VIEW);
-								intent.addCategory(Intent.CATEGORY_DEFAULT);
-								intent.setData(Uri.parse(getString(R.string.sina_url)));
-								startActivity(intent);
-							}
-						});
-				build.setNegativeButton(getString(R.string.cancel), null);
-				build.show();
-				break;
-			case R.id.tvUpdate:
-				GeneralUtil.autoUpdate(Config.UPDATE_USER, this);
-				break;
-
-			case R.id.btnShareApp:
-				GeneralUtil.shareMsg(this, "分享：" + getString(R.string.app_name),
-						mMsgTitle,
-						mMsgTitle + mMsgContent);
-				break;
-		}
+//		switch (v.getId()) {
+//			case R.id.tvInfo:
+//				AlertDialogWrapper.Builder build = new AlertDialogWrapper.Builder(this);
+//				build.setTitle(getString(R.string.title));
+//				build.setMessage(getString(R.string.click_hint));
+//				build.setPositiveButton(getString(R.string.see),
+//						new DialogInterface.OnClickListener() {
+//							@Override
+//							public void onClick(DialogInterface dialog, int which) {
+//								Intent intent = new Intent();
+//								intent.setAction(Intent.ACTION_VIEW);
+//								intent.addCategory(Intent.CATEGORY_DEFAULT);
+//								intent.setData(Uri.parse(getString(R.string.sina_url)));
+//								startActivity(intent);
+//							}
+//						});
+//				build.setNegativeButton(getString(R.string.cancel), null);
+//				build.show();
+//				break;
+//			case R.id.tvUpdate:
+//				GeneralUtil.autoUpdate(Config.UPDATE_USER, this);
+//				break;
+//
+//			case R.id.btnShareApp:
+//				GeneralUtil.shareMsg(this, "分享：" + getString(R.string.app_name),
+//						mMsgTitle,
+//						mMsgTitle + mMsgContent);
+//				break;
+//		}
 	}
 
 	private void initViewData() {
@@ -92,8 +87,8 @@ public class AboutInfoActivity extends BaseActivity {
 			e.printStackTrace();
 			return;
 		}
-		mTvUpdate.setText(getString(R.string.current_version) +
-				version +
-				getString(R.string.click_check_update));
+//		mTvUpdate.setText(getString(R.string.current_version) +
+//				version +
+//				getString(R.string.click_check_update));
 	}
 }

@@ -32,7 +32,7 @@ public class SmsActivity extends BaseActivity {
 	private void init() {
 		etSmsPhone = (MaterialEditText) findViewById(R.id.etSmsPhone);
 		etSmsContent = (MaterialEditText) findViewById(R.id.etSmsContent);
-		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
 		btnCreate.setOnClickListener(this);
 
 	}

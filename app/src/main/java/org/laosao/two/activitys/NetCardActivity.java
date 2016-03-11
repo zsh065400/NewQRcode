@@ -1,16 +1,13 @@
 package org.laosao.two.activitys;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.gc.materialdesign.views.ButtonFloat;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -26,7 +23,6 @@ import org.laosao.two.utils.L;
 import org.laosao.two.utils.T;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.datatype.BmobFile;
@@ -55,34 +51,34 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 	}
 
 	private void initView() {
-		imgPreview = (ImageView) findViewById(R.id.imgPreview);
-		etName = (MaterialEditText) findViewById(R.id.etName);
-		etQq = (MaterialEditText) findViewById(R.id.etQq);
-		etWechat = (MaterialEditText) findViewById(R.id.etWechat);
-		etAddress = (MaterialEditText) findViewById(R.id.etAddress);
-		etCompany = (MaterialEditText) findViewById(R.id.etCompany);
-		etJob = (MaterialEditText) findViewById(R.id.etJob);
-		etEmail = (MaterialEditText) findViewById(R.id.etEmail);
-		etPhone = (MaterialEditText) findViewById(R.id.etPhone);
-		etWeibo = (MaterialEditText) findViewById(R.id.etWeibo);
-		etFax = (MaterialEditText) findViewById(R.id.etFax);
-		etProFile = (MaterialEditText) findViewById(R.id.etProFile);
-		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
-		btnCreate.setOnClickListener(this);
-		imgPreview.setOnClickListener(this);
-
-		lists = new ArrayList<>();
-		lists.add(etName);
-		lists.add(etQq);
-		lists.add(etWechat);
-		lists.add(etAddress);
-		lists.add(etCompany);
-		lists.add(etJob);
-		lists.add(etEmail);
-		lists.add(etPhone);
-		lists.add(etWeibo);
-		lists.add(etFax);
-		lists.add(etProFile);
+//		imgPreview = (ImageView) findViewById(R.id.imgPreview);
+//		etName = (MaterialEditText) findViewById(R.id.etName);
+//		etQq = (MaterialEditText) findViewById(R.id.etQq);
+//		etWechat = (MaterialEditText) findViewById(R.id.etWechat);
+//		etAddress = (MaterialEditText) findViewById(R.id.etAddress);
+//		etCompany = (MaterialEditText) findViewById(R.id.etCompany);
+//		etJob = (MaterialEditText) findViewById(R.id.etJob);
+//		etEmail = (MaterialEditText) findViewById(R.id.etEmail);
+//		etPhone = (MaterialEditText) findViewById(R.id.etPhone);
+//		etWeibo = (MaterialEditText) findViewById(R.id.etWeibo);
+//		etFax = (MaterialEditText) findViewById(R.id.etFax);
+//		etProFile = (MaterialEditText) findViewById(R.id.etProFile);
+//		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		btnCreate.setOnClickListener(this);
+//		imgPreview.setOnClickListener(this);
+//
+//		lists = new ArrayList<>();
+//		lists.add(etName);
+//		lists.add(etQq);
+//		lists.add(etWechat);
+//		lists.add(etAddress);
+//		lists.add(etCompany);
+//		lists.add(etJob);
+//		lists.add(etEmail);
+//		lists.add(etPhone);
+//		lists.add(etWeibo);
+//		lists.add(etFax);
+//		lists.add(etProFile);
 
 
 	}
@@ -91,47 +87,47 @@ public class NetCardActivity extends BaseActivity implements BmobControl.BmobSav
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-			case R.id.btnCreate:
-				if (TextUtils.isEmpty(etName.getText().toString()) || tempPath == null) {
-					T.showLongToast(this, getString(R.string.head_name_not_empty));
-					return;
-				}
-				pd = new MaterialDialog.Builder(this)
-						.title(R.string.upload)
-						.content(R.string.please_wait)
-						.progress(true, 0).show();
-				pd.setCanceledOnTouchOutside(false);
-
-//				File file = new File(tempPath);
-//				BmobControl.uploadImage(this, this, file);
-				// TODO: 2015/8/30 新版应用
-				BmobControl.newUploadImage(this, tempPath, this);
-				break;
-			case R.id.imgPreview:
-				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
-				builder.setTitle(R.string.title_please_choose);
-				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						switch (which) {
-							case 0:
-								if (Config.sdCardInstall) {
-									openAndSet();
-								} else {
-									T.showLongToast(NetCardActivity.this, getString(R.string.fail_to_mounted_sdcard));
-									return;
-								}
-								break;
-							case 1:
-								ImageUtil.openImg(NetCardActivity.this);
-								break;
-						}
-					}
-				});
-				builder.create().show();
-				break;
-		}
+//		switch (v.getId()) {
+//			case R.id.btnCreate:
+//				if (TextUtils.isEmpty(etName.getText().toString()) || tempPath == null) {
+//					T.showLongToast(this, getString(R.string.head_name_not_empty));
+//					return;
+//				}
+//				pd = new MaterialDialog.Builder(this)
+//						.title(R.string.upload)
+//						.content(R.string.please_wait)
+//						.progress(true, 0).show();
+//				pd.setCanceledOnTouchOutside(false);
+//
+////				File file = new File(tempPath);
+////				BmobControl.uploadImage(this, this, file);
+//				// TODO: 2015/8/30 新版应用
+//				BmobControl.newUploadImage(this, tempPath, this);
+//				break;
+//			case R.id.imgPreview:
+//				AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(this);
+//				builder.setTitle(R.string.title_please_choose);
+//				builder.setItems(menuItem, new DialogInterface.OnClickListener() {
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						switch (which) {
+//							case 0:
+//								if (Config.sdCardInstall) {
+//									openAndSet();
+//								} else {
+//									T.showLongToast(NetCardActivity.this, getString(R.string.fail_to_mounted_sdcard));
+//									return;
+//								}
+//								break;
+//							case 1:
+//								ImageUtil.openImg(NetCardActivity.this);
+//								break;
+//						}
+//					}
+//				});
+//				builder.create().show();
+//				break;
+//		}
 	}
 
 	private void openAndSet() {

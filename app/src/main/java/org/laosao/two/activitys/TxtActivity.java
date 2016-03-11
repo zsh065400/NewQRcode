@@ -23,7 +23,7 @@ public class TxtActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_txt);
+		setContentView(R.layout.activity_text);
 		Config.setLayoutTransparentStatus(this, R.color.material);
 		init();
 	}
@@ -32,7 +32,7 @@ public class TxtActivity extends BaseActivity {
 	private void init() {
 		etTextTitle = (MaterialEditText) findViewById(R.id.etTextTitle);
 		etTextContent = (MaterialEditText) findViewById(R.id.etTextContent);
-		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
+//		btnCreate = (ButtonFloat) findViewById(R.id.btnCreate);
 		btnCreate.setOnClickListener(this);
 	}
 
