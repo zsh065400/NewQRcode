@@ -24,9 +24,9 @@ public class SmsActivity extends BaseActivity<SmsPresent>
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new SmsPresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sms);
+		mPresent = new SmsPresent(this, this);
 	}
 
 	@Override

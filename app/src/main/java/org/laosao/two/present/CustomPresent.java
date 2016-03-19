@@ -25,7 +25,7 @@ public class CustomPresent extends BasePresent<CustomActivity> {
 		super.onClick(v);
 		String content = mView.getContent();
 		if (TextUtils.isEmpty(content)) {
-			mView.showToast(R.string.content_not_empty, Toast.LENGTH_SHORT);
+			mView.showToast(R.string.please_write_done, Toast.LENGTH_SHORT);
 			return;
 		}
 		mView.setText(Config.EMPTY_STR);

@@ -4,22 +4,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.gc.materialdesign.views.LayoutRipple;
-
 import org.laosao.two.R;
 import org.laosao.two.present.MainPresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IMainView;
 
+import material.view.RippleView;
 import material.view.fab.FloatingActionButton;
 import material.view.fab.FloatingActionsMenu;
+import me.imid.swipebacklayout.lib.SwipeBackLayout;
 
 
 /**
  * Created by Scout.Z on 2015/8/12.
  */
 public class MainActivity extends BaseActivity<MainPresent> implements IMainView {
-	private LayoutRipple rpPic, rpCustom,
+	private RippleView rpPic, rpCustom,
 			rpNetCard, rpCard,
 			rpTxt, rpUrl,
 			rpSms, rpEmail,
@@ -29,23 +29,23 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		flag = 0;
-		mPresent = new MainPresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		mPresent = new MainPresent(this, this);
+		getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.STATE_SETTLING);
 	}
 
 	public void initView() {
-		rpPic = (LayoutRipple) findViewById(R.id.rpPic);
-		rpCustom = (LayoutRipple) findViewById(R.id.rpCustomContent);
-		rpNetCard = (LayoutRipple) findViewById(R.id.rpNetCard);
-		rpCard = (LayoutRipple) findViewById(R.id.rpCard);
-		rpTxt = (LayoutRipple) findViewById(R.id.rpTxt);
-		rpUrl = (LayoutRipple) findViewById(R.id.rpUrl);
-		rpSms = (LayoutRipple) findViewById(R.id.rpSms);
-		rpEmail = (LayoutRipple) findViewById(R.id.rpEmail);
-		rpWifi = (LayoutRipple) findViewById(R.id.rpWifi);
-		rpAudio = (LayoutRipple) findViewById(R.id.rpAudio);
+		rpPic = (RippleView) findViewById(R.id.rpPic);
+		rpCustom = (RippleView) findViewById(R.id.rpCustomContent);
+		rpNetCard = (RippleView) findViewById(R.id.rpNetCard);
+		rpCard = (RippleView) findViewById(R.id.rpCard);
+		rpTxt = (RippleView) findViewById(R.id.rpTxt);
+		rpUrl = (RippleView) findViewById(R.id.rpUrl);
+		rpSms = (RippleView) findViewById(R.id.rpSms);
+		rpEmail = (RippleView) findViewById(R.id.rpEmail);
+		rpWifi = (RippleView) findViewById(R.id.rpWifi);
+		rpAudio = (RippleView) findViewById(R.id.rpAudio);
 		fabFeedback = (FloatingActionButton) findViewById(R.id.fabFeedback);
 		fabScan = (FloatingActionButton) findViewById(R.id.fabScan);
 		fabAbout = (FloatingActionButton) findViewById(R.id.fabAbout);

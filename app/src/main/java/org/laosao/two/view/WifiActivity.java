@@ -24,9 +24,9 @@ public class WifiActivity extends BaseActivity<WifiPresent>
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new WifiPresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_wifi);
+		mPresent = new WifiPresent(this, this);
 	}
 
 	@Override

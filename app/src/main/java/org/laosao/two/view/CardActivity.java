@@ -33,9 +33,9 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new CardPresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_card);
+		mPresent = new CardPresent(this, this);
 	}
 
 	@Override

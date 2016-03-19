@@ -34,9 +34,9 @@ public class AudioActivity extends BaseActivity<AudioPresent> implements IAudioV
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new AudioPresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_audio);
+		mPresent = new AudioPresent(this, this);
 	}
 
 	@Override

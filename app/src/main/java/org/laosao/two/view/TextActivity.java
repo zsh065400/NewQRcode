@@ -24,9 +24,9 @@ public class TextActivity extends BaseActivity<TextPresent>
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new TextPresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_text);
+		mPresent = new TextPresent(this, this);
 	}
 
 	@Override

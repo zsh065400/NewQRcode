@@ -23,9 +23,9 @@ public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutV
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new AboutPresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
+		mPresent = new AboutPresent(this, this);
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutV
 	@Override
 	public void setVersion(String version) {
 		if (version != null)
-			mTvInfo.setText(getString(R.string.current_version)
+			mTvVersion.setText(getString(R.string.current_version)
 					+ version);
 	}
 

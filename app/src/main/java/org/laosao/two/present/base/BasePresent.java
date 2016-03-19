@@ -19,6 +19,7 @@ public class BasePresent<T extends IView> extends AppPresent<T> implements IHand
 	public BasePresent(Activity activity, T view) {
 		super(view);
 		this.mActivity = activity;
+		onCreate();
 	}
 
 	@Override

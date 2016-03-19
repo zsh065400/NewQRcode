@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/rlHeadView"
+	style="@style/title_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	>
+
+	<TextView
+		style="@style/title_text_style"
+		android:text="@string/result"/>
+
+</RelativeLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/rootView"
+	style="@style/relative_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fab="http://schemas.android.com/apk/res-auto">
+
+	<include layout="@layout/scan_title"/>
+
+	<com.gc.materialdesign.views.ScrollView
+		style="@style/scroll_style"
+		android:layout_below="@id/rlHeadView">
+
+		<LinearLayout style="@style/pt_linear_style">
+
+			<ImageView
+				android:id="@+id/imgPreview"
+				style="@style/def_imgview_style"/>
+
+			<com.rengwuxian.materialedittext.MaterialEditText
+				android:id="@+id/etConent"
+				style="@style/def_edit_style"
+				android:layout_marginLeft="@dimen/dp_25"
+				android:layout_marginRight="@dimen/dp_25"
+				android:editable="false"
+				android:focusable="false"
+				android:focusableInTouchMode="false"
+				android:hint="@string/image_text"
+				android:maxLength="99"
+				fab:met_baseColor="@color/black"
+				fab:met_clearButton="true"
+				fab:met_floatingLabel="highlight"
+				fab:met_maxCharacters="99"
+				fab:met_primaryColor="@color/material"/>
+
+		</LinearLayout>
+	</com.gc.materialdesign.views.ScrollView>
+
+	<material.view.fab.FloatingActionsMenu
+		android:id="@+id/famMore"
+		style="@style/fam_style"
+		fab:fab_addButtonColorNormal="@color/material"
+		fab:fab_addButtonColorPressed="@color/material_pressed"
+		fab:fab_addButtonPlusIconColor="@color/white"
+		fab:fab_addButtonSize="normal"
+		fab:fab_addButtonStrokeVisible="true"
+		fab:fab_expandDirection="up"
+		fab:fab_labelStyle="@style/fab_lable_style"
+		fab:fab_labelsPosition="left">
+
+		<material.view.fab.FloatingActionButton
+			android:id="@+id/fabShare"
+			style="@style/wrap_content"
+			fab:fab_colorNormal="@color/material"
+			fab:fab_colorPressed="@color/material_pressed"
+			fab:fab_icon="@mipmap/ic_share"
+			fab:fab_size="mini"
+			fab:fab_title="@string/label_about"/>
+
+		<material.view.fab.FloatingActionButton
+			android:id="@+id/fabAbout"
+			style="@style/wrap_content"
+			fab:fab_colorNormal="@color/material"
+			fab:fab_colorPressed="@color/material_pressed"
+			fab:fab_icon="@mipmap/ic_send"
+			fab:fab_size="mini"
+			fab:fab_title="@string/label_feedback"/>
+
+	</material.view.fab.FloatingActionsMenu>
+
+</RelativeLayout>
+

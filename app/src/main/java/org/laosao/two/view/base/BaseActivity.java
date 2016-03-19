@@ -20,7 +20,6 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 public abstract class BaseActivity<T extends BasePresent> extends SwipeBackActivity
 		implements View.OnClickListener, IView {
 
-	protected int flag = 1;
 	protected T mPresent;
 
 	@Override
@@ -30,9 +29,7 @@ public abstract class BaseActivity<T extends BasePresent> extends SwipeBackActiv
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN |
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-		if (flag == 1)
-			getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
-		mPresent.onCreate();
+		getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
 	}
 
 	@Override

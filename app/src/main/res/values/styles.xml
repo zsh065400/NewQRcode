@@ -9,8 +9,15 @@
 	       parent="Theme.AppCompat.Light.NoActionBar">
 		<item name="android:windowNoTitle">true</item>
 		<item name="android:screenOrientation">portrait</item>
+		<item name="android:windowIsTranslucent">true</item>
 	</style>
 
+
+	<style name="activityAnimation"
+	       parent="@android:style/Animation">
+		<item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+		<item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+	</style>
 
 	<!---->
 	<!--重构部分-->
@@ -86,7 +93,7 @@
 	<!--图片二维码imageView-->
 	<style name="def_imgview_style">
 		<item name="android:layout_width">@dimen/dp_220</item>
-		<item name="android:layout_height">@dimen/dp_220</item>
+		<item name="android:layout_height">@dimen/dp_250</item>
 		<item name="android:gravity">center</item>
 		<item name="android:layout_gravity">center_horizontal</item>
 		<item name="android:layout_marginTop">7dp</item>
@@ -103,6 +110,14 @@
 		<item name="android:layout_marginRight">@dimen/dp_20</item>
 		<item name="android:textSize">@dimen/dp_16</item>
 		<item name="android:textCursorDrawable">@null</item>
+	</style>
+
+
+	<style name="scan_def_edit_style"
+	       parent="def_edit_style">
+		<item name="android:focusable">false</item>
+		<item name="android:focusableInTouchMode">false</item>
+		<item name="android:editable">false</item>
 	</style>
 
 	<!-- 基础布局-->
@@ -144,6 +159,14 @@
 		<item name="android:layout_marginRight">@dimen/dp_15</item>
 		<item name="android:textSize">@dimen/dp_15</item>
 		<item name="android:textCursorDrawable">@null</item>
+	</style>
+
+	<!--适配扫描结果的-->
+	<style name="scan_small_et_style"
+	       parent="small_et_style">
+		<item name="android:focusable">false</item>
+		<item name="android:focusableInTouchMode">false</item>
+		<item name="android:editable">false</item>
 	</style>
 
 	<!--结果页面文本框-->

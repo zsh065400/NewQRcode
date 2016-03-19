@@ -14,7 +14,7 @@ android {
 	defaultConfig {
 		applicationId "org.laosao.two"
 		minSdkVersion 19
-		targetSdkVersion 23
+		targetSdkVersion 22
 		versionCode 33
 		versionName getDate()
 		multiDexEnabled true

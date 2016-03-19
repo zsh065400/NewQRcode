@@ -35,6 +35,7 @@ public class NetCardActivity extends BaseActivity<NetCardPresent> implements INe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_net_card);
+		mPresent = new NetCardPresent(this, this);
 	}
 
 	@Override

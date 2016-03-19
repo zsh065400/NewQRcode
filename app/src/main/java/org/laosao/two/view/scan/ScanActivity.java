@@ -19,6 +19,17 @@ public class ScanActivity extends CaptureActivity {
 	@Override
 	protected void decodeSuccess(String result) {
 
+
+
+
+
+
+
+
+
+
+
+
 	}
 
 	@Override

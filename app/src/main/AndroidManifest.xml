@@ -85,6 +85,19 @@
 			android:name=".view.AudioActivity">
 		</activity>
 
+		<activity
+			android:name=".view.scan.ScanAudioActivity">
+		</activity>
+		<activity
+			android:name=".view.scan.ScanNetCardActivity">
+		</activity>
+		<activity
+			android:name=".view.scan.ScanPictureActivity">
+		</activity>
+		<activity
+			android:name=".view.scan.ScanTextActivity">
+		</activity>
+
 	</application>
 
 </manifest>

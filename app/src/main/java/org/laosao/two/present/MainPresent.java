@@ -36,13 +36,8 @@ public class MainPresent extends BasePresent<MainActivity> {
 
 	@Override
 	public void onCreate() {
-		init();
 		super.onCreate();
-	}
-
-	@Override
-	public void onDestory() {
-		super.onDestory();
+		init();
 	}
 
 	@Override

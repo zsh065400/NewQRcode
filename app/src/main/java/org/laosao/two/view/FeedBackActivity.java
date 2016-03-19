@@ -28,6 +28,7 @@ public class FeedBackActivity extends BaseActivity<FeedbackPresent>
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_feedback);
+		mPresent = new FeedbackPresent(this, this);
 	}
 
 	@Override

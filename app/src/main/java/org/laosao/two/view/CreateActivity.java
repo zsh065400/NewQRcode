@@ -31,10 +31,10 @@ public class CreateActivity extends BaseActivity<CreatePresent>
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new CreatePresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create);
 		mContent = getIntent().getStringExtra(Config.KEY_CONTENT);
+		mPresent = new CreatePresent(this, this);
 	}
 
 	private MaterialDialog mDialog = null;
@@ -45,7 +45,7 @@ public class CreateActivity extends BaseActivity<CreatePresent>
 	}
 
 	@Override
-	public void dissmissWaitDialog() {
+	public void dismissWaitDialog() {
 		if (mDialog != null)
 			mDialog.dismiss();
 	}

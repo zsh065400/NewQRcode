@@ -10,7 +10,7 @@ public interface ICreateView extends IMainView {
 
 	void showWaitDialog();
 
-	void dissmissWaitDialog();
+	void dismissWaitDialog();
 
 	void showBitmap(Bitmap bitmap);
 }

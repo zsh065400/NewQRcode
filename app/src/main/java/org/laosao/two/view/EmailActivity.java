@@ -27,6 +27,7 @@ public class EmailActivity extends BaseActivity<EmailPresent>
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_email);
+		mPresent = new EmailPresent(this, this);
 	}
 
 	@Override

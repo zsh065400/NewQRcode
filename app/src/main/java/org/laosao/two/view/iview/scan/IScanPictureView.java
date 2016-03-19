@@ -1,0 +1,16 @@
+package org.laosao.two.view.iview.scan;
+
+import org.laosao.two.view.iview.ICreateView;
+
+/**
+ * @author 赵树豪
+ * @version 1.0
+ */
+public interface IScanPictureView extends ICreateView {
+
+	String getSendWord();
+
+	void showSendWordDialog(String text);
+
+	void setSendWord(String text);
+}

@@ -99,7 +99,7 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 
 		@Override
 		public void onSuccess() {
-			mView.dissmissWaitDialog();
+			mView.dismissWaitDialog();
 			mView.reset();
 			mView.create(mUrl);
 			recycle();
@@ -108,7 +108,7 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 		@Override
 		public void onFail(String error) {
 			mView.showToast(error, Toast.LENGTH_SHORT);
-			mView.dissmissWaitDialog();
+			mView.dismissWaitDialog();
 		}
 	}
 
@@ -132,7 +132,7 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 		@Override
 		public void onFail(String error) {
 			mView.showToast(error, Toast.LENGTH_SHORT);
-			mView.dissmissWaitDialog();
+			mView.dismissWaitDialog();
 		}
 	}
 

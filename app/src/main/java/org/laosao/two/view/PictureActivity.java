@@ -29,9 +29,9 @@ public class PictureActivity extends BaseActivity<PicturePresent>
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new PicturePresent(this, this);
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_image);
+		setContentView(R.layout.activity_picture);
+		mPresent = new PicturePresent(this, this);
 	}
 
 	private MaterialDialog mDialog = null;
@@ -42,7 +42,7 @@ public class PictureActivity extends BaseActivity<PicturePresent>
 	}
 
 	@Override
-	public void dissmissWaitDialog() {
+	public void dismissWaitDialog() {
 		if (mDialog != null)
 			mDialog.dismiss();
 	}

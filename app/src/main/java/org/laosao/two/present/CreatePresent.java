@@ -90,11 +90,7 @@ public class CreatePresent extends BasePresent<CreateActivity> {
 					@Override
 					public void onClick(View v) {
 						if (SDCard.sdCardInstall) {
-							mPhotoPath = SDCard.osCamera +
-									File.separator +
-									OtherUtils.getCurrentTime() +
-									Config.SUFFIX_PNG;
-							ImageUtils.openCamera(mActivity, mPhotoPath);
+							openCamera();
 						} else {
 							mView.showToast("未检测到SD卡，无法打开图库", Toast.LENGTH_SHORT);
 							return;
@@ -104,6 +100,14 @@ public class CreatePresent extends BasePresent<CreateActivity> {
 				dialog.show();
 				break;
 		}
+	}
+
+	private void openCamera() {
+		mPhotoPath = SDCard.osCamera +
+				File.separator +
+				OtherUtils.getCurrentTime() +
+				Config.SUFFIX_PNG;
+		ImageUtils.openCamera(mActivity, mPhotoPath);
 	}
 
 	private void cropBitmap() {

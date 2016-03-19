@@ -27,12 +27,12 @@
 	<string name="do_send">正在发送</string>
 
 	<string name="do_load">正在加载</string>
-	<string name="query_empty">未查询到内容，请重新扫描</string>
+
 	<string name="pic_load_fail">图片加载失败，请重试</string>
 	<string name="do_create">正在生成</string>
 	<string name="refresh_path">刷新路径：</string>
 	<string name="refresh_uri">刷新Uri：</string>
-	<string name="copy_to">内容已复制到剪贴板</string>
+
 	<string name="do_process">正在处理</string>
 	<string name="title">提示</string>
 	<string name="name_too_long">名称过长</string>
@@ -140,9 +140,11 @@
 	<string name="image_text">寄语</string>
 
 	<string name="choose_logo">LOGO来源</string>
-	<string name="please_write_done">请补充完整信息</string>
+	<string name="please_write_done">请完善信息</string>
 
 	<string name="fb_success">反馈成功</string>
 	<string name="fb_msg">感谢您的反馈，我们会做的更好！</string>
 	<string name="un_mounted">未检测到SD卡</string>
+	<string name="copy_to">内容已复制到剪贴板</string>
+	<string name="query_empty">图片神秘的消失了</string>
 </resources>

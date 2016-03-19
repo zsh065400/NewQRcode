@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
@@ -94,6 +95,22 @@ public class ImageUtils {
 		bitmap = BitmapFactory.decodeFile(path, options);
 		bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
 				ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+		return bitmap;
+	}
+
+	public static Bitmap getImageThumbnail(Bitmap b, int w
+			, int h) {
+		float width = b.getWidth();
+		float height = b.getHeight();
+		// 创建操作图片用的matrix对象
+		Matrix matrix = new Matrix();
+		// 计算宽高缩放率
+		float scaleWidth = ((float) w) / width;
+		float scaleHeight = ((float) h) / height;
+		// 缩放图片动作
+		matrix.postScale(scaleWidth, scaleHeight);
+		Bitmap bitmap = Bitmap.createBitmap(b, 0, 0, (int) width,
+				(int) height, matrix, true);
 		return bitmap;
 	}
 

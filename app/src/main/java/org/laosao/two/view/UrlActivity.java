@@ -24,9 +24,9 @@ public class UrlActivity extends BaseActivity<UrlPresent>
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new UrlPresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_url);
+		mPresent = new UrlPresent(this, this);
 	}
 
 	@Override

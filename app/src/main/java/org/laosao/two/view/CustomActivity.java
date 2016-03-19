@@ -22,9 +22,9 @@ public class CustomActivity extends BaseActivity<CustomPresent>
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mPresent = new CustomPresent(this, this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_custom);
+		mPresent = new CustomPresent(this, this);
 	}
 
 	@Override
