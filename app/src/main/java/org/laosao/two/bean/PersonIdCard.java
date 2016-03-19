@@ -30,8 +30,6 @@ public class PersonIdCard extends BmobObject {
 	private String phone;
 	//微博
 	private String weibo;
-	//传真
-	private String chuanzhen;
 	//个人说明
 	private String person;
 	//查询标记
@@ -44,7 +42,7 @@ public class PersonIdCard extends BmobObject {
 	public PersonIdCard(String name, BmobFile head, String qq,
 	                    String wechat, String address, String company,
 	                    String job, String e_email, String phone,
-	                    String weibo, String chuanzhen, String person,
+	                    String weibo, String person,
 	                    String url) {
 		this.name = name;
 		this.head = head;
@@ -56,7 +54,6 @@ public class PersonIdCard extends BmobObject {
 		this.e_email = e_email;
 		this.phone = phone;
 		this.weibo = weibo;
-		this.chuanzhen = chuanzhen;
 		this.person = person;
 		this.url = url;
 	}
@@ -139,14 +136,6 @@ public class PersonIdCard extends BmobObject {
 
 	public void setWeibo(String weibo) {
 		this.weibo = weibo;
-	}
-
-	public String getChuanzhen() {
-		return chuanzhen;
-	}
-
-	public void setChuanzhen(String chuanzhen) {
-		this.chuanzhen = chuanzhen;
 	}
 
 	public String getPerson() {

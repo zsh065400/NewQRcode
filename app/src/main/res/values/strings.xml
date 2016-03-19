@@ -14,21 +14,18 @@
 	<string name="btn_return">返回继续扫描</string>
 	<string name="fail_to_scan">图片扫描失败</string>
 	<string name="name_not_empty">姓名不能为空</string>
-	<string name="content_not_empty">内容不能为空</string>
 	<string name="url_not_empty">链接不能为空</string>
-	<string name="fail_to_mounted_sdcard">未检测到SD卡</string>
-	<string name="title_please_choose">请选择</string>
+
+
 	<string name="please_choose_pic">请选择要生成的图片</string>
 	<string name="head_name_not_empty">头像姓名不能为空</string>
 	<string name="too_long">您输入的内容超过200字符限制</string>
 	<string name="fail_to_create">生成出错，请重试</string>
-	<string name="please_write_done">请您填写完整信息</string>
-	<string name="please_wait">请稍等......</string>
+
+	<string name="please_wait">请稍后...</string>
 	<string name="upload">正在上传</string>
 	<string name="do_send">正在发送</string>
-	<string name="fb_success">反馈成功</string>
-	<string name="fb_msg">反馈成功，感谢您的意见或建议！</string>
-	<string name="sina_url"><![CDATA[http://weibo.com/p/1006063174917162/home?from=page_100606&mod=TAB#place]]></string>
+
 	<string name="do_load">正在加载</string>
 	<string name="query_empty">未查询到内容，请重新扫描</string>
 	<string name="pic_load_fail">图片加载失败，请重试</string>
@@ -47,7 +44,6 @@
 
 	<string name="toast_new_version">当前为最新版本：</string>
 	<string name="have_not_net">未检测到网络</string>
-	<string name="see">看看</string>
 	<string name="click_hint">您即将访问我们的官方微博主页，是否继续？</string>
 	<string name="fab_return">返回</string>
 	<string name="fab_send">发送</string>
@@ -142,4 +138,11 @@
 	<string name="add_logo">添加LOGO</string>
 	<!-- 图片二维码-->
 	<string name="image_text">寄语</string>
+
+	<string name="choose_logo">LOGO来源</string>
+	<string name="please_write_done">请补充完整信息</string>
+
+	<string name="fb_success">反馈成功</string>
+	<string name="fb_msg">感谢您的反馈，我们会做的更好！</string>
+	<string name="un_mounted">未检测到SD卡</string>
 </resources>

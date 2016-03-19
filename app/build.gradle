@@ -36,20 +36,13 @@ android {
 }
 
 dependencies {
-	compile files('libs/SwetakeQRCode.jar')
 	compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
 	compile 'com.rengwuxian.materialedittext:library:2.1.4'
 	compile 'cn.bmob.android:bmob-sdk:3.4.5'
 	compile files('libs/xiaomi_sdk.jar')
-	compile 'com.getbase:floatingactionbutton:1.10.1'
-	compile('com.github.afollestad.material-dialogs:core:0.8.5.1@aar') {
-		transitive = true
-	}
 	compile 'org.zsh.support:permission:2.1.0'
 	compile 'org.zsh.support:qrlib:2.0.0'
 	compile 'me.imid.swipebacklayout.lib:library:1.0.0'
-	//    compile 'me.zhanghai.android.materialprogressbar:library:1.1.4'
-	//    compile 'me.drakeet.materialdialog:library:1.2.8'
 	compile project(':library')
 	compile project(':mvpframework')
 }

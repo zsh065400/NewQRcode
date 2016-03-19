@@ -1,5 +1,6 @@
 <resources>
 	<!--重构部分-->
+	<dimen name="dp_140">140dp</dimen>
 	<dimen name="dp_128">128dp</dimen>
 	<dimen name="dp_70">70dp</dimen>
 	<dimen name="dp_15">15dp</dimen>

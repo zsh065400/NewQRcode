@@ -5,12 +5,19 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:gravity="center"
-	android:orientation="vertical">
+	android:orientation="horizontal">
 
 	<com.gc.materialdesign.views.ProgressBarCircularIndeterminate
 		android:layout_width="@dimen/dp_32"
 		android:layout_height="@dimen/dp_32"
 		android:background="@color/material"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/dp_30"
+		android:text="@string/please_wait"
+		android:textSize="@dimen/dp_20"/>
 </LinearLayout>
 
 

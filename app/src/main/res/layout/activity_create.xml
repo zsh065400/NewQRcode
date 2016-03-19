@@ -24,6 +24,7 @@
 		android:layout_marginTop="@dimen/dp_25"/>
 
 	<material.view.fab.FloatingActionsMenu
+		android:id="@+id/famMore"
 		style="@style/fam_style"
 		fab:fab_addButtonColorNormal="@color/material"
 		fab:fab_addButtonColorPressed="@color/material_pressed"

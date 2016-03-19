@@ -118,7 +118,7 @@
 
 
 	<material.view.fab.FloatingActionsMenu
-		android:id="@+id/fam_main"
+		android:id="@+id/famMore"
 		style="@style/fam_style"
 		fab:fab_addButtonColorNormal="@color/material"
 		fab:fab_addButtonColorPressed="@color/material_pressed"

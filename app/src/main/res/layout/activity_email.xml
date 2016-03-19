@@ -23,7 +23,7 @@
 		<LinearLayout style="@style/pt_linear_style">
 
 			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etEmail"
+				android:id="@+id/etAddress"
 				style="@style/def_edit_style"
 				android:autoLink="email"
 				android:hint="@string/email_hint"
@@ -37,7 +37,7 @@
 				app:met_singleLineEllipsis="true"/>
 
 			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etEmailTheme"
+				android:id="@+id/etProject"
 				style="@style/def_edit_style"
 				android:hint="@string/email_subject_hint"
 				android:inputType="textEmailSubject"
@@ -50,7 +50,7 @@
 				app:met_singleLineEllipsis="true"/>
 
 			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etEmailContent"
+				android:id="@+id/etContent"
 				style="@style/def_edit_style"
 				android:hint="@string/email_content_hint"
 				android:inputType="textMultiLine"

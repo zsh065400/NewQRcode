@@ -19,61 +19,12 @@
 		android:label="@string/app_name"
 		android:theme="@style/AppTheme">
 		<activity
-			android:name=".activitys.GuideActivity"
-			android:screenOrientation="portrait">
-		</activity>
-		<activity
-			android:name=".activitys.MainActivity"
-			android:screenOrientation="portrait">
+			android:name=".view.MainActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
-		</activity>
-		<activity
-			android:name=".activitys.CustomContentActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.PictureActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.NetCardActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.GeneralCardActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.TxtActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.UrlActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.SmsActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.EmailActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.FeedBackActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.CreateActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.result.PicResultActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.result.TextResultActivity"
-			android:screenOrientation="portrait"/>
-		<activity
-			android:name=".activitys.result.NetCardResultActivity"
-			android:screenOrientation="portrait"/>
-
-		<activity
-			android:name=".activitys.WifiActivity"
-			android:screenOrientation="portrait">
 		</activity>
 		<!-- 小米接收更新的receiver -->
 		<receiver android:name="com.xiaomi.market.sdk.DownloadCompleteReceiver">
@@ -83,20 +34,56 @@
 		</receiver>
 
 		<activity
-			android:name=".activitys.AudioActivity"
-			android:screenOrientation="portrait">
+			android:name=".view.AboutActivity">
 		</activity>
+
 		<activity
-			android:name=".activitys.result.AudioResActivity"
-			android:screenOrientation="portrait">
+			android:name=".view.FeedBackActivity">
 		</activity>
+
 		<activity
-			android:name=".activitys.AboutInfoActivity"
-			android:screenOrientation="portrait">
+			android:name=".view.scan.ScanActivity">
 		</activity>
+
 		<activity
-			android:name=".activitys.ScanActivity"
-			android:screenOrientation="portrait"/>
+			android:name=".view.PictureActivity">
+		</activity>
+
+		<activity
+			android:name=".view.CustomActivity">
+		</activity>
+
+		<activity
+			android:name=".view.NetCardActivity">
+		</activity>
+
+		<activity
+			android:name=".view.CardActivity">
+		</activity>
+
+		<activity
+			android:name=".view.TextActivity">
+		</activity>
+
+		<activity
+			android:name=".view.UrlActivity">
+		</activity>
+
+		<activity
+			android:name=".view.SmsActivity">
+		</activity>
+
+		<activity
+			android:name=".view.EmailActivity">
+		</activity>
+
+		<activity
+			android:name=".view.WifiActivity">
+		</activity>
+
+		<activity
+			android:name=".view.AudioActivity">
+		</activity>
 
 	</application>
 
