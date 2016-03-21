@@ -2,6 +2,8 @@ package org.laosao.two.view.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -89,5 +91,21 @@ public abstract class BaseActivity<T extends BasePresent> extends SwipeBackActiv
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		mPresent.onActivityResult(requestCode, resultCode, data);
+	}
+
+	@Override
+	public void onBackPressed() {
+		this.dispatchTouchEvent(
+				MotionEvent.obtain(SystemClock.uptimeMillis(),
+						SystemClock.uptimeMillis(),
+						MotionEvent.ACTION_DOWN, 0, 500, 0));
+		this.dispatchTouchEvent(
+				MotionEvent.obtain(SystemClock.uptimeMillis(),
+						SystemClock.uptimeMillis(),
+						MotionEvent.ACTION_MOVE, 600, 500, 0));
+		this.dispatchTouchEvent(
+				MotionEvent.obtain(SystemClock.uptimeMillis(),
+						SystemClock.uptimeMillis(),
+						MotionEvent.ACTION_UP, 600, 500, 0));
 	}
 }

@@ -88,4 +88,9 @@ public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutV
 		dialog.show();
 	}
 
+	@Override
+	protected void onStop() {
+		super.onStop();
+		closeFam();
+	}
 }

@@ -62,10 +62,4 @@ public class AboutPresent extends BasePresent<AboutActivity> {
 				break;
 		}
 	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-		mView.closeFam();
-	}
 }

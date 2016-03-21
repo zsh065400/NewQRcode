@@ -8,7 +8,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
 import android.view.View;
-import android.widget.Toast;
 
 import com.zbar.lib.encode.Encoder;
 
@@ -78,23 +77,21 @@ public class CreatePresent extends BasePresent<CreateActivity> {
 				break;
 
 			case R.id.fabAddIcon:
-				MaterialDialog dialog = new MaterialDialog(mActivity);
-				dialog.setTitle(R.string.choose_logo);
+				final MaterialDialog dialog = new MaterialDialog(mActivity);
+				dialog.setTitle("一个提示");
+				dialog.setMessage(R.string.choose_logo);
 				dialog.setPositiveButton("图库", new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						ImageUtils.openGallery(mActivity);
+						dialog.dismiss();
 					}
 				});
 				dialog.setNegativeButton("相机", new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						if (SDCard.sdCardInstall) {
-							openCamera();
-						} else {
-							mView.showToast("未检测到SD卡，无法打开图库", Toast.LENGTH_SHORT);
-							return;
-						}
+						openCamera();
+						dialog.dismiss();
 					}
 				});
 				dialog.show();
@@ -143,11 +140,6 @@ public class CreatePresent extends BasePresent<CreateActivity> {
 		}
 	}
 
-	@Override
-	public void onStop() {
-		super.onStop();
-		mView.closeFam();
-	}
 
 	@Override
 	public void onDestory() {

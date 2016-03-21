@@ -85,6 +85,9 @@
 			android:name=".view.AudioActivity">
 		</activity>
 
+		<activity android:name=".view.CreateActivity">
+		</activity>
+
 		<activity
 			android:name=".view.scan.ScanAudioActivity">
 		</activity>

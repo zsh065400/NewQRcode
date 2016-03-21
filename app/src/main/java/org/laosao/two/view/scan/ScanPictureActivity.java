@@ -84,6 +84,11 @@ public class ScanPictureActivity extends BaseActivity<ScanPicturePresent>
 		super.onDestroy();
 	}
 
+	@Override
+	protected void onStop() {
+		super.onStop();
+		closeFam();
+	}
 
 	@Override
 	public void closeFam() {

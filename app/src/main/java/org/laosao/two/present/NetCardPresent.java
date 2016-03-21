@@ -65,25 +65,28 @@ public class NetCardPresent extends BasePresent<NetCardActivity> {
 		switch (v.getId()) {
 			case R.id.fabCreate:
 				if (mView.getContent() == null || tempPath == null) {
-					mView.showToast(R.string.head_name_not_empty, Toast.LENGTH_SHORT);
+					mView.showToast(R.string.no_head, Toast.LENGTH_SHORT);
 					return;
 				}
 				mView.showWaitDialog();
 				BmobControl.newUploadImage(mActivity, tempPath, new UploadCallback());
 				break;
 			case R.id.imgPreview:
-				MaterialDialog dialog = new MaterialDialog(mActivity);
-				dialog.setTitle("选择图片");
+				final MaterialDialog dialog = new MaterialDialog(mActivity);
+				dialog.setTitle("一个提示");
+				dialog.setTitle("请选择头像");
 				dialog.setPositiveButton("图库", new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						ImageUtils.openGallery(mActivity);
+						dialog.dismiss();
 					}
 				});
 				dialog.setNegativeButton("相机", new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						openCamera();
+						dialog.dismiss();
 					}
 				});
 				dialog.show();

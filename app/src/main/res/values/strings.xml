@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">新二维码生成器</string>
+	<string name="app_name">玩儿码</string>
 
 	<string name="btn_open_img">图片</string>
 	<string name="exit_log">再按一下退出二维码生成器</string>
@@ -18,7 +18,7 @@
 
 
 	<string name="please_choose_pic">请选择要生成的图片</string>
-	<string name="head_name_not_empty">头像姓名不能为空</string>
+
 	<string name="too_long">您输入的内容超过200字符限制</string>
 	<string name="fail_to_create">生成出错，请重试</string>
 
@@ -139,7 +139,7 @@
 	<!-- 图片二维码-->
 	<string name="image_text">寄语</string>
 
-	<string name="choose_logo">LOGO来源</string>
+	<string name="choose_logo">选择LOGO图片</string>
 	<string name="please_write_done">请完善信息</string>
 
 	<string name="fb_success">反馈成功</string>
@@ -147,4 +147,5 @@
 	<string name="un_mounted">未检测到SD卡</string>
 	<string name="copy_to">内容已复制到剪贴板</string>
 	<string name="query_empty">图片神秘的消失了</string>
+	<string name="no_head">头像姓名不能为空</string>
 </resources>

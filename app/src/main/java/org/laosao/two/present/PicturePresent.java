@@ -57,23 +57,25 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 				break;
 
 			case R.id.imgPreview:
-				MaterialDialog dialog = new MaterialDialog(mActivity);
-				dialog.setTitle("图片来源");
+				final MaterialDialog dialog = new MaterialDialog(mActivity);
+				dialog.setTitle("一个提示");
+				dialog.setTitle("请选择生成的图片");
 				dialog.setPositiveButton("图库", new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						ImageUtils.openGallery(mActivity);
+						dialog.dismiss();
 					}
 				});
 				dialog.setNegativeButton("相机", new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						openCamera();
+						dialog.dismiss();
 					}
 				});
 				dialog.show();
 				break;
-
 		}
 	}
 

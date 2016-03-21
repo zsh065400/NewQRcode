@@ -1,6 +1,8 @@
 package org.laosao.two.present;
 
 import android.app.Activity;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 
 import org.laosao.two.R;
@@ -44,59 +46,86 @@ public class MainPresent extends BasePresent<MainActivity> {
 	public void onStop() {
 		super.onStop();
 		mView.closeFam();
+		mHandler.removeCallbacks(mRunnable);
 	}
 
 	private void init() {
 		Bmob.initialize(mActivity, Config.BMOB_SERVER_APP_ID);
 		OtherUtils.autoUpdate(Config.UPDATE_AUTO, mActivity);
 		SDCard.detectionSDcard();
+
+		mHandler = new DelayedHandler();
+		mRunnable = new Runnable() {
+			@Override
+			public void run() {
+				mView.toOtherActivity(mTarget, null);
+			}
+		};
 	}
+
+	@Override
+	public void onDestory() {
+		super.onDestory();
+		mHandler = null;
+		mRunnable = null;
+		mTarget = null;
+	}
+
+	private DelayedHandler mHandler;
+	private Runnable mRunnable;
+	private Class mTarget = null;
 
 	@Override
 	public void onClick(View v) {
 		// TODO: 2016/3/13 位置待定
-		Class c = null;
 		switch (v.getId()) {
 			case R.id.fabAbout:
-				c = AboutActivity.class;
+				mTarget = AboutActivity.class;
 				break;
 			case R.id.fabFeedback:
-				c = FeedBackActivity.class;
+				mTarget = FeedBackActivity.class;
 				break;
 			case R.id.fabScan:
-				c = ScanActivity.class;
+				mTarget = ScanActivity.class;
 				break;
 			case R.id.rpPic:
-				c = PictureActivity.class;
+				mTarget = PictureActivity.class;
 				break;
 			case R.id.rpCustomContent:
-				c = CustomActivity.class;
+				mTarget = CustomActivity.class;
 				break;
 			case R.id.rpNetCard:
-				c = NetCardActivity.class;
+				mTarget = NetCardActivity.class;
 				break;
 			case R.id.rpCard:
-				c = CardActivity.class;
+				mTarget = CardActivity.class;
 				break;
 			case R.id.rpTxt:
-				c = TextActivity.class;
+				mTarget = TextActivity.class;
 				break;
 			case R.id.rpUrl:
-				c = UrlActivity.class;
+				mTarget = UrlActivity.class;
 				break;
 			case R.id.rpSms:
-				c = SmsActivity.class;
+				mTarget = SmsActivity.class;
 				break;
 			case R.id.rpEmail:
-				c = EmailActivity.class;
+				mTarget = EmailActivity.class;
 				break;
 			case R.id.rpWifi:
-				c = WifiActivity.class;
+				mTarget = WifiActivity.class;
 				break;
 			case R.id.rpAudio:
-				c = AudioActivity.class;
+				mTarget = AudioActivity.class;
 				break;
 		}
-		mView.toOtherActivity(c, null);
+		mHandler.postDelayed(mRunnable, 375);
+	}
+
+	class DelayedHandler extends Handler {
+		@Override
+		public void handleMessage(Message msg) {
+
+		}
 	}
 }

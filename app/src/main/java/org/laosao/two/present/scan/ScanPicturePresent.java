@@ -113,11 +113,6 @@ public class ScanPicturePresent extends BasePresent<ScanPictureActivity> {
 		}
 	}
 
-	@Override
-	public void onStop() {
-		super.onStop();
-		mView.closeFam();
-	}
 
 	@Override
 	public void onDestory() {

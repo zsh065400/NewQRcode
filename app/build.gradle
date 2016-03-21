@@ -41,7 +41,7 @@ dependencies {
 	compile 'cn.bmob.android:bmob-sdk:3.4.5'
 	compile files('libs/xiaomi_sdk.jar')
 	compile 'org.zsh.support:permission:2.1.0'
-	compile 'org.zsh.support:qrlib:2.0.0'
+	compile 'org.zsh.support:qrlib:2.0.1'
 	compile 'me.imid.swipebacklayout.lib:library:1.0.0'
 	compile project(':library')
 	compile project(':mvpframework')

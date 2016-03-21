@@ -1,13 +1,13 @@
 package org.laosao.two.model;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -16,13 +16,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.xiaomi.market.sdk.UpdateResponse;
+import com.xiaomi.market.sdk.UpdateStatus;
 import com.xiaomi.market.sdk.XiaomiUpdateAgent;
 import com.xiaomi.market.sdk.XiaomiUpdateListener;
 
@@ -58,93 +57,6 @@ public class OtherUtils {
 		return preferences.getInt(key, Config.CODE_ERROR);
 	}
 
-//	public static File rootDir;
-//	public static File cameraDir;
-//	public static File osCamera;
-//
-//	public static boolean sdCardInstall = false;
-//
-//
-//	public static void detectionSDcard() {
-//		if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-//			sdCardInstall = true;
-//			File root = Environment.getExternalStorageDirectory();
-//			rootDir = new File(root.getAbsolutePath() + File.separator + "NewQrCode");
-//			cameraDir = new File(rootDir + File.separator + "Camera");
-//			osCamera = new File(root.getAbsolutePath() +
-//					File.separator +
-//					"DCIM" +
-//					File.separator +
-//					"Camera");
-//			if (!rootDir.exists()) {
-//				rootDir.mkdirs();
-//			}
-//			if (!cameraDir.exists()) {
-//				cameraDir.mkdirs();
-//			}
-//			if (!osCamera.exists()) {
-//				osCamera.mkdirs();
-//			}
-//		}
-//	}
-
-	/**
-	 * 设置状态栏透明（沉浸式状态栏）
-	 */
-	@TargetApi(19)
-	public static void setLayoutTransparentStatus(Activity activity,
-	                                              int resId) {
-		setTranslucentStatus(true, activity);
-		// 获取activity状态栏高度
-		int statusHeight = getStatusHeight(activity);
-		// 获取颜色对象
-		Drawable drawable = activity.getResources().getDrawable(resId);
-		// 设置背景颜色
-		activity.getWindow().setBackgroundDrawable(drawable);
-		// 获取布局属性设置布局外上边距
-		ViewGroup rl = (ViewGroup) activity.findViewById(R.id.rootView);
-		FrameLayout.LayoutParams lp = null;
-		try {
-			lp = (FrameLayout.LayoutParams) rl.getLayoutParams();
-		} catch (Exception e) {
-		}
-		lp.setMargins(0, statusHeight, 0, 0);
-		rl.setLayoutParams(lp);
-	}
-
-	@TargetApi(19)
-	public static void setTranslucentStatus(boolean on, Activity activity) {
-		Window win = activity.getWindow();
-		WindowManager.LayoutParams winParams = win.getAttributes();
-		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-		if (on) {
-			winParams.flags |= bits;
-		} else {
-			winParams.flags &= ~bits;
-		}
-		win.setAttributes(winParams);
-	}
-
-	/**
-	 * 获得状态栏的高度
-	 *
-	 * @param context
-	 * @return
-	 */
-	public static int getStatusHeight(Context context) {
-
-		int statusHeight = -1;
-		try {
-			Class<?> clazz = Class.forName("com.android.internal.R$dimen");
-			Object object = clazz.newInstance();
-			int height = Integer.parseInt(clazz.getField("status_bar_height")
-					.get(object).toString());
-			statusHeight = context.getResources().getDimensionPixelSize(height);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return statusHeight;
-	}
 
 	/**
 	 * 获取简单的时间戳
@@ -326,6 +238,7 @@ public class OtherUtils {
 	public static MaterialDialog showWaitDialog(Activity context) {
 		final MaterialDialog wait = new MaterialDialog(context)
 				.setView(context.getLayoutInflater().inflate(R.layout.dialog_progress, null));
+		wait.setTitle("一个提示");
 		wait.setCanceledOnTouchOutside(false);
 		wait.show();
 		return wait;
@@ -340,74 +253,66 @@ public class OtherUtils {
 
 			@Override
 			public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
-//				switch (updateStatus) {
-//					case UpdateStatus.STATUS_UPDATE:
-//						L.outputDebug("检查到更新");
-//						// 有更新， UpdateResponse为本次更新的详细信息
-//						// 其中包含更新信息，下载地址，MD5校验信息等，可自行处理下载安装
-//						// 如果希望 SDK继续接管下载安装事宜，可调用
-//						//  XiaomiUpdateAgent.arrange()
-//						final View view = LayoutInflater.from(activity).inflate(R.layout.update_popup, null);
-//						final TextView tvVersionCode = (TextView) view.findViewById(R.id.tvNewVersion);
-//						final TextView tvUpdateContent = (TextView) view.findViewById(R.id.tvDescrption);
-//
-//						//设置更新信息
-//						tvVersionCode.setText(tvVersionCode.getText().toString() + updateInfo.versionCode);
-//						tvUpdateContent.setText(tvUpdateContent.getText().toString() + updateInfo.updateLog);
-//						AlertDialogWrapper.Builder builder = new AlertDialogWrapper.Builder(activity);
-//						builder.setTitle(activity.getString(R.string.find_new_version));
-//						builder.setView(view);
-////						builder.setPositiveButton(activity.getString(R.string.update), new DialogInterface.OnClickListener() {
-////							@Override
-////							public void onClick(DialogInterface dialog, int which) {
-////								XiaomiUpdateAgent.arrange();
-////							}
-////						});
-//						builder.setNegativeButton(activity.getString(R.string.cancel), null);
-//						builder.show();
-//						break;
-//					case UpdateStatus.STATUS_NO_UPDATE:
-//						L.outputDebug("无更新");
-//						// 无更新， UpdateResponse为null
-//						String versonName = null;
-//						if (flag == Config.UPDATE_USER) {
-//							try {
-//								PackageManager manager = activity.getPackageManager();
-//								PackageInfo info = manager.getPackageInfo(activity.getPackageName(), 0);
-//								versonName = info.versionName;
-//							} catch (PackageManager.NameNotFoundException e) {
-//								L.outputError("获取包信息失败");
-//								e.printStackTrace();
-//								return;
-//							}
-//							Toast.makeText(activity, activity.getString(R.string.toast_new_version) +
-//									versonName, Toast.LENGTH_LONG).show();
-//						}
-//						break;
-//					case UpdateStatus.STATUS_NO_WIFI:
-//						L.outputDebug("wifi下未检查到更新");
-//						// 设置了只在WiFi下更新，且WiFi不可用时， UpdateResponse为null
-//					case UpdateStatus.STATUS_NO_NET:
-//						// 没有网络， UpdateResponse为null
-//						L.outputDebug("没有检查到网络");
-//					case UpdateStatus.STATUS_FAILED:
-//						L.outputDebug("与服务器通讯失败，请检查网络");
-//						// 检查更新与服务器通讯失败，可稍后再试， UpdateResponse为null
-//						if (flag == Config.UPDATE_USER)
-//							Toast.makeText(activity, activity.getString(R.string.have_not_net),
-//									Toast.LENGTH_LONG).show();
-//						break;
-//					case UpdateStatus.STATUS_LOCAL_APP_FAILED:
-//						// 检查更新获取本地安装应用信息失败， UpdateResponse为null
-//						L.outputDebug("安装包解析错误");
-//						if (flag == Config.UPDATE_USER)
-//							Toast.makeText(activity, "检查更新获取本地安装应用信息失败",
-//									Toast.LENGTH_LONG).show();
-//						break;
-//					default:
-//						L.outputDebug("更新方法");
-//						break;
-//				}
+				switch (updateStatus) {
+					case UpdateStatus.STATUS_UPDATE:
+						// 有更新， UpdateResponse为本次更新的详细信息
+						// 其中包含更新信息，下载地址，MD5校验信息等，可自行处理下载安装
+						// 如果希望 SDK继续接管下载安装事宜，可调用
+						//  XiaomiUpdateAgent.arrange()
+						final View view = LayoutInflater.from(activity).inflate(R.layout.update_popup, null);
+						final TextView tvVersionCode = (TextView) view.findViewById(R.id.tvNewVersion);
+						final TextView tvUpdateContent = (TextView) view.findViewById(R.id.tvDescrption);
+
+						//设置更新信息
+						tvVersionCode.setText(tvVersionCode.getText().toString() + updateInfo.versionCode);
+						tvUpdateContent.setText(tvUpdateContent.getText().toString() + updateInfo.updateLog);
+						MaterialDialog dialog = new MaterialDialog(activity);
+						dialog.setTitle(activity.getString(R.string.find_new_version));
+						dialog.setView(view);
+						dialog.setPositiveButton("更新", new View.OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								XiaomiUpdateAgent.arrange();
+							}
+						});
+						dialog.setNegativeButton("取消", null);
+						dialog.show();
+						break;
+					case UpdateStatus.STATUS_NO_UPDATE:
+						// 无更新， UpdateResponse为null
+						String versonName = null;
+						if (flag == Config.UPDATE_USER) {
+							try {
+								PackageManager manager = activity.getPackageManager();
+								PackageInfo info = manager.getPackageInfo(activity.getPackageName(), 0);
+								versonName = info.versionName;
+							} catch (PackageManager.NameNotFoundException e) {
+								e.printStackTrace();
+								return;
+							}
+							Toast.makeText(activity, activity.getString(R.string.toast_new_version) +
+									versonName, Toast.LENGTH_LONG).show();
+						}
+						break;
+					case UpdateStatus.STATUS_NO_WIFI:
+						// 设置了只在WiFi下更新，且WiFi不可用时， UpdateResponse为null
+					case UpdateStatus.STATUS_NO_NET:
+						// 没有网络， UpdateResponse为null
+					case UpdateStatus.STATUS_FAILED:
+						// 检查更新与服务器通讯失败，可稍后再试， UpdateResponse为null
+						if (flag == Config.UPDATE_USER)
+							Toast.makeText(activity, activity.getString(R.string.have_not_net),
+									Toast.LENGTH_LONG).show();
+						break;
+					case UpdateStatus.STATUS_LOCAL_APP_FAILED:
+						// 检查更新获取本地安装应用信息失败， UpdateResponse为null
+						if (flag == Config.UPDATE_USER)
+							Toast.makeText(activity, "检查更新获取本地安装应用信息失败",
+									Toast.LENGTH_LONG).show();
+						break;
+					default:
+						break;
+				}
 			}
 		});
 		XiaomiUpdateAgent.update(activity);

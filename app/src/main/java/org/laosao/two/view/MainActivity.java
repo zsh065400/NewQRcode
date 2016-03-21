@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		mPresent = new MainPresent(this, this);
-		getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.STATE_SETTLING);
+		getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.STATE_IDLE);
 	}
 
 	public void initView() {

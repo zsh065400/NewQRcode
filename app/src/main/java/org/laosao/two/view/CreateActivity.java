@@ -81,4 +81,10 @@ public class CreateActivity extends BaseActivity<CreatePresent>
 		if (mFamMore.isExpanded())
 			mFamMore.collapse();
 	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		closeFam();
+	}
 }
