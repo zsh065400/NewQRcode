@@ -1,6 +1,7 @@
 package org.laosao.two.present.scan;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
@@ -8,6 +9,8 @@ import android.widget.Toast;
 import org.laosao.two.R;
 import org.laosao.two.bean.PersonIdCard;
 import org.laosao.two.model.BmobControl;
+import org.laosao.two.model.ImageUtils;
+import org.laosao.two.model.OtherUtils;
 import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.scan.ScanNetCardActivity;
 
@@ -26,13 +29,20 @@ public class ScanNetCardPresent extends BasePresent<ScanNetCardActivity> {
 	public void onCreate() {
 		super.onCreate();
 		query();
+		mView.showWaitDialog();
+	}
+
+	public void saveView() {
+		Bitmap drawingCache = ImageUtils.getBitmapByView(mView.getView());
+		drawingCache = ImageUtils.compressImage(drawingCache, 200);
+		OtherUtils.save(mActivity, drawingCache);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.fabSave:
-				// TODO: 2016/3/19 完成保存功能
+				saveView();
 				break;
 
 			case R.id.etPerson:

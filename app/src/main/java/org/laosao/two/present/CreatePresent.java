@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.net.Uri;
 import android.view.View;
 
@@ -29,7 +28,7 @@ import material.dialog.MaterialDialog;
  */
 public class CreatePresent extends BasePresent<CreateActivity> {
 
-	private int mQrcodeSize = 430;
+	private final int mQrcodeSize = 516;
 
 	public CreatePresent(Activity activity, CreateActivity view) {
 		super(activity, view);
@@ -44,18 +43,9 @@ public class CreatePresent extends BasePresent<CreateActivity> {
 
 	private Bitmap encode(String content) {
 		Encoder encoder = new Encoder.Builder()
-				//字符集，默认为“utf-8”
-				.setCharset("utf-8")
-				//图片内边距
 				.setBitmapPadding(2)
-				//设置生成的图片高度
 				.setBitmapHeight(mQrcodeSize)
-				//设置生成的图片宽度
 				.setBitmapWidth(mQrcodeSize)
-				//设置二维码背景颜色，默认白色
-				.setBackgroundColor(Color.WHITE)
-				//设置二维码色块颜色，默认黑色
-				.setCodeColor(Color.BLACK)
 				.build();
 		return encoder.encode(content);
 	}
@@ -126,20 +116,23 @@ public class CreatePresent extends BasePresent<CreateActivity> {
 					cropBitmap();
 					break;
 				case Config.REQ_CROP_IMG:
-					mBitmap = BitmapFactory.decodeFile(mTempPath);
+					Bitmap logo = BitmapFactory.decodeFile(mTempPath);
 					Canvas canvas = new Canvas();
 					canvas.setBitmap(mBitmap);
 					//向中间插入内容
-					canvas.drawBitmap(mBitmap, mBitmap.getWidth() / 2
-							- mBitmap.getWidth() / 2, mBitmap.getHeight()
-							/ 2 - mBitmap.getHeight() / 2, null);
+					canvas.drawBitmap(logo, mBitmap.getWidth() / 2
+							- logo.getWidth() / 2, mBitmap.getHeight()
+							/ 2 - logo.getHeight() / 2, null);
 					mView.showBitmap(mBitmap);
 					mTempPath = null;
+					if (!logo.isRecycled()) {
+						logo.recycle();
+					}
+					logo = null;
 					break;
 			}
 		}
 	}
-
 
 	@Override
 	public void onDestory() {

@@ -35,6 +35,7 @@ public class ScanPicturePresent extends BasePresent<ScanPictureActivity> {
 		super.onCreate();
 		mOriginUrl = mView.getContent();
 		mUrl = mOriginUrl.replace(Config.KEY_SCAN_PICTURE, Config.EMPTY_STR);
+		mView.showWaitDialog();
 		query();
 	}
 
@@ -93,6 +94,9 @@ public class ScanPicturePresent extends BasePresent<ScanPictureActivity> {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+			case R.id.imgPreview:
+				mView.showLargePicture(mBitmap);
+				break;
 			case R.id.fabSave:
 				OtherUtils.save(mActivity, mBitmap);
 				break;

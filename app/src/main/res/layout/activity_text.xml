@@ -27,11 +27,11 @@
 				style="@style/def_edit_style"
 				android:hint="@string/text_hint"
 				android:inputType="textLongMessage"
-				android:maxLength="50"
+				android:maxLength="100"
 				app:met_baseColor="@color/black"
 				app:met_clearButton="true"
 				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="50"
+				app:met_maxCharacters="100"
 				app:met_primaryColor="@color/material"
 				app:met_singleLineEllipsis="true"/>
 
@@ -40,11 +40,11 @@
 				style="@style/def_edit_style"
 				android:hint="@string/text_content_hint"
 				android:inputType="textMultiLine"
-				android:maxLength="150"
+				android:maxLength="200"
 				app:met_baseColor="@color/black"
 				app:met_clearButton="true"
 				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="150"
+				app:met_maxCharacters="200"
 				app:met_primaryColor="@color/material"/>
 
 		</LinearLayout>

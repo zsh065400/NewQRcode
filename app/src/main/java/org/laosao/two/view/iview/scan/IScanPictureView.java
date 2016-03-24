@@ -1,5 +1,7 @@
 package org.laosao.two.view.iview.scan;
 
+import android.graphics.Bitmap;
+
 import org.laosao.two.view.iview.ICreateView;
 
 /**
@@ -13,4 +15,6 @@ public interface IScanPictureView extends ICreateView {
 	void showSendWordDialog(String text);
 
 	void setSendWord(String text);
+
+	void showLargePicture(Bitmap bitmap);
 }

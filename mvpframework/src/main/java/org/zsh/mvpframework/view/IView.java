@@ -1,5 +1,7 @@
 package org.zsh.mvpframework.view;
 
+import android.os.Bundle;
+
 /**
  * @author：Administrator
  * @version:1.0
@@ -8,15 +10,23 @@ public interface IView {
 
 	void showToast(String msg, int time);
 
-	void showSimpleDialog(String title, String msg);
+	void showToast(int resId, int time);
 
-	void dismissDialog();
+//	void showSimpleDialog(String title, String msg);
+
+//	void dismissDialog();
 
 	void initView();
 
-	void loadData();
+//	void loadData();
 
 	void setListener();
 
-	void toOtherAty(Class atyClass);
+	void toOtherActivity(Class activity, Bundle bundle);
+
+	void create(String content);
+
+	String getContent();
+
+	void hideInput();
 }

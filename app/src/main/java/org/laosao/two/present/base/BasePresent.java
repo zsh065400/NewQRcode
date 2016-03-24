@@ -39,9 +39,11 @@ public class BasePresent<T extends IView> extends AppPresent<T> implements IHand
 		super.onReseum();
 	}
 
+
 	@Override
 	public void onPause() {
 		super.onPause();
+		mView.hideInput();
 	}
 
 	@Override

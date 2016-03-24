@@ -31,6 +31,16 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 	private FloatingActionButton mFabCreate;
 	List<MaterialEditText> mEditTexts;
 
+	private String[] mTitle = {
+			"姓名：",
+			"公司名称：",
+			"职业/职位：",
+			"联系电话：",
+			"QQ/微信：",
+			"邮箱：",
+			"个人简介：",
+	};
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -71,11 +81,14 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 		if (TextUtils.isEmpty(name)) {
 			return null;
 		}
+		int i = 0;
 		for (MaterialEditText et : mEditTexts) {
 			String s = et.getText().toString();
 			if (!TextUtils.isEmpty(s)) {
+				sb.append(mTitle[i]);
 				sb.append(s + "\n");
 			}
+			i++;
 		}
 		return sb.toString();
 	}
@@ -86,4 +99,5 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 			et.setText(Config.EMPTY_STR);
 		}
 	}
+
 }

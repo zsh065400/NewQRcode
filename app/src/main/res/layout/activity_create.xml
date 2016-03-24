@@ -19,9 +19,11 @@
 	<ImageView
 		android:id="@+id/create_show"
 		style="@style/def_imgview_style"
-		android:layout_below="@id/rlHeadView"
+		android:layout_width="@dimen/dp_220"
+		android:layout_height="@dimen/dp_220"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="@dimen/dp_25"/>
+		android:layout_centerVertical="true"
+		android:scaleType="fitCenter"/>
 
 	<material.view.fab.FloatingActionsMenu
 		android:id="@+id/famMore"
@@ -51,7 +53,7 @@
 			fab:fab_colorPressed="@color/material_pressed"
 			fab:fab_icon="@mipmap/ic_grade"
 			fab:fab_size="mini"
-			fab:fab_title="@string/save"/>
+			fab:fab_title="@string/label_save"/>
 
 		<material.view.fab.FloatingActionButton
 			android:id="@+id/fabAddIcon"

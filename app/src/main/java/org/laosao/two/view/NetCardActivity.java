@@ -84,7 +84,7 @@ public class NetCardActivity extends BaseActivity<NetCardPresent> implements INe
 		for (MaterialEditText et : mEtList) {
 			et.setText(Config.EMPTY_STR);
 		}
-		mImageView.setImageBitmap(null);
+		mImageView.setImageResource(R.mipmap.default_bac);
 	}
 
 	@Override

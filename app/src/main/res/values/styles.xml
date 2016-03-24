@@ -85,12 +85,12 @@
 
 	<!--图片二维码imageView-->
 	<style name="def_imgview_style">
-		<item name="android:layout_width">@dimen/dp_220</item>
-		<item name="android:layout_height">@dimen/dp_250</item>
-		<item name="android:gravity">center</item>
+		<item name="android:layout_width">@dimen/dp_250</item>
+		<item name="android:layout_height">@dimen/dp_320</item>
 		<item name="android:layout_gravity">center_horizontal</item>
 		<item name="android:layout_marginTop">7dp</item>
 		<item name="android:scaleType">fitCenter</item>
+		<item name="android:src">@mipmap/default_bac</item>
 		<item name="android:layout_marginLeft">2dp</item>
 	</style>
 

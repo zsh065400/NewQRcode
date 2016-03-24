@@ -49,8 +49,19 @@ public class ScanTextActivity extends BaseActivity<ScanTextPresent> implements
 		mTvText.setText(text);
 	}
 
+	/**
+	 * 0为文本，1为名片和Wifi
+	 */
 	@Override
-	public void changeFabState() {
-		// TODO: 2016/3/19  
+	public void changeFabState(int state) {
+		switch (state) {
+			case 0:
+
+				break;
+
+			case 1:
+				mFabCopy.setIconDrawable(getResources().getDrawable(R.mipmap.ic_add));
+				break;
+		}
 	}
 }

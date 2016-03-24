@@ -125,7 +125,7 @@ public class OtherUtils {
 				FileOutputStream fos = null;
 				try {
 					fos = new FileOutputStream(temp);
-					bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+					bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
 					fos.flush();
 					fos.close();
 					return true;
@@ -159,8 +159,8 @@ public class OtherUtils {
 	public static void save(final Activity activity, final Bitmap bitmap) {
 		View view = LayoutInflater.from(activity).inflate(R.layout.dialog_save, null);
 		final MaterialEditText etName = (MaterialEditText) view.findViewById(R.id.etSave);
-		MaterialDialog dialog = new MaterialDialog(activity);
-		dialog.setTitle(R.string.save);
+		final MaterialDialog dialog = new MaterialDialog(activity);
+		dialog.setTitle(R.string.label_save);
 		dialog.setView(view);
 		dialog.setPositiveButton(R.string.ok, new View.OnClickListener() {
 			@Override
@@ -184,7 +184,12 @@ public class OtherUtils {
 
 				final MaterialDialog prompt = new MaterialDialog(activity);
 				prompt.setTitle(R.string.title);
-				prompt.setPositiveButton(R.string.ok, null);
+				prompt.setPositiveButton(R.string.ok, new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						prompt.dismiss();
+					}
+				});
 				prompt.setNegativeButton(R.string.look, new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -194,6 +199,7 @@ public class OtherUtils {
 						intent.setDataAndType(Uri.fromFile(save),
 								Config.IMME_IMAGE_TYPE);
 						activity.startActivity(intent);
+						prompt.dismiss();
 					}
 				});
 				final MaterialDialog wait = showWaitDialog(activity);
@@ -203,7 +209,7 @@ public class OtherUtils {
 						FileOutputStream fos = null;
 						try {
 							fos = new FileOutputStream(save);
-							bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+							bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
 							fos.flush();
 							fos.close();
 							return true;
@@ -224,22 +230,34 @@ public class OtherUtils {
 							prompt.setMessage(activity.getString(R.string.save_path) + save.getAbsolutePath());
 						} else {
 							prompt.setMessage(activity.getString(R.string.fail_to_save));
-							prompt.setNegativeButton(null, null);
+							prompt.setNegativeButton("重试", new View.OnClickListener() {
+								@Override
+								public void onClick(View v) {
+									prompt.dismiss();
+								}
+							});
 						}
 						prompt.show();
 					}
 				}.execute(null, null);
+
+				dialog.dismiss();
 			}
-		}).setNegativeButton(R.string.cancel, null);
+		}).setNegativeButton(R.string.cancel, new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
 		dialog.show();
 	}
 
 
 	public static MaterialDialog showWaitDialog(Activity context) {
 		final MaterialDialog wait = new MaterialDialog(context)
-				.setView(context.getLayoutInflater().inflate(R.layout.dialog_progress, null));
-		wait.setTitle("一个提示");
+				.setContentView(context.getLayoutInflater().inflate(R.layout.dialog_progress, null));
 		wait.setCanceledOnTouchOutside(false);
+		wait.setCancelable(false);
 		wait.show();
 		return wait;
 	}

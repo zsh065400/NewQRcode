@@ -6,5 +6,4 @@ package org.zsh.mvpframework.model;
  */
 public interface IModel {
 
-	void print();
 }

@@ -15,7 +15,8 @@
 
 			<ImageView
 				android:id="@+id/imgPreview"
-				style="@style/def_imgview_style"/>
+				style="@style/def_imgview_style"
+				android:src="@null"/>
 
 			<com.rengwuxian.materialedittext.MaterialEditText
 				android:id="@+id/etConent"
@@ -55,16 +56,16 @@
 			fab:fab_colorPressed="@color/material_pressed"
 			fab:fab_icon="@mipmap/ic_share"
 			fab:fab_size="mini"
-			fab:fab_title="@string/label_about"/>
+			fab:fab_title="@string/share"/>
 
 		<material.view.fab.FloatingActionButton
-			android:id="@+id/fabAbout"
+			android:id="@+id/fabSave"
 			style="@style/wrap_content"
 			fab:fab_colorNormal="@color/material"
 			fab:fab_colorPressed="@color/material_pressed"
-			fab:fab_icon="@mipmap/ic_send"
+			fab:fab_icon="@mipmap/ic_grade"
 			fab:fab_size="mini"
-			fab:fab_title="@string/label_feedback"/>
+			fab:fab_title="@string/label_save"/>
 
 	</material.view.fab.FloatingActionsMenu>
 

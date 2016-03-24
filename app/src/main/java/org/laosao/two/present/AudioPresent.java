@@ -65,6 +65,7 @@ public class AudioPresent extends BasePresent<AudioActivity> {
 
 			path = ImageUtils.getPath(mActivity, uri);
 			mAudioFile = new File(path);
+			mFileName = mAudioFile.getName();
 			mView.showSaveDialog(mAudioFile);
 		}
 	}
@@ -79,6 +80,7 @@ public class AudioPresent extends BasePresent<AudioActivity> {
 					BmobControl.insertObject(mActivity, new BmobControl.BmobSaveCallback() {
 						@Override
 						public void onSuccess() {
+							mView.dissmissDialog();
 							mView.create(Config.KEY_SCAN_PICTURE + url);
 							mView.setFileName(mActivity.getString(R.string.choose_file));
 							mAudioFile = null;

@@ -50,7 +50,7 @@
 				app:met_singleLineEllipsis="true"/>
 
 			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etContent"
+				android:id="@+id/etCont"
 				style="@style/def_edit_style"
 				android:hint="@string/email_content_hint"
 				android:inputType="textMultiLine"

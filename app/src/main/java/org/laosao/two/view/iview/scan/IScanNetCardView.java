@@ -1,6 +1,6 @@
 package org.laosao.two.view.iview.scan;
 
-import android.view.View;
+import com.gc.materialdesign.views.ScrollView;
 
 import org.laosao.two.bean.PersonIdCard;
 import org.zsh.mvpframework.view.IView;
@@ -17,7 +17,7 @@ public interface IScanNetCardView extends IView {
 
 	void dismissWaitDialog();
 
-	View getView();
+	ScrollView getView();
 
 	void showDialog(String msg);
 

@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">玩儿码</string>
-
-	<string name="btn_open_img">图片</string>
-	<string name="exit_log">再按一下退出二维码生成器</string>
+	<string name="app_name">新二维码生成器</string>
 
 	<string name="ok">确定</string>
 	<string name="cancel">取消</string>
-	<string name="share_locate">请选择分享位置</string>
-	<string name="chooser">请选择应用</string>
 	<string name="scan_tips">开灯</string>
 
-	<string name="btn_return">返回继续扫描</string>
-	<string name="fail_to_scan">图片扫描失败</string>
-	<string name="name_not_empty">姓名不能为空</string>
-	<string name="url_not_empty">链接不能为空</string>
-
-
 	<string name="please_choose_pic">请选择要生成的图片</string>
-
-	<string name="too_long">您输入的内容超过200字符限制</string>
-	<string name="fail_to_create">生成出错，请重试</string>
 
 	<string name="please_wait">请稍后...</string>
 	<string name="upload">正在上传</string>
@@ -29,13 +15,9 @@
 	<string name="do_load">正在加载</string>
 
 	<string name="pic_load_fail">图片加载失败，请重试</string>
-	<string name="do_create">正在生成</string>
-	<string name="refresh_path">刷新路径：</string>
-	<string name="refresh_uri">刷新Uri：</string>
 
 	<string name="do_process">正在处理</string>
 	<string name="title">提示</string>
-	<string name="name_too_long">名称过长</string>
 	<string name="look">查看</string>
 	<string name="do_save">正在保存</string>
 	<string name="save_path">保存路径:</string>
@@ -45,6 +27,8 @@
 	<string name="toast_new_version">当前为最新版本：</string>
 	<string name="have_not_net">未检测到网络</string>
 	<string name="click_hint">您即将访问我们的官方微博主页，是否继续？</string>
+
+
 	<string name="fab_return">返回</string>
 	<string name="fab_send">发送</string>
 
@@ -67,7 +51,7 @@
 	<string name="project">主题</string>
 	<string name="content">内容</string>
 	<string name="email_address">邮箱（选填）</string>
-	<string name="save_hint">保存名称</string>
+	<string name="save_hint">你想用的名称</string>
 
 	<string name="current_version">当前版本：</string>
 	<string name="update_app">检查更新</string>
@@ -75,7 +59,7 @@
 	<string name="update_content">\n更新日志：\n</string>
 	<string name="find_new_version">发现新版本</string>
 	<string name="share_app">分享应用</string>
-	<string name="save">收藏</string>
+	<string name="label_save">收藏</string>
 
 	<string name="picture">图片二维码</string>
 	<string name="audio">音频二维码</string>

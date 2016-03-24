@@ -2,6 +2,7 @@ package org.laosao.two.view.scan;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -36,7 +37,7 @@ public class ScanPictureActivity extends BaseActivity<ScanPicturePresent>
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_picture);
+		setContentView(R.layout.scan_activity_picture);
 		mResult = getIntent().getStringExtra(Config.KEY_RESULT);
 		mPresent = new ScanPicturePresent(this, this);
 	}
@@ -52,6 +53,7 @@ public class ScanPictureActivity extends BaseActivity<ScanPicturePresent>
 
 	@Override
 	public void setListener() {
+		mImageView.setOnClickListener(this);
 		mFabSave.setOnClickListener(this);
 		mFabShare.setOnClickListener(this);
 		mEtConent.setOnClickListener(this);
@@ -112,5 +114,15 @@ public class ScanPictureActivity extends BaseActivity<ScanPicturePresent>
 	@Override
 	public void setSendWord(String text) {
 		mEtConent.setText(text);
+	}
+
+	@Override
+	public void showLargePicture(Bitmap bitmap) {
+		MaterialDialog dialog = new MaterialDialog(this);
+		View view = getLayoutInflater().inflate(R.layout.dialog_bitmap, null);
+		ImageView iv = (ImageView) view.findViewById(R.id.imgLarge);
+		iv.setImageBitmap(bitmap);
+		dialog.setContentView(view);
+		dialog.show();
 	}
 }

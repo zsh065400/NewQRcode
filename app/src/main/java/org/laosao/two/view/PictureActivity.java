@@ -78,7 +78,7 @@ public class PictureActivity extends BaseActivity<PicturePresent>
 	@Override
 	public void reset() {
 		mEtConent.setText(Config.EMPTY_STR);
-		mImageView.setImageBitmap(null);
+		mImageView.setImageResource(R.mipmap.default_bac);
 	}
 
 }

@@ -13,11 +13,14 @@
 		style="@style/scroll_style"
 		android:layout_below="@id/rlHeadView">
 
-		<LinearLayout style="@style/pt_linear_style">
+		<LinearLayout
+
+			style="@style/pt_linear_style">
 
 			<LinearLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:gravity="center"
 				android:orientation="horizontal"
 				android:paddingLeft="@dimen/dp_10"
 				android:paddingRight="@dimen/dp_10">
@@ -28,13 +31,14 @@
 					android:layout_height="@dimen/dp_150"
 					android:layout_marginLeft="@dimen/dp_15"
 					android:layout_marginTop="@dimen/dp_10"
-					android:layout_weight="2"
+					android:layout_weight="2.5"
 					android:padding="@dimen/dp_5"
-					android:scaleType="fitCenter"/>
+					android:scaleType="fitCenter"
+					android:src="@mipmap/default_bac"/>
 
 				<LinearLayout
 					android:layout_width="0dp"
-					android:layout_height="match_parent"
+					android:layout_height="wrap_content"
 					android:layout_weight="4"
 					android:orientation="vertical">
 

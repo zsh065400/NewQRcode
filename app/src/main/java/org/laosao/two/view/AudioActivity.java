@@ -9,12 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
+import org.laosao.two.model.OtherUtils;
 import org.laosao.two.model.SDCard;
 import org.laosao.two.present.AudioPresent;
 import org.laosao.two.view.base.BaseActivity;
@@ -70,21 +72,18 @@ public class AudioActivity extends BaseActivity<AudioPresent> implements IAudioV
 
 	@Override
 	public void startRecord() {
-//		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-		intent.setType(Config.IMME_RECORDER);
 		intent.putExtra(MediaStore.EXTRA_OUTPUT, SDCard.rootDir + File.separator +
 				"record.mp3");
+		if (intent.resolveActivity(getPackageManager()) == null) {
+			showToast("未检测到录音APP，请安装", Toast.LENGTH_SHORT);
+		}
 		startActivityForResult(intent, Config.REQ_RECORDER_CODE);
 	}
 
 	@Override
 	public void showUploadDialog() {
-		mDialog = new MaterialDialog(this)
-				.setTitle(R.string.upload)
-				.setView(getLayoutInflater().inflate(R.layout.dialog_progress, null));
-		mDialog.setCanceledOnTouchOutside(false);
-		mDialog.show();
+		mDialog = OtherUtils.showWaitDialog(this);
 	}
 
 	@Override
@@ -94,8 +93,8 @@ public class AudioActivity extends BaseActivity<AudioPresent> implements IAudioV
 		View view = LayoutInflater.from(this).
 				inflate(R.layout.dialog_save, null);
 		final MaterialEditText etName = (MaterialEditText) view.findViewById(R.id.etSave);
-		MaterialDialog dialog = new MaterialDialog(this);
-		dialog.setTitle("自定义名称");
+		final MaterialDialog dialog = new MaterialDialog(this);
+		dialog.setTitle("一个提示");
 		dialog.setView(view);
 		dialog.setPositiveButton(R.string.ok, new View.OnClickListener() {
 			@Override
@@ -105,7 +104,8 @@ public class AudioActivity extends BaseActivity<AudioPresent> implements IAudioV
 					fileName = file.getName();
 				}
 				imm.hideSoftInputFromWindow(etName.getWindowToken(), 0);
-				setFileName(getString(R.string.current_file) + fileName);
+				setFileName(getString(R.string.choose_file) + fileName);
+				dialog.dismiss();
 			}
 		});
 		dialog.setNegativeButton(R.string.cancel, new View.OnClickListener() {
@@ -113,7 +113,8 @@ public class AudioActivity extends BaseActivity<AudioPresent> implements IAudioV
 			public void onClick(View v) {
 				String fileName = file.getName();
 				imm.hideSoftInputFromWindow(etName.getWindowToken(), 0);
-				setFileName(getString(R.string.current_file) + fileName);
+				setFileName(getString(R.string.choose_file) + fileName);
+				dialog.dismiss();
 			}
 		});
 		dialog.show();

@@ -41,7 +41,7 @@ public class EmailActivity extends BaseActivity<EmailPresent>
 	public void initView() {
 		mEtAddress = (MaterialEditText) findViewById(R.id.etAddress);
 		mEtProject = (MaterialEditText) findViewById(R.id.etProject);
-		mEtContent = (MaterialEditText) findViewById(R.id.etConent);
+		mEtContent = (MaterialEditText) findViewById(R.id.etCont);
 		mFabCreate = (FloatingActionButton) findViewById(R.id.fabCreate);
 	}
 
@@ -59,8 +59,10 @@ public class EmailActivity extends BaseActivity<EmailPresent>
 				|| TextUtils.isEmpty(content)) {
 			return null;
 		}
-		return address + Config.NEW_LINE +
-				project + Config.NEW_LINE +
-				content;
+		return "收件人：" + address +
+				Config.NEW_LINE +
+				"主题：" + project
+				+ Config.NEW_LINE +
+				"内容：" + content;
 	}
 }

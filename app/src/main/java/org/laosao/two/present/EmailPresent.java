@@ -22,7 +22,7 @@ public class EmailPresent extends BasePresent<EmailActivity> {
 	public void onClick(View v) {
 		String content = mView.getContent();
 		if (TextUtils.isEmpty(content)) {
-			mView.showToast("邮件不完整", Toast.LENGTH_SHORT);
+			mView.showToast("邮件信息不完整", Toast.LENGTH_SHORT);
 			return;
 		}
 		mView.create(content);

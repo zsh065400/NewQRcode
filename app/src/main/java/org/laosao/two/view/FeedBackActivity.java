@@ -60,7 +60,6 @@ public class FeedBackActivity extends BaseActivity<FeedbackPresent>
 		MaterialDialog dialog = new MaterialDialog(this);
 		dialog.setTitle(R.string.fb_success);
 		dialog.setMessage(R.string.fb_msg);
-		dialog.setNegativeButton(getString(R.string.ok), null);
 		dialog.setPositiveButton("加油", new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

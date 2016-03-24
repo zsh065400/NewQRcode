@@ -37,19 +37,23 @@ public class FeedbackPresent extends BasePresent<FeedBackActivity> {
 					return;
 				}
 				String[] split = content.split(":");
-				String contact = split[2];
-				if (!TextUtils.isEmpty(contact)) {
-					Pattern pattern = Pattern.compile("[a-zA-z0-9._]{3,}@(\\w)+.[a-z]");
-					Matcher matcher = pattern.matcher(contact);
-					if (!matcher.matches()) {
-						mView.showToast("邮箱格式有误，请重新输入", Toast.LENGTH_SHORT);
-						return;
+				String contact = "xxxxx@xxx.xxx";
+				if (split.length == 3) {
+					contact = split[2];
+					if (!TextUtils.isEmpty(contact)) {
+						Pattern pattern = Pattern.compile("[a-zA-z0-9\\._\\-]+@(\\w)+\\.[a-z]");
+						Matcher matcher = pattern.matcher(contact);
+						if (!matcher.find()) {
+							mView.showToast("邮箱格式有误，请重新输入", Toast.LENGTH_SHORT);
+							return;
+						}
 					}
 				}
+
 				final MaterialDialog dialog = OtherUtils.showWaitDialog(mActivity);
 				FeedBackBmob feedBackBmob = new FeedBackBmob(split[0],
 						split[1],
-						split[2]);
+						contact);
 				BmobControl.insertObject(mActivity, new BmobControl.BmobSaveCallback() {
 					@Override
 					public void onSuccess() {

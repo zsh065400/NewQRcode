@@ -79,6 +79,13 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
 		mPresent.onClick(v);
 	}
 
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		closeFam();
+	}
+
 	/**
 	 * 按两次退出程序
 	 */

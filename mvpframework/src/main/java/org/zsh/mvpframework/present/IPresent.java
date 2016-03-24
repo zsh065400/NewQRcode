@@ -12,4 +12,12 @@ public interface IPresent {
 
 	void onReseum();
 
+	void onPause();
+
+	void onStop();
+
+	void onStart();
+
+	void onReStart();
+
 }

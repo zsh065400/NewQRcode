@@ -29,34 +29,34 @@ import material.dialog.MaterialDialog;
  */
 public class NetCardPresent extends BasePresent<NetCardActivity> {
 
-	private String photoPath = null;
-	private String tempPath = null;
-	private String url = null;
-	private Bitmap bitmap;
+	private String mPhotoPath = null;
+	private String mTempPath = null;
+	private String mUrl = null;
+	private Bitmap mBitmap;
 
 	public NetCardPresent(Activity activity, NetCardActivity view) {
 		super(activity, view);
 	}
 
 	public Bitmap getBitmap() {
-		return bitmap;
+		return mBitmap;
 	}
 
 	public String getUrl() {
-		return url;
+		return mUrl;
 	}
 
 	private void openCamera() {
-		photoPath = SDCard.osCamera +
+		mPhotoPath = SDCard.osCamera +
 				File.separator +
 				OtherUtils.getCurrentTime() +
 				Config.SUFFIX_PNG;
-		ImageUtils.openCamera(mActivity, photoPath);
+		ImageUtils.openCamera(mActivity, mPhotoPath);
 	}
 
 	private void cropBitmap() {
-		tempPath = SDCard.cameraDir + File.separator + "剪裁" + OtherUtils.getCurrentTime() + Config.SUFFIX_PNG;
-		ImageUtils.cropImage(Uri.fromFile(new File(photoPath)), mActivity, tempPath, 200, 210);
+		mTempPath = SDCard.cameraDir + File.separator + "剪裁" + OtherUtils.getCurrentTime() + Config.SUFFIX_PNG;
+		ImageUtils.cropImage(Uri.fromFile(new File(mPhotoPath)), mActivity, mTempPath, 180, 320);
 	}
 
 
@@ -64,17 +64,17 @@ public class NetCardPresent extends BasePresent<NetCardActivity> {
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.fabCreate:
-				if (mView.getContent() == null || tempPath == null) {
+				if (mView.getContent() == null || mTempPath == null) {
 					mView.showToast(R.string.no_head, Toast.LENGTH_SHORT);
 					return;
 				}
 				mView.showWaitDialog();
-				BmobControl.newUploadImage(mActivity, tempPath, new UploadCallback());
+				BmobControl.newUploadImage(mActivity, mTempPath, new UploadCallback());
 				break;
 			case R.id.imgPreview:
 				final MaterialDialog dialog = new MaterialDialog(mActivity);
 				dialog.setTitle("一个提示");
-				dialog.setTitle("请选择头像");
+				dialog.setMessage("请选择头像");
 				dialog.setPositiveButton("图库", new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -99,15 +99,15 @@ public class NetCardPresent extends BasePresent<NetCardActivity> {
 		if (resultCode == mActivity.RESULT_OK) {
 			switch (requestCode) {
 				case Config.REQ_OPEN_IMG:
-					photoPath = ImageUtils.getPath(mActivity, data.getData());
+					mPhotoPath = ImageUtils.getPath(mActivity, data.getData());
 					cropBitmap();
 					break;
 				case Config.REQ_OPEN_CAMERA:
 					cropBitmap();
 					break;
 				case Config.REQ_CROP_IMG:
-					bitmap = BitmapFactory.decodeFile(tempPath);
-					mView.showHeadImage(bitmap);
+					mBitmap = BitmapFactory.decodeFile(mTempPath);
+					mView.showHeadImage(mBitmap);
 					break;
 			}
 
@@ -119,7 +119,7 @@ public class NetCardPresent extends BasePresent<NetCardActivity> {
 		public void onSuccess() {
 			mView.reset();
 			mView.dismissWaitDialog();
-			mView.create(url);
+			mView.create(mUrl);
 			recycle();
 		}
 
@@ -131,21 +131,21 @@ public class NetCardPresent extends BasePresent<NetCardActivity> {
 	}
 
 	private void recycle() {
-		tempPath = null;
-		if (bitmap != null && !bitmap.isRecycled()) {
-			bitmap.recycle();
-			bitmap = null;
+		mTempPath = null;
+		if (mBitmap != null && !mBitmap.isRecycled()) {
+			mBitmap.recycle();
+			mBitmap = null;
 		}
-		photoPath = null;
-		tempPath = null;
-		url = null;
+		mPhotoPath = null;
+		mTempPath = null;
+		mUrl = null;
 	}
 
 
 	public class UploadCallback implements BmobControl.BmobUploadCallback {
 		@Override
 		public void onSuccess(String url, BmobFile img) {
-			url = Config.KEY_SCAN_NET_CARD + url;
+			mUrl = Config.KEY_SCAN_NET_CARD + url;
 			String[] bean = mView.getBean();
 			PersonIdCard card = new PersonIdCard(bean[0],
 					img,

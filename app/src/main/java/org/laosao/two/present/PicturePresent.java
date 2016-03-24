@@ -18,6 +18,7 @@ import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.PictureActivity;
 
 import java.io.File;
+import java.io.FileOutputStream;
 
 import cn.bmob.v3.datatype.BmobFile;
 import material.dialog.MaterialDialog;
@@ -33,6 +34,8 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 
 	private String mPhotoPath;
 	private String mUrl;
+
+	private File mTemp;
 
 	private Bitmap mBitmap;
 
@@ -53,13 +56,25 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 					return;
 				}
 				mView.showWaitDialog();
-				BmobControl.newUploadImage(mActivity, mPhotoPath, new UploadCallback());
+				mTemp = new File(SDCard.rootDir + File.separator + "mTemp" + Config.SUFFIX_PNG);
+				try {
+					FileOutputStream fos = new FileOutputStream(mTemp);
+					mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+					fos.flush();
+					fos.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+					mView.showToast("上传过程出错，请重试", Toast.LENGTH_SHORT);
+					mView.dismissWaitDialog();
+					return;
+				}
+				BmobControl.newUploadImage(mActivity, mTemp.getAbsolutePath(), new UploadCallback());
 				break;
 
 			case R.id.imgPreview:
 				final MaterialDialog dialog = new MaterialDialog(mActivity);
 				dialog.setTitle("一个提示");
-				dialog.setTitle("请选择生成的图片");
+				dialog.setMessage("请选择生成的图片");
 				dialog.setPositiveButton("图库", new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -91,9 +106,11 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 					break;
 			}
 			mBitmap = ImageUtils.getImageThumbnail(mPhotoPath,
-					Config.BITMAP_THUMBNAIL_WIDTH,
-					Config.BITMAP_THUMBNAIL_HEIGHT);
+					720,
+					1280);
 			mView.showBitmap(mBitmap);
+		} else {
+			recycle();
 		}
 	}
 

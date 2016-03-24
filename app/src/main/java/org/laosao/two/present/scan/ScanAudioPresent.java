@@ -3,6 +3,7 @@ package org.laosao.two.present.scan;
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,6 +28,8 @@ public class ScanAudioPresent extends BasePresent<ScanAudioActivity> {
 
 	private String mAudioUrl;
 
+	private MyHandler mHandler;
+
 	public ScanAudioPresent(Activity activity, ScanAudioActivity view) {
 		super(activity, view);
 	}
@@ -34,6 +37,13 @@ public class ScanAudioPresent extends BasePresent<ScanAudioActivity> {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		mView.showWaitDialog();
+		mHandler = new MyHandler();
+		mHandler.post(mRunnable);
+		init();
+	}
+
+	private void init() {
 		mAudioUrl = mView.getContent();
 		mMediaPlayer = new MediaPlayer();
 		mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -59,7 +69,6 @@ public class ScanAudioPresent extends BasePresent<ScanAudioActivity> {
 		query.findObjects(mActivity, new FindListener<Audio>() {
 			@Override
 			public void onSuccess(List<Audio> list) {
-				mView.dismissWaitDialog();
 				if (list != null && list.size() == 0) {
 					mView.showToast("声音神秘的消失了", Toast.LENGTH_SHORT);
 					mActivity.finish();
@@ -68,9 +77,9 @@ public class ScanAudioPresent extends BasePresent<ScanAudioActivity> {
 					mActivity.runOnUiThread(new Runnable() {
 						@Override
 						public void run() {
+							start();
 							mView.setAudioName(mAudioName);
-							mMediaPlayer.start();
-							mView.changState(1);
+							mView.dismissWaitDialog();
 						}
 					});
 				}
@@ -86,24 +95,39 @@ public class ScanAudioPresent extends BasePresent<ScanAudioActivity> {
 	}
 
 	@Override
+	public void onReseum() {
+		super.onReseum();
+		if (mMediaPlayer != null) {
+			start();
+		}
+	}
+
+	private void start() {
+		mMediaPlayer.start();
+		mView.changState(1);
+	}
+
+	@Override
 	public void onClick(View v) {
 		if (mMediaPlayer != null) {
 			if (mMediaPlayer.isPlaying()) {
-				mMediaPlayer.pause();
-				mView.changState(0);
+				pause();
 			} else {
-				mMediaPlayer.start();
-				mView.changState(1);
+				start();
 			}
 		}
+	}
+
+	private void pause() {
+		mMediaPlayer.pause();
+		mView.changState(0);
 	}
 
 	@Override
 	public void onPause() {
 		if (mMediaPlayer != null) {
 			if (mMediaPlayer.isPlaying()) {
-				mMediaPlayer.pause();
-				mView.changState(0);
+				pause();
 			}
 		}
 	}
@@ -122,5 +146,17 @@ public class ScanAudioPresent extends BasePresent<ScanAudioActivity> {
 				mMediaPlayer.release();
 			}
 		}
+		mHandler.removeCallbacks(mRunnable);
 	}
+
+	class MyHandler extends Handler {
+
+	}
+
+	Runnable mRunnable = new Runnable() {
+		@Override
+		public void run() {
+			init();
+		}
+	};
 }

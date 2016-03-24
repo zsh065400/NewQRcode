@@ -87,4 +87,5 @@ public class CreateActivity extends BaseActivity<CreatePresent>
 		super.onStop();
 		closeFam();
 	}
+
 }

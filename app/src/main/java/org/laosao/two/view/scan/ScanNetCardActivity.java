@@ -1,9 +1,9 @@
 package org.laosao.two.view.scan;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 
+import com.gc.materialdesign.views.ScrollView;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.laosao.two.R;
@@ -35,6 +35,8 @@ public class ScanNetCardActivity extends BaseActivity<ScanNetCardPresent>
 	private MaterialEditText mEtWeibo;
 	private MaterialEditText mEtPerson;
 
+	private ScrollView mCotent;
+
 	private FloatingActionButton mFabSave;
 
 	private MaterialDialog mDialog;
@@ -51,6 +53,7 @@ public class ScanNetCardActivity extends BaseActivity<ScanNetCardPresent>
 
 	@Override
 	public void initView() {
+		mCotent = (ScrollView) findViewById(R.id.content);
 		mImgPreview = (ImageView) findViewById(R.id.imgPreview);
 		mEtName = (MaterialEditText) findViewById(R.id.etName);
 		mEtQq = (MaterialEditText) findViewById(R.id.etQq);
@@ -61,7 +64,7 @@ public class ScanNetCardActivity extends BaseActivity<ScanNetCardPresent>
 		mEtEmail = (MaterialEditText) findViewById(R.id.etEmail);
 		mEtPhone = (MaterialEditText) findViewById(R.id.etPhone);
 		mEtWeibo = (MaterialEditText) findViewById(R.id.etWeibo);
-		mEtPerson = (MaterialEditText) findViewById(R.id.etProFile);
+		mEtPerson = (MaterialEditText) findViewById(R.id.etPerson);
 		mFabSave = (FloatingActionButton) findViewById(R.id.fabSave);
 	}
 
@@ -103,8 +106,8 @@ public class ScanNetCardActivity extends BaseActivity<ScanNetCardPresent>
 	}
 
 	@Override
-	public View getView() {
-		return null;
+	public ScrollView getView() {
+		return mCotent;
 	}
 
 	@Override
@@ -118,4 +121,5 @@ public class ScanNetCardActivity extends BaseActivity<ScanNetCardPresent>
 	public String getIntroduce() {
 		return mEtPerson.getText().toString();
 	}
+
 }

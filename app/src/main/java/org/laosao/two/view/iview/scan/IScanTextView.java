@@ -10,6 +10,6 @@ public interface IScanTextView extends IView {
 
 	void setScanResult(String text);
 
-	void changeFabState();
+	void changeFabState(int state);
 
 }

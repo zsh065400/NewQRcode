@@ -77,7 +77,6 @@ public class MainPresent extends BasePresent<MainActivity> {
 
 	@Override
 	public void onClick(View v) {
-		// TODO: 2016/3/13 位置待定
 		switch (v.getId()) {
 			case R.id.fabAbout:
 				mTarget = AboutActivity.class;

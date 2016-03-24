@@ -26,11 +26,11 @@
 				android:id="@+id/etConent"
 				style="@style/def_edit_style"
 				android:hint="@string/custom_content"
-				android:maxLength="200"
+				android:maxLength="500"
 				app:met_baseColor="@color/black"
 				app:met_clearButton="true"
 				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="200"
+				app:met_maxCharacters="500"
 				app:met_primaryColor="@color/material"/>
 
 			<TextView

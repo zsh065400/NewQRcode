@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import org.laosao.two.model.Config;
@@ -38,6 +39,17 @@ public abstract class BaseActivity<T extends BasePresent> extends SwipeBackActiv
 	protected void onPause() {
 		mPresent.onPause();
 		super.onPause();
+	}
+
+	protected InputMethodManager imm;
+
+	@Override
+	public void hideInput() {
+		if (imm == null)
+			imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+		if (imm.isActive())
+			imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(),
+					InputMethodManager.HIDE_NOT_ALWAYS);
 	}
 
 	@Override
