@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="default_normal">#1e88e5</color><!-- android.R.color.holo_blue_dark -->
+	<color name="default_pressed">#1e88e5</color><!-- android.R.color.holo_blue_light -->
+	<color name="default_disabled">#aaa</color><!-- android.R.color.darker_gray -->
+	<!--dialog-->
+	<color name="card_bg">#ffffff</color>
+	<color name="card_sd">#10000000</color>
+	<color name="lite_blue">#1e88e5</color>
+	<color name="window_background">#00000000</color>
+	<color name="de_black">#DE000000</color>
+</resources>
