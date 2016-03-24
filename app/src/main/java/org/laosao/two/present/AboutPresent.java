@@ -10,6 +10,7 @@ import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.AboutActivity;
 import org.laosao.two.model.Config;
 import org.laosao.two.model.OtherUtils;
+import org.laosao.two.view.PatronActivity;
 
 /**
  * @author 赵树豪
@@ -59,6 +60,9 @@ public class AboutPresent extends BasePresent<AboutActivity> {
 				OtherUtils.shareMsg(mActivity, "分享到",
 						mMsgTitle,
 						mMsgTitle + mMsgContent);
+				break;
+			case R.id.fabPatron:
+				mView.toOtherActivity(PatronActivity.class, null);
 				break;
 		}
 	}

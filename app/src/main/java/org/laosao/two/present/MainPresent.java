@@ -16,6 +16,7 @@ import org.laosao.two.view.CardActivity;
 import org.laosao.two.view.CustomActivity;
 import org.laosao.two.view.EmailActivity;
 import org.laosao.two.view.FeedBackActivity;
+import org.laosao.two.view.FileActivity;
 import org.laosao.two.view.MainActivity;
 import org.laosao.two.view.NetCardActivity;
 import org.laosao.two.view.PictureActivity;
@@ -89,6 +90,9 @@ public class MainPresent extends BasePresent<MainActivity> {
 				break;
 			case R.id.rpPic:
 				mTarget = PictureActivity.class;
+				break;
+			case R.id.rpFile:
+				mTarget = FileActivity.class;
 				break;
 			case R.id.rpCustomContent:
 				mTarget = CustomActivity.class;

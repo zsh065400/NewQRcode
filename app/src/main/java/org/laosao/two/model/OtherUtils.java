@@ -125,7 +125,7 @@ public class OtherUtils {
 				FileOutputStream fos = null;
 				try {
 					fos = new FileOutputStream(temp);
-					bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+					bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
 					fos.flush();
 					fos.close();
 					return true;
@@ -209,7 +209,7 @@ public class OtherUtils {
 						FileOutputStream fos = null;
 						try {
 							fos = new FileOutputStream(save);
-							bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+							bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
 							fos.flush();
 							fos.close();
 							return true;

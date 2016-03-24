@@ -1,7 +1,6 @@
 package org.laosao.two.view;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import org.laosao.two.R;
@@ -19,13 +18,14 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout;
  * Created by Scout.Z on 2015/8/12.
  */
 public class MainActivity extends BaseActivity<MainPresent> implements IMainView {
-	private RippleView rpPic, rpCustom,
-			rpNetCard, rpCard,
-			rpTxt, rpUrl,
-			rpSms, rpEmail,
-			rpWifi, rpAudio;
-	private FloatingActionButton fabFeedback, fabScan, fabAbout;
-	private FloatingActionsMenu famMore;
+	private RippleView mRpPic, mRpCustom,
+			mRpNetCard, mRpCard,
+			mRpTxt, mRpUrl,
+			mRpSms, mRpEmail,
+			mRpWifi, mRpAudio,
+			mRpFile;
+	private FloatingActionButton mFabFeedback, mFabScan, mFabAbout;
+	private FloatingActionsMenu mFamMore;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,49 +36,45 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
 	}
 
 	public void initView() {
-		rpPic = (RippleView) findViewById(R.id.rpPic);
-		rpCustom = (RippleView) findViewById(R.id.rpCustomContent);
-		rpNetCard = (RippleView) findViewById(R.id.rpNetCard);
-		rpCard = (RippleView) findViewById(R.id.rpCard);
-		rpTxt = (RippleView) findViewById(R.id.rpTxt);
-		rpUrl = (RippleView) findViewById(R.id.rpUrl);
-		rpSms = (RippleView) findViewById(R.id.rpSms);
-		rpEmail = (RippleView) findViewById(R.id.rpEmail);
-		rpWifi = (RippleView) findViewById(R.id.rpWifi);
-		rpAudio = (RippleView) findViewById(R.id.rpAudio);
-		fabFeedback = (FloatingActionButton) findViewById(R.id.fabFeedback);
-		fabScan = (FloatingActionButton) findViewById(R.id.fabScan);
-		fabAbout = (FloatingActionButton) findViewById(R.id.fabAbout);
-		famMore = (FloatingActionsMenu) findViewById(R.id.famMore);
+		mRpPic = (RippleView) findViewById(R.id.rpPic);
+		mRpCustom = (RippleView) findViewById(R.id.rpCustomContent);
+		mRpNetCard = (RippleView) findViewById(R.id.rpNetCard);
+		mRpCard = (RippleView) findViewById(R.id.rpCard);
+		mRpTxt = (RippleView) findViewById(R.id.rpTxt);
+		mRpUrl = (RippleView) findViewById(R.id.rpUrl);
+		mRpSms = (RippleView) findViewById(R.id.rpSms);
+		mRpEmail = (RippleView) findViewById(R.id.rpEmail);
+		mRpWifi = (RippleView) findViewById(R.id.rpWifi);
+		mRpAudio = (RippleView) findViewById(R.id.rpAudio);
+		mRpFile = (RippleView) findViewById(R.id.rpFile);
+		mFabFeedback = (FloatingActionButton) findViewById(R.id.fabFeedback);
+		mFabScan = (FloatingActionButton) findViewById(R.id.fabScan);
+		mFabAbout = (FloatingActionButton) findViewById(R.id.fabAbout);
+		mFamMore = (FloatingActionsMenu) findViewById(R.id.famMore);
 	}
 
 	@Override
 	public void setListener() {
-		rpPic.setOnClickListener(this);
-		rpCustom.setOnClickListener(this);
-		rpNetCard.setOnClickListener(this);
-		rpCard.setOnClickListener(this);
-		rpTxt.setOnClickListener(this);
-		rpUrl.setOnClickListener(this);
-		rpSms.setOnClickListener(this);
-		rpEmail.setOnClickListener(this);
-		rpWifi.setOnClickListener(this);
-		rpAudio.setOnClickListener(this);
-		fabFeedback.setOnClickListener(this);
-		fabScan.setOnClickListener(this);
-		fabAbout.setOnClickListener(this);
+		mRpPic.setOnClickListener(this);
+		mRpCustom.setOnClickListener(this);
+		mRpNetCard.setOnClickListener(this);
+		mRpCard.setOnClickListener(this);
+		mRpTxt.setOnClickListener(this);
+		mRpUrl.setOnClickListener(this);
+		mRpSms.setOnClickListener(this);
+		mRpEmail.setOnClickListener(this);
+		mRpWifi.setOnClickListener(this);
+		mRpAudio.setOnClickListener(this);
+		mRpFile.setOnClickListener(this);
+		mFabFeedback.setOnClickListener(this);
+		mFabScan.setOnClickListener(this);
+		mFabAbout.setOnClickListener(this);
 	}
 
 	@Override
 	public String getContent() {
 		return null;
 	}
-
-	@Override
-	public void onClick(View v) {
-		mPresent.onClick(v);
-	}
-
 
 	@Override
 	protected void onStop() {
@@ -103,8 +99,8 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
 
 	@Override
 	public void closeFam() {
-		if (famMore.isExpanded()) {
-			famMore.collapse();
+		if (mFamMore.isExpanded()) {
+			mFamMore.collapse();
 		}
 	}
 

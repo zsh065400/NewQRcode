@@ -55,6 +55,7 @@
 		fab:fab_expandDirection="up"
 		fab:fab_labelStyle="@style/fab_lable_style"
 		fab:fab_labelsPosition="left">
+
 		<material.view.fab.FloatingActionButton
 			android:id="@+id/fabCheckUpdate"
 			style="@style/wrap_content"
@@ -72,6 +73,15 @@
 			fab:fab_icon="@mipmap/ic_share"
 			fab:fab_size="mini"
 			fab:fab_title="@string/share_app"/>
+
+		<material.view.fab.FloatingActionButton
+			android:id="@+id/fabPatron"
+			style="@style/wrap_content"
+			fab:fab_colorNormal="@color/material"
+			fab:fab_colorPressed="@color/material_pressed"
+			fab:fab_icon="@mipmap/ic_thumb"
+			fab:fab_size="mini"
+			fab:fab_title="@string/lable_patron"/>
 
 
 	</material.view.fab.FloatingActionsMenu>

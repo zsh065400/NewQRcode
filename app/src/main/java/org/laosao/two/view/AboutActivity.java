@@ -18,7 +18,7 @@ import material.view.fab.FloatingActionsMenu;
 public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutView {
 
 	private TextView mTvVersion, mTvInfo;
-	private FloatingActionButton mFabShareApp, mFabCheckUpdate;
+	private FloatingActionButton mFabShareApp, mFabCheckUpdate, mFabPatron;
 	private FloatingActionsMenu mFamMore;
 
 	@Override
@@ -34,6 +34,7 @@ public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutV
 		mTvInfo = (TextView) findViewById(R.id.tvInfo);
 		mFabShareApp = (FloatingActionButton) findViewById(R.id.fabShare);
 		mFabCheckUpdate = (FloatingActionButton) findViewById(R.id.fabCheckUpdate);
+		mFabPatron = (FloatingActionButton) findViewById(R.id.fabPatron);
 		mFamMore = (FloatingActionsMenu) findViewById(R.id.famMore);
 	}
 
@@ -43,6 +44,7 @@ public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutV
 		mTvInfo.setOnClickListener(this);
 		mFabShareApp.setOnClickListener(this);
 		mFabCheckUpdate.setOnClickListener(this);
+		mFabPatron.setOnClickListener(this);
 	}
 
 	@Override

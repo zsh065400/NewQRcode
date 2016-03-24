@@ -57,7 +57,9 @@ public class ScanActivity extends CaptureActivity implements SwipeBackActivityBa
 		if (result.startsWith(Config.KEY_SCAN_NET_CARD)) {
 			result = result.substring(9, result.length());
 			c = ScanNetCardActivity.class;
-		} else if (isPic) {
+		} else if(result.startsWith(Config.KEY_SCAN_FILE)){
+			c = ScanTextActivity.class;
+		}else if (isPic) {
 			c = ScanPictureActivity.class;
 		} else if (isAudio) {
 			c = ScanAudioActivity.class;

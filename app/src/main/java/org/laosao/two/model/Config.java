@@ -13,10 +13,10 @@ public class Config {
 	//	public static final String BMOB_SERVER_APP_ID = "ceaacb67f642d51a33096f1e19f725ef";
 
 	//key
-	public static final String KEY_SPLASH = "splash";
 	public static final String KEY_CONTENT = "content";
 	public static final String KEY_SCAN_NET_CARD = "065400zsh";
 	public static final String KEY_SCAN_PICTURE = "http://file.bmob.cn/";
+	public static final String KEY_SCAN_FILE = "file.bmob.cn/";
 	public static final String KEY_SCAN_WIFI = "WIFI:T:";
 	public static final String KEY_RESULT = "result";
 
@@ -28,12 +28,10 @@ public class Config {
 	public static final String IMME_PNG = "image/png";
 	public static final String IMME_AUDIO = "audio/*";
 	public static final String IMME_TEXT = "text/plain";
-	public static final String IMME_RECORDER = "audio/amr";
+	public static final String IMME_ALL = "*/*";
 
 	public static final int CODE_ERROR = -1;
 	public static final int CODE_YES = 1;
-	public static final int CODE_PATH = 2;
-	public static final int CODE_ADD_LOGO = 3;
 
 	public static final int REQ_OPEN_CAMERA = 10005;
 	public static final int REQ_OPEN_IMG = 10006;

@@ -6,7 +6,9 @@
 	android:layout_height="match_parent"
 	android:layout_gravity="center"
 	android:gravity="center"
-	android:orientation="horizontal">
+	android:orientation="horizontal"
+	android:paddingRight="@dimen/dp_10"
+	android:paddingTop="@dimen/dp_5">
 
 	<com.gc.materialdesign.views.ProgressBarCircularIndeterminate
 		android:layout_width="@dimen/dp_32"

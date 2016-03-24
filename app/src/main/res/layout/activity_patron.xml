@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/rootView"
+	style="@style/relative_style"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fab="http://schemas.android.com/apk/res-auto">
+
+
+	<RelativeLayout
+		android:id="@+id/rlHeadView"
+		style="@style/title_style">
+
+		<TextView
+			style="@style/title_text_style"
+			android:text="赞助我们"/>
+
+	</RelativeLayout>
+
+
+	<ScrollView
+		style="@style/scroll_style"
+		android:layout_below="@id/rlHeadView">
+
+		<LinearLayout
+			style="@style/pt_linear_style"
+			android:paddingLeft="@dimen/dp_50"
+			android:paddingRight="@dimen/dp_50"
+			android:paddingTop="@dimen/dp_20">
+
+			<ImageView
+				android:id="@+id/ivZfb"
+				android:layout_width="@dimen/dp_150"
+				android:layout_height="@dimen/dp_150"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="@dimen/dp_10"
+				android:scaleType="fitCenter"
+				android:src="@mipmap/zfb"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true"
+				android:layout_marginTop="@dimen/dp_20"
+				android:text="    您可以赞助我们，帮助我们开发更好的软件，无论多少，您的名字都会出现在以后的版本中。\n    您的支持，就是对我们最大的帮助！"
+				android:textColor="@color/black"
+				android:textSize="@dimen/dp_20"
+				/>
+
+		</LinearLayout>
+	</ScrollView>
+
+	<material.view.fab.FloatingActionButton
+		android:id="@+id/fabSave"
+		style="@style/fab_style"
+		fab:fab_colorNormal="@color/material"
+		fab:fab_colorPressed="@color/material_pressed"
+		fab:fab_icon="@mipmap/ic_grade"
+		fab:fab_size="normal"/>
+
+</RelativeLayout>

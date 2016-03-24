@@ -51,9 +51,9 @@ public class ScanTextPresent extends BasePresent<ScanTextActivity> {
 				switch (mSecurity) {
 					case "WPA/WPA2":
 						boolean connect = wc.Connect(mSsid, mPassword, WifiConnect.WifiCipherType.WIFICIPHER_WPA);
-						if(connect){
+						if (connect) {
 							mView.showToast("连接成功", Toast.LENGTH_SHORT);
-						}else{
+						} else {
 							mView.showToast("连接失败", Toast.LENGTH_SHORT);
 						}
 						break;

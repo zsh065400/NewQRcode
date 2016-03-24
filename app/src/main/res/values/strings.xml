@@ -44,6 +44,7 @@
 	<string name="ripp_url"><![CDATA[        网址二维码]]></string>
 	<string name="ripp_sms"><![CDATA[        短信二维码]]></string>
 	<string name="ripp_email"><![CDATA[        邮件二维码]]></string>
+	<string name="ripp_file"><![CDATA[        文件二维码]]></string>
 	<string name="label_scan">开始扫描</string>
 	<string name="label_feedback">意见反馈</string>
 	<string name="label_about">关于软件</string>
@@ -71,10 +72,11 @@
 	<string name="url">网址二维码</string>
 	<string name="sms">短信二维码</string>
 	<string name="email">邮件二维码</string>
+	<string name="files">文件二维码</string>
 	<string name="result">二维码的秘密</string>
 	<string name="create">看看你的杰作</string>
 
-	<string name="custom_topic">您可以在这里输入微博链接/名称，淘宝店铺链接/名称，微信账号，软件下载地址等，扫描后就可以直接查看/下载。更多玩法还需要您自己发现哦！</string>
+	<string name="custom_topic">您可以在这里输入微博链接/名称，淘宝店铺链接/名称，微信账号，软件下载地址、您的位置等，扫描后就可以直接查看/下载。更多玩法还需要您自己发现哦！</string>
 	<string name="developer_info">开发者：香河豪门工作室\n官方微博账号：@新二维码生成器\n\n您可以将您的意见或建议，以微博私信或在线反馈的形式告诉我们，让我们做得更好。</string>
 	<!--网络名片码-->
 	<string name="qq">QQ号</string>
@@ -122,6 +124,8 @@
 	<string name="add_logo">添加LOGO</string>
 	<!-- 图片二维码-->
 	<string name="image_text">寄语</string>
+	<!-- 文件二维码-->
+	<string name="file_choose">选择文件</string>
 
 	<string name="choose_logo">选择LOGO图片</string>
 	<string name="please_write_done">请完善信息</string>
@@ -132,4 +136,6 @@
 	<string name="copy_to">内容已复制到剪贴板</string>
 	<string name="query_empty">图片神秘的消失了</string>
 	<string name="no_head">头像姓名不能为空</string>
+	<string name="lable_patron">赞助我们</string>
+
 </resources>

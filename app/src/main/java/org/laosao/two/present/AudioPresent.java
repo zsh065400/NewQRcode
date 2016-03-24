@@ -73,35 +73,36 @@ public class AudioPresent extends BasePresent<AudioActivity> {
 	private void uploadFile() {
 		if (mAudioFile != null && mAudioFile.exists()) {
 			mView.showUploadDialog();
-			BmobControl.uploadImage(mActivity, new BmobControl.BmobUploadCallback() {
-				@Override
-				public void onSuccess(final String url, BmobFile audio) {
-					Audio b = new Audio(mFileName, audio, url);
-					BmobControl.insertObject(mActivity, new BmobControl.BmobSaveCallback() {
+			BmobControl.newUploadImage(mActivity, mAudioFile.getAbsolutePath(),
+					new BmobControl.BmobUploadCallback() {
 						@Override
-						public void onSuccess() {
-							mView.dissmissDialog();
-							mView.create(Config.KEY_SCAN_PICTURE + url);
-							mView.setFileName(mActivity.getString(R.string.choose_file));
-							mAudioFile = null;
+						public void onSuccess(final String url, BmobFile audio) {
+							final String u = url.replace(Config.KEY_SCAN_PICTURE, "");
+							Audio b = new Audio(mFileName, audio, u);
+							BmobControl.insertObject(mActivity, new BmobControl.BmobSaveCallback() {
+								@Override
+								public void onSuccess() {
+									mView.dissmissDialog();
+									mView.create(Config.KEY_SCAN_PICTURE + u);
+									mView.setFileName(mActivity.getString(R.string.choose_file));
+									mAudioFile = null;
+								}
+
+								@Override
+								public void onFail(String error) {
+									Log.e("存入数据表失败", error);
+									mView.dissmissDialog();
+								}
+							}, b);
 						}
 
 						@Override
 						public void onFail(String error) {
-							Log.e("存入数据表失败", error);
+							mView.showToast(error, Toast.LENGTH_LONG);
+							Log.e("数据上传失败", error);
 							mView.dissmissDialog();
 						}
-					}, b);
-				}
-
-				@Override
-				public void onFail(String error) {
-					mView.showToast(error, Toast.LENGTH_LONG);
-					Log.e("数据上传失败", error);
-					mView.dissmissDialog();
-				}
-			}, mAudioFile);
-
+					});
 		} else {
 			mView.showToast("您还没有选择文件", Toast.LENGTH_LONG);
 		}

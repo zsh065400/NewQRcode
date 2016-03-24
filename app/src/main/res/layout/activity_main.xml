@@ -23,6 +23,7 @@
 
 		<LinearLayout style="@style/pt_linear_style">
 
+
 			<material.view.RippleView
 				android:id="@+id/rpPic"
 				style="@style/my_ripple_view"
@@ -37,6 +38,15 @@
 				style="@style/my_ripple_view"
 				android:drawableLeft="@mipmap/ic_ripp_audio"
 				android:text="@string/ripp_audio"
+				fab:hover="true"
+				fab:rippleColor="#1e88e5"
+				/>
+
+			<material.view.RippleView
+				android:id="@+id/rpFile"
+				style="@style/my_ripple_view"
+				android:drawableLeft="@mipmap/ic_ripp_file"
+				android:text="@string/ripp_file"
 				fab:hover="true"
 				fab:rippleColor="#1e88e5"
 				/>
@@ -57,7 +67,7 @@
 				android:text="@string/ripp_net_card"
 				fab:hover="true"
 				fab:rippleColor="#1e88e5"
-				/>
+				android:layout_gravity="center_vertical"/>
 
 			<material.view.RippleView
 				android:id="@+id/rpCard"

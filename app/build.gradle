@@ -15,7 +15,7 @@ android {
 		applicationId "org.laosao.two"
 		minSdkVersion 19
 		targetSdkVersion 22
-		versionCode 33
+		versionCode 34
 		versionName getDate()
 		multiDexEnabled true
 	}
