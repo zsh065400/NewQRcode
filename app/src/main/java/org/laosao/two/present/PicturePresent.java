@@ -106,7 +106,7 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 					break;
 			}
 			mBitmap = ImageUtils.getImageThumbnail(mPhotoPath,
-					800,
+					720,
 					1280);
 			mView.showBitmap(mBitmap);
 		} else {

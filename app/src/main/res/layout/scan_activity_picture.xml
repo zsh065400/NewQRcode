@@ -16,6 +16,7 @@
 			<ImageView
 				android:id="@+id/imgPreview"
 				style="@style/def_imgview_style"
+				android:scaleType="fitCenter"
 				android:src="@null"/>
 
 			<com.rengwuxian.materialedittext.MaterialEditText

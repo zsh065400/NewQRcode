@@ -85,7 +85,7 @@
 
 	<!--图片二维码imageView-->
 	<style name="def_imgview_style">
-		<item name="android:layout_width">@dimen/dp_250</item>
+		<item name="android:layout_width">@dimen/dp_320</item>
 		<item name="android:layout_height">@dimen/dp_320</item>
 		<item name="android:layout_gravity">center_horizontal</item>
 		<item name="android:layout_marginTop">7dp</item>

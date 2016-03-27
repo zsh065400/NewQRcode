@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -131,37 +130,44 @@ public class ImageUtils {
 	 */
 	public static Bitmap getImageThumbnail(String path, int width, int height) {
 		Bitmap bitmap = null;
-		BitmapFactory.Options options = new BitmapFactory.Options();
-		options.inJustDecodeBounds = true;
-		bitmap = BitmapFactory.decodeFile(path, options);
-		options.inJustDecodeBounds = false;
-		int beWidth = options.outWidth / width;
-		int beHeight = options.outHeight / height;
-		int be = 1;
-		if (beWidth < beHeight) {
-			be = beWidth;
-		} else {
-			be = beHeight;
-		}
-		if (be <= 0) {
-			be = 1;
-		}
-		options.inSampleSize = be;
-		bitmap = BitmapFactory.decodeFile(path, options);
-		bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
-				ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
-		return bitmap;
+//		BitmapFactory.Options options = new BitmapFactory.Options();
+//		options.inJustDecodeBounds = true;
+		bitmap = BitmapFactory.decodeFile(path);
+
+//		options.inJustDecodeBounds = false;
+//		int beWidth = options.outWidth / width;
+//		int beHeight = options.outHeight / height;
+//		int be = 1;
+//		if (beWidth < beHeight) {
+//			be = beWidth;
+//		} else {
+//			be = beHeight;
+//		}
+//		if (be <= 0) {
+//			be = 1;
+//		}
+//		options.inSampleSize = be;
+//		bitmap = BitmapFactory.decodeFile(path, options);
+//		bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
+//				ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+		return getImageThumbnail(bitmap, width, height);
 	}
 
 	public static Bitmap getImageThumbnail(Bitmap b, int w
 			, int h) {
 		float width = b.getWidth();
 		float height = b.getHeight();
+		float scaleWidth, scaleHeight;
+		//横向照片
+		if (width > height) {// 计算宽高缩放率
+			scaleWidth = ((float) h) / width;
+			scaleHeight = ((float) w) / height;
+		}else{
+			scaleWidth = ((float) w) / width;
+			scaleHeight = ((float) h) / height;
+		}
 		// 创建操作图片用的matrix对象
 		Matrix matrix = new Matrix();
-		// 计算宽高缩放率
-		float scaleWidth = ((float) w) / width;
-		float scaleHeight = ((float) h) / height;
 		// 缩放图片动作
 		matrix.postScale(scaleWidth, scaleHeight);
 		Bitmap bitmap = Bitmap.createBitmap(b, 0, 0, (int) width,

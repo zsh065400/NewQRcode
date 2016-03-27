@@ -81,8 +81,8 @@ public class ScanPicturePresent extends BasePresent<ScanPictureActivity> {
 					break;
 				case Config.CODE_YES:
 					Bitmap bitmap = (Bitmap) msg.obj;
-					mBitmap = ImageUtils.getImageThumbnail(bitmap, Config.BITMAP_THUMBNAIL_WIDTH
-							, Config.BITMAP_THUMBNAIL_HEIGHT);
+					mBitmap = ImageUtils.getImageThumbnail(bitmap, 720
+							, 1280);
 					mView.dismissWaitDialog();
 					mView.setSendWord(mObj.getName());
 					mView.showBitmap(mBitmap);
