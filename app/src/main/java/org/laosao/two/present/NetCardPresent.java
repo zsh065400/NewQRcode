@@ -56,7 +56,7 @@ public class NetCardPresent extends BasePresent<NetCardActivity> {
 
 	private void cropBitmap() {
 		mTempPath = SDCard.cameraDir + File.separator + "剪裁" + OtherUtils.getCurrentTime() + Config.SUFFIX_PNG;
-		ImageUtils.cropImage(Uri.fromFile(new File(mPhotoPath)), mActivity, mTempPath, 180, 320);
+		ImageUtils.cropImage(Uri.fromFile(new File(mPhotoPath)), mActivity, mTempPath, 200, 320);
 	}
 
 

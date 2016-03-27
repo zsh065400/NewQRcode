@@ -79,6 +79,7 @@ public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutV
 				intent.setData(
 						Uri.parse("http://weibo.com/p/1006063174917162/home?from=page_100606&mod=TAB#place"));
 				startActivity(intent);
+				dialog.dismiss();
 			}
 		});
 		dialog.setNegativeButton("不看了", new View.OnClickListener() {

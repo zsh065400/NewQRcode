@@ -52,7 +52,7 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 		switch (v.getId()) {
 			case R.id.fabCreate:
 				if (mPhotoPath == null) {
-					mView.showToast(R.string.set_img, Toast.LENGTH_SHORT);
+					mView.showToast("您还没有选择图片", Toast.LENGTH_SHORT);
 					return;
 				}
 				mView.showWaitDialog();
@@ -106,7 +106,7 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 					break;
 			}
 			mBitmap = ImageUtils.getImageThumbnail(mPhotoPath,
-					720,
+					800,
 					1280);
 			mView.showBitmap(mBitmap);
 		} else {
@@ -169,5 +169,9 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 		}
 		mPhotoPath = null;
 		mUrl = null;
+		if (mTemp != null && mTemp.exists()) {
+			mTemp.delete();
+			mTemp = null;
+		}
 	}
 }

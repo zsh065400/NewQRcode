@@ -4,9 +4,6 @@
 
 	<string name="ok">确定</string>
 	<string name="cancel">取消</string>
-	<string name="scan_tips">开灯</string>
-
-	<string name="please_choose_pic">请选择要生成的图片</string>
 
 	<string name="please_wait">请稍后...</string>
 	<string name="upload">正在上传</string>
@@ -16,13 +13,11 @@
 
 	<string name="pic_load_fail">图片加载失败，请重试</string>
 
-	<string name="do_process">正在处理</string>
 	<string name="title">提示</string>
 	<string name="look">查看</string>
 	<string name="do_save">正在保存</string>
 	<string name="save_path">保存路径:</string>
 	<string name="fail_to_save">保存失败，请重试</string>
-	<string name="set_img">请选择图片</string>
 
 	<string name="toast_new_version">当前为最新版本：</string>
 	<string name="have_not_net">未检测到网络</string>
