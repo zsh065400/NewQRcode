@@ -40,13 +40,13 @@
 			<com.gc.materialdesign.views.ButtonRectangle
 				android:id="@+id/btnSpeak"
 				style="@style/btn_rectangle_style"
-				android:layout_marginLeft="@dimen/dp_15"
+				android:layout_marginRight="@dimen/dp_15"
 				android:text="@string/record"/>
 
 			<com.gc.materialdesign.views.ButtonRectangle
 				android:id="@+id/btnChooseAudio"
 				style="@style/btn_rectangle_style"
-				android:layout_marginRight="@dimen/dp_15"
+				android:layout_marginLeft="@dimen/dp_15"
 				android:text="@string/file"/>
 		</LinearLayout>
 	</LinearLayout>
