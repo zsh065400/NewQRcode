@@ -21,7 +21,6 @@ import org.laosao.two.view.MainActivity;
 import org.laosao.two.view.NetCardActivity;
 import org.laosao.two.view.PictureActivity;
 import org.laosao.two.view.SmsActivity;
-import org.laosao.two.view.TextActivity;
 import org.laosao.two.view.UrlActivity;
 import org.laosao.two.view.WifiActivity;
 import org.laosao.two.view.scan.ScanActivity;
@@ -102,9 +101,6 @@ public class MainPresent extends BasePresent<MainActivity> {
 				break;
 			case R.id.rpCard:
 				mTarget = CardActivity.class;
-				break;
-			case R.id.rpTxt:
-				mTarget = TextActivity.class;
 				break;
 			case R.id.rpUrl:
 				mTarget = UrlActivity.class;

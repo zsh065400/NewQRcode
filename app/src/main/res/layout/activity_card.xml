@@ -72,39 +72,15 @@
 				app:met_primaryColor="@color/material"/>
 
 			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etQq"
-				style="@style/def_edit_style"
-				android:hint="@string/qq_hint"
-				android:inputType="textShortMessage"
-				android:maxLength="15"
-				app:met_baseColor="@color/black"
-				app:met_clearButton="true"
-				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="15"
-				app:met_primaryColor="@color/material"/>
-
-			<com.rengwuxian.materialedittext.MaterialEditText
 				android:id="@+id/etEmail"
 				style="@style/def_edit_style"
 				android:hint="@string/e_mail_hint"
 				android:inputType="textEmailAddress"
-				android:maxLength="30"
+				android:maxLength="50"
 				app:met_baseColor="@color/black"
 				app:met_clearButton="true"
 				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="30"
-				app:met_primaryColor="@color/material"/>
-
-			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etPerson"
-				style="@style/def_edit_style"
-				android:hint="@string/say_hint"
-				android:inputType="textMultiLine"
-				android:maxLength="100"
-				app:met_baseColor="@color/black"
-				app:met_clearButton="true"
-				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="100"
+				app:met_maxCharacters="50"
 				app:met_primaryColor="@color/material"/>
 
 

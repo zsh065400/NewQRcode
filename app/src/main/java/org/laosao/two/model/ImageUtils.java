@@ -9,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -55,7 +54,7 @@ public class ImageUtils {
 	 * @param uri
 	 */
 	public static void cropImage(Uri uri, Activity activity, String path,
-	                             int width, int height) {
+	                             final int width, final int height) {
 		Intent intent = new Intent("com.android.camera.action.CROP");
 		intent.setDataAndType(uri, Config.IMME_IMAGE_TYPE);
 		intent.putExtra("crop", "true");// crop=true 有这句才能出来最后的裁剪页面.
@@ -120,58 +119,53 @@ public class ImageUtils {
 		return bitmap;
 	}
 
+
 	/**
-	 * 计算获得图片缩略图
+	 * 根据宽高按比例缩放
 	 *
 	 * @param path   目标文件路径
 	 * @param width  新宽度
 	 * @param height 新高度
 	 * @return
 	 */
-	public static Bitmap getImageThumbnail(String path, int width, int height) {
+	public static Bitmap getBitmapForPictureQrcode(String path, int width, int height) {
 		Bitmap bitmap = null;
-//		BitmapFactory.Options options = new BitmapFactory.Options();
-//		options.inJustDecodeBounds = true;
-		bitmap = BitmapFactory.decodeFile(path);
-
-//		options.inJustDecodeBounds = false;
-//		int beWidth = options.outWidth / width;
-//		int beHeight = options.outHeight / height;
-//		int be = 1;
-//		if (beWidth < beHeight) {
-//			be = beWidth;
-//		} else {
-//			be = beHeight;
-//		}
-//		if (be <= 0) {
-//			be = 1;
-//		}
-//		options.inSampleSize = be;
-//		bitmap = BitmapFactory.decodeFile(path, options);
-//		bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
-//				ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
-		return getImageThumbnail(bitmap, width, height);
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inJustDecodeBounds = true;
+//		//默认
+		bitmap = BitmapFactory.decodeFile(path, options);
+		options.inJustDecodeBounds = false;
+		int be = 0;
+		int bw = options.outWidth;
+		int bh = options.outHeight;
+		//横向图片，宽大于高
+		while (bw > width || bh > height) {
+			be += 2;
+			bw /= 2;
+			bh /= 2;
+		}
+		if (be == 0) be = 1;
+		options.inSampleSize = be;
+		bitmap = BitmapFactory.decodeFile(path, options);
+		return compressImage(bitmap, 200);
 	}
 
-	public static Bitmap getImageThumbnail(Bitmap b, int w
-			, int h) {
-		float width = b.getWidth();
-		float height = b.getHeight();
-		float scaleWidth, scaleHeight;
-		//横向照片
-		if (width > height) {// 计算宽高缩放率
-			scaleWidth = ((float) h) / width;
-			scaleHeight = ((float) w) / height;
-		}else{
-			scaleWidth = ((float) w) / width;
-			scaleHeight = ((float) h) / height;
+	public static Bitmap getLogo(String path, int size) {
+		Bitmap bitmap = null;
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inJustDecodeBounds = true;
+//		//默认
+		bitmap = BitmapFactory.decodeFile(path, options);
+		options.inJustDecodeBounds = false;
+		int be = 1;
+		int s = options.outWidth;
+		int scale = s / size;
+		//横向图片，宽大于高
+		while (scale > be) {
+			be = scale;
 		}
-		// 创建操作图片用的matrix对象
-		Matrix matrix = new Matrix();
-		// 缩放图片动作
-		matrix.postScale(scaleWidth, scaleHeight);
-		Bitmap bitmap = Bitmap.createBitmap(b, 0, 0, (int) width,
-				(int) height, matrix, true);
+		options.inSampleSize = be;
+		bitmap = BitmapFactory.decodeFile(path, options);
 		return bitmap;
 	}
 

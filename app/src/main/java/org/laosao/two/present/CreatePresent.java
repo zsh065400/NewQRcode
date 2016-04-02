@@ -3,7 +3,6 @@ package org.laosao.two.present;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.view.View;
@@ -97,11 +96,14 @@ public class CreatePresent extends BasePresent<CreateActivity> {
 		ImageUtils.openCamera(mActivity, mPhotoPath);
 	}
 
+	private int mLogoSize;
+
 	private void cropBitmap() {
 		mTempPath = SDCard.cameraDir + File.separator +
 				"剪裁" + OtherUtils.getCurrentTime() + Config.SUFFIX_PNG;
-		int size = (int) (mQrcodeSize * 0.18);
-		ImageUtils.cropImage(Uri.fromFile(new File(mPhotoPath)), mActivity, mTempPath, size, size);
+		mLogoSize = (int) (mQrcodeSize * 0.15);
+		ImageUtils.cropImage(Uri.fromFile(new File(mPhotoPath)), mActivity,
+				mTempPath, mLogoSize, mLogoSize);
 	}
 
 	@Override
@@ -116,19 +118,16 @@ public class CreatePresent extends BasePresent<CreateActivity> {
 					cropBitmap();
 					break;
 				case Config.REQ_CROP_IMG:
-					Bitmap logo = BitmapFactory.decodeFile(mTempPath);
+					Bitmap logo = ImageUtils.getLogo(mTempPath, mLogoSize);
 					Canvas canvas = new Canvas();
 					canvas.setBitmap(mBitmap);
 					//向中间插入内容
-					canvas.drawBitmap(logo, mBitmap.getWidth() / 2
-							- logo.getWidth() / 2, mBitmap.getHeight()
-							/ 2 - logo.getHeight() / 2, null);
+					canvas.drawBitmap(logo, mQrcodeSize / 2
+							- mLogoSize / 2, mQrcodeSize
+							/ 2 - mLogoSize / 2, null);
 					mView.showBitmap(mBitmap);
-					mTempPath = null;
-					if (!logo.isRecycled()) {
-						logo.recycle();
-					}
 					logo = null;
+					mTempPath = null;
 					break;
 			}
 		}
@@ -147,4 +146,5 @@ public class CreatePresent extends BasePresent<CreateActivity> {
 		}
 		mPhotoPath = null;
 	}
+
 }

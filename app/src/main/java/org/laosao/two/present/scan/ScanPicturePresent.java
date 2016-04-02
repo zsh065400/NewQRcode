@@ -11,7 +11,6 @@ import org.laosao.two.R;
 import org.laosao.two.bean.BitmapBmob;
 import org.laosao.two.model.BmobControl;
 import org.laosao.two.model.Config;
-import org.laosao.two.model.ImageUtils;
 import org.laosao.two.model.OtherUtils;
 import org.laosao.two.model.SDCard;
 import org.laosao.two.present.base.BasePresent;
@@ -80,9 +79,7 @@ public class ScanPicturePresent extends BasePresent<ScanPictureActivity> {
 					mActivity.finish();
 					break;
 				case Config.CODE_YES:
-					Bitmap bitmap = (Bitmap) msg.obj;
-					mBitmap = ImageUtils.getImageThumbnail(bitmap, 720
-							, 1280);
+					mBitmap = (Bitmap) msg.obj;
 					mView.dismissWaitDialog();
 					mView.setSendWord(mObj.getName());
 					mView.showBitmap(mBitmap);

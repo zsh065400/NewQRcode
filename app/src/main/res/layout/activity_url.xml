@@ -22,20 +22,6 @@
 		android:layout_below="@id/rlHeadView">
 
 		<LinearLayout style="@style/pt_linear_style">
-
-			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etWebTitle"
-				style="@style/def_edit_style"
-				android:hint="@string/url_hint"
-				android:inputType="textLongMessage"
-				android:maxLength="100"
-				app:met_baseColor="@color/black"
-				app:met_clearButton="true"
-				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="100"
-				app:met_primaryColor="@color/material"
-				app:met_singleLineEllipsis="true"/>
-
 			<com.rengwuxian.materialedittext.MaterialEditText
 				android:id="@+id/etWebUrl"
 				style="@style/def_edit_style"

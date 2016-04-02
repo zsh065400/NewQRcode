@@ -18,7 +18,6 @@ import material.view.fab.FloatingActionButton;
  */
 public class UrlActivity extends BaseActivity<UrlPresent>
 		implements IUrlView {
-	private MaterialEditText mEtTitle;
 	private MaterialEditText mEtUrl;
 	private FloatingActionButton mFabCreate;
 
@@ -31,13 +30,11 @@ public class UrlActivity extends BaseActivity<UrlPresent>
 
 	@Override
 	public void reset() {
-		mEtTitle.setText(Config.EMPTY_STR);
 		mEtUrl.setText(Config.EMPTY_STR);
 	}
 
 	@Override
 	public void initView() {
-		mEtTitle = (MaterialEditText) findViewById(R.id.etWebTitle);
 		mEtUrl = (MaterialEditText) findViewById(R.id.etWebUrl);
 		mFabCreate = (FloatingActionButton) findViewById(R.id.fabCreate);
 	}
@@ -49,13 +46,13 @@ public class UrlActivity extends BaseActivity<UrlPresent>
 
 	@Override
 	public String getContent() {
-		String title = mEtTitle.getText().toString();
 		String url = mEtUrl.getText().toString();
-		if (TextUtils.isEmpty(title) || TextUtils.isEmpty(url)) {
+		if (TextUtils.isEmpty(url)) {
 			return null;
 		}
-		return "标题：" + title +
-				Config.NEW_LINE +
-				"网址：" + url;
+		if (!url.startsWith("http://") || !url.startsWith("https://")) {
+			return "Http://" + url;
+		}
+		return url;
 	}
 }

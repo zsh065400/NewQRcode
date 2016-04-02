@@ -20,7 +20,7 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout;
 public class MainActivity extends BaseActivity<MainPresent> implements IMainView {
 	private RippleView mRpPic, mRpCustom,
 			mRpNetCard, mRpCard,
-			mRpTxt, mRpUrl,
+			mRpUrl,
 			mRpSms, mRpEmail,
 			mRpWifi, mRpAudio,
 			mRpFile;
@@ -40,7 +40,6 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
 		mRpCustom = (RippleView) findViewById(R.id.rpCustomContent);
 		mRpNetCard = (RippleView) findViewById(R.id.rpNetCard);
 		mRpCard = (RippleView) findViewById(R.id.rpCard);
-		mRpTxt = (RippleView) findViewById(R.id.rpTxt);
 		mRpUrl = (RippleView) findViewById(R.id.rpUrl);
 		mRpSms = (RippleView) findViewById(R.id.rpSms);
 		mRpEmail = (RippleView) findViewById(R.id.rpEmail);
@@ -59,7 +58,6 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
 		mRpCustom.setOnClickListener(this);
 		mRpNetCard.setOnClickListener(this);
 		mRpCard.setOnClickListener(this);
-		mRpTxt.setOnClickListener(this);
 		mRpUrl.setOnClickListener(this);
 		mRpSms.setOnClickListener(this);
 		mRpEmail.setOnClickListener(this);

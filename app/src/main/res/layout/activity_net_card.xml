@@ -38,7 +38,7 @@
 					android:layout_marginTop="@dimen/dp_10"
 					android:layout_weight="2.5"
 					android:padding="@dimen/dp_5"
-					android:scaleType="fitXY"
+					android:scaleType="centerInside"
 					android:src="@mipmap/default_bac"/>
 
 				<LinearLayout

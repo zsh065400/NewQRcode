@@ -48,8 +48,6 @@
 		</activity>
 		<activity android:name=".view.CardActivity">
 		</activity>
-		<activity android:name=".view.TextActivity">
-		</activity>
 		<activity android:name=".view.UrlActivity">
 		</activity>
 		<activity android:name=".view.SmsActivity">

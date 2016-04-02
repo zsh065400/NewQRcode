@@ -89,7 +89,7 @@
 		<item name="android:layout_height">@dimen/dp_320</item>
 		<item name="android:layout_gravity">center_horizontal</item>
 		<item name="android:layout_marginTop">7dp</item>
-		<item name="android:scaleType">fitCenter</item>
+		<item name="android:scaleType">centerInside</item>
 		<item name="android:src">@mipmap/default_bac</item>
 		<item name="android:layout_marginLeft">2dp</item>
 	</style>

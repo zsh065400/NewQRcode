@@ -25,21 +25,10 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 	private MaterialEditText mEtCompany;
 	private MaterialEditText mEtJob;
 	private MaterialEditText mEtPhone;
-	private MaterialEditText mEtQq;
 	private MaterialEditText mEtEmail;
-	private MaterialEditText mEtPerson;
 	private FloatingActionButton mFabCreate;
 	List<MaterialEditText> mEditTexts;
-
-	private String[] mTitle = {
-			"姓名：",
-			"公司名称：",
-			"职业/职位：",
-			"联系电话：",
-			"QQ/微信：",
-			"邮箱：",
-			"个人简介：",
-	};
+	List<String> mGo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,19 +43,21 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 		mEtCompany = (MaterialEditText) findViewById(R.id.etCompany);
 		mEtJob = (MaterialEditText) findViewById(R.id.etJob);
 		mEtPhone = (MaterialEditText) findViewById(R.id.etPhone);
-		mEtQq = (MaterialEditText) findViewById(R.id.etQq);
 		mEtEmail = (MaterialEditText) findViewById(R.id.etEmail);
-		mEtPerson = (MaterialEditText) findViewById(R.id.etPerson);
 		mFabCreate = (FloatingActionButton) findViewById(R.id.fabCreate);
 
-		mEditTexts = new ArrayList<>(8);
+		mEditTexts = new ArrayList<>(5);
 		mEditTexts.add(mEtName);
 		mEditTexts.add(mEtCompany);
 		mEditTexts.add(mEtJob);
 		mEditTexts.add(mEtPhone);
-		mEditTexts.add(mEtQq);
 		mEditTexts.add(mEtEmail);
-		mEditTexts.add(mEtPerson);
+		mGo = new ArrayList<>(5);
+		mGo.add("N:");
+		mGo.add("ORG:");
+		mGo.add("TITLE:");
+		mGo.add("TEL:");
+		mGo.add("EMAIL:");
 	}
 
 	@Override
@@ -77,19 +68,22 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 	@Override
 	public String getContent() {
 		StringBuilder sb = new StringBuilder();
-		String name = mEtName.getText().toString();
-		if (TextUtils.isEmpty(name)) {
-			return null;
-		}
+		sb.append("BEGIN:VCARD").append(Config.NEW_LINE);
+		sb.append("VERSION:3.0").append(Config.NEW_LINE);
 		int i = 0;
 		for (MaterialEditText et : mEditTexts) {
 			String s = et.getText().toString();
-			if (!TextUtils.isEmpty(s)) {
-				sb.append(mTitle[i]);
-				sb.append(s + "\n");
+			if (TextUtils.isEmpty(s)) {
+				return null;
+			} else {
+				sb.append(mGo.get(i)).append(et.getText().toString()).append(Config.NEW_LINE);
+				if (i == 0) {
+					sb.append("FN:").append(et.getText().toString()).append(Config.NEW_LINE);
+				}
 			}
 			i++;
 		}
+		sb.append("END:VCARD").append(Config.NEW_LINE);
 		return sb.toString();
 	}
 

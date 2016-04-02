@@ -62,6 +62,10 @@ public class ScanTextActivity extends BaseActivity<ScanTextPresent> implements
 			case 1:
 				mFabCopy.setIconDrawable(getResources().getDrawable(R.mipmap.ic_add));
 				break;
+
+			case 2:
+				mFabCopy.setIconDrawable(getResources().getDrawable(R.mipmap.ic_send));
+				break;
 		}
 	}
 }

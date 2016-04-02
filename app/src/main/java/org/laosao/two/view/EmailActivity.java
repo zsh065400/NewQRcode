@@ -53,16 +53,16 @@ public class EmailActivity extends BaseActivity<EmailPresent>
 	@Override
 	public String getContent() {
 		String address = mEtAddress.getText().toString();
-		String project = mEtProject.getText().toString();
+		String subject = mEtProject.getText().toString();
 		String content = mEtContent.getText().toString();
-		if (TextUtils.isEmpty(address) || TextUtils.isEmpty(project)
+		if (TextUtils.isEmpty(address) || TextUtils.isEmpty(subject)
 				|| TextUtils.isEmpty(content)) {
 			return null;
 		}
-		return "收件人：" + address +
+		return "EmailAddress：" + address +
 				Config.NEW_LINE +
-				"主题：" + project
+				"Subject：" + subject
 				+ Config.NEW_LINE +
-				"内容：" + content;
+				"Content：" + content;
 	}
 }

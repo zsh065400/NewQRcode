@@ -48,9 +48,9 @@ public class SmsActivity extends BaseActivity<SmsPresent>
 		if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(content)) {
 			return null;
 		}
-		return "手机号：" + phone +
+		return "PhoneNumber：" + phone +
 				Config.NEW_LINE +
-				"内容：" + content;
+				"Content：" + content;
 	}
 
 	@Override

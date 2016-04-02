@@ -31,10 +31,9 @@
 	<!--重构部分-->
 	<string name="ripp_pic"><![CDATA[        图片二维码]]></string>
 	<string name="ripp_audio"><![CDATA[        音频二维码]]></string>
-	<string name="ripp_custom"><![CDATA[        自定义内容]]></string>
+	<string name="ripp_custom"><![CDATA[        自定义文本]]></string>
 	<string name="ripp_net_card"><![CDATA[        网络名片码]]></string>
-	<string name="ripp_card"><![CDATA[        通用名片码]]></string>
-	<string name="ripp_text"><![CDATA[        文本二维码]]></string>
+	<string name="ripp_card"><![CDATA[        VCard 名片]]></string>
 	<string name="ripp_wifi"><![CDATA[        无线二维码]]></string>
 	<string name="ripp_url"><![CDATA[        网址二维码]]></string>
 	<string name="ripp_sms"><![CDATA[        短信二维码]]></string>
@@ -59,9 +58,9 @@
 
 	<string name="picture">图片二维码</string>
 	<string name="audio">音频二维码</string>
-	<string name="custom">自定义内容</string>
+	<string name="custom">自定义文本</string>
 	<string name="net_card">网络名片码</string>
-	<string name="card">通用名片码</string>
+	<string name="card">VCard 名片</string>
 	<string name="text">文本二维码</string>
 	<string name="wifi">无线二维码</string>
 	<string name="url">网址二维码</string>
@@ -71,7 +70,7 @@
 	<string name="result">二维码的秘密</string>
 	<string name="create">看看你的杰作</string>
 
-	<string name="custom_topic">您可以在这里输入微博链接/名称，淘宝店铺链接/名称，微信账号，软件下载地址、您的位置等，扫描后就可以直接查看/下载。更多玩法还需要您自己发现哦！</string>
+	<string name="custom_topic">您可以在这里完成:\n\t\t\t\t微博、微信、店铺、网址等二维码（输入对应链接或文本）\n\t\t\t\t扫描后就可以直接查看、下载。\n\t\t\t\t更多玩法还需要您自己发现哦！</string>
 	<string name="developer_info">开发者：香河豪门工作室\n官方微博账号：@新二维码生成器\n\n您可以将您的意见或建议，以微博私信或在线反馈的形式告诉我们，让我们做得更好。</string>
 	<!--网络名片码-->
 	<string name="qq">QQ号</string>
@@ -84,23 +83,17 @@
 	<string name="weibo">微博</string>
 	<string name="person">个人说明</string>
 	<!-- 名片二维码-->
-	<string name="say_hint">个人简介</string>
 	<string name="name_hint">姓名</string>
-	<string name="company_hint">公司名称</string>
-	<string name="job_hint">职业/职位</string>
-	<string name="qq_hint">QQ/微信</string>
+	<string name="company_hint">公司</string>
+	<string name="job_hint">职业</string>
 	<string name="e_mail_hint">邮箱</string>
-	<string name="phone_hint">联系电话</string>
-	<!-- 文本二维码-->
-	<string name="text_hint">文本标题</string>
-	<string name="text_content_hint">文本内容</string>
+	<string name="phone_hint">电话</string>
 	<string name="encrypt">加密方式:</string>
 	<!-- 无线二维码-->
 	<string name="wifi_name_hint">wifi名称</string>
 	<string name="wifi_pw_hint">wifi密码</string>
 	<!--网址二维码-->
-	<string name="url_hint">网址标题</string>
-	<string name="url_text_hint">网址链接</string>
+	<string name="url_text_hint">网址</string>
 	<!-- 短信二维码-->
 	<string name="sms_hint">手机号码</string>
 	<string name="sms_content_hint">短信内容</string>

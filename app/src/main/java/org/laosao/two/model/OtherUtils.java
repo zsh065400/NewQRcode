@@ -8,6 +8,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -43,6 +44,30 @@ import material.dialog.MaterialDialog;
  * Created by Scout.Z on 2015/8/12.
  */
 public class OtherUtils {
+
+	private static MediaScannerConnection msc;
+
+	private static void initMediaScan(Context context) {
+		if (msc == null)
+			msc = new MediaScannerConnection(context, new MediaScannerConnection.MediaScannerConnectionClient() {
+				@Override
+				public void onMediaScannerConnected() {
+
+				}
+
+				@Override
+				public void onScanCompleted(String path, Uri uri) {
+					Log.d("Scan Completed", "onScanCompleted: " + path);
+				}
+			});
+		msc.connect();
+	}
+
+	private static void scanFile(String filePath, String type) {
+		if (msc != null) {
+			msc.scanFile(filePath, type);
+		}
+	}
 
 	public static void addReference(Context context, String key, int value) {
 		SharedPreferences.Editor editor = context.getSharedPreferences
@@ -157,6 +182,7 @@ public class OtherUtils {
 
 
 	public static void save(final Activity activity, final Bitmap bitmap) {
+		initMediaScan(activity);
 		View view = LayoutInflater.from(activity).inflate(R.layout.dialog_save, null);
 		final MaterialEditText etName = (MaterialEditText) view.findViewById(R.id.etSave);
 		final MaterialDialog dialog = new MaterialDialog(activity);
@@ -178,8 +204,9 @@ public class OtherUtils {
 //				Message msg = Message.obtain();
 //				msg.what = Config.CODE_PATH;
 //				msg.obj = save;
-				activity.sendBroadcast(new Intent(
-						Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + save.getAbsolutePath())));
+//				activity.sendBroadcast(new Intent(
+//						Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + save.getAbsolutePath())));
+				scanFile(save.getAbsolutePath(), Config.IMME_IMAGE_TYPE);
 //				handler.sendMessage(msg);
 
 				final MaterialDialog prompt = new MaterialDialog(activity);
@@ -242,11 +269,13 @@ public class OtherUtils {
 				}.execute(null, null);
 
 				dialog.dismiss();
+				msc.disconnect();
 			}
 		}).setNegativeButton(R.string.cancel, new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				dialog.dismiss();
+				msc.disconnect();
 			}
 		});
 		dialog.show();

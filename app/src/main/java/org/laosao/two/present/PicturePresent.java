@@ -105,9 +105,7 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 
 					break;
 			}
-			mBitmap = ImageUtils.getImageThumbnail(mPhotoPath,
-					720,
-					1280);
+			mBitmap = ImageUtils.getBitmapForPictureQrcode(mPhotoPath, 1000, 1000);
 			mView.showBitmap(mBitmap);
 		} else {
 			recycle();

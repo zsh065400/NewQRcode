@@ -77,6 +77,7 @@ public class AudioActivity extends BaseActivity<AudioPresent> implements IAudioV
 				"record.mp3");
 		if (intent.resolveActivity(getPackageManager()) == null) {
 			showToast("未检测到录音APP，请安装", Toast.LENGTH_SHORT);
+			return;
 		}
 		startActivityForResult(intent, Config.REQ_RECORDER_CODE);
 	}

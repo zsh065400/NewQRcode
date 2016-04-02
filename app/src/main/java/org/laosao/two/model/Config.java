@@ -40,10 +40,6 @@ public class Config {
 	public static final int REQ_FILE_CODE = 0x1113;
 	public static final int REQ_RECORDER_CODE = 0x1114;
 
-
-	public static final int BITMAP_THUMBNAIL_HEIGHT = 800;
-	public static final int BITMAP_THUMBNAIL_WIDTH = 650;
-
 	public static final int UPDATE_AUTO = 0x789;
 	public static final int UPDATE_USER = 0x788;
 
