@@ -9,6 +9,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.present.WifiPresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IWifiView;
 
@@ -26,10 +27,14 @@ public class WifiActivity extends BaseActivity<WifiPresent>
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_wifi);
-		mPresent = new WifiPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new WifiPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mEtWifiName = (MaterialEditText) findViewById(R.id.etWifiName);
 		mEtWifiPw = (MaterialEditText) findViewById(R.id.etWifiPw);

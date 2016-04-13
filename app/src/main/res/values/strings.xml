@@ -126,4 +126,8 @@
 	<string name="no_head">头像姓名不能为空</string>
 	<string name="lable_patron">赞助我们</string>
 
+	<string name="write_permission_denied">未获得存储卡写入权限，部分功能受限</string>
+	<string name="please_request">请您手动授予写入存储卡权限</string>
+
+
 </resources>

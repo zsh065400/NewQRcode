@@ -10,6 +10,7 @@ import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.model.OtherUtils;
 import org.laosao.two.present.NetCardPresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.INetCardView;
 
@@ -35,10 +36,14 @@ public class NetCardActivity extends BaseActivity<NetCardPresent> implements INe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_net_card);
-		mPresent = new NetCardPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new NetCardPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mImageView = (ImageView) findViewById(R.id.imgPreview);
 		mEtName = (MaterialEditText) findViewById(R.id.etName);

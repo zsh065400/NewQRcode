@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.present.scan.ScanTextPresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.scan.IScanTextView;
@@ -25,10 +26,14 @@ public class ScanTextActivity extends BaseActivity<ScanTextPresent> implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.scan_activity_text);
 		mResult = getIntent().getStringExtra(Config.KEY_RESULT);
-		mPresent = new ScanTextPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new ScanTextPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mTvText = (TextView) findViewById(R.id.tvResultContent);
 		mFabCopy = (FloatingActionButton) findViewById(R.id.fabCopy);

@@ -9,4 +9,5 @@ import org.zsh.mvpframework.view.IView;
 public interface IMainView extends IView {
 
 	void closeFam();
+
 }

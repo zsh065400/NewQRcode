@@ -6,6 +6,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.laosao.two.R;
 import org.laosao.two.present.CustomPresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.ICustomView;
 
@@ -24,10 +25,14 @@ public class CustomActivity extends BaseActivity<CustomPresent>
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_custom);
-		mPresent = new CustomPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new CustomPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mEtContent = (MaterialEditText) findViewById(R.id.etConent);
 		mFabCreate = (FloatingActionButton) findViewById(R.id.fabCreate);

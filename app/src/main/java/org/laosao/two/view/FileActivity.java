@@ -10,6 +10,7 @@ import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.model.OtherUtils;
 import org.laosao.two.present.FilePresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IFileView;
 
@@ -31,10 +32,14 @@ public class FileActivity extends BaseActivity<FilePresent>
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_file);
-		mPresent = new FilePresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new FilePresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mTvFileName = (TextView) findViewById(R.id.tvFileName);
 		mBtnChooseFile = (ButtonRectangle) findViewById(R.id.btnChooseFile);

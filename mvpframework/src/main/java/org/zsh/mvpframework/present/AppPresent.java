@@ -24,9 +24,7 @@ public abstract class AppPresent<T extends IView> implements IPresent {
 
 	@Override
 	public void onDestory() {
-		if (mView != null) {
-			mView = null;
-		}
+		mView = null;
 	}
 
 	@Override
@@ -56,5 +54,4 @@ public abstract class AppPresent<T extends IView> implements IPresent {
 
 	public abstract void onActivityResult(int requestCode, int resultCode, Intent data);
 
-	public abstract void requestPermission(String[] permissions);
 }

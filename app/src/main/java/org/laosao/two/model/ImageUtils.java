@@ -128,7 +128,7 @@ public class ImageUtils {
 	 * @param height 新高度
 	 * @return
 	 */
-	public static Bitmap getBitmapForPictureQrcode(String path, int width, int height) {
+	public static Bitmap matrixXYBitmap(String path, int width, int height) {
 		Bitmap bitmap = null;
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;

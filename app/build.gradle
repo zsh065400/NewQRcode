@@ -14,8 +14,8 @@ android {
 	defaultConfig {
 		applicationId "org.laosao.two"
 		minSdkVersion 19
-		targetSdkVersion 22
-		versionCode 36
+		targetSdkVersion 23
+		versionCode 37
 		versionName getDate()
 		multiDexEnabled true
 	}
@@ -40,8 +40,8 @@ dependencies {
 	compile 'com.rengwuxian.materialedittext:library:2.1.4'
 	compile 'cn.bmob.android:bmob-sdk:3.4.5'
 	compile files('libs/xiaomi_sdk.jar')
-	compile 'org.zsh.support:permission:2.1.0'
-	compile 'org.zsh.support:qrlib:2.0.1'
+	compile 'org.zsh.support:qrlib:2.0.3'
+	compile 'org.zsh.support:permission:2.1.2'
 	compile 'me.imid.swipebacklayout.lib:library:1.0.0'
 	compile project(':library')
 	compile project(':mvpframework')

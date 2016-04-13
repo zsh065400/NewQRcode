@@ -1,9 +1,12 @@
 package org.laosao.two.present;
 
+import android.Manifest;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
@@ -37,6 +40,33 @@ public class MainPresent extends BasePresent<MainActivity> {
 	}
 
 	@Override
+	public void granted(String[] permission) {
+		switch (permission[0]) {
+			case Manifest.permission.WRITE_EXTERNAL_STORAGE:
+				mHandler.postDelayed(mPermissionRunnable, 500);
+				break;
+
+			case Manifest.permission.READ_PHONE_STATE:
+				loadThirdSdk();
+				break;
+		}
+	}
+
+	@Override
+	public void denied(String[] permission) {
+		mView.showToast("权限被拒绝，程序退出，请您手动更改权限", Toast.LENGTH_LONG);
+		mActivity.finish();
+	}
+
+	private void loadThirdSdk() {
+		Bmob.initialize(mActivity, Config.BMOB_SERVER_APP_ID);
+		OtherUtils.autoUpdate(Config.UPDATE_AUTO, mActivity);
+		SDCard.detectionSDcard();
+		Log.d("MainPresent", " load Complete");
+	}
+
+
+	@Override
 	public void onCreate() {
 		super.onCreate();
 		init();
@@ -46,33 +76,40 @@ public class MainPresent extends BasePresent<MainActivity> {
 	public void onStop() {
 		super.onStop();
 		mView.closeFam();
-		mHandler.removeCallbacks(mRunnable);
 	}
 
 	private void init() {
-		Bmob.initialize(mActivity, Config.BMOB_SERVER_APP_ID);
-		OtherUtils.autoUpdate(Config.UPDATE_AUTO, mActivity);
-		SDCard.detectionSDcard();
-
 		mHandler = new DelayedHandler();
-		mRunnable = new Runnable() {
+		mAnimRunnable = new Runnable() {
 			@Override
 			public void run() {
 				mView.toOtherActivity(mTarget, null);
 			}
 		};
+		mPermissionRunnable = new Runnable() {
+			@Override
+			public void run() {
+				requestPermission(Manifest.permission.READ_PHONE_STATE);
+			}
+		};
+		requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 	}
+
 
 	@Override
 	public void onDestory() {
 		super.onDestory();
+		mHandler.removeCallbacks(mAnimRunnable);
+		mHandler.removeCallbacks(mPermissionRunnable);
 		mHandler = null;
-		mRunnable = null;
+		mAnimRunnable = null;
+		mPermissionRunnable = null;
 		mTarget = null;
 	}
 
 	private DelayedHandler mHandler;
-	private Runnable mRunnable;
+	private Runnable mAnimRunnable;
+	private Runnable mPermissionRunnable;
 	private Class mTarget = null;
 
 	@Override
@@ -118,7 +155,7 @@ public class MainPresent extends BasePresent<MainActivity> {
 				mTarget = AudioActivity.class;
 				break;
 		}
-		mHandler.postDelayed(mRunnable, 375);
+		mHandler.postDelayed(mAnimRunnable, 375);
 	}
 
 	class DelayedHandler extends Handler {
@@ -127,4 +164,5 @@ public class MainPresent extends BasePresent<MainActivity> {
 
 		}
 	}
+
 }

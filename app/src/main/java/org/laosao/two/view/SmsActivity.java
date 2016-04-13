@@ -8,6 +8,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.present.SmsPresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.ISmsView;
 
@@ -26,10 +27,14 @@ public class SmsActivity extends BaseActivity<SmsPresent>
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sms);
-		mPresent = new SmsPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new SmsPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mEtPhoneNumber = (MaterialEditText) findViewById(R.id.etSmsPhone);
 		mEtContent = (MaterialEditText) findViewById(R.id.etSmsContent);

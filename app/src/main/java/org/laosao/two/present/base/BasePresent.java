@@ -6,19 +6,22 @@ import android.view.View;
 
 import org.zsh.mvpframework.present.AppPresent;
 import org.zsh.mvpframework.view.IView;
+import org.zsh.permission.Permission;
 import org.zsh.permission.callback.IHandleCallback;
-import org.zsh.permission.handle.Request;
 
 /**
  * @author 赵树豪
  * @version 1.0
  */
-public class BasePresent<T extends IView> extends AppPresent<T> implements IHandleCallback {
-	protected Activity mActivity;
+public class BasePresent<T extends IView> extends AppPresent<T>
+		implements IHandleCallback {
+	public Activity mActivity;
+	public IHandleCallback mCallback;
 
 	public BasePresent(Activity activity, T view) {
 		super(view);
 		this.mActivity = activity;
+		this.mCallback = this;
 		onCreate();
 	}
 
@@ -30,8 +33,8 @@ public class BasePresent<T extends IView> extends AppPresent<T> implements IHand
 	@Override
 	public void onDestory() {
 		super.onDestory();
-		if (mActivity != null)
-			mActivity = null;
+		mActivity = null;
+		mCallback = null;
 	}
 
 	@Override
@@ -56,23 +59,24 @@ public class BasePresent<T extends IView> extends AppPresent<T> implements IHand
 
 	}
 
-	@Override
-	public void requestPermission(String[] permissions) {
-		Request.getInstance(mActivity).execute(this, permissions);
+	public void requestPermission(String... permission) {
+		Permission.getInstance().request(mCallback, mActivity,
+				permission);
 	}
 
-	/*处理权限*/
-	@Override
-	public void granted(String[] permission) {
-
-	}
-
-	@Override
-	public void denied(String[] permission) {
-
+	public void onRequestPermissionsResult(String[] permissions, int[] grantResults) {
+		Permission.getInstance().onRequestPermissionsResult(permissions, grantResults);
 	}
 
 	public void onClick(View v) {
 
+	}
+
+	@Override
+	public void granted(String[] permission) {
+	}
+
+	@Override
+	public void denied(String[] permission) {
 	}
 }

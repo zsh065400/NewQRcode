@@ -8,6 +8,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.laosao.two.R;
 import org.laosao.two.present.FeedbackPresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IFeedbackView;
 
@@ -28,10 +29,14 @@ public class FeedBackActivity extends BaseActivity<FeedbackPresent>
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_feedback);
-		mPresent = new FeedbackPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new FeedbackPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mEtTheme = (MaterialEditText) findViewById(R.id.etProject);
 		mEtContent = (MaterialEditText) findViewById(R.id.etContent);

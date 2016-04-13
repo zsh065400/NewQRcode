@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import org.laosao.two.R;
 import org.laosao.two.present.AboutPresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IAboutView;
 
@@ -25,10 +26,14 @@ public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutV
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
-		mPresent = new AboutPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new AboutPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mTvVersion = (TextView) findViewById(R.id.tvVersion);
 		mTvInfo = (TextView) findViewById(R.id.tvInfo);

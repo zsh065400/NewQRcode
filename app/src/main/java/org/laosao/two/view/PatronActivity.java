@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import org.laosao.two.R;
 import org.laosao.two.present.PatronPresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IPatronView;
 
@@ -20,10 +21,14 @@ public class PatronActivity extends BaseActivity<PatronPresent>
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_patron);
-		mPresent = new PatronPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new PatronPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mFabSave = (FloatingActionButton) findViewById(R.id.fabSave);
 	}

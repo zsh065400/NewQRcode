@@ -19,6 +19,7 @@ import org.laosao.two.model.Config;
 import org.laosao.two.model.OtherUtils;
 import org.laosao.two.model.SDCard;
 import org.laosao.two.present.AudioPresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IAudioView;
 
@@ -38,10 +39,14 @@ public class AudioActivity extends BaseActivity<AudioPresent> implements IAudioV
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_audio);
-		mPresent = new AudioPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new AudioPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mBtnChoose = (ButtonRectangle) findViewById(R.id.btnChooseAudio);
 		mBtnRecord = (ButtonRectangle) findViewById(R.id.btnSpeak);

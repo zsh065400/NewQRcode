@@ -73,7 +73,6 @@ public class ScanActivity extends CaptureActivity implements SwipeBackActivityBa
 
 	@Override
 	protected void decodeFail() {
-		// TODO: 2016/3/23 扫描失败后无法继续
 		Toast.makeText(this, "扫描失败，请重试", Toast.LENGTH_SHORT).show();
 	}
 

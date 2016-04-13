@@ -8,6 +8,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.present.CardPresent;
+import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.ICardView;
 
@@ -34,10 +35,14 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_card);
-		mPresent = new CardPresent(this, this);
 	}
 
-	@Override
+    @Override
+    public BasePresent createPersent() {
+        return new CardPresent(this, this);
+    }
+
+    @Override
 	public void initView() {
 		mEtName = (MaterialEditText) findViewById(R.id.etName);
 		mEtCompany = (MaterialEditText) findViewById(R.id.etCompany);

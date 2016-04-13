@@ -3,7 +3,6 @@ package org.laosao.two.present;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.View;
 import android.widget.Toast;
@@ -106,7 +105,8 @@ public class NetCardPresent extends BasePresent<NetCardActivity> {
 					cropBitmap();
 					break;
 				case Config.REQ_CROP_IMG:
-					mBitmap = BitmapFactory.decodeFile(mTempPath);
+//					mBitmap = BitmapFactory.decodeFile(mTempPath);
+					mBitmap = ImageUtils.matrixXYBitmap(mTempPath, 200, 300);
 					mView.showHeadImage(mBitmap);
 					break;
 			}
