@@ -6,8 +6,8 @@
 - 应用名称：	新二维码生成器
 - 开发者名称：赵树豪
 - 应用介绍：	新二维码生成器!全新架构，全新界面，全新体验,移动端首创图片生成二维码、音频二维码、软件二维码,欢迎大家体验! 
-- 版本号：36
-- Target Version： 22（即将支持23）
+- 版本号：37
+- Target Version： 23
 
 ###软件架构：MVP
 
@@ -26,7 +26,7 @@
 - Material EditText：https://github.com/rengwuxian/MaterialEditText
 - Material FloatActionButton: com.getbase:floatingactionbutton:1.10.1
 - RequestPermission:compile 'org.zsh.support:permission:2.1.0'
-- Qrlib:compile 'org.zsh.support:qrlib:2.0.1'
+- Qrlib:compile 'org.zsh.support:qrlib:2.0.4'
 - SwipebackLayout:compile 'me.imid.swipebacklayout.lib:library:1.0.0'
 - 移植某Github大神的组件库和MVP库
 
