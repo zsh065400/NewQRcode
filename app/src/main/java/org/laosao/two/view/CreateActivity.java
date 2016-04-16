@@ -8,7 +8,6 @@ import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.model.OtherUtils;
 import org.laosao.two.present.CreatePresent;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.ICreateView;
 
@@ -33,13 +32,16 @@ public class CreateActivity extends BaseActivity<CreatePresent>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create);
-        mContent = getIntent().getStringExtra(Config.KEY_CONTENT);
     }
 
     @Override
-    public BasePresent createPersent() {
+    public CreatePresent createPersent() {
         return new CreatePresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_create;
     }
 
     private MaterialDialog mDialog = null;
@@ -62,6 +64,11 @@ public class CreateActivity extends BaseActivity<CreatePresent>
         mFabSave = (FloatingActionButton) findViewById(R.id.fabSave);
         mFamMore = (FloatingActionsMenu) findViewById(R.id.famMore);
         mFabAddLogo = (FloatingActionButton) findViewById(R.id.fabAddIcon);
+    }
+
+    @Override
+    public void loadData() {
+        mContent = getIntent().getStringExtra(Config.KEY_CONTENT);
     }
 
     @Override

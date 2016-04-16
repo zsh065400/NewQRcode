@@ -48,7 +48,7 @@ public class ScanPicturePresent extends BasePresent<ScanPictureActivity> {
     private Bitmap mBitmap;
 
     private void query() {
-        BmobControl.queryPic(mActivity, mUrl, new BmobControl.BmobQueryCallback() {
+        BmobControl.findPicture(mActivity, mUrl, new BmobControl.BmobQueryCallback() {
             @Override
             public void queryZero() {
                 mView.dismissWaitDialog();
@@ -132,7 +132,7 @@ public class ScanPicturePresent extends BasePresent<ScanPictureActivity> {
         recycle();
     }
 
-    private boolean mIsHavePermission = false;
+    private static boolean mIsHavePermission = false;
 
     @Override
     public void granted(String[] permission) {

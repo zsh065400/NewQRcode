@@ -21,7 +21,6 @@ import org.laosao.two.view.EmailActivity;
 import org.laosao.two.view.FeedBackActivity;
 import org.laosao.two.view.FileActivity;
 import org.laosao.two.view.MainActivity;
-import org.laosao.two.view.NetCardActivity;
 import org.laosao.two.view.PictureActivity;
 import org.laosao.two.view.SmsActivity;
 import org.laosao.two.view.UrlActivity;
@@ -132,9 +131,6 @@ public class MainPresent extends BasePresent<MainActivity> {
 				break;
 			case R.id.rpCustomContent:
 				mTarget = CustomActivity.class;
-				break;
-			case R.id.rpNetCard:
-				mTarget = NetCardActivity.class;
 				break;
 			case R.id.rpCard:
 				mTarget = CardActivity.class;

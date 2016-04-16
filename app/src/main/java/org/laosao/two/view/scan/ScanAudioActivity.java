@@ -6,7 +6,6 @@ import android.widget.TextView;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.model.OtherUtils;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.present.scan.ScanAudioPresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.scan.IScanAudioView;
@@ -27,19 +26,27 @@ public class ScanAudioActivity extends BaseActivity<ScanAudioPresent>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scan_activity_audio);
-        mAudioUrl = getIntent().getStringExtra(Config.KEY_RESULT);
     }
 
     @Override
-    public BasePresent createPersent() {
+    public ScanAudioPresent createPersent() {
         return new ScanAudioPresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.scan_activity_audio;
     }
 
     @Override
     public void initView() {
         mFabPlayOrPause = (FloatingActionButton) findViewById(R.id.fabPlayOrPause);
         mTvfilename = (TextView) findViewById(R.id.tvFileName);
+    }
+
+    @Override
+    public void loadData() {
+        mAudioUrl = getIntent().getStringExtra(Config.KEY_RESULT);
     }
 
     @Override

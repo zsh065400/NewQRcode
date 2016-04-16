@@ -5,7 +5,6 @@ import android.widget.Toast;
 
 import org.laosao.two.R;
 import org.laosao.two.present.MainPresent;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IMainView;
 
@@ -20,7 +19,7 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout;
  */
 public class MainActivity extends BaseActivity<MainPresent> implements IMainView {
     private RippleView mRpPic, mRpCustom,
-            mRpNetCard, mRpCard,
+            mRpCard,
             mRpUrl,
             mRpSms, mRpEmail,
             mRpWifi, mRpAudio,
@@ -31,14 +30,12 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.STATE_IDLE);
     }
 
     public void initView() {
         mRpPic = (RippleView) findViewById(R.id.rpPic);
         mRpCustom = (RippleView) findViewById(R.id.rpCustomContent);
-        mRpNetCard = (RippleView) findViewById(R.id.rpNetCard);
         mRpCard = (RippleView) findViewById(R.id.rpCard);
         mRpUrl = (RippleView) findViewById(R.id.rpUrl);
         mRpSms = (RippleView) findViewById(R.id.rpSms);
@@ -56,7 +53,6 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
     public void setListener() {
         mRpPic.setOnClickListener(this);
         mRpCustom.setOnClickListener(this);
-        mRpNetCard.setOnClickListener(this);
         mRpCard.setOnClickListener(this);
         mRpUrl.setOnClickListener(this);
         mRpSms.setOnClickListener(this);
@@ -96,8 +92,13 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
     }
 
     @Override
-    public BasePresent createPersent() {
+    public MainPresent createPersent() {
         return new MainPresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_main;
     }
 
     @Override

@@ -159,7 +159,7 @@ public class CreatePresent extends BasePresent<CreateActivity> {
         mPhotoPath = null;
     }
 
-    private boolean mIsHavePermission = false;
+    private static boolean mIsHavePermission = false;
 
     @Override
     public void granted(String[] permission) {

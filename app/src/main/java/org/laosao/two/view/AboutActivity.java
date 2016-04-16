@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import org.laosao.two.R;
 import org.laosao.two.present.AboutPresent;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IAboutView;
 
@@ -25,12 +24,16 @@ public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutV
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_about);
 	}
 
     @Override
-    public BasePresent createPersent() {
+    public AboutPresent createPersent() {
         return new AboutPresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_about;
     }
 
     @Override
@@ -43,7 +46,7 @@ public class AboutActivity extends BaseActivity<AboutPresent> implements IAboutV
 		mFamMore = (FloatingActionsMenu) findViewById(R.id.famMore);
 	}
 
-	@Override
+    @Override
 	public void setListener() {
 		mTvVersion.setOnClickListener(this);
 		mTvInfo.setOnClickListener(this);

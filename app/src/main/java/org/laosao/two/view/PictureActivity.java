@@ -10,7 +10,6 @@ import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.model.OtherUtils;
 import org.laosao.two.present.PicturePresent;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IPictureView;
 
@@ -31,12 +30,16 @@ public class PictureActivity extends BaseActivity<PicturePresent>
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_picture);
 	}
 
     @Override
-    public BasePresent createPersent() {
+    public PicturePresent createPersent() {
         return new PicturePresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_picture;
     }
 
     private MaterialDialog mDialog = null;

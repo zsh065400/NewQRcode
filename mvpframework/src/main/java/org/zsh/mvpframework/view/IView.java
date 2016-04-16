@@ -18,7 +18,7 @@ public interface IView {
 
 	void initView();
 
-//	void loadData();
+	void loadData();
 
 	void setListener();
 

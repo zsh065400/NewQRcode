@@ -8,7 +8,6 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.present.UrlPresent;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IUrlView;
 
@@ -25,12 +24,16 @@ public class UrlActivity extends BaseActivity<UrlPresent>
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_url);
 	}
 
     @Override
-    public BasePresent createPersent() {
+    public UrlPresent createPersent() {
         return new UrlPresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_url;
     }
 
     @Override

@@ -7,14 +7,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.widget.ScrollView;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -67,30 +64,6 @@ public class ImageUtils {
 		intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
 		activity.startActivityForResult(intent, Config.REQ_CROP_IMG);
 	}
-
-	/**
-	 * 截取scrollview的屏幕
-	 *
-	 * @param scrollView
-	 * @return
-	 */
-	public static Bitmap getBitmapByView(ScrollView scrollView) {
-		int h = 0;
-		Bitmap bitmap = null;
-		// 获取scrollview实际高度
-		for (int i = 0; i < scrollView.getChildCount(); i++) {
-			h += scrollView.getChildAt(i).getHeight();
-			scrollView.getChildAt(i).setBackgroundColor(
-					Color.parseColor("#ffffff"));
-		}
-		// 创建对应大小的bitmap
-		bitmap = Bitmap.createBitmap(scrollView.getWidth(), h,
-				Bitmap.Config.RGB_565);
-		final Canvas canvas = new Canvas(bitmap);
-		scrollView.draw(canvas);
-		return bitmap;
-	}
-
 
 	/**
 	 * 压缩图片

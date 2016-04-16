@@ -79,15 +79,6 @@
 				/>
 
 			<material.view.RippleView
-				android:id="@+id/rpNetCard"
-				style="@style/my_ripple_view"
-				android:layout_gravity="center_vertical"
-				android:drawableLeft="@mipmap/ic_ripp_net_card"
-				android:text="@string/ripp_net_card"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"/>
-
-			<material.view.RippleView
 				android:id="@+id/rpUrl"
 				style="@style/my_ripple_view"
 				android:drawableLeft="@mipmap/ic_ripp_url"

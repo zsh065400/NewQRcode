@@ -8,7 +8,6 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.present.CardPresent;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.ICardView;
 
@@ -34,12 +33,16 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_card);
 	}
 
     @Override
-    public BasePresent createPersent() {
+    public CardPresent createPersent() {
         return new CardPresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_card;
     }
 
     @Override
@@ -65,7 +68,7 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 		mGo.add("EMAIL:");
 	}
 
-	@Override
+    @Override
 	public void setListener() {
 		mFabCreate.setOnClickListener(this);
 	}
@@ -82,9 +85,6 @@ public class CardActivity extends BaseActivity<CardPresent> implements
 				return null;
 			} else {
 				sb.append(mGo.get(i)).append(et.getText().toString()).append(Config.NEW_LINE);
-				if (i == 0) {
-					sb.append("FN:").append(et.getText().toString()).append(Config.NEW_LINE);
-				}
 			}
 			i++;
 		}

@@ -3,7 +3,6 @@ package org.laosao.two.model;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -68,20 +67,6 @@ public class OtherUtils {
             msc.scanFile(filePath, type);
         }
     }
-
-    public static void addReference(Context context, String key, int value) {
-        SharedPreferences.Editor editor = context.getSharedPreferences
-                (context.getPackageName(), Context.MODE_PRIVATE)
-                .edit();
-        editor.putInt(key, value);
-        editor.commit();
-    }
-
-    public static int getReference(Context context, String key) {
-        SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
-        return preferences.getInt(key, Config.CODE_ERROR);
-    }
-
 
     /**
      * 获取简单的时间戳
@@ -201,13 +186,7 @@ public class OtherUtils {
                             etName.getText().toString() +
                             Config.SUFFIX_PNG);
                 }
-//				Message msg = Message.obtain();
-//				msg.what = Config.CODE_PATH;
-//				msg.obj = save;
-//				activity.sendBroadcast(new Intent(
-//						Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + save.getAbsolutePath())));
                 scanFile(save.getAbsolutePath(), Config.IMME_IMAGE_TYPE);
-//				handler.sendMessage(msg);
 
                 final MaterialDialog prompt = new MaterialDialog(activity);
                 prompt.setTitle(R.string.title);

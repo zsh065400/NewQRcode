@@ -8,7 +8,6 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.laosao.two.R;
 import org.laosao.two.present.FeedbackPresent;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IFeedbackView;
 
@@ -28,12 +27,16 @@ public class FeedBackActivity extends BaseActivity<FeedbackPresent>
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_feedback);
 	}
 
     @Override
-    public BasePresent createPersent() {
+    public FeedbackPresent createPersent() {
         return new FeedbackPresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_feedback;
     }
 
     @Override
@@ -44,7 +47,7 @@ public class FeedBackActivity extends BaseActivity<FeedbackPresent>
 		mFabSend = (FloatingActionButton) findViewById(R.id.fabSend);
 	}
 
-	@Override
+    @Override
 	public void setListener() {
 		mFabSend.setOnClickListener(this);
 	}

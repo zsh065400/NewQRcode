@@ -68,7 +68,7 @@ public class PicturePresent extends BasePresent<PictureActivity> {
 					mView.dismissWaitDialog();
 					return;
 				}
-				BmobControl.newUploadImage(mActivity, mTemp.getAbsolutePath(), new UploadCallback());
+				BmobControl.uploadFile(mActivity, mTemp, new UploadCallback());
 				break;
 
 			case R.id.imgPreview:

@@ -10,7 +10,6 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.model.OtherUtils;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.present.scan.ScanPicturePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.scan.IScanPictureView;
@@ -38,8 +37,6 @@ public class ScanPictureActivity extends BaseActivity<ScanPicturePresent>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scan_activity_picture);
-        mResult = getIntent().getStringExtra(Config.KEY_RESULT);
     }
 
     @Override
@@ -49,6 +46,11 @@ public class ScanPictureActivity extends BaseActivity<ScanPicturePresent>
         mFabSave = (FloatingActionButton) findViewById(R.id.fabSave);
         mFabShare = (FloatingActionButton) findViewById(R.id.fabShare);
         mFamMore = (FloatingActionsMenu) findViewById(R.id.famMore);
+    }
+
+    @Override
+    public void loadData() {
+        mResult = getIntent().getStringExtra(Config.KEY_RESULT);
     }
 
     @Override
@@ -87,8 +89,13 @@ public class ScanPictureActivity extends BaseActivity<ScanPicturePresent>
     }
 
     @Override
-    public BasePresent createPersent() {
+    public ScanPicturePresent createPersent() {
         return new ScanPicturePresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.scan_activity_picture;
     }
 
     @Override

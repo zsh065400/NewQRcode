@@ -8,7 +8,6 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.present.EmailPresent;
-import org.laosao.two.present.base.BasePresent;
 import org.laosao.two.view.base.BaseActivity;
 import org.laosao.two.view.iview.IEmailView;
 
@@ -27,12 +26,16 @@ public class EmailActivity extends BaseActivity<EmailPresent>
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_email);
 	}
 
     @Override
-    public BasePresent createPersent() {
+    public EmailPresent createPersent() {
         return new EmailPresent(this, this);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_email;
     }
 
     @Override
@@ -50,7 +53,8 @@ public class EmailActivity extends BaseActivity<EmailPresent>
 		mFabCreate = (FloatingActionButton) findViewById(R.id.fabCreate);
 	}
 
-	@Override
+
+    @Override
 	public void setListener() {
 		mFabCreate.setOnClickListener(this);
 	}

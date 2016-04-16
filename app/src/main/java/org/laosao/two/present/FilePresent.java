@@ -68,7 +68,7 @@ public class FilePresent extends BasePresent<FileActivity> {
 	private void uploadFile() {
 		if (mFile != null && mFile.exists()) {
 			mView.showUploadDialog();
-			BmobControl.newUploadImage(mActivity, mFile.getAbsolutePath(), new BmobControl.BmobUploadCallback() {
+			BmobControl.uploadFile(mActivity, mFile, new BmobControl.BmobUploadCallback() {
 				@Override
 				public void onSuccess(final String url, BmobFile file) {
 					final String u = url.replace("http://", "");

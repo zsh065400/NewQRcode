@@ -73,7 +73,7 @@ public class AudioPresent extends BasePresent<AudioActivity> {
 	private void uploadFile() {
 		if (mAudioFile != null && mAudioFile.exists()) {
 			mView.showUploadDialog();
-			BmobControl.newUploadImage(mActivity, mAudioFile.getAbsolutePath(),
+			BmobControl.uploadFile(mActivity, mAudioFile,
 					new BmobControl.BmobUploadCallback() {
 						@Override
 						public void onSuccess(final String url, BmobFile audio) {

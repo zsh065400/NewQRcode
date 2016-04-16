@@ -5,8 +5,6 @@ package org.laosao.two.model;
  */
 public class Config {
 	public static final String URL_COLUMN = "url";
-	//编码方式
-	public static final String ENCODING_UTF_8 = "utf-8";
 	//Bmob通信ID
 	public static final String BMOB_SERVER_APP_ID = "a87bed9b1b14a484df1041ae578cb6b2";
 
@@ -14,7 +12,6 @@ public class Config {
 
 	//key
 	public static final String KEY_CONTENT = "content";
-	public static final String KEY_SCAN_NET_CARD = "065400zsh";
 	public static final String KEY_SCAN_PICTURE = "http://file.bmob.cn/";
 	public static final String KEY_SCAN_FILE = "file.bmob.cn/";
 	public static final String KEY_SCAN_WIFI = "WIFI:T:";

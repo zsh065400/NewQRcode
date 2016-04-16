@@ -35,7 +35,8 @@ public abstract class BaseActivity<T extends BasePresent> extends SwipeBackActiv
 
         getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
 
-        mPresent = (T) createPersent();
+        setContentView(getContentView());
+        mPresent = createPersent();
     }
 
     @Override
@@ -59,6 +60,11 @@ public abstract class BaseActivity<T extends BasePresent> extends SwipeBackActiv
     protected void onResume() {
         mPresent.onReseum();
         super.onResume();
+    }
+
+    @Override
+    public void loadData() {
+
     }
 
     @Override
@@ -130,5 +136,7 @@ public abstract class BaseActivity<T extends BasePresent> extends SwipeBackActiv
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-    public abstract BasePresent createPersent();
+    public abstract T createPersent();
+
+    public abstract int getContentView();
 }
