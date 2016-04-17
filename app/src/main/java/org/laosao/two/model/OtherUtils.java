@@ -43,7 +43,6 @@ import material.dialog.MaterialDialog;
  * Created by Scout.Z on 2015/8/12.
  */
 public class OtherUtils {
-
     private static MediaScannerConnection msc;
 
     private static void initMediaScan(Context context) {

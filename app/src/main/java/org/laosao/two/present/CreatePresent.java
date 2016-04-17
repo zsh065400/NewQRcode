@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.net.Uri;
+import android.os.Build;
 import android.view.View;
 import android.widget.Toast;
 
 import com.zbar.lib.encode.Encoder;
 
+import org.laosao.two.MyApplication;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.model.ImageUtils;
@@ -40,12 +42,15 @@ public class CreatePresent extends BasePresent<CreateActivity> {
         super.onCreate();
         mBitmap = encode(mView.getContent());
         mView.showBitmap(mBitmap);
-        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (MyApplication.VERSION_CODE == Build.VERSION_CODES.M)
+            requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        else
+            mIsHavePermission = true;
     }
 
     private Bitmap encode(String content) {
         Encoder encoder = new Encoder.Builder()
-                .setBitmapPadding(2)
+                .setBitmapPadding(1)
                 .setBitmapHeight(mQrcodeSize)
                 .setBitmapWidth(mQrcodeSize)
                 .build();

@@ -5,9 +5,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.view.View;
 import android.widget.Toast;
 
+import org.laosao.two.MyApplication;
 import org.laosao.two.R;
 import org.laosao.two.model.Config;
 import org.laosao.two.model.SDCard;
@@ -29,7 +31,10 @@ public class PatronPresent extends BasePresent<PatronActivity> {
 
     @Override
     public void onClick(View v) {
-        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (MyApplication.VERSION_CODE == Build.VERSION_CODES.M)
+            requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        else
+            saveZfb();
     }
 
     @Override

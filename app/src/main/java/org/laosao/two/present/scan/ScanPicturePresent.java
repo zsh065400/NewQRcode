@@ -3,11 +3,13 @@ package org.laosao.two.present.scan;
 import android.Manifest;
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.Toast;
 
+import org.laosao.two.MyApplication;
 import org.laosao.two.R;
 import org.laosao.two.bean.BitmapBmob;
 import org.laosao.two.model.BmobControl;
@@ -35,7 +37,12 @@ public class ScanPicturePresent extends BasePresent<ScanPictureActivity> {
         super.onCreate();
         mOriginUrl = mView.getContent();
         mUrl = mOriginUrl.replace(Config.KEY_SCAN_PICTURE, Config.EMPTY_STR);
-        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (MyApplication.VERSION_CODE == Build.VERSION_CODES.M)
+            requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        else
+            mIsHavePermission = true;
+
         mView.showWaitDialog();
         query();
     }
