@@ -1,47 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-	android:id="@+id/rootView"
-	style="@style/relative_style"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:id="@+id/rootView"
+    style="@style/relative_style"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-	<RelativeLayout
-		android:id="@+id/rlHeadView"
-		style="@style/title_style">
+    <RelativeLayout
+        android:id="@+id/rlHeadView"
+        style="@style/title_style">
 
-		<TextView
-			style="@style/title_text_style"
-			android:text="@string/picture"/>
+        <TextView
+            style="@style/title_text_style"
+            android:text="@string/picture"/>
 
-	</RelativeLayout>
+    </RelativeLayout>
 
-	<com.gc.materialdesign.views.ScrollView
-		style="@style/scroll_style"
-		android:layout_below="@id/rlHeadView">
+    <com.gc.materialdesign.views.ScrollView
+        style="@style/scroll_style"
+        android:layout_below="@id/rlHeadView">
 
-		<LinearLayout style="@style/pt_linear_style">
+        <LinearLayout style="@style/pt_linear_style">
 
-			<ImageView
-				android:id="@+id/imgPreview"
-				style="@style/def_imgview_style"/>
+            <ImageView
+                android:id="@+id/imgPreview"
+                style="@style/def_imgview_style"/>
 
-			<com.rengwuxian.materialedittext.MaterialEditText
-				android:id="@+id/etConent"
-				style="@style/def_edit_style"
-				android:layout_marginLeft="@dimen/dp_25"
-				android:layout_marginRight="@dimen/dp_25"
-				android:hint="@string/image_text"
-				android:maxLength="99"
-				app:met_baseColor="@color/black"
-				app:met_clearButton="true"
-				app:met_floatingLabel="highlight"
-				app:met_maxCharacters="99"
-				app:met_primaryColor="@color/material"/>
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etConent"
+                style="@style/def_edit_style"
+                android:layout_marginLeft="@dimen/dp_25"
+                android:layout_marginRight="@dimen/dp_25"
+                android:hint="@string/image_text"
+                android:maxLength="99"
+                app:met_baseColor="@color/black"
+                app:met_clearButton="true"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="99"
+                app:met_primaryColor="@color/material"/>
 
-		</LinearLayout>
-	</com.gc.materialdesign.views.ScrollView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginRight="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_15"
+                android:text="Tips:图片寄语只能被软件内置扫描器识别"/>
 
-	<include layout="@layout/create_fab"/>
+        </LinearLayout>
+    </com.gc.materialdesign.views.ScrollView>
+
+    <include layout="@layout/create_fab"/>
 
 </RelativeLayout>
 

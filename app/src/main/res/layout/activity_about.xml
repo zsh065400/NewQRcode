@@ -41,6 +41,14 @@
 				android:text="@string/developer_info"
 				android:textColor="@color/black"
 				android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_25"
+                android:text="梦想赞助商：\n\tPeterZhu--￥1.00"
+                android:textColor="@color/black"
+                android:textSize="15dp"/>
 		</LinearLayout>
 	</ScrollView>
 
