@@ -17,9 +17,9 @@ public abstract class AppPresent<T extends IView> implements IPresent {
 
 	@Override
 	public void onCreate() {
-		mView.loadData();
 		mView.initView();
 		mView.setListener();
+        mView.loadData();
 	}
 
 	@Override

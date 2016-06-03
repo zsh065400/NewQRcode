@@ -22,6 +22,7 @@ import org.laosao.two.view.CustomActivity;
 import org.laosao.two.view.EmailActivity;
 import org.laosao.two.view.FeedBackActivity;
 import org.laosao.two.view.FileActivity;
+import org.laosao.two.view.HistoryActivity;
 import org.laosao.two.view.MainActivity;
 import org.laosao.two.view.PictureActivity;
 import org.laosao.two.view.SmsActivity;
@@ -30,6 +31,7 @@ import org.laosao.two.view.WifiActivity;
 import org.laosao.two.view.scan.ScanActivity;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobConfig;
 
 /**
  * @author 赵树豪
@@ -60,7 +62,13 @@ public class MainPresent extends BasePresent<MainActivity> {
     }
 
     private void loadThirdSdk() {
-        Bmob.initialize(mActivity, Config.BMOB_SERVER_APP_ID);
+        BmobConfig config = new BmobConfig.Builder(mActivity)
+                .setConnectTimeout(10)
+                .setApplicationId(Config.BMOB_SERVER_APP_ID)
+                .setUploadBlockSize(100 * 1024)
+                .build();
+        Bmob.initialize(config);
+//        Bmob.initialize(mActivity,Config.BMOB_SERVER_APP_ID);
         OtherUtils.autoUpdate(Config.UPDATE_AUTO, mActivity);
         SDCard.detectionSDcard();
         Log.d("MainPresent", " load Complete");
@@ -131,6 +139,9 @@ public class MainPresent extends BasePresent<MainActivity> {
                 break;
             case R.id.fabScan:
                 mTarget = ScanActivity.class;
+                break;
+            case R.id.fabHistory:
+                mTarget = HistoryActivity.class;
                 break;
             case R.id.rpPic:
                 mTarget = PictureActivity.class;

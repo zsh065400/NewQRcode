@@ -16,7 +16,7 @@ android {
 		applicationId "org.laosao.two"
 		minSdkVersion 19
 		targetSdkVersion 23
-		versionCode 38
+		versionCode 39
 		versionName getDate()
 		multiDexEnabled true
 	}
@@ -25,7 +25,7 @@ android {
 		release {
 			minifyEnabled false
 			shrinkResources true
-			multiDexEnabled true
+			multiDexEnabled false
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
 
@@ -37,18 +37,20 @@ android {
 }
 
 dependencies {
-	compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
+	//第三方
 	compile 'com.rengwuxian.materialedittext:library:2.1.4'
-	compile 'cn.bmob.android:bmob-sdk:3.4.6'
-	compile 'com.android.support:support-v4:23.2.1'
-	compile 'com.squareup.okhttp:okhttp:2.4.0'
-	compile 'com.squareup.okio:okio:1.4.0'
-	compile files('libs/xiaomi_sdk.jar')
-	compile 'org.zsh.support:qrlib:2.1.1'
-	compile 'org.zsh.support:permission:2.1.2'
+	compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
 	compile 'me.imid.swipebacklayout.lib:library:1.0.0'
+	//	自己的模块
+	compile files('libs/xiaomi_sdk.jar')
+	compile 'org.zsh.support:permission:2.1.2'
 	compile project(':library')
 	compile project(':mvpframework')
+	compile project(':qrlib')
+	//	Bmob依赖包
+	compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'
+	compile 'cn.bmob.android:http-legacy:1.0'
+	compile 'com.android.support:recyclerview-v7:23.4.0'
 }
 
 def getDate() {

@@ -40,6 +40,7 @@
 	<string name="ripp_email"><![CDATA[        邮件二维码]]></string>
 	<string name="ripp_file"><![CDATA[        文件二维码]]></string>
 	<string name="label_scan">开始扫描</string>
+	<string name="label_history">历史保存</string>
 	<string name="label_feedback">意见反馈</string>
 	<string name="label_about">关于软件</string>
 

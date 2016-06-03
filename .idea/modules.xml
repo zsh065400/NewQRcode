@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvpframework/mvpframework.iml" filepath="$PROJECT_DIR$/mvpframework/mvpframework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qrlib/qrlib.iml" filepath="$PROJECT_DIR$/qrlib/qrlib.iml" />
     </modules>
   </component>
 </project>

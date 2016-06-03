@@ -24,13 +24,19 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
             mRpSms, mRpEmail,
             mRpWifi, mRpAudio,
             mRpFile;
-    private FloatingActionButton mFabFeedback, mFabScan, mFabAbout;
+    private FloatingActionButton mFabFeedback, mFabScan, mFabAbout, mFabHistory;
     private FloatingActionsMenu mFamMore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.STATE_IDLE);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        closeFam();
     }
 
     public void initView() {
@@ -46,6 +52,7 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
         mFabFeedback = (FloatingActionButton) findViewById(R.id.fabFeedback);
         mFabScan = (FloatingActionButton) findViewById(R.id.fabScan);
         mFabAbout = (FloatingActionButton) findViewById(R.id.fabAbout);
+        mFabHistory = (FloatingActionButton) findViewById(R.id.fabHistory);
         mFamMore = (FloatingActionsMenu) findViewById(R.id.famMore);
     }
 
@@ -62,18 +69,13 @@ public class MainActivity extends BaseActivity<MainPresent> implements IMainView
         mRpFile.setOnClickListener(this);
         mFabFeedback.setOnClickListener(this);
         mFabScan.setOnClickListener(this);
+        mFabHistory.setOnClickListener(this);
         mFabAbout.setOnClickListener(this);
     }
 
     @Override
     public String getContent() {
         return null;
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        closeFam();
     }
 
     /**

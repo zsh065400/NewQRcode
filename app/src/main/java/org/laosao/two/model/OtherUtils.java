@@ -152,11 +152,12 @@ public class OtherUtils {
                 super.onPostExecute(aBoolean);
                 dialog.dismiss();
                 if (aBoolean) {
-                    Intent intent = new Intent(Intent.ACTION_SEND);
-                    intent.setType(Config.IMME_PNG);
-                    intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(temp));
-                    activity.startActivity(
-                            Intent.createChooser(intent, "分享到"));
+                    share(activity, temp);
+//                    Intent intent = new Intent(Intent.ACTION_SEND);
+//                    intent.setType(Config.IMME_PNG);
+//                    intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(temp));
+//                    activity.startActivity(
+//                            Intent.createChooser(intent, "分享到"));
                 } else {
 
                 }
@@ -164,6 +165,13 @@ public class OtherUtils {
         }.execute(null, null);
     }
 
+    public static void share(Activity activity, File file) {
+        Intent share = new Intent(Intent.ACTION_SEND);
+        share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+        //此处一定要用Uri.fromFile(file),其中file为File类型，否则附件无法发送成功。
+        share.setType(Config.IMME_PNG);
+        activity.startActivity(Intent.createChooser(share, "分享图片到"));
+    }
 
     public static void save(final Activity activity, final Bitmap bitmap) {
         initMediaScan(activity);
@@ -259,6 +267,11 @@ public class OtherUtils {
         dialog.show();
     }
 
+    public static void showBitmap(Activity activity, File file) {
+        Intent share = new Intent(Intent.ACTION_VIEW);
+        share.setDataAndType(Uri.fromFile(file), "image/*");
+        activity.startActivity(share);
+    }
 
     public static MaterialDialog showWaitDialog(Activity context) {
         final MaterialDialog wait = new MaterialDialog(context)
@@ -363,4 +376,6 @@ public class OtherUtils {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(Intent.createChooser(intent, activityTitle));
     }
+
+
 }

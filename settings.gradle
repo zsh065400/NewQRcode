@@ -1,1 +1,1 @@
-include ':app', ':library', ':mvpframework'
+include ':app', ':library', ':mvpframework', ':qrlib'

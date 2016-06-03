@@ -15,17 +15,17 @@ import org.laosao.two.view.iview.IWifiView;
 import material.view.fab.FloatingActionButton;
 
 public class WifiActivity extends BaseActivity<WifiPresent>
-		implements IWifiView {
+        implements IWifiView {
 
-	private MaterialEditText mEtWifiName;
-	private MaterialEditText mEtWifiPw;
-	private Spinner mSnWifiSecurity;
-	private FloatingActionButton mFabCreate;
+    private MaterialEditText mEtWifiName;
+    private MaterialEditText mEtWifiPw;
+    private Spinner mSnWifiSecurity;
+    private FloatingActionButton mFabCreate;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public WifiPresent createPersent() {
@@ -38,12 +38,12 @@ public class WifiActivity extends BaseActivity<WifiPresent>
     }
 
     @Override
-	public void initView() {
-		mEtWifiName = (MaterialEditText) findViewById(R.id.etWifiName);
-		mEtWifiPw = (MaterialEditText) findViewById(R.id.etWifiPw);
-		mSnWifiSecurity = (Spinner) findViewById(R.id.snWifiSecurity);
-		mFabCreate = (FloatingActionButton) findViewById(R.id.fabCreate);
-	}
+    public void initView() {
+        mEtWifiName = (MaterialEditText) findViewById(R.id.etWifiName);
+        mEtWifiPw = (MaterialEditText) findViewById(R.id.etWifiPw);
+        mSnWifiSecurity = (Spinner) findViewById(R.id.snWifiSecurity);
+        mFabCreate = (FloatingActionButton) findViewById(R.id.fabCreate);
+    }
 
     @Override
     public void loadData() {
@@ -51,28 +51,31 @@ public class WifiActivity extends BaseActivity<WifiPresent>
     }
 
     @Override
-	public void setListener() {
-		mFabCreate.setOnClickListener(this);
-	}
+    public void setListener() {
+        mFabCreate.setOnClickListener(this);
+    }
 
-	@Override
-	public String getContent() {
-		String wifiName = mEtWifiName.getText().toString();
-		String wifiPw = mEtWifiPw.getText().toString();
-		String wifiSecurity = (String) mSnWifiSecurity.getSelectedItem();
-		if (!TextUtils.isEmpty(wifiName) && !TextUtils.isEmpty(wifiPw)) {
-			String content = "WIFI:" + "T:" + wifiSecurity + ";" +
-					"S:" + wifiName + ";" +
-					"P:" + wifiPw + ";";
-			return content;
-		} else {
-			return null;
-		}
-	}
+    @Override
+    public String getContent() {
+        String wifiName = mEtWifiName.getText().toString();
+        String wifiPw = mEtWifiPw.getText().toString();
+        String wifiSecurity = (String) mSnWifiSecurity.getSelectedItem();
+        if (wifiSecurity.equals("无加密")) {
+            wifiPw = " ";
+        }
+        if (!TextUtils.isEmpty(wifiName) && !TextUtils.isEmpty(wifiPw)) {
+            String content = "WIFI:" + "T:" + wifiSecurity + ";" +
+                    "S:" + wifiName + ";" +
+                    "P:" + wifiPw + ";";
+            return content;
+        } else {
+            return null;
+        }
+    }
 
-	@Override
-	public void reset() {
-		mEtWifiName.setText(Config.EMPTY_STR);
-		mEtWifiPw.setText(Config.EMPTY_STR);
-	}
+    @Override
+    public void reset() {
+        mEtWifiName.setText(Config.EMPTY_STR);
+        mEtWifiPw.setText(Config.EMPTY_STR);
+    }
 }

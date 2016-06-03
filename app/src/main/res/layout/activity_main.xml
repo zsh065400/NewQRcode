@@ -1,153 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-	android:id="@+id/rootView"
-	style="@style/relative_style"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:fab="http://schemas.android.com/apk/res-auto">
+    android:id="@+id/rootView"
+    style="@style/relative_style"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto">
 
 
-	<RelativeLayout
-		android:id="@+id/rlHeadView"
-		style="@style/title_style">
+    <RelativeLayout
+        android:id="@+id/rlHeadView"
+        style="@style/title_style">
 
-		<TextView
-			style="@style/title_text_style"
-			android:text="@string/app_name"/>
+        <TextView
+            style="@style/title_text_style"
+            android:text="@string/app_name"/>
 
-	</RelativeLayout>
-
-
-	<com.gc.materialdesign.views.ScrollView
-		style="@style/scroll_style"
-		android:layout_below="@id/rlHeadView">
-
-		<LinearLayout style="@style/pt_linear_style">
+    </RelativeLayout>
 
 
-			<material.view.RippleView
-				android:id="@+id/rpPic"
-				style="@style/my_ripple_view"
-				android:drawableLeft="@mipmap/ic_ripp_pic"
-				android:text="@string/ripp_pic"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"
-				/>
+    <com.gc.materialdesign.views.ScrollView
+        style="@style/scroll_style"
+        android:layout_below="@id/rlHeadView">
 
-			<material.view.RippleView
-				android:id="@+id/rpAudio"
-				style="@style/my_ripple_view"
-				android:drawableLeft="@mipmap/ic_ripp_audio"
-				android:text="@string/ripp_audio"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"
-				/>
+        <LinearLayout style="@style/pt_linear_style">
+            <material.view.RippleView
+                android:id="@+id/rpPic"
+                style="@style/my_ripple_view"
+                android:drawableLeft="@mipmap/ic_ripp_pic"
+                android:text="@string/ripp_pic"
+                fab:hover="true"
+                fab:rippleColor="#1e88e5"
+                />
 
-			<material.view.RippleView
-				android:id="@+id/rpFile"
-				style="@style/my_ripple_view"
-				android:drawableLeft="@mipmap/ic_ripp_txt"
-				android:text="@string/ripp_file"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"
-				/>
+            <material.view.RippleView
+                android:id="@+id/rpAudio"
+                style="@style/my_ripple_view"
+                android:drawableLeft="@mipmap/ic_ripp_audio"
+                android:text="@string/ripp_audio"
+                fab:hover="true"
+                fab:rippleColor="#1e88e5"
+                />
 
-			<material.view.RippleView
-				android:id="@+id/rpCard"
-				style="@style/my_ripple_view"
-				android:drawableLeft="@mipmap/ic_ripp_card"
-				android:text="@string/ripp_card"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"
-				/>
+            <material.view.RippleView
+                android:id="@+id/rpFile"
+                style="@style/my_ripple_view"
+                android:drawableLeft="@mipmap/ic_ripp_txt"
+                android:text="@string/ripp_file"
+                fab:hover="true"
+                fab:rippleColor="#1e88e5"
+                />
 
-			<material.view.RippleView
-				android:id="@+id/rpCustomContent"
-				style="@style/my_ripple_view"
-				android:drawableLeft="@mipmap/ic_ripp_custom_content"
-				android:text="@string/ripp_custom"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"
-				/>
+            <material.view.RippleView
+                android:id="@+id/rpCard"
+                style="@style/my_ripple_view"
+                android:drawableLeft="@mipmap/ic_ripp_card"
+                android:text="@string/ripp_card"
+                fab:hover="true"
+                fab:rippleColor="#1e88e5"
+                />
 
-			<material.view.RippleView
-				android:id="@+id/rpWifi"
-				style="@style/my_ripple_view"
-				android:drawableLeft="@mipmap/ic_ripp_wifi"
-				android:text="@string/ripp_wifi"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"
-				/>
+            <material.view.RippleView
+                android:id="@+id/rpCustomContent"
+                style="@style/my_ripple_view"
+                android:drawableLeft="@mipmap/ic_ripp_custom_content"
+                android:text="@string/ripp_custom"
+                fab:hover="true"
+                fab:rippleColor="#1e88e5"
+                />
 
-			<material.view.RippleView
-				android:id="@+id/rpUrl"
-				style="@style/my_ripple_view"
-				android:drawableLeft="@mipmap/ic_ripp_url"
-				android:text="@string/ripp_url"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"
-				/>
+            <material.view.RippleView
+                android:id="@+id/rpWifi"
+                style="@style/my_ripple_view"
+                android:drawableLeft="@mipmap/ic_ripp_wifi"
+                android:text="@string/ripp_wifi"
+                fab:hover="true"
+                fab:rippleColor="#1e88e5"
+                />
 
-			<material.view.RippleView
-				android:id="@+id/rpSms"
-				style="@style/my_ripple_view"
-				android:drawableLeft="@mipmap/ic_ripp_sms"
-				android:text="@string/ripp_sms"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"
-				/>
+            <material.view.RippleView
+                android:id="@+id/rpUrl"
+                style="@style/my_ripple_view"
+                android:drawableLeft="@mipmap/ic_ripp_url"
+                android:text="@string/ripp_url"
+                fab:hover="true"
+                fab:rippleColor="#1e88e5"
+                />
 
-			<material.view.RippleView
-				android:id="@+id/rpEmail"
-				style="@style/my_ripple_view"
-				android:drawableLeft="@mipmap/ic_ripp_email"
-				android:text="@string/ripp_email"
-				fab:hover="true"
-				fab:rippleColor="#1e88e5"
-				/>
+            <material.view.RippleView
+                android:id="@+id/rpSms"
+                style="@style/my_ripple_view"
+                android:drawableLeft="@mipmap/ic_ripp_sms"
+                android:text="@string/ripp_sms"
+                fab:hover="true"
+                fab:rippleColor="#1e88e5"
+                />
 
-		</LinearLayout>
-	</com.gc.materialdesign.views.ScrollView>
+            <material.view.RippleView
+                android:id="@+id/rpEmail"
+                style="@style/my_ripple_view"
+                android:drawableLeft="@mipmap/ic_ripp_email"
+                android:text="@string/ripp_email"
+                fab:hover="true"
+                fab:rippleColor="#1e88e5"
+                />
+        </LinearLayout>
+        
+    </com.gc.materialdesign.views.ScrollView>
 
 
-	<material.view.fab.FloatingActionsMenu
-		android:id="@+id/famMore"
-		style="@style/fam_style"
-		fab:fab_addButtonColorNormal="@color/material"
-		fab:fab_addButtonColorPressed="@color/material_pressed"
-		fab:fab_addButtonPlusIconColor="@color/white"
-		fab:fab_addButtonSize="normal"
-		fab:fab_addButtonStrokeVisible="true"
-		fab:fab_expandDirection="up"
-		fab:fab_labelStyle="@style/fab_lable_style"
-		fab:fab_labelsPosition="left">
+    <material.view.fab.FloatingActionsMenu
+        android:id="@+id/famMore"
+        style="@style/fam_style"
+        fab:fab_addButtonColorNormal="@color/material"
+        fab:fab_addButtonColorPressed="@color/material_pressed"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_addButtonSize="normal"
+        fab:fab_addButtonStrokeVisible="true"
+        fab:fab_expandDirection="up"
+        fab:fab_labelStyle="@style/fab_lable_style"
+        fab:fab_labelsPosition="left">
 
-		<material.view.fab.FloatingActionButton
-			android:id="@+id/fabAbout"
-			style="@style/wrap_content"
-			fab:fab_colorNormal="@color/material"
-			fab:fab_colorPressed="@color/material_pressed"
-			fab:fab_icon="@mipmap/ic_info"
-			fab:fab_size="mini"
-			fab:fab_title="@string/label_about"/>
+        <material.view.fab.FloatingActionButton
+            android:id="@+id/fabAbout"
+            style="@style/wrap_content"
+            fab:fab_colorNormal="@color/material"
+            fab:fab_colorPressed="@color/material_pressed"
+            fab:fab_icon="@mipmap/ic_info"
+            fab:fab_size="mini"
+            fab:fab_title="@string/label_about"/>
 
-		<material.view.fab.FloatingActionButton
-			android:id="@+id/fabFeedback"
-			style="@style/wrap_content"
-			fab:fab_colorNormal="@color/material"
-			fab:fab_colorPressed="@color/material_pressed"
-			fab:fab_icon="@mipmap/ic_send"
-			fab:fab_size="mini"
-			fab:fab_title="@string/label_feedback"/>
+        <material.view.fab.FloatingActionButton
+            android:id="@+id/fabFeedback"
+            style="@style/wrap_content"
+            fab:fab_colorNormal="@color/material"
+            fab:fab_colorPressed="@color/material_pressed"
+            fab:fab_icon="@mipmap/ic_send"
+            fab:fab_size="mini"
+            fab:fab_title="@string/label_feedback"/>
 
-		<material.view.fab.FloatingActionButton
-			android:id="@+id/fabScan"
-			style="@style/wrap_content"
-			fab:fab_colorNormal="@color/material"
-			fab:fab_colorPressed="@color/material_pressed"
-			fab:fab_icon="@mipmap/ic_scan"
-			fab:fab_size="mini"
-			fab:fab_title="@string/label_scan"/>
+        <material.view.fab.FloatingActionButton
+            android:id="@+id/fabHistory"
+            style="@style/wrap_content"
+            fab:fab_colorNormal="@color/material"
+            fab:fab_colorPressed="@color/material_pressed"
+            fab:fab_icon="@mipmap/ic_history"
+            fab:fab_size="mini"
+            fab:fab_title="@string/label_history"/>
 
-	</material.view.fab.FloatingActionsMenu>
+        <material.view.fab.FloatingActionButton
+            android:id="@+id/fabScan"
+            style="@style/wrap_content"
+            fab:fab_colorNormal="@color/material"
+            fab:fab_colorPressed="@color/material_pressed"
+            fab:fab_icon="@mipmap/ic_scan"
+            fab:fab_size="mini"
+            fab:fab_title="@string/label_scan"/>
+
+    </material.view.fab.FloatingActionsMenu>
 
 </RelativeLayout>

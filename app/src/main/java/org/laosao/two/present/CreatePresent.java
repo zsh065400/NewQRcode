@@ -118,7 +118,7 @@ public class CreatePresent extends BasePresent<CreateActivity> {
     private void cropBitmap() {
         mTempPath = SDCard.cameraDir + File.separator +
                 "剪裁" + OtherUtils.getCurrentTime() + Config.SUFFIX_PNG;
-        mLogoSize = (int) (mQrcodeSize * 0.15);
+        mLogoSize = (int) (mQrcodeSize * 0.14);
         ImageUtils.cropImage(Uri.fromFile(new File(mPhotoPath)), mActivity,
                 mTempPath, mLogoSize, mLogoSize);
     }

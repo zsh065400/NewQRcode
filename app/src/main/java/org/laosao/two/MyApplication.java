@@ -1,9 +1,7 @@
 package org.laosao.two;
 
 import android.app.Application;
-
-import cn.bmob.v3.Bmob;
-import cn.bmob.v3.BmobConfig;
+import android.os.Build;
 
 /**
  * @author 赵树豪
@@ -15,11 +13,6 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        VERSION_CODE = android.os.Build.VERSION.SDK_INT;
-        BmobConfig config = new BmobConfig.Builder()
-                .setConnectTimeout(10)
-                .setBlockSize(100 * 1024)
-                .build();
-        Bmob.getInstance().initConfig(config);
+        VERSION_CODE = Build.VERSION.SDK_INT;
     }
 }
